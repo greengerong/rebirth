@@ -11,19 +11,19 @@
       text-decoration: none;
     }
   }
-  .weixin-img {
-    max-width: 150px;
-  }
   section {
     .content {
       margin-left: 1rem;
+    }
+    img {
+      max-width: 150px;
     }
   }
   @media screen and (max-width: 768px) {
     section {
       display: inline-block;
       vertical-align: top;
-      &:not(:last-child){
+      &:not(:last-child) {
         margin-right: 1rem;
       }
     }
