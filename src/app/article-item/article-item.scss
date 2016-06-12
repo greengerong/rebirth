@@ -1,0 +1,1571 @@
+// @import '../commmon-style';
+
+.article-item {
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #ccc;
+  .article-header {
+    .article-title {
+      a {
+        color: #4acaa8;
+        background-color: transparent;
+        text-decoration: none;
+      }
+    }
+    .article-tag-list {
+      display: inline-block;
+      padding-left: 5px;
+      .article-tag-list-item:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+  .article-entry {
+    margin-top: 1.5em;
+    a:hover,
+    a:focus {
+      color: #4acaa8;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+  .mono,
+  pre,
+  code,
+  tt,
+  p code,
+  li code {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace
+  }
+  p,
+  blockquote,
+  ul,
+  ol {
+    margin-bottom: 1.5em
+  }
+  strong {
+    font-weight: bold
+  }
+  em {
+    font-style: italic
+  }
+  sup,
+  sub {
+    font-size: 0.8em;
+    position: relative;
+    display: inline-block
+  }
+  sup {
+    top: -0.5em
+  }
+  sub {
+    bottom: -0.5em
+  }
+  q {
+    font-style: italic
+  }
+  q:before {
+    content: "\201C"
+  }
+  q:after {
+    content: "\201D"
+  }
+  em,
+  dfn {
+    font-style: italic
+  }
+  strong,
+  dfn {
+    font-weight: bold
+  }
+  del,
+  s {
+    text-decoration: line-through
+  }
+  abbr,
+  acronym {
+    border-bottom: 1px dotted;
+    cursor: help
+  }
+  sub,
+  sup {
+    line-height: 0
+  }
+  hr {
+    margin-bottom: 0.2em
+  }
+  small {
+    font-size: .8em
+  }
+  big {
+    font-size: 1.2em
+  }
+  blockquote {
+    font-style: italic;
+    position: relative;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding-left: 1em;
+    border-left: 4px solid rgba(170, 170, 170, 0.5)
+  }
+  blockquote cite {
+    font-style: italic
+  }
+  blockquote cite a {
+    color: #aaa !important;
+    word-wrap: break-word
+  }
+  blockquote cite:before {
+    content: '\2014';
+    padding-right: .3em;
+    padding-left: .3em;
+    color: #aaa
+  }
+  @media only screen and (min-width: 992px) {
+    blockquote {
+      padding-left: 1.5em;
+      border-left-width: 4px
+    }
+  }
+  .pullquote-right:before,
+  .pullquote-left:before {
+    padding: 0;
+    border: none;
+    content: attr(data-pullquote);
+    float: right;
+    width: 45%;
+    margin: .5em 0 1em 1.5em;
+    position: relative;
+    top: 7px;
+    font-size: 1.4em;
+    line-height: 1.45em
+  }
+  .pullquote-left:before {
+    float: left;
+    margin: .5em 1.5em 1em 0
+  }
+  .force-wrap,
+  article a {
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word
+  }
+  article {
+    padding-top: 1em
+  }
+  article header {
+    position: relative;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') bottom left repeat-x
+  }
+  article header h1 {
+    margin: 0
+  }
+  article header h1 a {
+    text-decoration: none
+  }
+  article header h1 a:hover {
+    text-decoration: underline
+  }
+  article header p {
+    font-size: .9em;
+    color: #aaa;
+    margin: 0
+  }
+  article header p.meta {
+    text-transform: uppercase;
+    position: absolute;
+    top: 0
+  }
+  article h2 {
+    padding-top: 0.8em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  .entry-content article h2:first-child,
+  article header+h2 {
+    padding-top: 0
+  }
+  article h2:first-child,
+  article header+h2 {
+    background: none
+  }
+  article .feature {
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') bottom left repeat-x;
+    font-size: 2.0em;
+    font-style: italic;
+    line-height: 1.3em
+  }
+  article img,
+  article video,
+  article .flash-video {
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    border-radius: 0.3em;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: #fff 0.5em solid
+  }
+  article video,
+  article .flash-video {
+    margin: 0 auto 1.5em
+  }
+  article video {
+    display: block;
+    width: 100%
+  }
+  article .flash-video>div {
+    position: relative;
+    display: block;
+    padding-bottom: 56.25%;
+    padding-top: 1px;
+    height: 0;
+    overflow: hidden
+  }
+  article .flash-video>div iframe,
+  article .flash-video>div object,
+  article .flash-video>div embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+  article>footer {
+    padding-bottom: 2.5em;
+    margin-top: 2em
+  }
+  article>footer p.meta {
+    margin-bottom: .8em;
+    font-size: .85em;
+    clear: both;
+    overflow: hidden
+  }
+  .blog-index article+article {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  p.meta+.sharing {
+    padding-top: 1em;
+    padding-left: 0;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  #fb-root {
+    display: none
+  }
+  .highlight,
+  html .gist .gist-file .gist-syntax .gist-highlight {
+    border: 1px solid #05232b !important
+  }
+  .highlight table td.code,
+  html .gist .gist-file .gist-syntax .gist-highlight table td.code {
+    border: 0;
+    width: 100%
+  }
+  .highlight .line-numbers,
+  html .gist .gist-file .gist-syntax .highlight .line_numbers {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.45em;
+    background: #073642;
+    border-right: 1px solid #00232c !important;
+    -webkit-box-shadow: #083e4b -1px 0 inset;
+    -moz-box-shadow: #083e4b -1px 0 inset;
+    box-shadow: #083e4b -1px 0 inset;
+    text-shadow: #021014 0 -1px;
+    padding: .8em !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0
+  }
+  .highlight .line-numbers span,
+  html .gist .gist-file .gist-syntax .highlight .line_numbers span {
+    color: #586e75 !important
+  }
+  figure.code,
+  .gist-file,
+  pre {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px
+  }
+  figure.code .highlight pre,
+  .gist-file .highlight pre,
+  pre .highlight pre {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+  }
+  .gist .highlight *::-moz-selection,
+  figure.code .highlight *::-moz-selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #002b36 0 1px
+  }
+  .gist .highlight *::-webkit-selection,
+  figure.code .highlight *::-webkit-selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #002b36 0 1px
+  }
+  .gist .highlight *::selection,
+  figure.code .highlight *::selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #002b36 0 1px
+  }
+  html .gist .gist-file {
+    margin-bottom: 1.8em;
+    position: relative;
+    border: none;
+    padding-top: 26px !important
+  }
+  html .gist .gist-file .highlight {
+    margin-bottom: 0
+  }
+  html .gist .gist-file .gist-syntax {
+    border-bottom: 0 !important;
+    background: none !important
+  }
+  html .gist .gist-file .gist-syntax .gist-highlight {
+    background: #002b36 !important
+  }
+  html .gist .gist-file .gist-syntax .highlight pre {
+    padding: 0
+  }
+  html .gist .gist-file .gist-meta {
+    padding: .6em 0.8em;
+    border: 1px solid #083e4b !important;
+    color: #586e75;
+    font-size: .7em !important;
+    background: #073642;
+    line-height: 1.5em
+  }
+  html .gist .gist-file .gist-meta a {
+    color: #75878b !important;
+    text-decoration: none
+  }
+  html .gist .gist-file .gist-meta a:hover {
+    text-decoration: underline
+  }
+  html .gist .gist-file .gist-meta a:hover {
+    color: #93a1a1 !important
+  }
+  html .gist .gist-file .gist-meta a[href*='#file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -10px;
+    color: #474747 !important
+  }
+  html .gist .gist-file .gist-meta a[href*='#file']:hover {
+    color: #1863a1 !important
+  }
+  html .gist .gist-file .gist-meta a[href*=raw] {
+    top: .4em
+  }
+  pre {
+    background: #002b36;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -ms-border-radius: 0.4em;
+    -o-border-radius: 0.4em;
+    border-radius: 0.4em;
+    border: 1px solid #05232b;
+    line-height: 1.45em;
+    font-size: 13px;
+    margin-bottom: 2.1em;
+    padding: .8em 1em;
+    color: #93a1a1;
+    overflow: auto
+  }
+  h3.filename+pre {
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px
+  }
+  p code,
+  li code {
+    display: inline-block;
+    white-space: no-wrap;
+    background: #fff;
+    font-size: .8em;
+    line-height: 1.5em;
+    color: #555;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -ms-border-radius: 0.4em;
+    -o-border-radius: 0.4em;
+    border-radius: 0.4em;
+    padding: 0 .3em;
+    margin: -1px 0
+  }
+  p pre code,
+  li pre code {
+    font-size: 1em !important;
+    background: none;
+    border: none
+  }
+  .pre-code,
+  html .gist .gist-file .gist-syntax .highlight pre,
+  .highlight code {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+    overflow: scroll;
+    overflow-y: hidden;
+    display: block;
+    padding: .8em;
+    overflow-x: auto;
+    line-height: 1.45em;
+    background: #002b36;
+    color: #93a1a1 !important
+  }
+  .pre-code span,
+  html .gist .gist-file .gist-syntax .highlight pre span,
+  .highlight code span {
+    color: #93a1a1 !important
+  }
+  .pre-code span,
+  html .gist .gist-file .gist-syntax .highlight pre span,
+  .highlight code span {
+    font-style: normal !important;
+    font-weight: normal !important
+  }
+  .pre-code .c,
+  html .gist .gist-file .gist-syntax .highlight pre .c,
+  .highlight code .c {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cm,
+  html .gist .gist-file .gist-syntax .highlight pre .cm,
+  .highlight code .cm {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cp,
+  html .gist .gist-file .gist-syntax .highlight pre .cp,
+  .highlight code .cp {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .c1,
+  html .gist .gist-file .gist-syntax .highlight pre .c1,
+  .highlight code .c1 {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cs,
+  html .gist .gist-file .gist-syntax .highlight pre .cs,
+  .highlight code .cs {
+    color: #586e75 !important;
+    font-weight: bold !important;
+    font-style: italic !important
+  }
+  .pre-code .err,
+  html .gist .gist-file .gist-syntax .highlight pre .err,
+  .highlight code .err {
+    color: #dc322f !important;
+    background: none !important
+  }
+  .pre-code .k,
+  html .gist .gist-file .gist-syntax .highlight pre .k,
+  .highlight code .k {
+    color: #cb4b16 !important
+  }
+  .pre-code .o,
+  html .gist .gist-file .gist-syntax .highlight pre .o,
+  .highlight code .o {
+    color: #93a1a1 !important;
+    font-weight: bold !important
+  }
+  .pre-code .p,
+  html .gist .gist-file .gist-syntax .highlight pre .p,
+  .highlight code .p {
+    color: #93a1a1 !important
+  }
+  .pre-code .ow,
+  html .gist .gist-file .gist-syntax .highlight pre .ow,
+  .highlight code .ow {
+    color: #2aa198 !important;
+    font-weight: bold !important
+  }
+  .pre-code .gd,
+  html .gist .gist-file .gist-syntax .highlight pre .gd,
+  .highlight code .gd {
+    color: #93a1a1 !important;
+    background-color: #372c34 !important;
+    display: inline-block
+  }
+  .pre-code .gd .x,
+  html .gist .gist-file .gist-syntax .highlight pre .gd .x,
+  .highlight code .gd .x {
+    color: #93a1a1 !important;
+    background-color: #4d2d33 !important;
+    display: inline-block
+  }
+  .pre-code .ge,
+  html .gist .gist-file .gist-syntax .highlight pre .ge,
+  .highlight code .ge {
+    color: #93a1a1 !important;
+    font-style: italic !important
+  }
+  .pre-code .gh,
+  html .gist .gist-file .gist-syntax .highlight pre .gh,
+  .highlight code .gh {
+    color: #586e75 !important
+  }
+  .pre-code .gi,
+  html .gist .gist-file .gist-syntax .highlight pre .gi,
+  .highlight code .gi {
+    color: #93a1a1 !important;
+    background-color: #1a412b !important;
+    display: inline-block
+  }
+  .pre-code .gi .x,
+  html .gist .gist-file .gist-syntax .highlight pre .gi .x,
+  .highlight code .gi .x {
+    color: #93a1a1 !important;
+    background-color: #355720 !important;
+    display: inline-block
+  }
+  .pre-code .gs,
+  html .gist .gist-file .gist-syntax .highlight pre .gs,
+  .highlight code .gs {
+    color: #93a1a1 !important;
+    font-weight: bold !important
+  }
+  .pre-code .gu,
+  html .gist .gist-file .gist-syntax .highlight pre .gu,
+  .highlight code .gu {
+    color: #6c71c4 !important
+  }
+  .pre-code .kc,
+  html .gist .gist-file .gist-syntax .highlight pre .kc,
+  .highlight code .kc {
+    color: #859900 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kd,
+  html .gist .gist-file .gist-syntax .highlight pre .kd,
+  .highlight code .kd {
+    color: #268bd2 !important
+  }
+  .pre-code .kp,
+  html .gist .gist-file .gist-syntax .highlight pre .kp,
+  .highlight code .kp {
+    color: #cb4b16 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kr,
+  html .gist .gist-file .gist-syntax .highlight pre .kr,
+  .highlight code .kr {
+    color: #d33682 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kt,
+  html .gist .gist-file .gist-syntax .highlight pre .kt,
+  .highlight code .kt {
+    color: #2aa198 !important
+  }
+  .pre-code .n,
+  html .gist .gist-file .gist-syntax .highlight pre .n,
+  .highlight code .n {
+    color: #268bd2 !important
+  }
+  .pre-code .na,
+  html .gist .gist-file .gist-syntax .highlight pre .na,
+  .highlight code .na {
+    color: #268bd2 !important
+  }
+  .pre-code .nb,
+  html .gist .gist-file .gist-syntax .highlight pre .nb,
+  .highlight code .nb {
+    color: #859900 !important
+  }
+  .pre-code .nc,
+  html .gist .gist-file .gist-syntax .highlight pre .nc,
+  .highlight code .nc {
+    color: #d33682 !important
+  }
+  .pre-code .no,
+  html .gist .gist-file .gist-syntax .highlight pre .no,
+  .highlight code .no {
+    color: #b58900 !important
+  }
+  .pre-code .nl,
+  html .gist .gist-file .gist-syntax .highlight pre .nl,
+  .highlight code .nl {
+    color: #859900 !important
+  }
+  .pre-code .ne,
+  html .gist .gist-file .gist-syntax .highlight pre .ne,
+  .highlight code .ne {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nf,
+  html .gist .gist-file .gist-syntax .highlight pre .nf,
+  .highlight code .nf {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nn,
+  html .gist .gist-file .gist-syntax .highlight pre .nn,
+  .highlight code .nn {
+    color: #b58900 !important
+  }
+  .pre-code .nt,
+  html .gist .gist-file .gist-syntax .highlight pre .nt,
+  .highlight code .nt {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nx,
+  html .gist .gist-file .gist-syntax .highlight pre .nx,
+  .highlight code .nx {
+    color: #b58900 !important
+  }
+  .pre-code .vg,
+  html .gist .gist-file .gist-syntax .highlight pre .vg,
+  .highlight code .vg {
+    color: #268bd2 !important
+  }
+  .pre-code .vi,
+  html .gist .gist-file .gist-syntax .highlight pre .vi,
+  .highlight code .vi {
+    color: #268bd2 !important
+  }
+  .pre-code .nv,
+  html .gist .gist-file .gist-syntax .highlight pre .nv,
+  .highlight code .nv {
+    color: #268bd2 !important
+  }
+  .pre-code .mf,
+  html .gist .gist-file .gist-syntax .highlight pre .mf,
+  .highlight code .mf {
+    color: #2aa198 !important
+  }
+  .pre-code .m,
+  html .gist .gist-file .gist-syntax .highlight pre .m,
+  .highlight code .m {
+    color: #2aa198 !important
+  }
+  .pre-code .mh,
+  html .gist .gist-file .gist-syntax .highlight pre .mh,
+  .highlight code .mh {
+    color: #2aa198 !important
+  }
+  .pre-code .mi,
+  html .gist .gist-file .gist-syntax .highlight pre .mi,
+  .highlight code .mi {
+    color: #2aa198 !important
+  }
+  .pre-code .s,
+  html .gist .gist-file .gist-syntax .highlight pre .s,
+  .highlight code .s {
+    color: #2aa198 !important
+  }
+  .pre-code .sd,
+  html .gist .gist-file .gist-syntax .highlight pre .sd,
+  .highlight code .sd {
+    color: #2aa198 !important
+  }
+  .pre-code .s2,
+  html .gist .gist-file .gist-syntax .highlight pre .s2,
+  .highlight code .s2 {
+    color: #2aa198 !important
+  }
+  .pre-code .se,
+  html .gist .gist-file .gist-syntax .highlight pre .se,
+  .highlight code .se {
+    color: #dc322f !important
+  }
+  .pre-code .si,
+  html .gist .gist-file .gist-syntax .highlight pre .si,
+  .highlight code .si {
+    color: #268bd2 !important
+  }
+  .pre-code .sr,
+  html .gist .gist-file .gist-syntax .highlight pre .sr,
+  .highlight code .sr {
+    color: #2aa198 !important
+  }
+  .pre-code .s1,
+  html .gist .gist-file .gist-syntax .highlight pre .s1,
+  .highlight code .s1 {
+    color: #2aa198 !important
+  }
+  .pre-code div .gd,
+  html .gist .gist-file .gist-syntax .highlight pre div .gd,
+  .highlight code div .gd,
+  .pre-code div .gd .x,
+  html .gist .gist-file .gist-syntax .highlight pre div .gd .x,
+  .highlight code div .gd .x,
+  .pre-code div .gi,
+  html .gist .gist-file .gist-syntax .highlight pre div .gi,
+  .highlight code div .gi,
+  .pre-code div .gi .x,
+  html .gist .gist-file .gist-syntax .highlight pre div .gi .x,
+  .highlight code div .gi .x {
+    display: inline-block;
+    width: 100%
+  }
+  .highlight,
+  .gist-highlight {
+    margin-bottom: 1.8em;
+    background: #002b36;
+    overflow-y: hidden;
+    overflow-x: auto
+  }
+  .highlight pre,
+  .gist-highlight pre {
+    background: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    padding: 0;
+    margin-bottom: 0
+  }
+  pre::-webkit-scrollbar,
+  .highlight::-webkit-scrollbar,
+  .gist-highlight::-webkit-scrollbar {
+    height: .5em;
+    background: rgba(255, 255, 255, 0.15)
+  }
+  pre::-webkit-scrollbar-thumb:horizontal,
+  .highlight::-webkit-scrollbar-thumb:horizontal,
+  .gist-highlight::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-border-radius: 4px;
+    border-radius: 4px
+  }
+  .highlight code {
+    background: #000
+  }
+  figure.code {
+    background: none;
+    padding: 0;
+    border: 0;
+    margin-bottom: 1.5em
+  }
+  figure.code pre {
+    margin-bottom: 0
+  }
+  figure.code figcaption {
+    position: relative
+  }
+  figure.code .highlight {
+    margin-bottom: 0
+  }
+  .download-source,
+  html .gist .gist-file .gist-meta a[href*=raw],
+  figure.code figcaption a {
+    position: absolute;
+    right: .8em;
+    text-decoration: none;
+    color: #666 !important;
+    z-index: 1;
+    font-size: 13px;
+    text-shadow: #cbcccc 0 1px 0;
+    padding-left: 3em
+  }
+  .download-source:hover,
+  html .gist .gist-file .gist-meta a[href*=raw]:hover,
+  figure.code figcaption a:hover {
+    text-decoration: underline
+  }
+  .article-header {
+    .article-title {
+      a {
+        color: #4acaa8;
+        background-color: transparent;
+        text-decoration: none;
+      }
+    }
+  }
+  .article-entry {}
+  .mono,
+  pre,
+  code,
+  tt,
+  p code,
+  li code {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace
+  }
+  p,
+  blockquote,
+  ul,
+  ol {
+    margin-bottom: 1.5em
+  }
+  strong {
+    font-weight: bold
+  }
+  em {
+    font-style: italic
+  }
+  sup,
+  sub {
+    font-size: 0.8em;
+    position: relative;
+    display: inline-block
+  }
+  sup {
+    top: -0.5em
+  }
+  sub {
+    bottom: -0.5em
+  }
+  q {
+    font-style: italic
+  }
+  q:before {
+    content: "\201C"
+  }
+  q:after {
+    content: "\201D"
+  }
+  em,
+  dfn {
+    font-style: italic
+  }
+  strong,
+  dfn {
+    font-weight: bold
+  }
+  del,
+  s {
+    text-decoration: line-through
+  }
+  abbr,
+  acronym {
+    border-bottom: 1px dotted;
+    cursor: help
+  }
+  sub,
+  sup {
+    line-height: 0
+  }
+  hr {
+    margin-bottom: 0.2em
+  }
+  small {
+    font-size: .8em
+  }
+  big {
+    font-size: 1.2em
+  }
+  blockquote {
+    font-style: italic;
+    position: relative;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding-left: 1em;
+    border-left: 4px solid rgba(170, 170, 170, 0.5)
+  }
+  blockquote cite {
+    font-style: italic
+  }
+  blockquote cite a {
+    color: #aaa !important;
+    word-wrap: break-word
+  }
+  blockquote cite:before {
+    content: '\2014';
+    padding-right: .3em;
+    padding-left: .3em;
+    color: #aaa
+  }
+  @media only screen and (min-width: 992px) {
+    blockquote {
+      padding-left: 1.5em;
+      border-left-width: 4px
+    }
+  }
+  .pullquote-right:before,
+  .pullquote-left:before {
+    padding: 0;
+    border: none;
+    content: attr(data-pullquote);
+    float: right;
+    width: 45%;
+    margin: .5em 0 1em 1.5em;
+    position: relative;
+    top: 7px;
+    font-size: 1.4em;
+    line-height: 1.45em
+  }
+  .pullquote-left:before {
+    float: left;
+    margin: .5em 1.5em 1em 0
+  }
+  .force-wrap,
+  article a {
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: break-word
+  }
+  article {
+    padding-top: 1em
+  }
+  article header {
+    position: relative;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') bottom left repeat-x
+  }
+  article header h1 {
+    margin: 0
+  }
+  article header h1 a {
+    text-decoration: none
+  }
+  article header h1 a:hover {
+    text-decoration: underline
+  }
+  article header p {
+    font-size: .9em;
+    color: #aaa;
+    margin: 0
+  }
+  article header p.meta {
+    text-transform: uppercase;
+    position: absolute;
+    top: 0
+  }
+  article h2 {
+    padding-top: 0.8em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  .entry-content article h2:first-child,
+  article header+h2 {
+    padding-top: 0
+  }
+  article h2:first-child,
+  article header+h2 {
+    background: none
+  }
+  article .feature {
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') bottom left repeat-x;
+    font-size: 2.0em;
+    font-style: italic;
+    line-height: 1.3em
+  }
+  article img,
+  article video,
+  article .flash-video {
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    border-radius: 0.3em;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: #fff 0.5em solid
+  }
+  article video,
+  article .flash-video {
+    margin: 0 auto 1.5em
+  }
+  article video {
+    display: block;
+    width: 100%
+  }
+  article .flash-video>div {
+    position: relative;
+    display: block;
+    padding-bottom: 56.25%;
+    padding-top: 1px;
+    height: 0;
+    overflow: hidden
+  }
+  article .flash-video>div iframe,
+  article .flash-video>div object,
+  article .flash-video>div embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+  article>footer {
+    padding-bottom: 2.5em;
+    margin-top: 2em
+  }
+  article>footer p.meta {
+    margin-bottom: .8em;
+    font-size: .85em;
+    clear: both;
+    overflow: hidden
+  }
+  .blog-index article+article {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  p.meta+.sharing {
+    padding-top: 1em;
+    padding-left: 0;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
+  }
+  #fb-root {
+    display: none
+  }
+  .highlight,
+  html .gist .gist-file .gist-syntax .gist-highlight {
+    border: 1px solid #05232b !important
+  }
+  .highlight table td.code,
+  html .gist .gist-file .gist-syntax .gist-highlight table td.code {
+    border: 0;
+    width: 100%
+  }
+  .highlight .line-numbers,
+  html .gist .gist-file .gist-syntax .highlight .line_numbers {
+    text-align: right;
+    font-size: 13px;
+    line-height: 1.45em;
+    background: #073642;
+    border-right: 1px solid #00232c !important;
+    -webkit-box-shadow: #083e4b -1px 0 inset;
+    -moz-box-shadow: #083e4b -1px 0 inset;
+    box-shadow: #083e4b -1px 0 inset;
+    text-shadow: #021014 0 -1px;
+    padding: .8em !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0
+  }
+  .highlight .line-numbers span,
+  html .gist .gist-file .gist-syntax .highlight .line_numbers span {
+    color: #586e75 !important
+  }
+  figure.code,
+  .gist-file,
+  pre {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px
+  }
+  figure.code .highlight pre,
+  .gist-file .highlight pre,
+  pre .highlight pre {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+  }
+  .gist .highlight *::-moz-selection,
+  figure.code .highlight *::-moz-selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #2B2B2B 0 1px
+  }
+  .gist .highlight *::-webkit-selection,
+  figure.code .highlight *::-webkit-selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #2B2B2B 0 1px
+  }
+  .gist .highlight *::selection,
+  figure.code .highlight *::selection {
+    background: #386774;
+    color: inherit;
+    text-shadow: #2B2B2B 0 1px
+  }
+  html .gist .gist-file {
+    margin-bottom: 1.8em;
+    position: relative;
+    border: none;
+    padding-top: 26px !important
+  }
+  html .gist .gist-file .highlight {
+    margin-bottom: 0
+  }
+  html .gist .gist-file .gist-syntax {
+    border-bottom: 0 !important;
+    background: none !important
+  }
+  html .gist .gist-file .gist-syntax .gist-highlight {
+    background: #2B2B2B !important
+  }
+  html .gist .gist-file .gist-syntax .highlight pre {
+    padding: 0
+  }
+  html .gist .gist-file .gist-meta {
+    padding: .6em 0.8em;
+    border: 1px solid #083e4b !important;
+    color: #586e75;
+    font-size: .7em !important;
+    background: #073642;
+    line-height: 1.5em
+  }
+  html .gist .gist-file .gist-meta a {
+    color: #75878b !important;
+    text-decoration: none
+  }
+  html .gist .gist-file .gist-meta a:hover {
+    text-decoration: underline
+  }
+  html .gist .gist-file .gist-meta a:hover {
+    color: #93a1a1 !important
+  }
+  html .gist .gist-file .gist-meta a[href*='#file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -10px;
+    color: #474747 !important
+  }
+  html .gist .gist-file .gist-meta a[href*='#file']:hover {
+    color: #1863a1 !important
+  }
+  html .gist .gist-file .gist-meta a[href*=raw] {
+    top: .4em
+  }
+  pre {
+    background: #2B2B2B;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -ms-border-radius: 0.4em;
+    -o-border-radius: 0.4em;
+    border-radius: 0.4em;
+    border: 1px solid #05232b;
+    line-height: 1.45em;
+    font-size: 13px;
+    margin-bottom: 2.1em;
+    padding: .8em 1em;
+    color: #93a1a1;
+    overflow: auto
+  }
+  h3.filename+pre {
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px
+  }
+  p code,
+  li code {
+    display: inline-block;
+    white-space: no-wrap;
+    background: #fff;
+    font-size: .8em;
+    line-height: 1.5em;
+    color: #555;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    -ms-border-radius: 0.4em;
+    -o-border-radius: 0.4em;
+    border-radius: 0.4em;
+    padding: 0 .3em;
+    margin: -1px 0
+  }
+  p pre code,
+  li pre code {
+    font-size: 1em !important;
+    background: none;
+    border: none
+  }
+  .pre-code,
+  html .gist .gist-file .gist-syntax .highlight pre,
+  .highlight code {
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+    overflow: scroll;
+    overflow-y: hidden;
+    display: block;
+    padding: .8em;
+    overflow-x: auto;
+    line-height: 1.45em;
+    background: #2B2B2B;
+    color: #93a1a1 !important
+  }
+  .pre-code span,
+  html .gist .gist-file .gist-syntax .highlight pre span,
+  .highlight code span {
+    color: #93a1a1 !important
+  }
+  .pre-code span,
+  html .gist .gist-file .gist-syntax .highlight pre span,
+  .highlight code span {
+    font-style: normal !important;
+    font-weight: normal !important
+  }
+  .pre-code .c,
+  html .gist .gist-file .gist-syntax .highlight pre .c,
+  .highlight code .c {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cm,
+  html .gist .gist-file .gist-syntax .highlight pre .cm,
+  .highlight code .cm {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cp,
+  html .gist .gist-file .gist-syntax .highlight pre .cp,
+  .highlight code .cp {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .c1,
+  html .gist .gist-file .gist-syntax .highlight pre .c1,
+  .highlight code .c1 {
+    color: #586e75 !important;
+    font-style: italic !important
+  }
+  .pre-code .cs,
+  html .gist .gist-file .gist-syntax .highlight pre .cs,
+  .highlight code .cs {
+    color: #586e75 !important;
+    font-weight: bold !important;
+    font-style: italic !important
+  }
+  .pre-code .err,
+  html .gist .gist-file .gist-syntax .highlight pre .err,
+  .highlight code .err {
+    color: #dc322f !important;
+    background: none !important
+  }
+  .pre-code .k,
+  html .gist .gist-file .gist-syntax .highlight pre .k,
+  .highlight code .k {
+    color: #cb4b16 !important
+  }
+  .pre-code .o,
+  html .gist .gist-file .gist-syntax .highlight pre .o,
+  .highlight code .o {
+    color: #93a1a1 !important;
+    font-weight: bold !important
+  }
+  .pre-code .p,
+  html .gist .gist-file .gist-syntax .highlight pre .p,
+  .highlight code .p {
+    color: #93a1a1 !important
+  }
+  .pre-code .ow,
+  html .gist .gist-file .gist-syntax .highlight pre .ow,
+  .highlight code .ow {
+    color: #2aa198 !important;
+    font-weight: bold !important
+  }
+  .pre-code .gd,
+  html .gist .gist-file .gist-syntax .highlight pre .gd,
+  .highlight code .gd {
+    color: #93a1a1 !important;
+    background-color: #372c34 !important;
+    display: inline-block
+  }
+  .pre-code .gd .x,
+  html .gist .gist-file .gist-syntax .highlight pre .gd .x,
+  .highlight code .gd .x {
+    color: #93a1a1 !important;
+    background-color: #4d2d33 !important;
+    display: inline-block
+  }
+  .pre-code .ge,
+  html .gist .gist-file .gist-syntax .highlight pre .ge,
+  .highlight code .ge {
+    color: #93a1a1 !important;
+    font-style: italic !important
+  }
+  .pre-code .gh,
+  html .gist .gist-file .gist-syntax .highlight pre .gh,
+  .highlight code .gh {
+    color: #586e75 !important
+  }
+  .pre-code .gi,
+  html .gist .gist-file .gist-syntax .highlight pre .gi,
+  .highlight code .gi {
+    color: #93a1a1 !important;
+    background-color: #1a412b !important;
+    display: inline-block
+  }
+  .pre-code .gi .x,
+  html .gist .gist-file .gist-syntax .highlight pre .gi .x,
+  .highlight code .gi .x {
+    color: #93a1a1 !important;
+    background-color: #355720 !important;
+    display: inline-block
+  }
+  .pre-code .gs,
+  html .gist .gist-file .gist-syntax .highlight pre .gs,
+  .highlight code .gs {
+    color: #93a1a1 !important;
+    font-weight: bold !important
+  }
+  .pre-code .gu,
+  html .gist .gist-file .gist-syntax .highlight pre .gu,
+  .highlight code .gu {
+    color: #6c71c4 !important
+  }
+  .pre-code .kc,
+  html .gist .gist-file .gist-syntax .highlight pre .kc,
+  .highlight code .kc {
+    color: #859900 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kd,
+  html .gist .gist-file .gist-syntax .highlight pre .kd,
+  .highlight code .kd {
+    color: #268bd2 !important
+  }
+  .pre-code .kp,
+  html .gist .gist-file .gist-syntax .highlight pre .kp,
+  .highlight code .kp {
+    color: #cb4b16 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kr,
+  html .gist .gist-file .gist-syntax .highlight pre .kr,
+  .highlight code .kr {
+    color: #d33682 !important;
+    font-weight: bold !important
+  }
+  .pre-code .kt,
+  html .gist .gist-file .gist-syntax .highlight pre .kt,
+  .highlight code .kt {
+    color: #2aa198 !important
+  }
+  .pre-code .n,
+  html .gist .gist-file .gist-syntax .highlight pre .n,
+  .highlight code .n {
+    color: #268bd2 !important
+  }
+  .pre-code .na,
+  html .gist .gist-file .gist-syntax .highlight pre .na,
+  .highlight code .na {
+    color: #268bd2 !important
+  }
+  .pre-code .nb,
+  html .gist .gist-file .gist-syntax .highlight pre .nb,
+  .highlight code .nb {
+    color: #859900 !important
+  }
+  .pre-code .nc,
+  html .gist .gist-file .gist-syntax .highlight pre .nc,
+  .highlight code .nc {
+    color: #d33682 !important
+  }
+  .pre-code .no,
+  html .gist .gist-file .gist-syntax .highlight pre .no,
+  .highlight code .no {
+    color: #b58900 !important
+  }
+  .pre-code .nl,
+  html .gist .gist-file .gist-syntax .highlight pre .nl,
+  .highlight code .nl {
+    color: #859900 !important
+  }
+  .pre-code .ne,
+  html .gist .gist-file .gist-syntax .highlight pre .ne,
+  .highlight code .ne {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nf,
+  html .gist .gist-file .gist-syntax .highlight pre .nf,
+  .highlight code .nf {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nn,
+  html .gist .gist-file .gist-syntax .highlight pre .nn,
+  .highlight code .nn {
+    color: #b58900 !important
+  }
+  .pre-code .nt,
+  html .gist .gist-file .gist-syntax .highlight pre .nt,
+  .highlight code .nt {
+    color: #268bd2 !important;
+    font-weight: bold !important
+  }
+  .pre-code .nx,
+  html .gist .gist-file .gist-syntax .highlight pre .nx,
+  .highlight code .nx {
+    color: #b58900 !important
+  }
+  .pre-code .vg,
+  html .gist .gist-file .gist-syntax .highlight pre .vg,
+  .highlight code .vg {
+    color: #268bd2 !important
+  }
+  .pre-code .vi,
+  html .gist .gist-file .gist-syntax .highlight pre .vi,
+  .highlight code .vi {
+    color: #268bd2 !important
+  }
+  .pre-code .nv,
+  html .gist .gist-file .gist-syntax .highlight pre .nv,
+  .highlight code .nv {
+    color: #268bd2 !important
+  }
+  .pre-code .mf,
+  html .gist .gist-file .gist-syntax .highlight pre .mf,
+  .highlight code .mf {
+    color: #2aa198 !important
+  }
+  .pre-code .m,
+  html .gist .gist-file .gist-syntax .highlight pre .m,
+  .highlight code .m {
+    color: #2aa198 !important
+  }
+  .pre-code .mh,
+  html .gist .gist-file .gist-syntax .highlight pre .mh,
+  .highlight code .mh {
+    color: #2aa198 !important
+  }
+  .pre-code .mi,
+  html .gist .gist-file .gist-syntax .highlight pre .mi,
+  .highlight code .mi {
+    color: #2aa198 !important
+  }
+  .pre-code .s,
+  html .gist .gist-file .gist-syntax .highlight pre .s,
+  .highlight code .s {
+    color: #2aa198 !important
+  }
+  .pre-code .sd,
+  html .gist .gist-file .gist-syntax .highlight pre .sd,
+  .highlight code .sd {
+    color: #2aa198 !important
+  }
+  .pre-code .s2,
+  html .gist .gist-file .gist-syntax .highlight pre .s2,
+  .highlight code .s2 {
+    color: #2aa198 !important
+  }
+  .pre-code .se,
+  html .gist .gist-file .gist-syntax .highlight pre .se,
+  .highlight code .se {
+    color: #dc322f !important
+  }
+  .pre-code .si,
+  html .gist .gist-file .gist-syntax .highlight pre .si,
+  .highlight code .si {
+    color: #268bd2 !important
+  }
+  .pre-code .sr,
+  html .gist .gist-file .gist-syntax .highlight pre .sr,
+  .highlight code .sr {
+    color: #2aa198 !important
+  }
+  .pre-code .s1,
+  html .gist .gist-file .gist-syntax .highlight pre .s1,
+  .highlight code .s1 {
+    color: #2aa198 !important
+  }
+  .pre-code div .gd,
+  html .gist .gist-file .gist-syntax .highlight pre div .gd,
+  .highlight code div .gd,
+  .pre-code div .gd .x,
+  html .gist .gist-file .gist-syntax .highlight pre div .gd .x,
+  .highlight code div .gd .x,
+  .pre-code div .gi,
+  html .gist .gist-file .gist-syntax .highlight pre div .gi,
+  .highlight code div .gi,
+  .pre-code div .gi .x,
+  html .gist .gist-file .gist-syntax .highlight pre div .gi .x,
+  .highlight code div .gi .x {
+    display: inline-block;
+    width: 100%
+  }
+  .highlight,
+  .gist-highlight {
+    margin-bottom: 1.8em;
+    background: #2B2B2B;
+    overflow-y: hidden;
+    overflow-x: auto
+  }
+  .highlight pre,
+  .gist-highlight pre {
+    background: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    padding: 0;
+    margin-bottom: 0
+  }
+  pre::-webkit-scrollbar,
+  .highlight::-webkit-scrollbar,
+  .gist-highlight::-webkit-scrollbar {
+    height: .5em;
+    background: rgba(255, 255, 255, 0.15)
+  }
+  pre::-webkit-scrollbar-thumb:horizontal,
+  .highlight::-webkit-scrollbar-thumb:horizontal,
+  .gist-highlight::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-border-radius: 4px;
+    border-radius: 4px
+  }
+  .highlight code {
+    background: #000
+  }
+  figure.code {
+    background: none;
+    padding: 0;
+    border: 0;
+    margin-bottom: 1.5em
+  }
+  figure.code pre {
+    margin-bottom: 0
+  }
+  figure.code figcaption {
+    position: relative
+  }
+  figure.code .highlight {
+    margin-bottom: 0
+  }
+  .download-source,
+  html .gist .gist-file .gist-meta a[href*=raw],
+  figure.code figcaption a {
+    position: absolute;
+    right: .8em;
+    text-decoration: none;
+    color: #666 !important;
+    z-index: 1;
+    font-size: 13px;
+    text-shadow: #cbcccc 0 1px 0;
+    padding-left: 3em
+  }
+  .download-source:hover,
+  html .gist .gist-file .gist-meta a[href*=raw]:hover,
+  figure.code figcaption a:hover {
+    text-decoration: underline
+  }
+}

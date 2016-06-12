@@ -1,0 +1,20 @@
+<article class="article-item">
+  <header class="article-header">
+    <h2 class="article-title"><a [href]="articleItem.url">{{articleItem.title}}</a></h2>
+    <div class="article-meta">
+      <span class="article-author">{{articleItem.author || '破狼'}}</span>
+      <span class="article-date">
+                <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> {{articleItem.date}}
+            </span>
+
+      <ul class="article-tag-list">
+        <li class="article-tag-list-item label label-{{getTagStyle(tagIndex)}}" *ngFor="let tag of articleItem.categories; let tagIndex = index">
+          {{tag}}
+        </li>
+      </ul>
+
+    </div>
+  </header>
+  <section class="article-entry" [innerHTML]="articleItem.html">
+  </section>
+</article>

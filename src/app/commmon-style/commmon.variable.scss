@@ -1,0 +1,20 @@
+//screen width
+$screen-xs:                  480px !default;
+$screen-xs-min:              $screen-xs !default;
+
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+// app color theme
+$primary-color: #4acaa8;
+
