@@ -1,0 +1,31 @@
+.blog-aside {
+  .title {
+    color: #4acaa8;
+  }
+  a {
+    color: #333;
+    &:hover,
+    &:focus {
+      color: #4acaa8;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+  .weixin-img {
+    max-width: 150px;
+  }
+  section {
+    .content {
+      margin-left: 1rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    section {
+      display: inline-block;
+      vertical-align: top;
+      &:not(:last-child){
+        margin-right: 1rem;
+      }
+    }
+  }
+}

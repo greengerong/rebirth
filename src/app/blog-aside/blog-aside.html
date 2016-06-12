@@ -1,11 +1,20 @@
 <div class="blog-aside">
+  <section class="weixin-qcode">
+    <h3 class="title">微信公众号</h3>
+    <img class="weixin-img content" src="./assets/img/wei-xin-wolf-er-wei-ma.png" alt="微信公众号" />
+  </section>
+  <section class="last-articles">
+    <h3 class="title">最新随笔</h3>
+    <ul class="list-unstyled content">
+      <li *ngFor="let articleItem of article?.result"><a [routerLink]="['Blog', 'BlogIndex']">{{articleItem.title}}</a></li>
+    </ul>
+  </section>
   <section class="my-links">
-    <h2>友情链接</h2>
-    <ul class="list-unstyled">
-      <li><a href="http://www.cnblogs.com/whitewolf/">博客园-破狼</a></li>
+    <h3 class="title">友情链接</h3>
+    <ul class="list-unstyled content">
       <li><a href="https://github.com/greengerong">github-破狼</a></li>
+      <li><a href="http://www.cnblogs.com/whitewolf/">博客园-破狼</a></li>
       <li><a href="http://www.cnblogs.com/ys-ys/">博客园-野兽</a></li>
-      <li></li>
     </ul>
   </section>
 </div>

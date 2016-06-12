@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ArticleService, SearchResult, Article} from '../article-service';
 import {ArticleItem} from '../article-item';
 import {Observable} from "rxjs/Observable";
@@ -11,10 +11,9 @@ import {Observable} from "rxjs/Observable";
   styles: [require('./article-list.scss')],
   template: require('./article-list.html')
 })
-export class ArticleList {
+export class ArticleList implements OnInit {
   private article: SearchResult<Article>;
-  private results: Article[];
-  // private  articleRx: Observable<SearchResult<Article>>;
+
   constructor(private articleService: ArticleService) {
 
   }
