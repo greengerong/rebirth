@@ -1,0 +1,9 @@
+$icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif : "Helvetica Neue", Helvetica, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+
+$bootstrap-sass-asset-helper: false;
+
+
+@import "variables";
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";

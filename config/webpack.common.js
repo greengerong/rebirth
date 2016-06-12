@@ -167,7 +167,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'raw!postcss!sass?outputStyle=expanded'
+        loader: 'raw!postcss!sass?outputStyle=expanded&includePaths[]='+utils.root('src/styles')+'/'
       },
 
       /* Raw loader support for *.html
