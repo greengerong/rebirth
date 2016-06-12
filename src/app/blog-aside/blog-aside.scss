@@ -20,6 +20,12 @@
     }
   }
   @media screen and (max-width: 768px) {
+    .my-books-list {
+      li {
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
     section {
       display: inline-block;
       vertical-align: top;
