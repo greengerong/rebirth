@@ -1,6 +1,6 @@
 - request:
     url: ^/api/article$
-    query: 
+    query:
         pageSize: \d+
         pageIndex: \d+
     method: GET
@@ -16,3 +16,19 @@
        Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
        api-version: "1.0"
     file:  article.response.json
+
+- request:
+    url: ^/api/article/(.+)$
+    method: GET
+    headers:
+      Content-Type: application/json
+  response:
+    status: 200
+    latency: 500
+    headers:
+       Content-Type: application/json
+       Access-Control-Allow-Origin: '*'
+       Access-Control-Allow-Credentials: true
+       Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+       api-version: "1.0"
+    file:  get-article.response.json

@@ -4,7 +4,8 @@ import {BlogNavbar } from '../blog-navbar';
 import {BlogAside} from '../blog-aside';
 
 const homeLoader = () => require('es6-promise!../home')('Home'),
-  aboutLoader = () => require('es6-promise!../about')('About');
+  aboutLoader = () => require('es6-promise!../about')('About'),
+  blogArticleLoader = () => require('es6-promise!../blog-article')('BlogArticle');
 
 @Component({
   selector: 'blog-app',
@@ -21,7 +22,8 @@ const homeLoader = () => require('es6-promise!../home')('Home'),
 @RouteConfig([
   { path: '/', name: 'BlogIndex', loader: homeLoader, useAsDefault: true },
   { path: '/home', name: 'BlogHome', loader: homeLoader },
-  { path: '/about', name: 'BlogAbout', loader: aboutLoader }
+  { path: '/about', name: 'BlogAbout', loader: aboutLoader },
+  { path: '/:id', name: 'BlogArticle', loader: blogArticleLoader }
 ])
 export class BlogApp {
   constructor() {

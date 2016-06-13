@@ -14,7 +14,7 @@
   <section class="last-articles">
     <h3 class="title">最新随笔</h3>
     <ul class="list-unstyled content">
-      <li *ngFor="let articleItem of article?.result"><a [routerLink]="['Blog', 'BlogIndex']">{{articleItem.title}}</a></li>
+      <li *ngFor="let articleItem of article?.result"><a [routerLink]="['BlogArticle', {id: articleItem.url}]">{{articleItem.title}}</a></li>
     </ul>
   </section>
   <section class="my-links">
