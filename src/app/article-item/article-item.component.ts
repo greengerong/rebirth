@@ -10,7 +10,7 @@ import {Article} from '../article-service';
   styles: [require('./article-item.scss')],
   template: require('./article-item.html'),
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleItem {
   @Input() private articleItem: Article;

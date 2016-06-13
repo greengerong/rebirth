@@ -2,15 +2,6 @@
   .title {
     color: #4acaa8;
   }
-  a {
-    color: #333;
-    &:hover,
-    &:focus {
-      color: #4acaa8;
-      background-color: transparent;
-      text-decoration: none;
-    }
-  }
   section {
     .content {
       margin-left: 1rem;

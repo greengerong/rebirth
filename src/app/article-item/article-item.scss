@@ -1,16 +1,9 @@
 @import 'commmon-style';
 
-.article-item {
+ .article-item {
   margin-bottom: 20px;
   border-bottom: 1px dashed #ccc;
   .article-header {
-    .article-title {
-      a {
-        color: #4acaa8;
-        background-color: transparent;
-        text-decoration: none;
-      }
-    }
     .article-tag-list {
       display: inline-block;
       padding-left: 5px;
@@ -21,12 +14,6 @@
   }
   .article-entry {
     margin-top: 1.5em;
-    a:hover,
-    a:focus {
-      color: #4acaa8;
-      background-color: transparent;
-      text-decoration: none;
-    }
   }
   .mono,
   pre,

@@ -1,1 +1,11 @@
 //@import "bootstrap";;
+
+a {
+    color: #333;
+    &:hover,
+    &:focus {
+      color: #4acaa8;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
