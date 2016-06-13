@@ -9,7 +9,7 @@ export class ArticleService {
     constructor(private http: Http) {
     }
 
-    getArticles(pageIndex: number = 0, pageSize: number = 10): Observable<SearchResult<Article>> {
+    getArticles(pageIndex: number = 1, pageSize: number = 10): Observable<SearchResult<Article>> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let search = new URLSearchParams();
         search.set('pageSize', pageSize.toString());

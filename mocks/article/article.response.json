@@ -1,11 +1,11 @@
 {
     "pageSize": <%query.pageSize%>,
     "pageIndex": <%query.pageIndex%>,
-    "total": 20,
+    "total": 58,
     "result": [
         {
             "layout": "post",
-            "title": "Zone.js - 暴力之美",
+            "title": "Zone.js - 暴力之美(Page <%query.pageIndex%>)",
             "date": "2016-01-30 21:27:00",
             "comments": true,
             "categories": [

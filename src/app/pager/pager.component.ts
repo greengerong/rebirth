@@ -7,26 +7,36 @@ import {Component, ChangeDetectionStrategy, OnChanges, Input, Output, EventEmitt
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Pager implements OnChanges {
-  private _currentPage = 0;
-  @Input() noOfPages = 0;
-  @Input() page = 0;
+  @Input() total = 0;
+  @Input() pageSize = 10;
+  @Input() pageIndex = 1;
   @Output() pageChange = new EventEmitter();
 
   prev(): void {
     if (this.hasPrev()) {
-      this.pageChange.emit(--this._currentPage)
+      this.pageChange.emit(--this.pageIndex)
     }
   }
 
   next(): void {
     if (this.hasNext()) {
-      this.pageChange.emit(++this._currentPage)
+      this.pageChange.emit(++this.pageIndex)
     }
   }
 
-  hasPrev(): boolean { return this._currentPage > 0; }
+  hasPrev(): boolean {
+    return this.pageIndex > 1;
+  }
 
-  hasNext(): boolean { return this._currentPage < this.noOfPages - 1; }
+  hasNext(): boolean {
+    return this.pageIndex < this.totalPage();
+  }
 
-  ngOnChanges(): void { this._currentPage = Math.max(Math.min(this.page, this.noOfPages - 1), 0) }
+  totalPage(): number {
+    return Math.ceil(this.total / this.pageSize);
+  }
+
+  ngOnChanges(): void {
+    this.pageIndex = Math.max(Math.min(this.pageIndex, this.totalPage()), 1)
+  }
 }

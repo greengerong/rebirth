@@ -1,7 +1,5 @@
-<nav class="pager">
-  current:{{_currentPage }}
-  <ul class="pager">
-    <li class="previous" *ngIf="hasPrev()"><a (click)="prev()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
-    <li class="next" *ngIf="hasNext()"><a (click)="next()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
-  </ul>
-</nav>
+<ul class="pager">
+  <li class="previous" *ngIf="hasPrev()"><a (click)="prev()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+  <li class="next" *ngIf="hasNext()"><a (click)="next()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+</ul>
+pageIndex：{{pageIndex}}
