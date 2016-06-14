@@ -1,57 +1,23 @@
-import { Component } from '@angular/core';
-
-/*
- * We're loading this component asynchronously
- * We are using some magic with es6-promise-loader that will wrap the module with a Promise
- * see https://github.com/gdi2290/es6-promise-loader for more info
- */
-
-console.log('`About` component loaded asynchronously');
+import { Component, OnInit } from '@angular/core';
+import {AboutService} from './about.service';
+import {Article} from '../article-service';
+import {ArticleItem} from '../article-item';
 
 @Component({
   selector: 'about',
-  styles: [`
-    h1 {
-      font-family: Arial, Helvetica, sans-serif
-    }
-    md-card{
-      margin: 25px;
-    }
-  `],
-  template: `
-  <md-card>
-    <h3>
-      About
-    </h3>
-  </md-card>
-  `
+  providers: [AboutService],
+  directives: [ArticleItem],
+  styles: [],
+  template: require('./about.html')
 })
-export class About {
-  constructor() {
+export class About implements OnInit {
+  private article: Article;
+  constructor(private aboutService: AboutService) {
 
   }
 
   ngOnInit() {
-    console.log('hello `About` component');
-    // static data that is bundled
-    // var mockData = require('assets/mock-data/mock-data.json');
-    // console.log('mockData', mockData);
-    // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
-    // this.asyncDataWithWebpack();
+    this.article = this.aboutService.getArticle();
+    console.log(this.article);
   }
-  asyncDataWithWebpack() {
-    // you can also async load mock data with 'es6-promise-loader'
-    // you would do this if you don't want the mock-data bundled
-    // remember that 'es6-promise-loader' is a promise
-    // var asyncMockDataPromiseFactory = require('es6-promise!assets/mock-data/mock-data.json');
-    // setTimeout(() => {
-    //
-    //   let asyncDataPromise = asyncMockDataPromiseFactory();
-    //   asyncDataPromise.then(json => {
-    //     console.log('async mockData', json);
-    //   });
-    //
-    // });
-  }
-
 }

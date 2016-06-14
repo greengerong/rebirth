@@ -14,7 +14,9 @@ export class UyanComment implements OnInit {
   ngOnInit() {
     const document: HTMLDocument = this.elmRef.nativeElement.ownerDocument;
     const script = document.createElement('script');
+    script.type = 'text/javascript';
     script.src = UyanComment.UYAN_URL;
+    script.id = `uyan_${Math.random()}`;
     this.elmRef.nativeElement.appendChild(script);
   }
 }
