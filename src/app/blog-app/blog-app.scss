@@ -1,18 +1,27 @@
 .main-header {
-    &:before {
-        background-image: url("./assets/img/banner.jpg");
-        background-position: top right;
-        background-repeat: no-repeat;
-        background-size: cover;
-        content: '';
-        display: block;
-        height: 10em;
-        width: 100%;
-    }
+  &:before {
+    background-image: url("./assets/img/banner.jpg");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 10em;
+    width: 100%;
+  }
 }
-.main-content{
- padding: 1.5rem;
+
+.main-content {
+  padding: 1.5rem;
 }
-.aside-content{
+
+.aside-content {
   @extend .main-content;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
 }
