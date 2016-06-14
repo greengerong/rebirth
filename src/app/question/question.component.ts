@@ -11,12 +11,18 @@ import { QuestionModel } from './question.model';
 })
 export class Question implements OnInit {
   private questions: QuestionModel[] = [];
+  private loaded: boolean = false;
+  private error: any;
   constructor(private questionService: QuestionService) {
 
   }
 
   ngOnInit() {
     this.questionService.getQuestions()
-      .subscribe(result => { this.questions = result; console.log(this.questions) });
+      .subscribe(
+      result => { this.questions = result; console.log(this.questions) },
+      (error) => this.error = error,
+      () => this.loaded = true
+      );
   }
 }

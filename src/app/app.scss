@@ -1,12 +1,21 @@
 //@import "bootstrap";;
-
 a {
-    color: #333;
-    cursor: pointer;
-    &:hover,
-    &:focus {
-      color: #4acaa8;
-      background-color: transparent;
-      text-decoration: none;
-    }
+  color: #333;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: #4acaa8;
+    background-color: transparent;
+    text-decoration: none;
   }
+}
+
+.article-title {
+  color: #4acaa8;
+  background-color: transparent;
+  a {
+    color: #4acaa8;
+    background-color: transparent;
+    text-decoration: none;
+  }
+}

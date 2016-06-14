@@ -1,6 +1,14 @@
 <div class="question">
+  <p>
+
+  </p>
   <section class="last-posts">
-    <h3 class="title">最新问题：</h3>
+    <h3 class="article-title">近一个月问题：</h3>
+    <!--move to http 拦截器-->
+    <div class="loading" *ngIf="!loaded">
+      <strong> Loading...</strong>
+      <span></span>
+    </div>
     <ul class="list-unstyled post-item">
       <li class="clearfix" *ngFor="let questionItem of questions; let questionIndex = index;">
         <div class="content">{{questionIndex + 1}}:</div>
