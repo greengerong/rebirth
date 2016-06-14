@@ -6,7 +6,7 @@
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  background: #ccc;
+  background: #2dcaa0;
   font: 12px "Lucida Grande", Sans-Serif;
   text-align: center;
   line-height: 100px;
@@ -26,7 +26,7 @@
   -webkit-border-radius: 70px;
   -moz-border-radius: 70px;
   border-radius: 70px;
-  background: #eee;
+  background: #4acaa8;
   z-index: -2;
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
