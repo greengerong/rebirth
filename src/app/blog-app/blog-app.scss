@@ -20,8 +20,11 @@
 }
 
 .footer {
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
