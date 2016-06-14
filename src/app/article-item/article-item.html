@@ -1,7 +1,10 @@
 <div>
   <article class="article-item">
   <header class="article-header">
-    <h2 class="article-title"><a [routerLink]="['BlogArticle', {id: articleItem.url}]">{{articleItem.title}}</a></h2>
+    <h2 class="article-title">
+      <a *ngIf="articleItem.url" [routerLink]="['BlogArticle', {id: articleItem.url}]">{{articleItem.title}}</a>
+      <a *ngIf="!articleItem.url">{{articleItem.title}}</a>
+      </h2>
     <div class="article-meta">
       <span class="article-author">{{articleItem.author || '破狼'}}</span>
       <span class="article-date">
