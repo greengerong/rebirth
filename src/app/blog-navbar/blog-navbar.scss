@@ -1,23 +1,29 @@
 .navbar {
+  background: #4acaa8;
+  color: #d1f1e9;
+  border: 0px;
+  .dropdown-menu {
     background: #4acaa8;
-    color: #d1f1e9;
-    border: 0px;
-    .dropdown-menu {
-        background: #4acaa8;
-    }
-    .active {
-        background: #fff;
-        a {
-            color: #4acaa8;
-        }
-    }
+    padding: 0px;
+  }
+  .active {
+    background: #fff;
     a {
-        color: #fff;
-        text-decoration: none;
-        &.active,
-        &:focus,
-        &:hover {
-            color: #4acaa8;
-        }
+      color: #4acaa8;
     }
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    &.active,
+    &:focus,
+    &:hover {
+      color: #4acaa8;
+    }
+  }
+  .open {
+    &>a {
+      color: #4acaa8;
+    }
+  }
 }
