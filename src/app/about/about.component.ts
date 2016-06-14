@@ -17,6 +17,7 @@ export class About implements OnInit {
   }
 
   ngOnInit() {
+    //createElement
     this.article = this.aboutService.getArticle();
     console.log(this.article);
   }

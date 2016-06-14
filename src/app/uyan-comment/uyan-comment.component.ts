@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy, OnInit, ElementRef} from '@angular/core';
+import {Component, ChangeDetectionStrategy, Renderer, OnInit, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'uyan-comment',
@@ -7,16 +7,14 @@ import {Component, ChangeDetectionStrategy, OnInit, ElementRef} from '@angular/c
 })
 export class UyanComment implements OnInit {
   private static UYAN_URL: string = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';
-  constructor(private elmRef: ElementRef) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer) {
 
   }
 
   ngOnInit() {
-    const document: HTMLDocument = this.elmRef.nativeElement.ownerDocument;
-    const script = document.createElement('script');
+    const script = this.renderer.createElement(this.elmRef.nativeElement, 'script', null);
     script.type = 'text/javascript';
     script.src = UyanComment.UYAN_URL;
     script.id = `uyan_${Math.random()}`;
-    this.elmRef.nativeElement.appendChild(script);
   }
 }
