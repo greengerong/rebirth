@@ -5,7 +5,7 @@
 // Angular 2
 import { FORM_PROVIDERS, HashLocationStrategy, LocationStrategy } from '@angular/common';
 // Angular 2 Http
-import { HTTP_PROVIDERS } from '@angular/http';
+import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
@@ -20,6 +20,7 @@ import { MATERIAL_PROVIDERS } from './angular2-material2';
 export const APPLICATION_PROVIDERS = [
   ...FORM_PROVIDERS,
   ...HTTP_PROVIDERS,
+  ...JSONP_PROVIDERS,
   ...MATERIAL_PROVIDERS,
   ...ROUTER_PROVIDERS,
   {provide: LocationStrategy, useClass: HashLocationStrategy }

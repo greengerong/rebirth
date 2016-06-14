@@ -1,0 +1,15 @@
+<div class="question">
+  <section class="last-posts">
+    <h3 class="title">最新问题：</h3>
+    <ul class="list-unstyled post-item">
+      <li class="clearfix" *ngFor="let questionItem of questions; let questionIndex = index;">
+        <div class="content">{{questionIndex + 1}}:</div>
+        <a class="content" [href]="questionItem?.user?.html_url" target="blank"><img class="avatar" [src]="questionItem?.user?.avatar_url" [alt]="questionItem?.user?.login"></a>
+        <a class="content" [href]="questionItem.html_url" target="_blank">{{questionItem.title}}</a>
+        <ul class="content list-inline">
+          <li *ngFor="let label of questionItem?.labels" class="label label-primary" [style.background]="'#'+label.color">{{label.name}}</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</div>

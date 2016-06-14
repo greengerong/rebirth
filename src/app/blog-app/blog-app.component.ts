@@ -5,7 +5,8 @@ import {BlogAside} from '../blog-aside';
 
 const homeLoader = () => require('es6-promise!../home')('Home'),
   aboutLoader = () => require('es6-promise!../about')('About'),
-  blogArticleLoader = () => require('es6-promise!../blog-article')('BlogArticle');
+  blogArticleLoader = () => require('es6-promise!../blog-article')('BlogArticle'),
+  questionLoader = () => require('es6-promise!../question')('Question');
 
 @Component({
   selector: 'blog-app',
@@ -23,7 +24,8 @@ const homeLoader = () => require('es6-promise!../home')('Home'),
   { path: '/', name: 'BlogIndex', loader: homeLoader, useAsDefault: true },
   { path: '/home', name: 'BlogHome', loader: homeLoader },
   { path: '/about', name: 'BlogAbout', loader: aboutLoader },
-  { path: '/:id', name: 'BlogArticle', loader: blogArticleLoader }
+  { path: '/:id', name: 'BlogArticle', loader: blogArticleLoader },
+  { path: '/question', name: 'Question', loader: questionLoader }
 ])
 export class BlogApp {
   constructor() {

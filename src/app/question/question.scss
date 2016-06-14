@@ -1,0 +1,22 @@
+$line-width : 10px;
+
+.question {
+  .last-posts {
+    .post-item {
+      li {
+        &>.content {
+          float: left;
+          margin-right: $line-width;
+        }
+      }
+    }
+    .label {
+      // &:not(:last-child) {
+        margin-right: $line-width;
+      // }
+    }
+    .avatar {
+      width: 2rem;
+    }
+  }
+}
