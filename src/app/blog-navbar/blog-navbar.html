@@ -16,12 +16,11 @@
         <li class="dropdown" dropdown>
           <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">站内资源<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a router-active [routerLink]="['Blog','Question']">我有问题</a></li>
-            <li><a [routerLink]="['Blog', 'BlogIndex']">Something else here</a></li>
+             <li class="dropdown-header">相关资源</li>
+            <li><a router-active [routerLink]="['Blog','Question']">我要提问</a></li>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a [routerLink]="['Blog', 'BlogIndex']">Separated link</a></li>
-            <li><a [routerLink]="['Blog', 'BlogIndex']">One more separated link</a></li>
+            <li class="dropdown-header">著作与翻译</li>
+            <li><a [routerLink]="['BlogArticle', {id: '2015-12-30-angularjsshen-du-pou-xi-yu-zui-jia-shi-jian-jian-jie.html'}]">Angularjs深度剖析与最佳实践</a></li>
           </ul>
         </li>
         <li router-active><a router-active [routerLink]="['Blog', 'BlogAbout']">关于我</a></li>
