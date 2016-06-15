@@ -9,8 +9,7 @@ import {Article} from '../article-service';
   pipes: [],
   styles: [require('./article-item.scss')],
   template: require('./article-item.html'),
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItem {
   @Input() private articleItem: Article;

@@ -1,27 +1,27 @@
-//@import "bootstrap";;
+@import "bootstrap";
 a {
-  color: #333;
+  color: $text-primary;
   cursor: pointer;
   &:hover,
   &:focus {
-    color: #4acaa8;
+    color: $brand-primary;
     background-color: transparent;
     text-decoration: none;
   }
 }
 
 .article-title {
-  color: #4acaa8;
+  color: $brand-primary;
   background-color: transparent;
   a {
-    color: #4acaa8;
+    color: $brand-primary;
     background-color: transparent;
     text-decoration: none;
   }
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

@@ -1,3 +1,5 @@
+@import "common";
+
 $line-width : 10px;
 
 .question {
@@ -13,9 +15,9 @@ $line-width : 10px;
       }
     }
     .label {
-      // &:not(:last-child) {
+      &:not(:last-child) {
         margin-right: $line-width;
-      // }
+      }
     }
     .avatar {
       width: 2rem;
@@ -23,6 +25,6 @@ $line-width : 10px;
   }
   section{
     padding-top: 20px;
-    border-top: 1px dashed #ccc;
+    @include bottom-line();
   }
 }

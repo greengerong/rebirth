@@ -1,8 +1,7 @@
-@import 'commmon-style';
+@import 'common';
 
  .article-item {
-  margin-bottom: 20px;
-  border-bottom: 1px dashed #ccc;
+  @include bottom-line();
   .article-header {
     .article-tag-list {
       display: inline-block;
@@ -247,9 +246,7 @@
     padding-left: 0;
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABCAYAAACsXeyTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAFUlEQVQIHWNIS0sr/v//PwMMDzY+ADqMahlW4J91AAAAAElFTkSuQmCC') top left repeat-x
   }
-  #fb-root {
-    display: none
-  }
+
   .highlight,
   html .gist .gist-file .gist-syntax .gist-highlight {
     border: 1px solid #05232b !important
@@ -489,7 +486,7 @@
   .pre-code .ow,
   html .gist .gist-file .gist-syntax .highlight pre .ow,
   .highlight code .ow {
-    color: #2aa198 !important;
+    color: $brand-primary !important;
     font-weight: bold !important
   }
   .pre-code .gd,
@@ -568,7 +565,7 @@
   .pre-code .kt,
   html .gist .gist-file .gist-syntax .highlight pre .kt,
   .highlight code .kt {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .n,
   html .gist .gist-file .gist-syntax .highlight pre .n,
@@ -646,37 +643,37 @@
   .pre-code .mf,
   html .gist .gist-file .gist-syntax .highlight pre .mf,
   .highlight code .mf {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .m,
   html .gist .gist-file .gist-syntax .highlight pre .m,
   .highlight code .m {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .mh,
   html .gist .gist-file .gist-syntax .highlight pre .mh,
   .highlight code .mh {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .mi,
   html .gist .gist-file .gist-syntax .highlight pre .mi,
   .highlight code .mi {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s,
   html .gist .gist-file .gist-syntax .highlight pre .s,
   .highlight code .s {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .sd,
   html .gist .gist-file .gist-syntax .highlight pre .sd,
   .highlight code .sd {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s2,
   html .gist .gist-file .gist-syntax .highlight pre .s2,
   .highlight code .s2 {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .se,
   html .gist .gist-file .gist-syntax .highlight pre .se,
@@ -691,12 +688,12 @@
   .pre-code .sr,
   html .gist .gist-file .gist-syntax .highlight pre .sr,
   .highlight code .sr {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s1,
   html .gist .gist-file .gist-syntax .highlight pre .s1,
   .highlight code .s1 {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code div .gd,
   html .gist .gist-file .gist-syntax .highlight pre div .gd,
@@ -1255,7 +1252,7 @@
   .pre-code .ow,
   html .gist .gist-file .gist-syntax .highlight pre .ow,
   .highlight code .ow {
-    color: #2aa198 !important;
+    color: $brand-primary !important;
     font-weight: bold !important
   }
   .pre-code .gd,
@@ -1334,7 +1331,7 @@
   .pre-code .kt,
   html .gist .gist-file .gist-syntax .highlight pre .kt,
   .highlight code .kt {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .n,
   html .gist .gist-file .gist-syntax .highlight pre .n,
@@ -1412,37 +1409,37 @@
   .pre-code .mf,
   html .gist .gist-file .gist-syntax .highlight pre .mf,
   .highlight code .mf {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .m,
   html .gist .gist-file .gist-syntax .highlight pre .m,
   .highlight code .m {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .mh,
   html .gist .gist-file .gist-syntax .highlight pre .mh,
   .highlight code .mh {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .mi,
   html .gist .gist-file .gist-syntax .highlight pre .mi,
   .highlight code .mi {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s,
   html .gist .gist-file .gist-syntax .highlight pre .s,
   .highlight code .s {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .sd,
   html .gist .gist-file .gist-syntax .highlight pre .sd,
   .highlight code .sd {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s2,
   html .gist .gist-file .gist-syntax .highlight pre .s2,
   .highlight code .s2 {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .se,
   html .gist .gist-file .gist-syntax .highlight pre .se,
@@ -1457,12 +1454,12 @@
   .pre-code .sr,
   html .gist .gist-file .gist-syntax .highlight pre .sr,
   .highlight code .sr {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code .s1,
   html .gist .gist-file .gist-syntax .highlight pre .s1,
   .highlight code .s1 {
-    color: #2aa198 !important
+    color: $brand-primary !important
   }
   .pre-code div .gd,
   html .gist .gist-file .gist-syntax .highlight pre div .gd,

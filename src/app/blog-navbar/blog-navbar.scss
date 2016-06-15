@@ -1,34 +1,36 @@
+@import "common";
+$nav-text-color: #fff;
 .navbar {
-  background: #4acaa8;
+  background: $brand-primary;
   color: #d1f1e9;
   border: 0px;
   .navbar-toggle {
     .icon-bar {
-      background: #fff;
+      background: $nav-text-color;
     }
   }
   .dropdown-menu {
-    background: #4acaa8;
+    background: $brand-primary;
     padding: 0px;
   }
   .active {
-    background: #fff;
+    background: $nav-text-color;
     a {
-      color: #4acaa8;
+      color: $brand-primary;
     }
   }
   a {
-    color: #fff;
+    color: $nav-text-color;
     text-decoration: none;
     &.active,
     &:focus,
     &:hover {
-      color: #4acaa8;
+      color: $brand-primary;
     }
   }
   .open {
     &>a {
-      color: #4acaa8;
+      color: $brand-primary;
     }
   }
 }

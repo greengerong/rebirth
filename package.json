@@ -59,7 +59,6 @@
     "@angular2-material/radio": "2.0.0-alpha.4",
     "@angular2-material/sidenav": "2.0.0-alpha.4",
     "@angular2-material/toolbar": "2.0.0-alpha.4",
-    "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
     "core-js": "^2.2.2",
     "fontgen-loader": "^0.2.1",

@@ -1,0 +1,4 @@
+@mixin bottom-line($border: 1px) {
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #ccc;
+}

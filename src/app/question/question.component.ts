@@ -20,9 +20,8 @@ export class Question implements OnInit {
   ngOnInit() {
     this.questionService.getQuestions()
       .subscribe(
-      result => { this.questions = result; console.log(this.questions) },
+      result => this.questions = result,
       (error) => this.error = error,
-      () => this.loaded = true
-      );
+      () => this.loaded = true);
   }
 }
