@@ -21,7 +21,6 @@ export class Dropdown {
         this.updateHostStatus();
     }
     onHostClick($event: Event) {
-        $event.stopPropagation();
         this.active = !this.active;
         this.updateHostStatus();
     }

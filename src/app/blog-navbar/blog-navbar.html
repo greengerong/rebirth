@@ -1,7 +1,7 @@
-<nav class="navbar navbar-static-top">
+<nav class="navbar navbar-static-top" (click)="hideNavBar($event)">
   <div class="container">
     <div class="navbar-header collapsed">
-      <button type="button" class="navbar-toggle collapsed" aria-expanded="true" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed" aria-expanded="true" aria-controls="navbar" (click)="toggleNavBarState($event);">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -9,14 +9,14 @@
               </button>
       <!--<a class="navbar-brand" [routerLink]="['Blog', 'BlogIndex']">破狼的博客</a>-->
     </div>
-    <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
+    <div id="navbar" class="navbar-collapse collapse" [class.in]="showNavBar" aria-expanded="true">
       <ul class="nav navbar-nav">
         <li><a router-active [routerLink]="['Blog', 'BlogIndex']">首页</a></li>
         <li><a router-active [routerLink]="['Blog', 'BlogHome']">文章</a></li>
         <li class="dropdown" dropdown>
           <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">站内资源<span class="caret"></span></a>
           <ul class="dropdown-menu">
-             <li class="dropdown-header">相关资源</li>
+            <li class="dropdown-header">相关资源</li>
             <li><a router-active [routerLink]="['Blog','Question']">我要提问</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">著作与翻译</li>
