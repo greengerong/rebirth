@@ -164,10 +164,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'raw-loader'
+        // loader: `style-loader!css-loader?root=${utils.root('/')}`
       },
       {
         test: /\.scss$/,
-        loader: 'raw!postcss!sass?outputStyle=expanded&includePaths[]='+utils.root('src/styles')+'/'
+        loader: `raw!postcss!sass?outputStyle=expanded&includePaths[]=${utils.root('src/styles')}/`
       },
 
       /* Raw loader support for *.html
@@ -182,7 +183,7 @@ module.exports = {
       },
       {
         test: /\.font\.json/,
-        loaders: ['style', 'css','postcss','fontgen']
+        loaders: ['style', 'css', 'postcss', 'fontgen']
       }
     ]
 
