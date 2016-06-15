@@ -23,7 +23,7 @@ export class BlogNavbar {
   }
 
   hideNavBar($event: Event) {
-    $event.stopPropagation();
+    $event && $event.stopPropagation();
     this.showNavBar = false;
   }
 }

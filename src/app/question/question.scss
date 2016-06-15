@@ -4,8 +4,9 @@ $line-width : 10px;
   .last-posts {
     .post-item {
       li {
+        line-height: 2;
         &>.content {
-          display: inline;
+          display: inline-block;
           margin-right: $line-width;
         }
       }
