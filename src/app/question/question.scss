@@ -5,7 +5,7 @@ $line-width : 10px;
     .post-item {
       li {
         &>.content {
-          float: left;
+          display: inline;
           margin-right: $line-width;
         }
       }
