@@ -11,6 +11,7 @@ import {BlogApp} from './blog-app';
   directives: [RouterActive],
   encapsulation: ViewEncapsulation.None,
   styles: [
+    require('normalize.css'),
     require('./app.scss')
   ],
   template: '<router-outlet></router-outlet>'
