@@ -13,7 +13,7 @@
       <strong> Loading...</strong>
       <span></span>
     </div>
-    <!--<ul class="list-unstyled post-item">-->
+    <ul class="list-unstyled post-item">
       <li class="clearfix" *ngFor="let questionItem of questions; let questionIndex = index;">
         <div class="content">{{questionIndex + 1}}:</div>
         <a class="content" [href]="questionItem?.user?.html_url" target="blank"><img class="avatar" [src]="questionItem?.user?.avatar_url" [alt]="questionItem?.user?.login"></a>
@@ -22,7 +22,7 @@
           <li *ngFor="let label of questionItem?.labels" class="label label-primary" [style.background]="'#'+label.color">{{label.name}}</li>
         </ul>
       </li>
-    <!--</ul>-->
+    </ul>
   </section>
   <section class="smart-question">
     <p>以下内容摘自<a href="http://item.jd.com/10099349781.html" target="_blank">《AngularJS深度剖析与最佳实践》</a>一书最后附录最后一刻内容，希望它能为大家解决问题或提问给予一些帮助。</p>
