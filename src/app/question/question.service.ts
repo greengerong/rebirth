@@ -11,7 +11,7 @@ export class QuestionService {
 
   }
 
-  @Cacheable()
+  @Cacheable({ pool: 'question' })
   getQuestions(): Observable<QuestionModel[]> {
     const search = new URLSearchParams();
     let day = new Date();

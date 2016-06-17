@@ -3,6 +3,7 @@ import { Http, Headers, URLSearchParams, Response, RequestOptions } from '@angul
 import {SearchResult} from './SearchResult';
 import {Article} from './article';
 import { Observable }     from 'rxjs/Observable';
+import { Cacheable, StorageType} from 'rebirth-common';
 
 @Injectable()
 export class ArticleService {
@@ -10,6 +11,7 @@ export class ArticleService {
   }
 
   // TODO: 封装自己的http服务
+  @Cacheable({ pool: 'articles', storageType: StorageType.memory })
   getArticles(pageIndex: number = 1, pageSize: number = 10): Observable<SearchResult<Article>> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let search = new URLSearchParams();
@@ -19,6 +21,7 @@ export class ArticleService {
     return this.http.get('http://localhost:8000/api/article', options)
       .map(res => res.json());
   }
+
   getArticleByUrl(articleUrl: string): Observable<Article> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers });
