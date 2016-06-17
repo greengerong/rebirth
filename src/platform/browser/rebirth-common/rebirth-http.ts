@@ -99,12 +99,20 @@ const jsonProvider: RebirthHttpInterceptor = {
     config.options = config.options || {};
     config.options.headers = config.options.headers || new Headers();
     config.options.headers.set('Content-Type', 'application/json');
+    config.options.headers.set('Accept', 'application/json, text/javascript, */*;');
+
     if (config.body) {
       config.body = JSON.stringify(config.body);
     }
     return config;
   },
-  response: (response: Response) => response.json && response.json()
+  response: (response: Response) => {
+    let type = response.headers.get('content-type');
+    if (type.indexOf('json') !== -1) {
+      return response.json && response.json()
+    }
+    return response;
+  }
 
 };
 
