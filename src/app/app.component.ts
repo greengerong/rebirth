@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Inject } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
 import { RouterActive } from './router-active';
 import { AppState } from './app.service';
 import {BlogApp} from './blog-app';
+import { RebirthHttpProvider, REBIRTH_HTTP_JSON_PROVIDERS, RebirthHttpInterceptor} from 'rebirth-common';
 
 @Component({
   selector: 'app',
@@ -21,5 +22,7 @@ import {BlogApp} from './blog-app';
   { path: '/blog/...', name: 'Blog', component: BlogApp }
 ])
 export class App {
-
+  constructor(rebirthHttpProvider: RebirthHttpProvider, @Inject(REBIRTH_HTTP_JSON_PROVIDERS) jsonProvider: RebirthHttpInterceptor) {
+    rebirthHttpProvider.getInterceptors().push(jsonProvider);
+  }
 }

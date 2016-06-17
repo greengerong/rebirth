@@ -185,7 +185,6 @@ export function Cacheable(config: { pool?: string, key?: string, storageType?: S
     let method = methodInfo.value;
 
     let proxy = function (...args) {
-      console.log('--------', args)
       const key = getKey(target, name, args);
       let data: any = storage.get(pool, key);
       if (data) {
