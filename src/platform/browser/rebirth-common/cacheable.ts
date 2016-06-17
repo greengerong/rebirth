@@ -170,7 +170,7 @@ export class DataCacheStrategyFactory {
   }
 }
 
-export function Cachable(config: { pool?: string, key?: string, storageType?: StorageType } = {}) {
+export function Cacheable(config: { pool?: string, key?: string, storageType?: StorageType } = {}) {
   const pool = config.pool || 'rebirth-cachable:default';
   const storageType = config.storageType || StorageType.memory;
   const storage = StorageFactory.getInstance().getStorage(storageType);
@@ -184,18 +184,23 @@ export function Cachable(config: { pool?: string, key?: string, storageType?: St
   return function (target: any, name: string, methodInfo: any) {
     let method = methodInfo.value;
 
-    return {
-      value: function (...args) {
-        const key = getKey(target, name, args);
-        let data: any = storage.get(pool, key);
-        if (data) {
-          return strategyFactory.get(data);
-        }
-
-        let result = method.apply(this, args);
-        return strategyFactory.put(pool, key, result, storage);
+    let proxy = function (...args) {
+      const key = getKey(target, name, args);
+      let data: any = storage.get(pool, key);
+      if (data) {
+        return strategyFactory.get(data);
       }
+
+      let result = method.apply(this, args);
+      return strategyFactory.put(pool, key, result, storage);
+    };
+
+    proxy['cacheEvict'] = function () {
+      storage.remove(pool);
+    };
+
+    return {
+      value: proxy
     };
   }
 }
-
