@@ -2,6 +2,7 @@ import { Http, Headers, Jsonp, URLSearchParams, Response, RequestOptions } from 
 import { Injectable } from '@angular/core';
 import { Observable }     from 'rxjs/Observable';
 import { QuestionModel} from './question.model';
+import { Cachable, StorageType} from 'rebirth-common';
 
 @Injectable()
 export class QuestionService {
@@ -10,6 +11,7 @@ export class QuestionService {
 
   }
 
+  @Cachable()
   getQuestions(): Observable<QuestionModel[]> {
     const search = new URLSearchParams();
     let day = new Date();

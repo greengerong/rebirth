@@ -78,7 +78,8 @@ module.exports = {
       'angular2/platform/browser': utils.root('node_modules/@angular/platform-browser/index.js'),
       'angular2/router': utils.root('node_modules/@angular/router-deprecated/index.js'),
       'angular2/http': utils.root('node_modules/@angular/http/index.js'),
-      'angular2/http/testing': utils.root('node_modules/@angular/http/testing.js')
+      'angular2/http/testing': utils.root('node_modules/@angular/http/testing.js'),
+      'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts'),
     },
 
   },

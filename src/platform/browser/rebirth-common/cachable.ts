@@ -7,60 +7,77 @@ export enum StorageType {
 }
 
 export interface IStorage {
-  get(key: string): Object;
-  put(key: string, value: Object);
-  remove(key: string);
+  get(pool: string, key: string): Object;
+  put(pool: string, key: string, value: Object);
+  remove(pool: string);
   removeAll();
 }
 
 class WebStorage implements IStorage {
-  private static STORAGE_KEY: string = 'rebirth-cachable';
   constructor(private webStorage: Storage) {
   }
-  get(key: string): Object {
-    let storage = this.webStorage.getItem(WebStorage.STORAGE_KEY) || {};
+
+  getAll(pool: string) {
+    let json = this.webStorage.getItem(pool);
+    return json ? JSON.parse(json) : {};
+  }
+
+  saveAll(pool: string, storage) {
+    this.webStorage.setItem(pool, JSON.stringify(storage));
+  }
+
+  get(pool: string, key: string): Object {
+    let storage = this.getAll(pool);
     return storage[key];
   }
 
-  put(key: string, value: Object) {
-    let storage = this.webStorage.getItem(WebStorage.STORAGE_KEY) || {};
+  put(pool: string, key: string, value: Object) {
+    let storage = this.getAll(pool);
     storage[key] = value;
-    this.webStorage.setItem(WebStorage.STORAGE_KEY, storage);
+    this.saveAll(pool, storage);
   }
-  remove(key: string) {
-    let storage = this.webStorage.getItem(WebStorage.STORAGE_KEY) || {};
-    delete storage[key];
-    this.webStorage.setItem(WebStorage.STORAGE_KEY, storage);
+  remove(pool: string) {
+    this.webStorage.removeItem(pool);
   }
   removeAll() {
-    this.webStorage.removeItem(WebStorage.STORAGE_KEY)
+    this.webStorage.clear();
   }
 }
 
 class MemoryStorage implements IStorage {
-  private storage: WeakMap<string, Object>;
+  private storage: Map<string, Map<string, Object>>;
   constructor() {
-    this.storage = new WeakMap<string, Object>();
-  }
-  get(key: string): Object {
-    return this.storage.has(key) ? this.storage.get(key) : null;
+    this.storage = new Map<string, Map<string, Object>>();
   }
 
-  put(key: string, value: Object) {
-    this.storage.set(key, value);
+  getAll(pool: string): Map<string, Object> {
+    return this.storage.has(pool) ? this.storage.get(pool) : new Map<string, Object>();
   }
-  remove(key: string) {
-    this.storage.delete(key);
+
+  get(pool: string, key: string): Object {
+    let storage = this.getAll(pool);
+    return storage.has(key) ? storage.get(key) : null;
+  }
+
+  put(pool: string, key: string, value: Object) {
+    if (!this.storage.has(pool)) {
+      this.storage.set(pool, new Map<string, Object>());
+    }
+    this.storage.get(pool).set(key, value);
+  }
+  remove(pool: string) {
+    this.storage.delete(pool);
   }
   removeAll() {
-    this.storage = new WeakMap<string, Object>();
+    this.storage = new Map<string, Map<string, Object>>();
   }
 }
 
 export class StorageFactory {
-  storages: WeakMap<StorageType, IStorage>;
+  storages: Map<Object, IStorage>;
   private static factory: StorageFactory = new StorageFactory();
   constructor() {
+    this.storages = new Map<String, IStorage>();
     this.storages.set(StorageType.memory, new MemoryStorage())
       .set(StorageType.sessionStorage, new WebStorage(window.sessionStorage))
       .set(StorageType.localStorage, new WebStorage(window.localStorage));
@@ -93,7 +110,10 @@ export class RxDataCacheStrategy implements IDataCacheStrategy {
   }
 
   put(result: any, putStorage: (data: Object) => void) {
-    result.subscribe && result.subscribe(data => putStorage(data));
+    return result.map(data => {
+      setTimeout(() => putStorage(data));
+      return data;
+    });
   }
 
   get(result: any): Object {
@@ -111,7 +131,7 @@ export class PromiseDataCacheStrategy implements IDataCacheStrategy {
   }
 
   put(result: any, putStorage: (data: Object) => void) {
-    result.then && result.then(data => putStorage(data));
+    return result.then(data => setTimeout(() => putStorage(data)));
   }
 
   get(result: any): Object {
@@ -130,13 +150,15 @@ export class DataCacheStrategyFactory {
     return DataCacheStrategyFactory.factory;
   }
 
-  put(key: string, data: any, storage: IStorage) {
+  put(pool: string, key: string, data: any, storage: IStorage) {
     let strategy = this.dataCacheStrategies.find(t => t.match(data));
     if (strategy) {
-      return strategy.put(data, (result) => storage.put(key, { type: strategy.name(), result }));
+      return strategy.put(data, (result) => storage.put(pool, key, { type: strategy.name(), result }));
     }
-    storage.put(key, data);
+    setTimeout(() => storage.put(pool, key, data));
+    return data;
   }
+
   get(data: any): Object {
     if (data.type) {
       var strategy = this.dataCacheStrategies.find(t => t.name() === data.type);
@@ -148,26 +170,32 @@ export class DataCacheStrategyFactory {
   }
 }
 
-export function Cachable(storageType: StorageType = StorageType.memory) {
+export function Cachable(config: { pool?: string, key?: string, storageType?: StorageType } = {}) {
+  const pool = config.pool || 'rebirth-cachable:default';
+  const storageType = config.storageType || StorageType.memory;
   const storage = StorageFactory.getInstance().getStorage(storageType);
   const strategyFactory = DataCacheStrategyFactory.getInstance();
-  let getKey = (method: string, args: Object[]) => {
+  let getKey = (target: any, method: string, args: Object[]) => {
     // TODO: we can change this code or overrid object toString method;
-    return `${method}:${args.join('-')}`;
+    let prefix = config.key || `${target.constructor.name}.${method}`;
+    return `${prefix}:${args.join('-')}`;
   };
 
-  return (target: any, name: string, value: any) => {
-    let method = target[name];
-    target[name] = (...args) => {
-      const key = getKey(name, args);
-      let data: any = storage.get(key)
-      if (data) {
-        return strategyFactory.get(data);
-      }
+  return function (target: any, name: string, methodInfo: any) {
+    let method = methodInfo.value;
 
-      let result = method.apply(target, args);
-      strategyFactory.put(key, result, storage);
-      return result;
-    }
+    return {
+      value: function (...args) {
+        const key = getKey(target, name, args);
+        let data: any = storage.get(pool, key);
+        if (data) {
+          return strategyFactory.get(data);
+        }
+
+        let result = method.apply(this, args);
+        return strategyFactory.put(pool, key, result, storage);
+      }
+    };
   }
 }
+
