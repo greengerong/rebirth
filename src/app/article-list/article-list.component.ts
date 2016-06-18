@@ -29,7 +29,7 @@ export class ArticleList implements OnInit {
         this.article = result;
         // TODO: move to platform browser
         this.elmRef.nativeElement.ownerDocument.body.scrollIntoView();
-      });
+      }, (e)=> console.log(e, 'component error'));
   }
 
 }

@@ -12,8 +12,9 @@ export interface RebirthHttpOption {
 }
 
 export interface RebirthHttpInterceptor {
-  request?: (option: RebirthHttpOption) => RebirthHttpOption;
-  response?: (response: any) => any;
+  request?: (option: RebirthHttpOption) => RebirthHttpOption | void;
+  response?: (response: any) => any | void;
+  error?: (error: any) => any | void;
 }
 
 @Injectable()
@@ -73,7 +74,7 @@ export class RebirthHttp {
       .reduce((stream, item) => {
         return stream.map(req => {
           console.log('request map', req);
-          return item.request(req);
+          return item.request(req) || req;
         });
       }, Rx.Observable.of(options));
 
@@ -82,15 +83,26 @@ export class RebirthHttp {
       return <Observable<Response>>http[req.mehtod].apply(http, data);
     })
 
-    return <Observable<Response>>interceptors
+    let q = <Observable<any>>interceptors
       .filter(item => !!item.response)
       .reverse()
       .reduce((stream, item) => {
         return stream.map(res => {
           console.log('response map', res);
-          return item.response(res)
+          return item.response(res) || res;
         });
       }, responseStream);
+
+    var subscribe = q.subscribe(t => { }, error => {
+      console.log(error, 'interceptors error ===========');
+      interceptors
+        .filter(item => !!item.error)
+        .reverse()
+        .reduce((error, item) => {
+          return item.error(error) || error;
+        }, error);
+    }, () => subscribe.unsubscribe());
+    return q;
   }
 }
 
@@ -104,7 +116,7 @@ const jsonProvider: RebirthHttpInterceptor = {
     if (config.body) {
       config.body = JSON.stringify(config.body);
     }
-    return config;
+
   },
   response: (response: Response) => {
     let type = response.headers.get('content-type');
