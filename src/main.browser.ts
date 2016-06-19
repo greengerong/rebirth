@@ -5,7 +5,7 @@ import { ENV_PROVIDERS } from './platform/environment';
 import { App, APP_PROVIDERS } from './app';
 
 
-import './icon.font.json';
+// import './icon.font.json';
 
 export function main(initialHmrState?: any): Promise<any> {
 

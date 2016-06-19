@@ -69,7 +69,7 @@ export class RebirthHttp {
     let interceptors = this.rebirthHttpProvider.getInterceptors();
     let http = this.http;
 
-    var request = interceptors
+    let request = <Observable<RebirthHttpOption>>interceptors
       .filter(item => !!item.request)
       .reduce((stream, item) => {
         return stream.map(req => {
@@ -78,7 +78,7 @@ export class RebirthHttp {
         });
       }, Rx.Observable.of(options));
 
-    var responseStream = request.flatMap(req => {
+    let responseStream = request.flatMap(req => {
       let data = req.body ? [req.url, req.body, req.options] : [req.url, req.options];
       return <Observable<Response>>http[req.mehtod].apply(http, data);
     })
