@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams, Request, Response, RequestOptions, RequestOptionsArgs } from '@angular/http';
-// import { RequestOptionsArgs, ConnectionBackend } from './interfaces';
 import { Observable } from 'rxjs/Observable';
 import * as Rx from 'rxjs/rx';
 
@@ -14,7 +13,6 @@ export interface RebirthHttpOption {
 export interface RebirthHttpInterceptor {
   request?: (option: RebirthHttpOption) => RebirthHttpOption | void;
   response?: (response: any) => any | void;
-  error?: (error: any) => any | void;
 }
 
 @Injectable()
@@ -83,7 +81,7 @@ export class RebirthHttp {
       return <Observable<Response>>http[req.mehtod].apply(http, data);
     })
 
-    let q = <Observable<any>>interceptors
+    return  <Observable<any>>interceptors
       .filter(item => !!item.response)
       .reverse()
       .reduce((stream, item) => {
@@ -92,17 +90,6 @@ export class RebirthHttp {
           return item.response(res) || res;
         });
       }, responseStream);
-
-    var subscribe = q.subscribe(t => { }, error => {
-      console.log(error, 'interceptors error ===========');
-      interceptors
-        .filter(item => !!item.error)
-        .reverse()
-        .reduce((error, item) => {
-          return item.error(error) || error;
-        }, error);
-    }, () => subscribe.unsubscribe());
-    return q;
   }
 }
 

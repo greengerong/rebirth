@@ -14,7 +14,7 @@
   <meta name="description" content="<%= webpackConfig.metadata.title %>">
 
   <!-- use http://www.favicon-generator.org/ to replace files in public/icon-->
-  <!--<link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
@@ -27,10 +27,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
-  <meta name="msapplication-TileColor" content="#00bcd4">
+  <link rel="manifest" href="/assets/icon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
-  <meta name="theme-color" content="#00bcd4">-->
-  <!-- end favicon -->
+  <meta name="theme-color" content="#ffffff">
 
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
@@ -49,8 +49,6 @@
     <!-- Webpack Dev Server reload -->
     <script src="/webpack-dev-server.js"></script>
     <% } %>
-
-      <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
 
 </body>
 

@@ -2,14 +2,9 @@ const utils = require('./utils');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
 
-/**
- * Webpack Plugins
- */
+
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-/**
- * Webpack Constants
- */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = utils.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig.metadata, {
@@ -32,6 +27,12 @@ module.exports = webpackMerge(commonConfig, {
    * See: (custom attribute)
    */
   metadata: METADATA,
+
+  resolve: {
+    alias: {
+      'config': utils.root('./config/dev.ts')
+    }
+  },
 
   /**
    * Switch loaders to debug mode.

@@ -6,5 +6,5 @@
 	"classPrefix": "ui-icon-",
 	"fixedWidth": true,
 	"types": ["eot", "woff", "ttf", "svg"],
-	"cssTemplate":"../config/template/front-icon.hbs"
+	"cssTemplate":"../build/template/front-icon.hbs"
 }

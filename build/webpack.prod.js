@@ -1,4 +1,3 @@
-
 const utils = require('./utils');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
@@ -83,6 +82,12 @@ module.exports = webpackMerge(commonConfig, {
 
   },
 
+  resolve: {
+    alias: {
+      'config': utils.root('./config/dev.ts')
+    }
+  },
+
   /**
    * Add additional plugins to the compiler.
    *
@@ -154,7 +159,7 @@ module.exports = webpackMerge(commonConfig, {
       beautify: false, //prod
 
       mangle: {
-        screw_ie8 : true,
+        screw_ie8: true,
         keep_fnames: true
       }, //prod
 

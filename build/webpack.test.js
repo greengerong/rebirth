@@ -1,4 +1,3 @@
-
 const utils = require('./utils');
 
 /**
@@ -46,6 +45,12 @@ module.exports = {
      */
     root: utils.root('src'),
 
+    resolve: {
+      alias: {
+        'config': utils.root('./config/dev.ts')
+      }
+    }
+
   },
 
   /**
@@ -83,11 +88,12 @@ module.exports = {
         test: /\.js$/,
         loader: 'source-map-loader',
         exclude: [
-        // these packages have problems with their sourcemaps
-        utils.root('node_modules/rxjs'),
-        utils.root('node_modules/@angular2-material'),
-        utils.root('node_modules/@angular')
-      ]}
+          // these packages have problems with their sourcemaps
+          utils.root('node_modules/rxjs'),
+          utils.root('node_modules/@angular2-material'),
+          utils.root('node_modules/@angular')
+        ]
+      }
 
     ],
 
@@ -126,7 +132,7 @@ module.exports = {
        *
        * See: https://github.com/webpack/json-loader
        */
-      { test: /\.json$/, loader: 'json-loader', exclude: [utils.root('src/index.html')] },
+      {test: /\.json$/, loader: 'json-loader', exclude: [utils.root('src/index.html')]},
 
       /**
        * Raw loader support for *.css files
@@ -134,7 +140,7 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.css$/, loader: 'raw-loader', exclude: [utils.root('src/index.html')] },
+      {test: /\.css$/, loader: 'raw-loader', exclude: [utils.root('src/index.html')]},
 
       /**
        * Raw loader support for *.html
@@ -142,7 +148,7 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.html$/, loader: 'raw-loader', exclude: [utils.root('src/index.html')] }
+      {test: /\.html$/, loader: 'raw-loader', exclude: [utils.root('src/index.html')]}
 
     ],
 
