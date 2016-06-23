@@ -4,10 +4,9 @@ import {SearchResult} from './SearchResult';
 import {Article} from './article';
 import { Observable } from 'rxjs/Observable';
 import { Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, Query, Path} from 'rebirth-common';
-import config from 'config';
 
 @Injectable()
-@BaseUrl(config.api.host)
+// @BaseUrl(config.api.host)
 export class ArticleService extends RebirthHttp {
 
   constructor( @Inject(Http) protected http: Http,

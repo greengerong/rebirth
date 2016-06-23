@@ -18,6 +18,11 @@ export class RebirthHttpProvider {
     return this.interceptors;
   }
 
+  addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpInterceptor {
+    this.interceptors.push(interceptor);
+    return this;
+  }
+
   handleRequest(req: RequestOptions): RequestOptions {
     return this.interceptors
       .filter(item => !!item.request)
@@ -35,7 +40,7 @@ export class RebirthHttpProvider {
       }, res);
   }
 
-  base(host: string): RebirthHttpInterceptor {
+  baseUrl(host: string): RebirthHttpInterceptor {
     this.interceptors.push({
       request: (request: RequestOptions): void => {
         if (!/^https?:/.test(request.url)) {
@@ -257,6 +262,6 @@ export var DELETE = methodBuilder(RequestMethod.Delete);
 
 export var HEAD = methodBuilder(RequestMethod.Head);
 
-export const REBIRTH_HTTP_PROVIDERS = [
+export const REBIRTH_HTTP_PROVIDERS: Array = [
   RebirthHttpProvider
 ];

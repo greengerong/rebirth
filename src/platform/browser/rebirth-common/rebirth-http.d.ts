@@ -1,36 +1,39 @@
-import { Http, Request, Response, RequestOptionsArgs } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-export interface RebirthHttpOption {
-    mehtod: string;
-    url: string | Request;
-    body?: any;
-    options?: RequestOptionsArgs;
-}
 export interface RebirthHttpInterceptor {
-    request?: (option: RebirthHttpOption) => RebirthHttpOption | void;
-    response?: (response: any) => any | void;
-    error?: (error: any) => any | void;
+    request?: (option: RequestOptions) => RequestOptions | void;
+    response?: (response: Observable<any>) => Observable<any> | void;
 }
 export declare class RebirthHttpProvider {
     private interceptors;
     constructor();
     getInterceptors(): RebirthHttpInterceptor[];
+    addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpInterceptor;
+    handleRequest(req: RequestOptions): RequestOptions;
+    handleResponse(res: Observable<any>): Observable<any>;
+    baseUrl(host: string): RebirthHttpInterceptor;
+    json(): RebirthHttpInterceptor;
 }
 export declare class RebirthHttp {
-    private http;
-    private rebirthHttpProvider;
+    protected http: Http;
+    protected rebirthHttpProvider: RebirthHttpProvider;
     constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider);
-    request(url: string | Request, options?: RequestOptionsArgs): Observable<Response | any>;
-    get(url: string, options?: RequestOptionsArgs): Observable<Response | any>;
-    post(url: string, body?: any, options?: RequestOptionsArgs): Observable<Response | any>;
-    put(url: string, body?: any, options?: RequestOptionsArgs): Observable<Response | any>;
-    delete(url: string, options?: RequestOptionsArgs): Observable<Response | any>;
-    patch(url: string, body?: any, options?: RequestOptionsArgs): Observable<Response | any>;
-    head(url: string, options?: RequestOptionsArgs): Observable<Response | any>;
-    _proxy(options: RebirthHttpOption): Observable<Response | any>;
+    protected getBaseUrl(): string;
+    protected getDefaultHeaders(): Object;
+    protected requestInterceptor(req: RequestOptions): RequestOptions | void;
+    protected responseInterceptor(res: Observable<any>): Observable<any> | void;
 }
-export declare const REBIRTH_HTTP_JSON_PROVIDERS: string;
-export declare const REBIRTH_HTTP_PROVIDERS: (typeof RebirthHttp | typeof RebirthHttpProvider | {
-    provide: string;
-    useValue: RebirthHttpInterceptor;
-})[];
+export declare function BaseUrl(url: string): <TFunction extends Function>(target: TFunction) => TFunction;
+export declare function DefaultHeaders(headers: any): <TFunction extends Function>(target: TFunction) => TFunction;
+export declare var Path: (key: string) => (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) => void;
+export declare var Query: (key: string) => (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) => void;
+export declare var Body: (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) => void;
+export declare var Header: (key: string) => (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) => void;
+export declare function Headers(headersDef: any): (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare function Produces(producesDef: string): (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare var GET: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare var POST: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare var PUT: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare var DELETE: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare var HEAD: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
+export declare const REBIRTH_HTTP_PROVIDERS: Array;

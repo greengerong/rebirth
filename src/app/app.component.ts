@@ -4,6 +4,7 @@ import { RouterActive } from './router-active';
 import { AppState } from './app.service';
 import {BlogApp} from './blog-app';
 import { RebirthHttpProvider} from 'rebirth-common';
+import config from 'config';
 
 @Component({
   selector: 'app',
@@ -23,6 +24,17 @@ import { RebirthHttpProvider} from 'rebirth-common';
 ])
 export class App {
   constructor(rebirthHttpProvider: RebirthHttpProvider) {
-    rebirthHttpProvider.json();
+    rebirthHttpProvider
+      .baseUrl(config.api.host)
+      .json()
+      .addInterceptor({
+        request: request => {
+          console.log('全局拦截器(request)', request)
+        },
+        response: (stream) => stream.map(response => {
+          console.log('全局拦截器(response)', response);
+          return response;
+        })
+      });
   }
 }
