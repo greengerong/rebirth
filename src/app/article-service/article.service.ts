@@ -7,7 +7,7 @@ import { Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET,
 import config from 'config';
 
 @Injectable()
-@BaseUrl(config.api.host + '/')
+@BaseUrl(config.api.host)
 export class ArticleService extends RebirthHttp {
 
   constructor( @Inject(Http) protected http: Http,

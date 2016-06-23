@@ -224,9 +224,10 @@ function methodBuilder(method: number) {
           }
         }
 
+        let host = this.getBaseUrl().replace(/\/$/, "")
         let options = new RequestOptions({
           method,
-          url: (this.getBaseUrl() || '') + resUrl,
+          url: `${host}/${resUrl.replace(/^\//, "")}`,
           headers,
           body,
           search
