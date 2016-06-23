@@ -8,11 +8,11 @@ export declare class RebirthHttpProvider {
     private interceptors;
     constructor();
     getInterceptors(): RebirthHttpInterceptor[];
-    addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpInterceptor;
+    addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpProvider;
     handleRequest(req: RequestOptions): RequestOptions;
     handleResponse(res: Observable<any>): Observable<any>;
-    baseUrl(host: string): RebirthHttpInterceptor;
-    json(): RebirthHttpInterceptor;
+    baseUrl(host: string): RebirthHttpProvider;
+    json(): RebirthHttpProvider;
 }
 export declare class RebirthHttp {
     protected http: Http;
@@ -36,4 +36,4 @@ export declare var POST: (url: string) => (target: RebirthHttp, propertyKey: str
 export declare var PUT: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
 export declare var DELETE: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
 export declare var HEAD: (url: string) => (target: RebirthHttp, propertyKey: string, descriptor: any) => any;
-export declare const REBIRTH_HTTP_PROVIDERS: Array;
+export declare const REBIRTH_HTTP_PROVIDERS: Array<any>;
