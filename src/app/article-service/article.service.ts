@@ -21,7 +21,7 @@ export class ArticleService extends RebirthHttp {
     return null;
   }
 
-  @GET('article/{id}')
+  @GET('article/:id')
   getArticleByUrl( @Path('id') articleUrl: string): Observable<Article> {
     return null;
   }

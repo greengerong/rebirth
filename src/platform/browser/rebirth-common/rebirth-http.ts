@@ -2,6 +2,10 @@ import { Injectable, Inject, Optional } from '@angular/core';
 import { Http, Headers as ngHeaders, URLSearchParams, Request, Response, RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
+function isObject(value): boolean {
+  return value !== null && typeof value === 'object';
+}
+
 export interface RebirthHttpInterceptor {
   request?: (option: RequestOptions) => RequestOptions | void;
   response?: (response: Observable<any>) => Observable<any> | void;
@@ -127,8 +131,11 @@ export function DefaultHeaders(headers: any) {
   };
 }
 
-function paramBuilder(paramName: string) {
-  return function (key: string) {
+function paramBuilder(paramName: string, optional: boolean = false) {
+  return function (key?: string) {
+    if (!optional && !key) {
+      throw new Error(`${paramName} Key is required!`);
+    }
     return function (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) {
       let metadataKey = `${propertyKey}_${paramName}_parameters`;
       let paramObj: any = {
@@ -146,7 +153,7 @@ function paramBuilder(paramName: string) {
 
 export var Path = paramBuilder("Path");
 
-export var Query = paramBuilder("Query");
+export var Query = paramBuilder("Query", true);
 
 export var Body = paramBuilder("Body")("Body");
 
@@ -188,9 +195,9 @@ function methodBuilder(method: number) {
         // Path
         let resUrl: string = url;
         if (pPath) {
-          for (var k in pPath) {
+          for (let k in pPath) {
             if (pPath.hasOwnProperty(k)) {
-              resUrl = resUrl.replace("{" + pPath[k].key + "}", args[pPath[k].parameterIndex]);
+              resUrl = resUrl.replace(`:${pPath[k].key}`, args[pPath[k].parameterIndex]);
             }
           }
         }
@@ -203,11 +210,20 @@ function methodBuilder(method: number) {
             .forEach(p => {
               let key = p.key;
               let value = args[p.parameterIndex];
-              // if the value is a instance of Object, we stringify it
-              if (value instanceof Object) {
-                value = JSON.stringify(value);
+
+              if (value instanceof Date) {
+                search.set(encodeURIComponent(key), encodeURIComponent((<Date>value).getTime().toString()));
               }
-              search.set(encodeURIComponent(key), encodeURIComponent(value));
+              else if (isObject(value)) {
+                for (let k in value) {
+                  if (value.hasOwnProperty(k)) {
+                    search.set(encodeURIComponent(k), encodeURIComponent(value[k]));
+                  }
+                }
+              }
+              else {
+                search.set(encodeURIComponent(key), encodeURIComponent((value || '').toString()));
+              }
             });
         }
 
