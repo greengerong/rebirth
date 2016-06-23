@@ -1,28 +1,29 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, URLSearchParams, Response, RequestOptions } from '@angular/http';
+import { Injectable, Inject, Optional  } from '@angular/core';
+import { Http } from '@angular/http';
 import {SearchResult} from './SearchResult';
 import {Article} from './article';
-import { Observable }     from 'rxjs/Observable';
-import { Cacheable, StorageType, RebirthHttp, RebirthHttpInterceptor} from 'rebirth-common';
-import  config from 'config';
+import { Observable } from 'rxjs/Observable';
+import { Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, Query, Path} from 'rebirth-common';
+import config from 'config';
 
 @Injectable()
-export class ArticleService {
-  constructor(private http: RebirthHttp) {
+@BaseUrl(config.api.host + '/')
+export class ArticleService extends RebirthHttp {
 
+  constructor( @Inject(Http) protected http: Http,
+    @Inject(RebirthHttpProvider) @Optional() protected rebirthHttpProvider: RebirthHttpProvider) {
+    super(http, rebirthHttpProvider);
   }
 
   @Cacheable({ pool: 'articles', storageType: StorageType.memory })
-  getArticles(pageIndex: number = 1, pageSize: number = 10): Observable<SearchResult<Article>> {
-
-    let search = new URLSearchParams();
-    search.set('pageSize', pageSize.toString());
-    search.set('pageIndex', pageIndex.toString());
-    let options = new RequestOptions({ search });
-    return this.http.get(`${config.api.host}/article`, options);
+  @GET('article')
+  getArticles( @Query('pageIndex') pageIndex: number = 1,
+    @Query('pageSize') pageSize: number = 10): Observable<SearchResult<Article>> {
+    return null;
   }
 
-  getArticleByUrl(articleUrl: string): Observable<Article> {
-    return this.http.get(`${config.api.host}/article/${articleUrl}`);
+  @GET('article/{id}')
+  getArticleByUrl( @Path('id') articleUrl: string): Observable<Article> {
+    return null;
   }
 }

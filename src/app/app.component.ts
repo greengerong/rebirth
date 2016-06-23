@@ -3,7 +3,7 @@ import { RouteConfig, Router } from '@angular/router-deprecated';
 import { RouterActive } from './router-active';
 import { AppState } from './app.service';
 import {BlogApp} from './blog-app';
-import { RebirthHttpProvider, REBIRTH_HTTP_JSON_PROVIDERS, RebirthHttpInterceptor} from 'rebirth-common';
+import { RebirthHttpProvider} from 'rebirth-common';
 
 @Component({
   selector: 'app',
@@ -22,7 +22,7 @@ import { RebirthHttpProvider, REBIRTH_HTTP_JSON_PROVIDERS, RebirthHttpIntercepto
   { path: '/blog/...', name: 'Blog', component: BlogApp }
 ])
 export class App {
-  constructor(rebirthHttpProvider: RebirthHttpProvider, @Inject(REBIRTH_HTTP_JSON_PROVIDERS) jsonProvider: RebirthHttpInterceptor) {
-    rebirthHttpProvider.getInterceptors().push(jsonProvider);
+  constructor(rebirthHttpProvider: RebirthHttpProvider) {
+    rebirthHttpProvider.json();
   }
 }
