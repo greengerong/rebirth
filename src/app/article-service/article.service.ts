@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import { Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, Query, Path} from 'rebirth-common';
 
 @Injectable()
-// @BaseUrl(config.api.host)
 export class ArticleService extends RebirthHttp {
 
   constructor( @Inject(Http) protected http: Http,

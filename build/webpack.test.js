@@ -47,7 +47,8 @@ module.exports = {
 
     resolve: {
       alias: {
-        'config': utils.root('./config/dev.ts')
+        'config': utils.root('./config/dev.ts'),
+        'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts')
       }
     }
 
