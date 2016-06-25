@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, ElementRef } from '@angular/core';
+import {Component, Input, OnInit, ElementRef} from '@angular/core';
 import {ArticleService, SearchResult, Article} from '../article-service';
 import {ArticleItem} from '../article-item';
 import {Pager} from '../pager';
+import config from 'config';
 
 @Component({
   selector: 'article-list',
@@ -12,9 +13,9 @@ import {Pager} from '../pager';
   template: require('./article-list.html')
 })
 export class ArticleList implements OnInit {
-  private article: SearchResult<Article>;
-  private static DEFAULT_PAGE_SIZE: number = 10;
-  constructor(private articleService: ArticleService,  private elmRef: ElementRef) {
+  private article:SearchResult<Article>;
+
+  constructor(private articleService:ArticleService, private elmRef:ElementRef) {
 
   }
 
@@ -23,7 +24,7 @@ export class ArticleList implements OnInit {
   }
 
   pageChange(pageIndex) {
-    this.articleService.getArticles(pageIndex, ArticleList.DEFAULT_PAGE_SIZE)
+    this.articleService.getArticles(pageIndex, config.article.pageSize)
       .subscribe(result => {
         this.article = result;
         // TODO: move to platform browser

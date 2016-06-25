@@ -78,7 +78,7 @@ module.exports = webpackMerge(commonConfig, {
 
   resolve: {
     alias: {
-      'config': utils.root('./config/dev.ts')
+      'config': utils.root('./config/prod.ts')
     }
   },
 

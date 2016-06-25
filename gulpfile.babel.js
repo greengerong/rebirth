@@ -8,7 +8,7 @@ import typedoc from 'gulp-typedoc';
 import karma from 'karma';
 import tslint from "gulp-tslint";
 import browserSync from 'browser-sync';
-import uglify from 'uglify-js';
+import runSequence from 'run-sequence';
 import sourcemaps from 'gulp-sourcemaps';
 import gutil from 'gulp-util';
 import webpack from 'webpack';
@@ -102,7 +102,6 @@ gulp.task('webpack:prod', ['clean:dist'], () => {
   return gulp.src(['src/**/*.js', 'src/**/*.ts'])
     .pipe(sourcemaps.init())
     .pipe(webpackStream(prodConfig))
-    // .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'));
 });
@@ -154,7 +153,9 @@ gulp.task('install', ['install:npm', 'install:typings']);
 gulp.task('clean:install', ['clean:all', 'install']);
 gulp.task('test', ['tslint', 'karma']);
 gulp.task('build:dev', ['test', 'webpack:dev']);
-gulp.task('build', ['test', 'webpack:prod']);
-gulp.task('prod', ['build', 'serve:prod']);
+gulp.task('build', ['webpack:prod']); //'test'
+gulp.task('prod', function (cb) {
+  runSequence('build', 'serve:prod', cb);
+});
 
 gulp.task('default', ['build']);
