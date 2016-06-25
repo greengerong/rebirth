@@ -1,4 +1,4 @@
-import {Injectable, Inject, Optional} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {SearchResult} from './SearchResult';
 import {Article} from './article';

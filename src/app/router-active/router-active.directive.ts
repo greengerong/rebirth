@@ -9,18 +9,8 @@ import {
   Renderer
 } from '@angular/core';
 import { isPresent } from '@angular/core/src/facade/lang';
-import { Instruction, Router, RouterLink } from '@angular/router-deprecated';
+import {Router, RouterLink } from '@angular/router-deprecated';
 
-/**
- * RouterActive dynamically finds the first element with routerLink and toggles the active class
- *
- * ## Use
- *
- * ```
- * <li router-active="active"><a [routerLink]=" ['/Home'] ">Home</a></li>
- * <li [routerActive]=" activeStringValue "><a [routerLink]=" ['/Home'] ">Home</a></li>
- * ```
- */
 @Directive({
   selector: '[router-active]'
 })
@@ -39,7 +29,7 @@ export class RouterActive {
   }
 
   ngOnInit() {
-    this.routerLink.changes.subscribe(() => { 
+    this.routerLink.changes.subscribe(() => {
       if (this.routerLink.first) {
         this._updateClass();
         this._findRootRouter().subscribe(() => {

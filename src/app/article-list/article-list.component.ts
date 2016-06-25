@@ -1,8 +1,9 @@
-import {Component, Input, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import {ArticleService, SearchResult, Article} from '../article-service';
 import {ArticleItem} from '../article-item';
 import {Pager} from '../pager';
 import config from 'config';
+import {RebirthWindow} from 'rebirth-common';
 
 @Component({
   selector: 'article-list',
@@ -15,7 +16,7 @@ import config from 'config';
 export class ArticleList implements OnInit {
   private article:SearchResult<Article>;
 
-  constructor(private articleService:ArticleService, private elmRef:ElementRef) {
+  constructor(private articleService:ArticleService, private elmRef:ElementRef, private rebirthWindow:RebirthWindow) {
 
   }
 
@@ -27,8 +28,7 @@ export class ArticleList implements OnInit {
     this.articleService.getArticles(pageIndex, config.article.pageSize)
       .subscribe(result => {
         this.article = result;
-        // TODO: move to platform browser
-        this.elmRef.nativeElement.ownerDocument.body.scrollIntoView();
+        this.rebirthWindow.scrollToTop(this.elmRef);
       }, (e)=> console.log(e, 'component error'));
   }
 

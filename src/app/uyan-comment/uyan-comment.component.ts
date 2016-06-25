@@ -1,4 +1,5 @@
-import {Component, ChangeDetectionStrategy, Renderer, OnInit, ElementRef} from '@angular/core';
+import {Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer} from '@angular/core';
+import {RebirthWindow} from 'rebirth-common';
 
 @Component({
   selector: 'uyan-comment',
@@ -6,15 +7,13 @@ import {Component, ChangeDetectionStrategy, Renderer, OnInit, ElementRef} from '
   changeDetection: ChangeDetectionStrategy.Checked
 })
 export class UyanComment implements OnInit {
-  private static UYAN_URL: string = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';
-  constructor(private elmRef: ElementRef, private renderer: Renderer) {
+  private static UYAN_URL:string = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';
+
+  constructor(private elmRef:ElementRef, private renderer:Renderer, private rebirthWindow:RebirthWindow) {
 
   }
 
   ngOnInit() {
-    const script = this.renderer.createElement(this.elmRef.nativeElement, 'script', null);
-    script.type = 'text/javascript';
-    script.src = UyanComment.UYAN_URL;
-    script.id = `uyan_${Math.random()}`;
+    this.rebirthWindow.createScript(UyanComment.UYAN_URL, this.renderer, this.elmRef);
   }
 }
