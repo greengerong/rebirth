@@ -8,8 +8,7 @@ import {Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, 
 @Injectable()
 export class ArticleService extends RebirthHttp {
 
-  constructor(@Inject(Http) protected http:Http,
-              @Inject(RebirthHttpProvider) @Optional() protected rebirthHttpProvider:RebirthHttpProvider) {
+  constructor(http:Http, rebirthHttpProvider:RebirthHttpProvider) {
     super(http, rebirthHttpProvider);
   }
 
