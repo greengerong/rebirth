@@ -1,0 +1,7 @@
+{
+  "baseUrl": "/",
+  "env": "prod",
+  "api": {
+    "host": "http://localhost:8000/api"
+  }
+}

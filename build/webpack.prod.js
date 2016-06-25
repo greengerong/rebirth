@@ -8,11 +8,12 @@ const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const PROD_METADATA = require('../config/production.json');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
-const METADATA = webpackMerge(commonConfig.metadata, {
+const METADATA = webpackMerge(commonConfig.metadata, PROD_METADATA, {
   host: HOST,
   port: PORT,
   ENV: ENV,
@@ -78,7 +79,7 @@ module.exports = webpackMerge(commonConfig, {
 
   resolve: {
     alias: {
-      'config': utils.root('./config/prod.ts')
+      'config': utils.root('./config/production.ts')
     }
   },
 
