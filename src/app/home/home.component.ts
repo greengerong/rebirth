@@ -10,5 +10,5 @@ import {ArticleList} from '../article-list';
   template: require('./home.html')
 })
 export class Home {
-  
+
 }

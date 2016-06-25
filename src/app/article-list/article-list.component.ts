@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, ElementRef } from '@angular/core';
 import {ArticleService, SearchResult, Article} from '../article-service';
 import {ArticleItem} from '../article-item';
-import {Observable} from "rxjs/Observable";
 import {Pager} from '../pager';
 
 @Component({
