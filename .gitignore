@@ -4,6 +4,7 @@ logs
 *.seed
 lib-cov
 coverage
+tslint
 .grunt
 build/Release
 .lock-wscript

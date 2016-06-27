@@ -14,6 +14,8 @@ import gutil from 'gulp-util';
 import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
 import WebpackDevServer from 'webpack-dev-server';
+import map from 'map-stream';
+import concat from 'gulp-concat';
 
 let browserSyncServer = browserSync.create();
 
@@ -121,8 +123,21 @@ gulp.task("dev", ['mock'], () => {
 
 gulp.task("tslint", () => {
   return gulp.src('src/**/*.ts')
-    .pipe(tslint({configuration: "tslint.json"}))
-    .pipe(tslint.report("verbose"));
+    .pipe(tslint({configuration: "./tslint.json"}))
+    .pipe(map(function (file, done) {
+      if (file.tslint.output) {
+        file.contents = new Buffer(file.tslint.output);
+        var text = JSON.parse(file.tslint.output).map(tslint.proseErrorFormat).join("\n");
+        gutil.log(text);
+      } else {
+        file.contents = new Buffer("");
+      }
+
+      done(null, file);
+    }))
+    .pipe(concat("tslint-report.json"))
+    .pipe(gulp.dest("./tslint"));
+  ;
 });
 
 gulp.task('karma:debug', (cb)=> {
