@@ -41,7 +41,7 @@
     "babel-core": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "browser-sync": "^2.13.0",
-    "codelyzer": "~0.0.19",
+    "codelyzer": "0.0.23",
     "compression-webpack-plugin": "^0.3.1",
     "copy-webpack-plugin": "^2.1.3",
     "css-loader": "^0.23.1",

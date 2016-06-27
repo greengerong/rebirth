@@ -1,22 +1,22 @@
 // Angular 2
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // Angular 2 Http
-import {HTTP_PROVIDERS, JSONP_PROVIDERS} from '@angular/http';
+import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
-import {provideRouter} from '@angular/router';
-import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import { provideRouter } from '@angular/router';
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 // Angular 2 forms
-import {disableDeprecatedForms, provideForms} from '@angular/forms';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 // AngularClass
-import {provideWebpack} from '@angularclass/webpack-toolkit';
-import {providePrefetchIdleCallbacks} from '@angularclass/request-idle-callback';
+import { provideWebpack } from '@angularclass/webpack-toolkit';
+import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
 
 
 // import {routes, asyncRoutes, prefetchRouteCallbacks} from '../../app/app.routes';
 
-import {REBIRTH_HTTP_PROVIDERS, REBIRTH_WINDOW_PROVIDERS} from 'rebirth-common';
+import { REBIRTH_HTTP_PROVIDERS, REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
 /*
  * Application Providers/Directives/Pipes
  * providers/directives/pipes that only live in our browser environment

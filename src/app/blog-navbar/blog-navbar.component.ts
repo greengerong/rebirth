@@ -1,6 +1,6 @@
-import { Component, Input, ChangeDetectionStrategy} from '@angular/core';
-import {Dropdown} from '../dropdown';
-import { RouterActive} from '../router-active';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Dropdown } from '../dropdown';
+import { RouterActive } from '../router-active';
 
 @Component({
   selector: 'blog-navbar',

@@ -1,5 +1,5 @@
-import {Label} from './label.model';
-import {User} from'./user.model';
+import { Label } from './label.model';
+import { User } from'./user.model';
 
 export class QuestionModel {
   id: number;

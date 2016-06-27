@@ -1,6 +1,6 @@
 
 import { Component, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import {Article} from '../article-service';
+import { Article } from '../article-service';
 
 @Component({
   selector: 'article-item',

@@ -9,7 +9,7 @@ import {
   Renderer
 } from '@angular/core';
 import { isPresent } from '@angular/core/src/facade/lang';
-import {Router, RouterLink } from '@angular/router-deprecated';
+import { Router, RouterLink } from '@angular/router-deprecated';
 
 @Directive({
   selector: '[router-active]'

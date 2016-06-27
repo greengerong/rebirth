@@ -1,8 +1,8 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {RouteConfig} from '@angular/router-deprecated';
-import {RouterActive} from './router-active';
-import {BlogApp} from './blog-app';
-import {RebirthHttpProvider} from 'rebirth-common';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { RouteConfig } from '@angular/router-deprecated';
+import { RouterActive } from './router-active';
+import { BlogApp } from './blog-app';
+import { RebirthHttpProvider } from 'rebirth-common';
 import config from 'config';
 
 @Component({

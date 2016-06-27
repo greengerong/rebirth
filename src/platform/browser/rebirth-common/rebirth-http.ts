@@ -1,4 +1,4 @@
-import {Injectable, Inject, Optional} from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
 import {
   Http,
   Headers as ngHeaders,
@@ -8,7 +8,7 @@ import {
   RequestMethod,
   RequestOptions
 } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 function isObject(value): boolean {
   return value !== null && typeof value === 'object';

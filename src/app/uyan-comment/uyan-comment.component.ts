@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer} from '@angular/core';
-import {RebirthWindow} from 'rebirth-common';
+import { Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer } from '@angular/core';
+import { RebirthWindow } from 'rebirth-common';
 
 @Component({
   selector: 'uyan-comment',

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ArticleService, Article} from '../article-service';
-import {ArticleItem} from '../article-item';
-import {Observable} from "rxjs/Observable";
-import {RouteParams} from '@angular/router-deprecated';
-import {UyanComment} from '../uyan-comment';
+import { ArticleService, Article } from '../article-service';
+import { ArticleItem } from '../article-item';
+import { Observable } from "rxjs/Observable";
+import { RouteParams } from '@angular/router-deprecated';
+import { UyanComment } from '../uyan-comment';
 
 @Component({
   selector: 'blog-article',

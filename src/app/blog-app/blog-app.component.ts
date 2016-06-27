@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, provide, Inject, OnInit } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
-import {BlogNavbar } from '../blog-navbar';
-import {BlogAside} from '../blog-aside';
+import { BlogNavbar } from '../blog-navbar';
+import { BlogAside } from '../blog-aside';
 
 const homeLoader = () => require('es6-promise!../home')('Home'),
   aboutLoader = () => require('es6-promise!../about')('About'),

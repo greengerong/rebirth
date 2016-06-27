@@ -1,6 +1,6 @@
 // Angular 2
-import {enableDebugTools, disableDebugTools} from '@angular/platform-browser';
-import {enableProdMode} from '@angular/core';
+import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
+import { enableProdMode } from '@angular/core';
 
 // Environment Providers
 let PROVIDERS = [];

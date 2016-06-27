@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Article} from '../article-service';
+import { Article } from '../article-service';
 import { Observable }     from 'rxjs/Observable';
 import * as Rx from 'rxjs/rx';
 // import { Cacheable, StorageType} from 'rebirth-common';

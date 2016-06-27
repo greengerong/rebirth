@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ArticleList} from '../article-list';
+import { ArticleList } from '../article-list';
 
 @Component({
   selector: 'home',

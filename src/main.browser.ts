@@ -1,10 +1,10 @@
-import {DIRECTIVES, PIPES, PROVIDERS} from "./platform/browser";
-import {ENV_PROVIDERS, decorateComponentRef} from "./platform/environment";
-import {App, APP_PROVIDERS} from './app';
+import { DIRECTIVES, PIPES, PROVIDERS } from "./platform/browser";
+import { ENV_PROVIDERS, decorateComponentRef } from "./platform/environment";
+import { App, APP_PROVIDERS } from './app';
 
 import "./icon.font.json";
 
-import {bootstrap} from "@angular/platform-browser-dynamic";
+import { bootstrap } from "@angular/platform-browser-dynamic";
 
 
 // platform([WORKER_APP_PLATFORM]).application([WORKER_APP_APPLICATION]).bootstrap
