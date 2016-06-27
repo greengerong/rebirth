@@ -6,7 +6,8 @@ import {
   Optional,
   Query,
   QueryList,
-  Renderer
+  Renderer,
+  OnInit
 } from '@angular/core';
 import { isPresent } from '@angular/core/src/facade/lang';
 import { Router, RouterLink } from '@angular/router-deprecated';
@@ -14,7 +15,7 @@ import { Router, RouterLink } from '@angular/router-deprecated';
 @Directive({
   selector: '[router-active]'
 })
-export class RouterActive {
+export class RouterActive implements OnInit {
   routerActiveAttr: string = 'active';
 
   constructor(

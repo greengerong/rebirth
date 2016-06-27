@@ -1,26 +1,22 @@
-import { Directive, OnInit, Output, EventEmitter, Renderer, ElementRef, Attribute } from '@angular/core';
+import { Directive, HostListener, OnInit, Output, Input, EventEmitter, Renderer, ElementRef, Attribute } from '@angular/core';
 
 @Directive({
-  selector: '[dropdown]',
-  host: {
-    '(document:click)': 'onDocumentClick($event)',
-    '(click)': 'onHostClick($event)',
-  }
+  selector: '[dropdown]'
 })
 export class Dropdown {
   @Output() dropdownStatusChange = new EventEmitter();
   private active: boolean = false;
-  private activeCss: string;
-  constructor(
-    private elmRef: ElementRef,
-    private renderer: Renderer,
-    @Attribute('dropdown') activeCss: string) {
-    this.activeCss = activeCss || 'open';
+  @Input() private activeCss: string = 'open';
+  constructor(private elmRef: ElementRef, private renderer: Renderer) {
   }
+
+  @HostListener('document:click', ['$event'])
   onDocumentClick() {
     this.active = false;
     this.updateHostStatus();
   }
+
+  @HostListener('click', ['$event'])
   onHostClick($event: Event) {
     $event.stopPropagation();
     this.active = !this.active;
