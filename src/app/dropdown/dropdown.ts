@@ -8,9 +8,9 @@ import { Directive, OnInit, Output, EventEmitter, Renderer, ElementRef, Attribut
   }
 })
 export class Dropdown {
+  @Output() dropdownStatusChange = new EventEmitter();
   private active: boolean = false;
   private activeCss: string;
-  @Output() dropdownStatusChange = new EventEmitter();
   constructor(
     private elmRef: ElementRef,
     private renderer: Renderer,

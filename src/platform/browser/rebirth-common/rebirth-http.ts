@@ -10,18 +10,18 @@ import {
 } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
-function isObject(value):boolean {
+function isObject(value): boolean {
   return value !== null && typeof value === 'object';
 }
 
 export interface RebirthHttpInterceptor {
-  request?:(option:RequestOptions) => RequestOptions | void;
-  response?:(response:Observable<any>) => Observable<any> | void;
+  request?: (option: RequestOptions) => RequestOptions | void;
+  response?: (response: Observable<any>) => Observable<any> | void;
 }
 
 @Injectable()
 export class RebirthHttpProvider {
-  private interceptors:RebirthHttpInterceptor[];
+  private interceptors: RebirthHttpInterceptor[];
 
   constructor() {
     this.interceptors = [];
@@ -31,12 +31,12 @@ export class RebirthHttpProvider {
     return this.interceptors;
   }
 
-  addInterceptor(interceptor:RebirthHttpInterceptor):RebirthHttpProvider {
+  addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpProvider {
     this.interceptors.push(interceptor);
     return this;
   }
 
-  handleRequest(req:RequestOptions):RequestOptions {
+  handleRequest(req: RequestOptions): RequestOptions {
     return this.interceptors
       .filter(item => !!item.request)
       .reduce((req, item) => {
@@ -44,7 +44,7 @@ export class RebirthHttpProvider {
       }, req);
   }
 
-  handleResponse(res:Observable<any>):Observable<any> {
+  handleResponse(res: Observable<any>): Observable<any> {
     return this.interceptors
       .filter(item => !!item.response)
       .reverse()
@@ -53,9 +53,9 @@ export class RebirthHttpProvider {
       }, res);
   }
 
-  baseUrl(host:string):RebirthHttpProvider {
+  baseUrl(host: string): RebirthHttpProvider {
     this.interceptors.push({
-      request: (request:RequestOptions):void => {
+      request: (request: RequestOptions): void => {
         if (!/^https?:/.test(request.url)) {
           host = host.replace(/\/$/, "");
           let url = request.url.replace(/^\//, "");
@@ -67,9 +67,9 @@ export class RebirthHttpProvider {
     return this;
   }
 
-  json():RebirthHttpProvider {
+  json(): RebirthHttpProvider {
     this.interceptors.push({
-      request: (request:RequestOptions):void => {
+      request: (request: RequestOptions): void => {
         request.headers = request.headers || new ngHeaders();
         request.headers.set('Content-Type', 'application/json');
         request.headers.set('Accept', 'application/json, text/javascript, */*;');
@@ -78,13 +78,13 @@ export class RebirthHttpProvider {
           request.body = JSON.stringify(request.body);
         }
       },
-      response: (response:Observable<any>):Observable<any> => {
+      response: (response: Observable<any>): Observable<any> => {
         return response.map(res => {
           let type = res.headers.get('content-type');
           if (type.indexOf('json') !== -1) {
-            return res.json && res.json()
+            return res.json && res.json();
           }
-        })
+        });
       }
     });
     return this;
@@ -93,26 +93,26 @@ export class RebirthHttpProvider {
 
 export class RebirthHttp {
 
-  constructor(@Inject(Http) protected http:Http,
-              @Inject(RebirthHttpProvider) @Optional() protected rebirthHttpProvider:RebirthHttpProvider) {
+  constructor( @Inject(Http) protected http: Http,
+    @Inject(RebirthHttpProvider) @Optional() protected rebirthHttpProvider: RebirthHttpProvider) {
   }
 
-  protected getBaseUrl():string {
+  protected getBaseUrl(): string {
     return '';
   };
 
-  protected getDefaultHeaders():Object {
+  protected getDefaultHeaders(): Object {
     return null;
   };
 
-  protected requestInterceptor(req:RequestOptions):RequestOptions | void {
+  protected requestInterceptor(req: RequestOptions): RequestOptions | void {
     if (this.rebirthHttpProvider) {
       return this.rebirthHttpProvider.handleRequest(req);
     }
     return req;
   }
 
-  protected responseInterceptor(res:Observable<any>):Observable<any> | void {
+  protected responseInterceptor(res: Observable<any>): Observable<any> | void {
     if (this.rebirthHttpProvider) {
       return this.rebirthHttpProvider.handleResponse(res);
     }
@@ -122,8 +122,8 @@ export class RebirthHttp {
 
 }
 
-export function BaseUrl(url:string) {
-  return function <TFunction extends Function>(target:TFunction):TFunction {
+export function BaseUrl(url: string) {
+  return function <TFunction extends Function>(target: TFunction): TFunction {
     target.prototype.getBaseUrl = function () {
       return url;
     };
@@ -131,8 +131,8 @@ export function BaseUrl(url:string) {
   };
 }
 
-export function DefaultHeaders(headers:any) {
-  return function <TFunction extends Function>(target:TFunction):TFunction {
+export function DefaultHeaders(headers: any) {
+  return function <TFunction extends Function>(target: TFunction): TFunction {
     target.prototype.getDefaultHeaders = function () {
       return headers;
     };
@@ -140,14 +140,14 @@ export function DefaultHeaders(headers:any) {
   };
 }
 
-function paramBuilder(paramName:string, optional:boolean = false) {
-  return function (key?:string) {
+function paramBuilder(paramName: string, optional = false) {
+  return function (key?: string) {
     if (!optional && !key) {
       throw new Error(`${paramName} Key is required!`);
     }
-    return function (target:RebirthHttp, propertyKey:string | symbol, parameterIndex:number) {
+    return function (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) {
       let metadataKey = `${propertyKey}_${paramName}_parameters`;
-      let paramObj:any = {
+      let paramObj: any = {
         key: key,
         parameterIndex: parameterIndex
       };
@@ -168,31 +168,31 @@ export var Body = paramBuilder("Body")("Body");
 
 export var Header = paramBuilder("Header");
 
-export function Headers(headersDef:any) {
-  return function (target:RebirthHttp, propertyKey:string, descriptor:any) {
+export function Headers(headersDef: any) {
+  return function (target: RebirthHttp, propertyKey: string, descriptor: any) {
     descriptor.headers = headersDef;
     return descriptor;
   };
 }
 
-export function Produces(producesDef:string) {
-  return function (target:RebirthHttp, propertyKey:string, descriptor:any) {
+export function Produces(producesDef: string) {
+  return function (target: RebirthHttp, propertyKey: string, descriptor: any) {
     descriptor.enableJson = producesDef.toLocaleLowerCase() === 'json';
     return descriptor;
   };
 }
 
 
-function methodBuilder(method:number) {
-  return function (url:string) {
-    return function (target:RebirthHttp, propertyKey:string, descriptor:any) {
+function methodBuilder(method: number) {
+  return function (url: string) {
+    return function (target: RebirthHttp, propertyKey: string, descriptor: any) {
 
       let pPath = target[`${propertyKey}_Path_parameters`];
       let pQuery = target[`${propertyKey}_Query_parameters`];
       let pBody = target[`${propertyKey}_Body_parameters`];
       let pHeader = target[`${propertyKey}_Header_parameters`];
 
-      descriptor.value = function (...args:any[]) {
+      descriptor.value = function (...args: any[]) {
 
         // Body
         let body = null;
@@ -202,7 +202,7 @@ function methodBuilder(method:number) {
         }
 
         // Path
-        let resUrl:string = url;
+        let resUrl: string = url;
         if (pPath) {
           for (let k in pPath) {
             if (pPath.hasOwnProperty(k)) {
@@ -222,15 +222,13 @@ function methodBuilder(method:number) {
 
               if (value instanceof Date) {
                 search.set(encodeURIComponent(key), encodeURIComponent((<Date>value).getTime().toString()));
-              }
-              else if (isObject(value)) {
+              } else if (isObject(value)) {
                 for (let k in value) {
                   if (value.hasOwnProperty(k)) {
                     search.set(encodeURIComponent(k), encodeURIComponent(value[k]));
                   }
                 }
-              }
-              else {
+              } else {
                 search.set(encodeURIComponent(key), encodeURIComponent((value || '').toString()));
               }
             });
@@ -254,7 +252,7 @@ function methodBuilder(method:number) {
           }
         }
 
-        let host = this.getBaseUrl().replace(/\/$/, "")
+        let host = this.getBaseUrl().replace(/\/$/, "");
         let options = new RequestOptions({
           method,
           url: `${host}/${resUrl.replace(/^\//, "")}`,
@@ -264,9 +262,9 @@ function methodBuilder(method:number) {
         });
 
         options = this.requestInterceptor(options) || options;
-        let observable:Observable<Response> = this.http.request(new Request(options));
-
-        if (descriptor.enableJson) { //@Produces
+        let observable: Observable<Response> = this.http.request(new Request(options));
+        // @Produces
+        if (descriptor.enableJson) {
           observable = observable.map(res => res.json());
         }
         return this.responseInterceptor(observable) || observable;
@@ -287,6 +285,6 @@ export var DELETE = methodBuilder(RequestMethod.Delete);
 
 export var HEAD = methodBuilder(RequestMethod.Head);
 
-export const REBIRTH_HTTP_PROVIDERS:Array<any> = [
+export const REBIRTH_HTTP_PROVIDERS: Array<any> = [
   RebirthHttpProvider
 ];

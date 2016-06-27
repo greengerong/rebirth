@@ -8,19 +8,19 @@ import {Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, 
 @Injectable()
 export class ArticleService extends RebirthHttp {
 
-  constructor(http:Http, rebirthHttpProvider:RebirthHttpProvider) {
+  constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider) {
     super(http, rebirthHttpProvider);
   }
 
-  @Cacheable({pool: 'articles', storageType: StorageType.memory})
+  @Cacheable({ pool: 'articles', storageType: StorageType.memory })
   @GET('article')
-  getArticles(@Query('pageIndex') pageIndex:number = 1,
-              @Query('pageSize') pageSize:number = 10):Observable<SearchResult<Article>> {
+  getArticles( @Query('pageIndex') pageIndex = 1,
+    @Query('pageSize') pageSize = 10): Observable<SearchResult<Article>> {
     return null;
   }
 
   @GET('article/:id')
-  getArticleByUrl(@Path('id') articleUrl:string):Observable<Article> {
+  getArticleByUrl( @Path('id') articleUrl: string): Observable<Article> {
     return null;
   }
 }

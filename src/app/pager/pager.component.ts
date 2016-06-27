@@ -14,13 +14,13 @@ export class Pager implements OnChanges {
 
   prev(): void {
     if (this.hasPrev()) {
-      this.pageChange.emit(--this.pageIndex)
+      this.pageChange.emit(--this.pageIndex);
     }
   }
 
   next(): void {
     if (this.hasNext()) {
-      this.pageChange.emit(++this.pageIndex)
+      this.pageChange.emit(++this.pageIndex);
     }
   }
 
@@ -37,6 +37,6 @@ export class Pager implements OnChanges {
   }
 
   ngOnChanges(): void {
-    this.pageIndex = Math.max(Math.min(this.pageIndex, this.totalPage()), 1)
+    this.pageIndex = Math.max(Math.min(this.pageIndex, this.totalPage()), 1);
   }
 }

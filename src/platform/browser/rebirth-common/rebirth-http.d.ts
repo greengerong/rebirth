@@ -1,27 +1,27 @@
 import { Http, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 export interface RebirthHttpInterceptor {
-    request?: (option: RequestOptions) => RequestOptions | void;
-    response?: (response: Observable<any>) => Observable<any> | void;
+  request?: (option: RequestOptions) => RequestOptions | void;
+  response?: (response: Observable<any>) => Observable<any> | void;
 }
 export declare class RebirthHttpProvider {
-    private interceptors;
-    constructor();
-    getInterceptors(): RebirthHttpInterceptor[];
-    addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpProvider;
-    handleRequest(req: RequestOptions): RequestOptions;
-    handleResponse(res: Observable<any>): Observable<any>;
-    baseUrl(host: string): RebirthHttpProvider;
-    json(): RebirthHttpProvider;
+  private interceptors;
+  constructor();
+  getInterceptors(): RebirthHttpInterceptor[];
+  addInterceptor(interceptor: RebirthHttpInterceptor): RebirthHttpProvider;
+  handleRequest(req: RequestOptions): RequestOptions;
+  handleResponse(res: Observable<any>): Observable<any>;
+  baseUrl(host: string): RebirthHttpProvider;
+  json(): RebirthHttpProvider;
 }
 export declare class RebirthHttp {
-    protected http: Http;
-    protected rebirthHttpProvider: RebirthHttpProvider;
-    constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider);
-    protected getBaseUrl(): string;
-    protected getDefaultHeaders(): Object;
-    protected requestInterceptor(req: RequestOptions): RequestOptions | void;
-    protected responseInterceptor(res: Observable<any>): Observable<any> | void;
+  protected http: Http;
+  protected rebirthHttpProvider: RebirthHttpProvider;
+  constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider);
+  protected getBaseUrl(): string;
+  protected getDefaultHeaders(): Object;
+  protected requestInterceptor(req: RequestOptions): RequestOptions | void;
+  protected responseInterceptor(res: Observable<any>): Observable<any> | void;
 }
 export declare function BaseUrl(url: string): <TFunction extends Function>(target: TFunction) => TFunction;
 export declare function DefaultHeaders(headers: any): <TFunction extends Function>(target: TFunction) => TFunction;

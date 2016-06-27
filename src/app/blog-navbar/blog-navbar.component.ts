@@ -13,9 +13,6 @@ import { RouterActive} from '../router-active';
 })
 export class BlogNavbar {
   private showNavBar: boolean;
-  constructor() {
-
-  }
 
   toggleNavBarState($event: Event) {
     $event.stopPropagation();
@@ -23,7 +20,9 @@ export class BlogNavbar {
   }
 
   hideNavBar($event: Event) {
+    /* tslint:disable */
     $event && $event.stopPropagation();
+    /* tslint:enable */
     this.showNavBar = false;
   }
 }

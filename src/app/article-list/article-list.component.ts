@@ -14,9 +14,9 @@ import {RebirthWindow} from 'rebirth-common';
   template: require('./article-list.html')
 })
 export class ArticleList implements OnInit {
-  private article:SearchResult<Article>;
+  private article: SearchResult<Article>;
 
-  constructor(private articleService:ArticleService, private elmRef:ElementRef, private rebirthWindow:RebirthWindow) {
+  constructor(private articleService: ArticleService, private elmRef: ElementRef, private rebirthWindow: RebirthWindow) {
 
   }
 
@@ -29,7 +29,7 @@ export class ArticleList implements OnInit {
       .subscribe(result => {
         this.article = result;
         this.rebirthWindow.scrollToTop(this.elmRef);
-      }, (e)=> console.log(e, 'component error'));
+      }, (e) => console.log(e, 'component error'));
   }
 
 }

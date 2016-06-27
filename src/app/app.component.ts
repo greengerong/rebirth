@@ -18,11 +18,11 @@ import config from 'config';
   template: '<router-outlet></router-outlet>'
 })
 @RouteConfig([
-  {path: '/', name: 'Index', redirectTo: ['Blog']},
-  {path: '/blog/...', name: 'Blog', component: BlogApp}
+  { path: '/', name: 'Index', redirectTo: ['Blog'] },
+  { path: '/blog/...', name: 'Blog', component: BlogApp }
 ])
 export class App {
-  constructor(rebirthHttpProvider:RebirthHttpProvider) {
+  constructor(rebirthHttpProvider: RebirthHttpProvider) {
     rebirthHttpProvider
       .baseUrl(config.api.host)
       .json()

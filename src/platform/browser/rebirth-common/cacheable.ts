@@ -74,8 +74,13 @@ class MemoryStorage implements IStorage {
 }
 
 export class StorageFactory {
-  storages: Map<Object, IStorage>;
   private static factory: StorageFactory = new StorageFactory();
+  storages: Map<Object, IStorage>;
+
+  static getInstance(): StorageFactory {
+    return StorageFactory.factory;
+  }
+
   constructor() {
     this.storages = new Map<String, IStorage>();
     this.storages.set(StorageType.memory, new MemoryStorage())
@@ -83,14 +88,10 @@ export class StorageFactory {
       .set(StorageType.localStorage, new WebStorage(window.localStorage));
   }
 
-  static getInstance(): StorageFactory {
-    return StorageFactory.factory;
-  }
 
   getStorage(storageType: StorageType): IStorage {
     return this.storages.get(storageType);
   }
-
 }
 
 export interface IDataCacheStrategy {
@@ -140,14 +141,15 @@ export class PromiseDataCacheStrategy implements IDataCacheStrategy {
 }
 
 export class DataCacheStrategyFactory {
-  dataCacheStrategies: IDataCacheStrategy[];
   private static factory: DataCacheStrategyFactory = new DataCacheStrategyFactory();
-  constructor() {
-    this.dataCacheStrategies = [new RxDataCacheStrategy(), new PromiseDataCacheStrategy()];
-  }
+  dataCacheStrategies: IDataCacheStrategy[];
 
   static getInstance(): DataCacheStrategyFactory {
     return DataCacheStrategyFactory.factory;
+  }
+
+  constructor() {
+    this.dataCacheStrategies = [new RxDataCacheStrategy(), new PromiseDataCacheStrategy()];
   }
 
   put(pool: string, key: string, data: any, storage: IStorage) {
@@ -161,7 +163,7 @@ export class DataCacheStrategyFactory {
 
   get(data: any): Object {
     if (data.type) {
-      var strategy = this.dataCacheStrategies.find(t => t.name() === data.type);
+      let strategy = this.dataCacheStrategies.find(t => t.name() === data.type);
       if (strategy) {
         return strategy.get(data.result);
       }
@@ -195,12 +197,12 @@ export function Cacheable(config: { pool?: string, key?: string, storageType?: S
       return strategyFactory.put(pool, key, result, storage);
     };
 
-    proxy['cacheEvict'] = function () {
+    (<any>proxy).cacheEvict = function () {
       storage.remove(pool);
     };
 
     return {
       value: proxy
     };
-  }
+  };
 }

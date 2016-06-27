@@ -28,6 +28,5 @@ const homeLoader = () => require('es6-promise!../home')('Home'),
   { path: '/question', name: 'Question', loader: questionLoader }
 ])
 export class BlogApp {
-  constructor() {
-  }
+
 }

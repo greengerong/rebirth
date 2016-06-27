@@ -23,7 +23,7 @@ let files = [
   path.join(__dirname, './mocks/**/*.{yaml,js}')
 ];
 
-gulp.task('install:npm', ()=> {
+gulp.task('install:npm', () => {
   return gulp.src(['./package.json'])
     .pipe(install());
 });
@@ -90,7 +90,7 @@ gulp.task('docs', function () {
 });
 
 
-gulp.task('webpack:dev', ['clean:dist'], ()=> {
+gulp.task('webpack:dev', ['clean:dist'], () => {
   return gulp.src(['src/**/*.js', 'src/**/*.ts'])
     .pipe(sourcemaps.init())
     .pipe(webpackStream(require("./build/webpack.dev.js")))
@@ -125,22 +125,26 @@ gulp.task("tslint", () => {
   return gulp.src('src/**/*.ts')
     .pipe(tslint({configuration: "./tslint.json"}))
     .pipe(map(function (file, done) {
+      file.contents = new Buffer("");
       if (file.tslint.output) {
-        file.contents = new Buffer(file.tslint.output);
-        var text = JSON.parse(file.tslint.output).map(tslint.proseErrorFormat).join("\n");
-        gutil.log(text);
-      } else {
-        file.contents = new Buffer("");
+        var text = JSON.parse(file.tslint.output)
+          .map(tslint.proseErrorFormat)
+          .join("\n");
+
+        if (text) {
+          gutil.log(text);
+          file.contents = new Buffer(text);
+        }
       }
 
       done(null, file);
     }))
-    .pipe(concat("tslint-report.json"))
+    .pipe(concat("tslint-report.txt"))
     .pipe(gulp.dest("./tslint"));
   ;
 });
 
-gulp.task('karma:debug', (cb)=> {
+gulp.task('karma:debug', (cb) => {
   new karma.Server({
     configFile: __dirname + '/build/karma.conf.js',
     singleRun: false,
@@ -149,7 +153,7 @@ gulp.task('karma:debug', (cb)=> {
   }, cb).start();
 });
 
-gulp.task('karma', (cb)=> {
+gulp.task('karma', (cb) => {
   new karma.Server({
     configFile: __dirname + '/build/karma.conf.js',
     singleRun: true
