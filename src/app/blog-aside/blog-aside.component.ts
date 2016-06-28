@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, SearchResult, Article } from '../article-service';
-import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'blog-aside',
@@ -14,7 +13,7 @@ import { Observable } from "rxjs/Observable";
   ],
   template: require('./blog-aside.html')
 })
-export class BlogAside implements OnInit {
+export class BlogAsideComponent implements OnInit {
   private article: SearchResult<Article>;
   constructor(private articleService: ArticleService) {
 

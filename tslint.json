@@ -133,7 +133,7 @@
       true,
       "camelCase"
     ],
-    "component-class-suffix": false,
+    "component-class-suffix": true,
     "directive-class-suffix": true,
     "import-destructuring-spacing": true
   },

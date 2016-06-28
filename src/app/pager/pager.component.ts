@@ -6,7 +6,7 @@ import { Component, ChangeDetectionStrategy, OnChanges, Input, Output, EventEmit
   template: require('./pager.html'),
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Pager implements OnChanges {
+export class PagerComponent implements OnChanges {
   @Input() total = 0;
   @Input() pageSize = 10;
   @Input() pageIndex = 1;

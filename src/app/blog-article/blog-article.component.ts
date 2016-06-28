@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, Article } from '../article-service';
-import { ArticleItem } from '../article-item';
-import { Observable } from "rxjs/Observable";
+import { ArticleItemComponent } from '../article-item';
 import { RouteParams } from '@angular/router-deprecated';
-import { UyanComment } from '../uyan-comment';
+import { UyanCommentComponent } from '../uyan-comment';
 
 @Component({
   selector: 'blog-article',
   providers: [ArticleService],
-  directives: [ArticleItem, UyanComment],
+  directives: [ArticleItemComponent, UyanCommentComponent],
   pipes: [],
   styles: [require('./blog-article.scss')],
   template: require('./blog-article.html')
 })
-export class BlogArticle implements OnInit {
+export class BlogArticleComponent implements OnInit {
   private articleUrl: string;
   private article: Article;
   constructor(private articleService: ArticleService, private routeParams: RouteParams) {

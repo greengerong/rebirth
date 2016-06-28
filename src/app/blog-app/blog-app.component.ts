@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation, provide, Inject, OnInit } from '@angular/core';
 import { RouteConfig, Router } from '@angular/router-deprecated';
-import { BlogNavbar } from '../blog-navbar';
-import { BlogAside } from '../blog-aside';
+import { BlogNavbarComponent } from '../blog-navbar';
+import { BlogAsideComponent } from '../blog-aside';
 
-const homeLoader = () => require('es6-promise!../home')('Home'),
-  aboutLoader = () => require('es6-promise!../about')('About'),
-  blogArticleLoader = () => require('es6-promise!../blog-article')('BlogArticle'),
-  questionLoader = () => require('es6-promise!../question')('Question');
+const homeLoader = () => require('es6-promise!../home')('HomeComponent'),
+  aboutLoader = () => require('es6-promise!../about')('AboutComponent'),
+  blogArticleLoader = () => require('es6-promise!../blog-article')('BlogArticleComponent'),
+  questionLoader = () => require('es6-promise!../question')('QuestionComponent');
 
 @Component({
   selector: 'blog-app',
@@ -14,7 +14,7 @@ const homeLoader = () => require('es6-promise!../home')('Home'),
   providers: [
 
   ],
-  directives: [BlogNavbar, BlogAside],
+  directives: [BlogNavbarComponent, BlogAsideComponent],
   styles: [
     require('./blog-app.scss')
   ],
@@ -27,6 +27,6 @@ const homeLoader = () => require('es6-promise!../home')('Home'),
   { path: '/:id', name: 'BlogArticle', loader: blogArticleLoader },
   { path: '/question', name: 'Question', loader: questionLoader }
 ])
-export class BlogApp {
+export class BlogAppComponent {
 
 }

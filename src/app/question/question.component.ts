@@ -9,7 +9,7 @@ import { QuestionModel } from './question.model';
   styles: [require('./question.scss')],
   template: require('./question.html')
 })
-export class Question implements OnInit {
+export class QuestionComponent implements OnInit {
   private questions: QuestionModel[] = [];
   private loaded: boolean = false;
   private error: any;

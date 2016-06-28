@@ -6,7 +6,7 @@ import { RebirthWindow } from 'rebirth-common';
   template: require('./uyan-comment.html'),
   changeDetection: ChangeDetectionStrategy.Checked
 })
-export class UyanComment implements OnInit {
+export class UyanCommentComponent implements OnInit {
   private static UYAN_URL: string = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';
 
   constructor(private elmRef: ElementRef, private renderer: Renderer, private rebirthWindow: RebirthWindow) {
@@ -14,6 +14,6 @@ export class UyanComment implements OnInit {
   }
 
   ngOnInit() {
-    this.rebirthWindow.createScript(UyanComment.UYAN_URL, this.renderer, this.elmRef);
+    this.rebirthWindow.createScript(UyanCommentComponent.UYAN_URL, this.renderer, this.elmRef);
   }
 }

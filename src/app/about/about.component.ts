@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AboutService } from './about.service';
 import { Article } from '../article-service';
-import { ArticleItem } from '../article-item';
+import { ArticleItemComponent } from '../article-item';
 import { Cacheable, StorageType } from 'rebirth-common';
 
 @Component({
   selector: 'about',
   providers: [AboutService],
-  directives: [ArticleItem],
+  directives: [ArticleItemComponent],
   styles: [],
   template: require('./about.html')
 })
-export class About implements OnInit {
+export class AboutComponent implements OnInit {
   private article: Article;
   constructor(private aboutService: AboutService) {
 

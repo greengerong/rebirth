@@ -9,15 +9,15 @@ import {
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
-import { About } from './about.component';
+import { AboutComponent } from './about.component';
 
 describe('About', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEachProviders(() => [
-    About
+    AboutComponent
   ]);
 
-  it('should log ngOnInit', inject([ About ], (about) => {
+  it('should log ngOnInit', inject([ AboutComponent ], (about) => {
     spyOn(console, 'log');
     expect(console.log).not.toHaveBeenCalled();
 

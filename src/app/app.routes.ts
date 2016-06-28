@@ -1,9 +1,9 @@
 import { RouterConfig } from '@angular/router';
-import { Home } from './home';
+import { HomeComponent } from './home';
 
 export const routes: RouterConfig = [
-  { path: '', component: Home },
-  { path: 'home', component: Home },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   // make sure you match the component type string to the require in asyncRoutes
   { path: 'about', component: 'About' }
 ];

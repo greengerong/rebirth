@@ -1,9 +1,9 @@
-import { Directive, HostListener, OnInit, Output, Input, EventEmitter, Renderer, ElementRef, Attribute } from '@angular/core';
+import { Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[dropdown]'
 })
-export class Dropdown {
+export class DropdownDirective {
   @Output() dropdownStatusChange = new EventEmitter();
   private active: boolean = false;
   @Input() private activeCss: string = 'open';

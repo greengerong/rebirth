@@ -11,13 +11,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse" [class.in]="showNavBar" aria-expanded="true">
       <ul class="nav navbar-nav">
-        <li><a router-active [routerLink]="['Blog', 'BlogIndex']">首页</a></li>
-        <li><a router-active [routerLink]="['Blog', 'BlogHome']">文章</a></li>
+        <li><a routerActive [routerLink]="['Blog', 'BlogIndex']">首页</a></li>
+        <li><a routerActive [routerLink]="['Blog', 'BlogHome']">文章</a></li>
         <li class="dropdown" dropdown (dropdownStatusChange)="!$event&&hideNavBar()">
           <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">站内资源<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">相关资源</li>
-            <li><a router-active [routerLink]="['Blog','Question']">我要提问</a></li>
+            <li><a routerActive [routerLink]="['Blog','Question']">我要提问</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">著作与翻译</li>
             <li><a [routerLink]="['BlogArticle', {id: '2015-12-30-angularjsshen-du-pou-xi-yu-zui-jia-shi-jian-jian-jie.html'}]">Angularjs深度剖析与最佳实践</a></li>

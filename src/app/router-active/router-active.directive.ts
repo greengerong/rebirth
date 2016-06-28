@@ -13,11 +13,12 @@ import { isPresent } from '@angular/core/src/facade/lang';
 import { Router, RouterLink } from '@angular/router-deprecated';
 
 @Directive({
-  selector: '[router-active]'
+  selector: '[routerActive]'
 })
-export class RouterActive implements OnInit {
+export class RouterActiveDirective implements OnInit {
   routerActiveAttr: string = 'active';
 
+  /* tslint:disable:no-attribute-parameter-decorator */
   constructor(
     private router: Router,
     private element: ElementRef,
@@ -28,6 +29,7 @@ export class RouterActive implements OnInit {
     this.routerActiveAttr = routerActiveAttr || this.routerActiveAttr;
 
   }
+  /* tslint:enable:no-attribute-parameter-decorator */
 
   ngOnInit() {
     this.routerLink.changes.subscribe(() => {

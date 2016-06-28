@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouteConfig } from '@angular/router-deprecated';
-import { RouterActive } from './router-active';
-import { BlogApp } from './blog-app';
+import { RouterActiveDirective } from './router-active';
+import { BlogAppComponent } from './blog-app';
 import { RebirthHttpProvider } from 'rebirth-common';
 import config from 'config';
 
@@ -9,7 +9,7 @@ import config from 'config';
   selector: 'app',
   pipes: [],
   providers: [],
-  directives: [RouterActive],
+  directives: [RouterActiveDirective],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),
@@ -19,9 +19,10 @@ import config from 'config';
 })
 @RouteConfig([
   { path: '/', name: 'Index', redirectTo: ['Blog'] },
-  { path: '/blog/...', name: 'Blog', component: BlogApp }
+  { path: '/blog/...', name: 'Blog', component: BlogAppComponent }
 ])
-export class App {
+export class AppComponent {
+
   constructor(rebirthHttpProvider: RebirthHttpProvider) {
     rebirthHttpProvider
       .baseUrl(config.api.host)
