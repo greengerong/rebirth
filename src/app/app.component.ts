@@ -24,6 +24,7 @@ import config from 'config';
 export class AppComponent {
 
   constructor(rebirthHttpProvider: RebirthHttpProvider) {
+
     rebirthHttpProvider
       .baseUrl(config.api.host)
       .json()

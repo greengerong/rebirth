@@ -101,7 +101,7 @@
       "camelCase"
     ],
     "component-selector-name": [
-      true,
+      false,
       "kebab-case"
     ],
     "directive-selector-type": [
@@ -113,11 +113,11 @@
       "element"
     ],
     "directive-selector-prefix": [
-      true,
+      false,
       ""
     ],
     "component-selector-prefix": [
-      true,
+      false,
       ""
     ],
     "use-input-property-decorator": true,
@@ -131,7 +131,8 @@
     "use-pipe-transform-interface": true,
     "pipe-naming": [
       true,
-      "camelCase"
+      "camelCase",
+      "re"
     ],
     "component-class-suffix": true,
     "directive-class-suffix": true,
