@@ -1,4 +1,6 @@
 const utils = require('./utils');
+const webpackMerge = require('webpack-merge');
+const devConfig = {};//require('./webpack.common.js');
 
 /**
  * Webpack Plugins
@@ -16,7 +18,7 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
-module.exports = {
+module.exports = webpackMerge(devConfig, {
 
   /**
    * Source map for Karma from the help of karma-sourcemap-loader &  karma-webpack
@@ -45,14 +47,15 @@ module.exports = {
      */
     root: utils.root('src'),
 
-    resolve: {
-      alias: {
-        'config': utils.root('./config/development.ts'),
-        'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts')
-      }
+    modulesDirectories: ['node_modules'],
+
+    alias: {
+      'config': utils.root('./config/development.ts'),
+      'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts')
     }
 
   },
+
 
   /**
    * Options affecting the normal modules.
@@ -91,7 +94,6 @@ module.exports = {
         exclude: [
           // these packages have problems with their sourcemaps
           utils.root('node_modules/rxjs'),
-          utils.root('node_modules/@angular2-material'),
           utils.root('node_modules/@angular')
         ]
       }
@@ -141,7 +143,15 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      {test: /\.css$/, loader: 'raw-loader', exclude: [utils.root('src/index.html')]},
+      {
+        test: /\.css$/,
+        loader: 'raw-loader'
+      },
+
+      {
+        test: /\.scss$/,
+        loader: `raw!postcss!sass?outputStyle=expanded&includePaths[]=${utils.root('src/styles')}/`
+      },
 
       /**
        * Raw loader support for *.html
@@ -235,4 +245,4 @@ module.exports = {
     setImmediate: false
   }
 
-};
+});

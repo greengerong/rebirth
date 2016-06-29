@@ -13,7 +13,7 @@ import { Article } from '../article-service';
 })
 export class ArticleItemComponent {
   private static TAG_CLOUD_STYLE: string[] = ['primary', 'success', 'info', 'warning', 'danger'];
-  @Input() private articleItem: Article;
+  @Input() articleItem: Article;
 
   getTagStyle(tagIndex) {
     let index = Math.floor(((tagIndex + 1) * Math.random() * 100)) % ArticleItemComponent.TAG_CLOUD_STYLE.length;

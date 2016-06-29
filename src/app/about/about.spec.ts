@@ -1,28 +1,46 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { Component, provide } from '@angular/core';
+import { Http, ResponseOptions, Response } from '@angular/http';
+import { GLOBAL_PROVIDERS} from '../../global.providers';
+import { ArticleItemComponent } from '../article-item';
 import {
   beforeEachProviders,
   describe,
   inject,
-  injectAsync,
+  async,
   it
 } from '@angular/core/testing';
 
-// Load the implementations that should be tested
 import { AboutComponent } from './about.component';
 
-describe('About', () => {
-  // provide our implementations or mocks to the dependency injector
+console.log(ArticleItemComponent, 'ArticleItemComponent');
+// let mockHttp = jasmine.createSpyObj('mockHttp', ['request']);
+describe('About Component', () => {
   beforeEachProviders(() => [
-    AboutComponent
+    ...GLOBAL_PROVIDERS,
+    AboutComponent,
+    // provide(Http, {
+    //   useValue: mockHttp
+    // })
   ]);
 
-  it('should log ngOnInit', inject([ AboutComponent ], (about) => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
+  it('should get about me article', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
 
-    about.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
-  }));
+    tcb.createAsync(AboutComponent)
+      .then((fixture) => {
+        fixture.detectChanges();
+        let elm: HTMLElement = fixture.nativeElement;
+        expect(elm.querySelector(".article-title").textContent.trim()).toEqual("破狼简介");
+      });
+
+    // let result = <Article>{
+    //   title: 'Article title'
+    // };
+    // let resposne = new Response(new ResponseOptions({ body: JSON.stringify(result) }));
+    // mockHttp.request.and.returnValue(Rx.Observable.of(resposne));
+    // about.ngOnInit();
+
+    // expect(about.article.title).toEqual('破狼简介');
+  })));
 
 });
