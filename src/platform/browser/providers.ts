@@ -17,6 +17,7 @@ import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callbac
 // import {routes, asyncRoutes, prefetchRouteCallbacks} from '../../app/app.routes';
 
 import { REBIRTH_HTTP_PROVIDERS, REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
+
 /*
  * Application Providers/Directives/Pipes
  * providers/directives/pipes that only live in our browser environment

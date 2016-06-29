@@ -57,8 +57,8 @@ export class RebirthHttpProvider {
     this.interceptors.push({
       request: (request: RequestOptions): void => {
         if (!/^https?:/.test(request.url)) {
-          host = host.replace(/\/$/, "");
-          let url = request.url.replace(/^\//, "");
+          host        = host.replace(/\/$/, "");
+          let url     = request.url.replace(/^\//, "");
           request.url = `${host}/${url}`;
         }
       }
@@ -93,8 +93,7 @@ export class RebirthHttpProvider {
 
 export class RebirthHttp {
 
-  constructor( @Inject(Http) protected http: Http,
-    @Inject(RebirthHttpProvider) @Optional() protected rebirthHttpProvider: RebirthHttpProvider) {
+  constructor(protected http: Http, @Optional() protected rebirthHttpProvider: RebirthHttpProvider) {
   }
 
   protected getBaseUrl(): string {
@@ -146,7 +145,7 @@ function paramBuilder(paramName: string, optional = false) {
       throw new Error(`${paramName} Key is required!`);
     }
     return function (target: RebirthHttp, propertyKey: string | symbol, parameterIndex: number) {
-      let metadataKey = `${propertyKey}_${paramName}_parameters`;
+      let metadataKey   = `${propertyKey}_${paramName}_parameters`;
       let paramObj: any = {
         key: key,
         parameterIndex: parameterIndex
@@ -187,9 +186,9 @@ function methodBuilder(method: number) {
   return function (url: string) {
     return function (target: RebirthHttp, propertyKey: string, descriptor: any) {
 
-      let pPath = target[`${propertyKey}_Path_parameters`];
-      let pQuery = target[`${propertyKey}_Query_parameters`];
-      let pBody = target[`${propertyKey}_Body_parameters`];
+      let pPath   = target[`${propertyKey}_Path_parameters`];
+      let pQuery  = target[`${propertyKey}_Query_parameters`];
+      let pBody   = target[`${propertyKey}_Body_parameters`];
       let pHeader = target[`${propertyKey}_Header_parameters`];
 
       descriptor.value = function (...args: any[]) {
@@ -198,7 +197,7 @@ function methodBuilder(method: number) {
         let body = null;
         if (pBody) {
           let reqBody = args[pBody[0].parameterIndex];
-          body = descriptor.enableJson ? JSON.stringify(reqBody) : reqBody;
+          body        = descriptor.enableJson ? JSON.stringify(reqBody) : reqBody;
         }
 
         // Path
@@ -217,7 +216,7 @@ function methodBuilder(method: number) {
           pQuery
             .filter(p => args[p.parameterIndex]) // filter out optional parameters
             .forEach(p => {
-              let key = p.key;
+              let key   = p.key;
               let value = args[p.parameterIndex];
 
               if (value instanceof Date) {
@@ -252,7 +251,7 @@ function methodBuilder(method: number) {
           }
         }
 
-        let host = this.getBaseUrl().replace(/\/$/, "");
+        let host    = this.getBaseUrl().replace(/\/$/, "");
         let options = new RequestOptions({
           method,
           url: `${host}/${resUrl.replace(/^\//, "")}`,
@@ -262,6 +261,7 @@ function methodBuilder(method: number) {
         });
 
         options = this.requestInterceptor(options) || options;
+        console.log(new Request(options), 'new Request(options)')
         let observable: Observable<Response> = this.http.request(new Request(options));
         // @Produces
         if (descriptor.enableJson) {

@@ -13,15 +13,10 @@ import {
 
 import { AboutComponent } from './about.component';
 
-console.log(ArticleItemComponent, 'ArticleItemComponent');
-// let mockHttp = jasmine.createSpyObj('mockHttp', ['request']);
 describe('About Component', () => {
   beforeEachProviders(() => [
     ...GLOBAL_PROVIDERS,
-    AboutComponent,
-    // provide(Http, {
-    //   useValue: mockHttp
-    // })
+    AboutComponent
   ]);
 
   it('should get about me article', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
@@ -32,15 +27,6 @@ describe('About Component', () => {
         let elm: HTMLElement = fixture.nativeElement;
         expect(elm.querySelector(".article-title").textContent.trim()).toEqual("破狼简介");
       });
-
-    // let result = <Article>{
-    //   title: 'Article title'
-    // };
-    // let resposne = new Response(new ResponseOptions({ body: JSON.stringify(result) }));
-    // mockHttp.request.and.returnValue(Rx.Observable.of(resposne));
-    // about.ngOnInit();
-
-    // expect(about.article.title).toEqual('破狼简介');
   })));
 
 });

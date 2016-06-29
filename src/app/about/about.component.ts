@@ -13,6 +13,7 @@ import { Cacheable, StorageType } from 'rebirth-common';
 })
 export class AboutComponent implements OnInit {
   private article: Article;
+
   constructor(private aboutService: AboutService) {
 
   }

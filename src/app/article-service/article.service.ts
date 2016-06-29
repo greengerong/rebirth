@@ -10,6 +10,7 @@ export class ArticleService extends RebirthHttp {
 
   constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider) {
     super(http, rebirthHttpProvider);
+    console.log(http,'=====================')
   }
 
   @Cacheable({ pool: 'articles', storageType: StorageType.memory })
