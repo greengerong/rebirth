@@ -7,7 +7,7 @@ import { RebirthWindow } from 'rebirth-common';
 
 @Component({
   selector: 'article-list',
-  // providers: [ArticleService],
+  providers: [ArticleService],
   directives: [ArticleItemComponent, PagerComponent],
   pipes: [],
   styles: [require('./article-list.scss')],
