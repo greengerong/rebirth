@@ -36,7 +36,7 @@ export const APPLICATION_PROVIDERS = [
   // providePrefetchIdleCallbacks(prefetchRouteCallbacks),
 
 
-  {provide: LocationStrategy, useClass: HashLocationStrategy}, //PathLocationStrategy
+  {provide: LocationStrategy, useClass: HashLocationStrategy}, // PathLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS
 ];
