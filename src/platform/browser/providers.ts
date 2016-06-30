@@ -1,5 +1,5 @@
 // Angular 2
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
 // Angular 2 Http
 import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
@@ -36,7 +36,7 @@ export const APPLICATION_PROVIDERS = [
   // providePrefetchIdleCallbacks(prefetchRouteCallbacks),
 
 
-  {provide: LocationStrategy, useClass: HashLocationStrategy},
+  {provide: LocationStrategy, useClass: HashLocationStrategy}, //PathLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS
 ];

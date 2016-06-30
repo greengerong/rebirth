@@ -138,6 +138,9 @@ module.exports = webpackMerge(commonConfig, {
       aggregateTimeout: 300,
       poll: 1000
     },
+    proxy: {
+      '/blog**': 'http://localhost:3000/index.html'
+    },
     outputPath: utils.root('dist')
   },
 

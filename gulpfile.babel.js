@@ -110,7 +110,6 @@ gulp.task('webpack:prod', ['clean:dist'], () => {
 
 gulp.task("dev", ['mock'], () => {
   var devConfig = Object.create(require("./build/webpack.dev.js"));
-  devConfig.progress = true;
   return new WebpackDevServer(webpack(devConfig), {
     stats: {
       colors: true
