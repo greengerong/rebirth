@@ -1,6 +1,6 @@
 const utils = require('./utils');
 const webpackMerge = require('webpack-merge');
-const devConfig = {};//require('./webpack.common.js');
+const devConfig = {};
 
 /**
  * Webpack Plugins
@@ -11,7 +11,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 /**
  * Webpack configuration
@@ -26,7 +26,7 @@ module.exports = webpackMerge(devConfig, {
    * Do not change, leave as is or it wont work.
    * See: https://github.com/webpack/karma-webpack#source-maps
    */
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-source-map',
 
   /**
    * Options affecting the resolving of modules.
@@ -76,11 +76,11 @@ module.exports = webpackMerge(devConfig, {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-      {
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: [utils.root('node_modules')]
-      },
+      // {
+      //   test: /\.ts$/,
+      //   loader: 'tslint-loader',
+      //   exclude: [utils.root('node_modules')]
+      // },
 
       /**
        * Source map loader support for *.js files
@@ -224,11 +224,11 @@ module.exports = webpackMerge(devConfig, {
    *
    * See: https://github.com/wbuchwalter/tslint-loader
    */
-  tslint: {
-    emitErrors: false,
-    failOnHint: false,
-    resourcePath: 'src'
-  },
+  // tslint: {
+  //   emitErrors: false,
+  //   failOnHint: false,
+  //   resourcePath: 'src'
+  // },
 
   /**
    * Include polyfills or mocks for various node stuff

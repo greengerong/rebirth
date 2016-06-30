@@ -15,6 +15,7 @@ import { UyanCommentComponent } from '../uyan-comment';
 export class BlogArticleComponent implements OnInit {
   private articleUrl: string;
   private article: Article;
+
   constructor(private articleService: ArticleService, private routeParams: RouteParams) {
     this.articleUrl = routeParams.get('id');
   }
