@@ -1,21 +1,10 @@
-import {
-  Attribute,
-  Directive,
-  ElementRef,
-  Input,
-  Optional,
-  Query,
-  QueryList,
-  Renderer,
-  OnInit
-} from '@angular/core';
+import { Attribute, Directive, ElementRef, Input, Optional, Query, QueryList, Renderer, OnInit } from '@angular/core';
 import { isPresent } from '@angular/core/src/facade/lang';
-import { Router, RouterLink } from '@angular/router-deprecated';
 
 @Directive({
   selector: '[routerActive]'
 })
-export class RouterActiveDirective  {
+export class RouterActiveDirective {
   routerActiveAttr: string = 'active';
   //
   // /* tslint:disable:no-attribute-parameter-decorator */

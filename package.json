@@ -6,7 +6,7 @@
   "homepage": "http://git.oschina.net/greengerong/rebirth",
   "license": "MIT",
   "scripts": {
-    "build:dev": "build:dev",
+    "build:dev": "gulp build:dev",
     "build:prod": "gulp build",
     "dev": "gulp dev",
     "prod": "gulp prod",
