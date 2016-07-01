@@ -4,7 +4,7 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
 import { provideRouter } from '@angular/router';
-import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+// import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 // Angular 2 forms
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
@@ -14,7 +14,7 @@ import { provideWebpack } from '@angularclass/webpack-toolkit';
 import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
 
 
-// import {routes, asyncRoutes, prefetchRouteCallbacks} from '../../app/app.routes';
+import { routes, asyncRoutes, prefetchRouteCallbacks } from '../../app/app.routes';
 
 import { REBIRTH_HTTP_PROVIDERS, REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
 
@@ -27,13 +27,13 @@ export const APPLICATION_PROVIDERS = [
   disableDeprecatedForms(),
   provideForms(),
 
+  // ...ROUTER_PROVIDERS,
+  provideRouter(routes),
+  provideWebpack(asyncRoutes),
+  providePrefetchIdleCallbacks(prefetchRouteCallbacks),
+
   ...HTTP_PROVIDERS,
   ...JSONP_PROVIDERS,
-
-  ...ROUTER_PROVIDERS,
-  // provideRouter(routes),
-  // provideWebpack(asyncRoutes),
-  // providePrefetchIdleCallbacks(prefetchRouteCallbacks),
 
 
   {provide: LocationStrategy, useClass: HashLocationStrategy}, // PathLocationStrategy

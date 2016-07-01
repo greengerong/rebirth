@@ -15,6 +15,7 @@ import { ArticleService, SearchResult, Article } from '../article-service';
 })
 export class BlogAsideComponent implements OnInit {
   private article: SearchResult<Article>;
+
   constructor(private articleService: ArticleService) {
 
   }

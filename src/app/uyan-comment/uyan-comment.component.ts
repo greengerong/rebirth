@@ -4,7 +4,7 @@ import { RebirthWindow } from 'rebirth-common';
 @Component({
   selector: 'uyan-comment',
   template: require('./uyan-comment.html'),
-  changeDetection: ChangeDetectionStrategy.Checked
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UyanCommentComponent implements OnInit {
   private static UYAN_URL: string = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';

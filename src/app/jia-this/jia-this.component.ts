@@ -5,7 +5,7 @@ import { RebirthWindow } from 'rebirth-common';
   selector: 'jia-this',
   template: require('./jia-this.html'),
   styles: [require('./jia-this.scss')],
-  changeDetection: ChangeDetectionStrategy.Checked
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JiaThisComponent implements OnInit {
   private static UYAN_URL: string = 'http://v3.jiathis.com/code/jiathis_m.js?uid=1893648';

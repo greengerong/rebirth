@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, Article } from '../article-service';
 import { ArticleItemComponent } from '../article-item';
-import { RouteParams } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UyanCommentComponent } from '../uyan-comment';
 
 @Component({
@@ -16,14 +16,17 @@ export class BlogArticleComponent implements OnInit {
   private articleUrl: string;
   private article: Article;
 
-  constructor(private articleService: ArticleService, private routeParams: RouteParams) {
-    this.articleUrl = routeParams.get('id');
+  constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) {
+
   }
 
   ngOnInit() {
-    this.articleService.getArticleByUrl(this.articleUrl)
-      .subscribe(result => {
-        this.article = result;
-      });
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.articleUrl = params.id;
+      this.articleService.getArticleByUrl(this.articleUrl)
+        .subscribe(result => {
+          this.article = result;
+        });
+    });
   }
 }
