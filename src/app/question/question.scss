@@ -1,29 +1,25 @@
 @import "common";
 
-$line-width : 10px;
+$line-width: 10px;
 
 .question {
   .last-posts {
-    .post-item {
-      li {
-        line-height: 2;
-        &>.content {
-          display: inline-block;
-          vertical-align: middle;
-          margin-right: $line-width;
-        }
-      }
-    }
     .label {
       &:not(:last-child) {
         margin-right: $line-width;
       }
     }
-    .avatar {
-      width: 2rem;
+    .question-item-order {
+      width: 5px;
+    }
+    .question-item-avatar {
+      width: 5rem;
+      .avatar {
+        width: 100%;
+      }
     }
   }
-  section{
+  section {
     padding-top: 20px;
     @include bottom-line();
   }
