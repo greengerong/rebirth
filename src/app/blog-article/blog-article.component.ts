@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, Article } from '../article-service';
 import { ArticleItemComponent } from '../article-item';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UyanCommentComponent } from '../uyan-comment';
 
 @Component({

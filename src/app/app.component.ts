@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { RouterActiveDirective } from './router-active';
+import { RouterLinkActive } from '@angular/router';
 import { RebirthHttpProvider } from 'rebirth-common';
 import config from 'config';
 
@@ -7,7 +7,7 @@ import config from 'config';
   selector: 'app',
   pipes: [],
   providers: [],
-  directives: [RouterActiveDirective],
+  directives: [RouterLinkActive],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),

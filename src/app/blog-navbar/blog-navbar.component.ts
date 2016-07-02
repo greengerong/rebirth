@@ -1,11 +1,11 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterLinkActive } from '@angular/router';
 import { DropdownDirective } from '../dropdown';
-import { RouterActiveDirective } from '../router-active';
 
 @Component({
   selector: 'blog-navbar',
   providers: [],
-  directives: [DropdownDirective, RouterActiveDirective],
+  directives: [DropdownDirective, RouterLinkActive],
   pipes: [],
   styles: [require('./blog-navbar.scss')],
   template: require('./blog-navbar.html'),
