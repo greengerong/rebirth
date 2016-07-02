@@ -25,7 +25,7 @@ export class AppComponent {
       .addInterceptor({
         request: request => {
           console.log('全局拦截器(request)', request);
-        },
+        },  
         response: (stream) => stream.map(response => {
           console.log('全局拦截器(response)', response);
           return response;

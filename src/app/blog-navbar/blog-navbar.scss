@@ -1,4 +1,5 @@
 @import "common";
+
 $nav-text-color: #fff;
 .navbar {
   background: $brand-primary;
@@ -13,23 +14,29 @@ $nav-text-color: #fff;
     background: $brand-primary;
     padding: 0px;
   }
-  .active {
-    background: $nav-text-color;
-    a {
-      color: $brand-primary;
+
+  .dropdown {
+    &.active, &:focus, &:hover {
+      & > a {
+        background: $nav-text-color;
+        color: $brand-primary;
+      }
     }
   }
+
   a {
     color: $nav-text-color;
     text-decoration: none;
     &.active,
     &:focus,
     &:hover {
+      background: $nav-text-color;
       color: $brand-primary;
     }
+
   }
   .open {
-    &>a {
+    & > a {
       color: $brand-primary;
     }
   }
