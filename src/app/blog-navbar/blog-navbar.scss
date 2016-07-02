@@ -13,8 +13,18 @@ $nav-text-color: #fff;
   .dropdown-menu {
     background: $brand-primary;
     padding: 0px;
+    border:none;
   }
-
+  .dropdown-menu{
+    li{
+      border-bottom:1px solid #f1f1f1;
+      a{
+        height:36px;
+        line-height: 36px;
+        padding-left: 12px;
+      }
+    }  
+  }
   .dropdown {
     &.active, &:focus, &:hover {
       & > a {
