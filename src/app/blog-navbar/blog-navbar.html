@@ -16,22 +16,15 @@
         <li><a routerLinkActive="active" [routerLink]="['/blog/home']">文章</a></li>
         <li class="dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" dropdown
             (dropdownStatusChange)="!$event&&hideNavBar()">
-          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">站内资源
-              <span class="caret"></span>
-            </a>
+          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">站内资源<span
+            class="caret"></span></a>
           <ul class="dropdown-menu">
-<!--            <li class="dropdown-header">相关资源</li>-->
+            <li class="dropdown-header">相关资源</li>
             <li><a routerLinkActive="active" [routerLink]="['/blog/question']">我要提问</a></li>
-<!--            <li role="separator" class="divider"></li>-->
-<!--            <li class="dropdown-header">著作与翻译</li>-->
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">著作与翻译</li>
             <li><a routerLinkActive="active"
                    [routerLink]="['/blog', '2015-12-30-angularjsshen-du-pou-xi-yu-zui-jia-shi-jian-jian-jie.html']">Angularjs深度剖析与最佳实践</a>
-            </li>
-            <li><a routerLinkActive="active"
-                   [routerLink]="['/blog', '2015-12-30-angularjsshen-du-pou-xi-yu-zui-jia-shi-jian-jian-jie.html']">Angularjs书籍</a>
-            </li>
-            <li><a routerLinkActive="active"
-                   [routerLink]="['/blog', '2015-12-30-angularjsshen-du-pou-xi-yu-zui-jia-shi-jian-jian-jie.html']">Angularjs 2.0</a>
             </li>
           </ul>
         </li>
