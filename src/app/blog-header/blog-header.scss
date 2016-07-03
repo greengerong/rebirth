@@ -1,0 +1,10 @@
+.main-header {
+  &:before {
+    background: url("./assets/img/banner.jpg") no-repeat top right;
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 10em;
+    width: 100%;
+  }
+}

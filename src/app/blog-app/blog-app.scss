@@ -1,15 +1,3 @@
-.main-header {
-  &:before {
-    background-image: url("./assets/img/banner.jpg");
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    content: '';
-    display: block;
-    height: 10em;
-    width: 100%;
-  }
-}
 
 .main-content {
   padding: 1.5rem;
@@ -17,14 +5,4 @@
 
 .aside-content {
   @extend .main-content;
-}
-
-.footer {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  margin-bottom: 1rem;
 }

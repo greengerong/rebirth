@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { BlogNavbarComponent } from '../blog-navbar';
 import { BlogAsideComponent } from '../blog-aside';
+import { BlogFooterComponent } from '../blog-footer';
+import { BlogHeaderComponent } from '../blog-header';
 
 @Component({
   selector: 'blog-app',
   pipes: [],
   providers: [],
-  directives: [BlogNavbarComponent, BlogAsideComponent],
+  directives: [BlogHeaderComponent, BlogAsideComponent, BlogFooterComponent],
   styles: [
     require('./blog-app.scss')
   ],
