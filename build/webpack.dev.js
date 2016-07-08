@@ -133,13 +133,12 @@ module.exports = webpackMerge(commonConfig, {
   devServer: {
     port: METADATA.port,
     host: METADATA.host,
+    inline: true,
+    colors: true,
     historyApiFallback: true,// 404 go to index
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
-    },
-    proxy: {
-      '/blog**': 'http://localhost:3000/index.html'
     },
     outputPath: utils.root('dist')
   },

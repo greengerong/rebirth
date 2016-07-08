@@ -113,7 +113,13 @@ gulp.task("dev", ['mock'], () => {
   return new WebpackDevServer(webpack(devConfig), {
     stats: {
       colors: true
-    }
+    },
+    hot: true,
+    quiet: false,
+    noInfo: false,
+    historyApiFallback: true,
+    inline: true,
+    colors: true
   }).listen(3000, "localhost", function (err) {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
     gutil.log("[webpack-dev-server]", "http://localhost:3000/");

@@ -36,7 +36,7 @@ export const APPLICATION_PROVIDERS = [
   ...JSONP_PROVIDERS,
 
 
-  {provide: LocationStrategy, useClass: HashLocationStrategy}, // PathLocationStrategy
+  {provide: LocationStrategy, useClass: PathLocationStrategy}, // HashLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS
 ];
