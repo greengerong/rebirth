@@ -1,14 +1,15 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { GLOBAL_PROVIDERS } from '../../global.providers';
-import { beforeEachProviders, describe, inject, async, it } from '@angular/core/testing';
+import { addProviders, describe, inject, async, it } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
 
 describe('About Component', () => {
-  beforeEachProviders(() => [
+  
+  beforeEach(() => addProviders([
     ...GLOBAL_PROVIDERS,
     AboutComponent
-  ]);
+  ]));
 
   it('should get about me article', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
 

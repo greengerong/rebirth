@@ -69,7 +69,8 @@ module.exports = {
     modulesDirectories: ['node_modules'],
 
     alias: {
-      'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts')
+      'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts'),
+      'loading.css': utils.root('./src/assets/css/loading.css')
     },
 
   },

@@ -1,9 +1,10 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
+import { Http, BaseRequestOptions } from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
 import { GLOBAL_PROVIDERS } from '../../global.providers';
-import { ArticleService, Article, SearchResult } from '../article-service';
-import { beforeEachProviders, describe, inject, async, it } from '@angular/core/testing';
-import * as Rx from 'rxjs';
+import { Article, SearchResult } from '../article-service';
+import { addProviders, describe, inject, async, it } from '@angular/core/testing';
 import { ArticleListComponent } from './article-list.component';
 
 describe('Article list Component', () => {
@@ -19,23 +20,31 @@ describe('Article list Component', () => {
       }
     ]
   };
-  let articleService = jasmine.createSpyObj('articleService', ['getArticles']);
-  beforeEachProviders(() => [
+
+  beforeEach(() => addProviders([
+    ...GLOBAL_PROVIDERS,
+    MockBackend,
+    BaseRequestOptions,
+    {
+      provide: Http,
+      useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
+        return new Http(backend, defaultOptions);
+      },
+      deps: [MockBackend, BaseRequestOptions]
+    },
     {
       provide: ElementRef,
       useValue: new ElementRef(document.body)
     },
-    {
-      provide: ArticleService,
-      useValue: articleService
-    },
     ArticleListComponent,
-    ...GLOBAL_PROVIDERS,
-  ]);
+  ]));
 
-  it('should render article list from service response', async(inject([TestComponentBuilder],
-    (tcb: TestComponentBuilder) => {
-      articleService.getArticles.and.returnValue(Rx.Observable.of(result));
+  it('should render article list from service response', async(inject([TestComponentBuilder, MockBackend],
+    (tcb: TestComponentBuilder, mockBackend: MockBackend) => {
+      mockBackend.connections.subscribe((con: MockConnection) => {
+        con.mockRespond(result);
+      });
+
       tcb.createAsync(ArticleListComponent)
         .then((fixture) => {
           fixture.detectChanges();

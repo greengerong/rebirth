@@ -10,12 +10,6 @@
   </p>
   <section class="last-posts">
     <h3 class="article-title">近30天问题：</h3>
-    <!--move to http 拦截器-->
-    <div class="loading" *ngIf="!loaded">
-      <strong> Loading...</strong>
-      <span></span>
-    </div>
-
     <table class="table table-striped">
       <tbody>
       <tr *ngFor="let questionItem of questions; let questionIndex = index;">

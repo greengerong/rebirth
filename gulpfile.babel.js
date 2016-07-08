@@ -122,7 +122,7 @@ gulp.task("dev", ['mock'], () => {
 
 gulp.task("tslint", () => {
   return gulp.src('src/**/*.ts')
-    .pipe(tslint({configuration: "./tslint.json", e}))
+    .pipe(tslint({configuration: "./tslint.json"}))
     .pipe(map(function (file, done) {
       file.contents = new Buffer("");
       if (file.tslint.output) {

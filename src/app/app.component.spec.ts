@@ -1,17 +1,20 @@
 import {
-  beforeEachProviders,
+  addProviders
   inject,
   it
 } from '@angular/core/testing';
-
+import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-common';
+import { LoadService } from './loading';
 
 describe('App', () => {
-  beforeEachProviders(() => [
+  beforeEach(() => addProviders([
     AppComponent,
-    RebirthHttpProvider
-  ]);
+    { provide: ViewContainerRef, useValue: {} },
+    RebirthHttpProvider,
+    LoadService
+  ]));
 
   it('should init http interceptors', inject([AppComponent, RebirthHttpProvider],
     (appComponent, rebirthHttpProvider: RebirthHttpProvider) => {
