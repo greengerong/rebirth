@@ -17,7 +17,7 @@
     <h3 class="article-title">最新随笔</h3>
     <ul class="list-unstyled content">
       <li *ngFor="let articleItem of article?.result">
-        <a [routerLink]="['/blog', articleItem.url]">{{articleItem.title}}</a>
+        <a [routerLink]="['./', articleItem.url]">{{articleItem.title}}</a>
       </li>
     </ul>
   </section>
