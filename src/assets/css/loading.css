@@ -13,6 +13,7 @@
   text-align: center;
   line-height: 100px;
   color: white;
+
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -28,6 +29,7 @@
   -webkit-border-radius: 70px;
   -moz-border-radius: 70px;
   border-radius: 70px;
+
   background: #4acaa8;
   z-index: -2;
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
@@ -45,15 +47,25 @@
   z-index: -1;
   top: -28px;
   left: 0px;
+
   -webkit-animation: ticktock 5s linear infinite;
+  -o-animation: ticktock 5s linear infinite;
+  animation: ticktock 5s linear infinite;
+
   -webkit-transform-origin: 50px 80px;
+  -moz-transform-origin: 50px 80px;
+  -ms-transform-origin: 50px 80px;
+  -o-transform-origin: 50px 80px;
+  transform-origin: 50px 80px;
 }
 
 .loading strong {
   overflow: hidden;
   display: block;
   margin: 0 auto;
-  -webkit-animation: expand 2.5s linear infinite;
+  -webkit-animation: expand 2.5s linear infinite;;
+  -o-animation: expand 2.5s linear infinite;;
+  animation: expand 2.5s linear infinite;;
 }
 
 @-webkit-keyframes expand {
@@ -67,9 +79,17 @@
 
 @-webkit-keyframes ticktock {
   0% {
-    -webkit-transform: rotate(0);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

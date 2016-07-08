@@ -21,7 +21,7 @@ export class AppComponent {
   constructor(rebirthHttpProvider: RebirthHttpProvider, viewContainer: ViewContainerRef, loadService: LoadService) {
 
     loadService.defaultViewContainerRef = viewContainer;
-    
+
     rebirthHttpProvider
       .baseUrl(config.api.host)
       .json()
