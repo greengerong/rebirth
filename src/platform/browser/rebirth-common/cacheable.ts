@@ -1,4 +1,4 @@
-import * as Rx from 'rxjs/rx';
+import { Observable }     from 'rxjs/Observable';
 
 export enum StorageType {
   memory,
@@ -36,9 +36,11 @@ class WebStorage implements IStorage {
     storage[key] = value;
     this.saveAll(pool, storage);
   }
+
   remove(pool: string) {
     this.webStorage.removeItem(pool);
   }
+
   removeAll() {
     this.webStorage.clear();
   }
@@ -46,6 +48,7 @@ class WebStorage implements IStorage {
 
 class MemoryStorage implements IStorage {
   private storage: Map<string, Map<string, Object>>;
+
   constructor() {
     this.storage = new Map<string, Map<string, Object>>();
   }
@@ -65,9 +68,11 @@ class MemoryStorage implements IStorage {
     }
     this.storage.get(pool).set(key, value);
   }
+
   remove(pool: string) {
     this.storage.delete(pool);
   }
+
   removeAll() {
     this.storage = new Map<string, Map<string, Object>>();
   }
@@ -118,7 +123,7 @@ export class RxDataCacheStrategy implements IDataCacheStrategy {
   }
 
   get(result: any): Object {
-    return Rx.Observable.of(result);
+    return Observable.fromPromise(Promise.resolve(result));
   }
 }
 
