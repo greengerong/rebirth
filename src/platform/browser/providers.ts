@@ -16,7 +16,8 @@ import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callbac
 
 import { routes, asyncRoutes, prefetchRouteCallbacks } from '../../app/app.routes';
 
-import { REBIRTH_HTTP_PROVIDERS, REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
+import { REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
+import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
 
 /*
  * Application Providers/Directives/Pipes
@@ -36,7 +37,7 @@ export const APPLICATION_PROVIDERS = [
   ...JSONP_PROVIDERS,
 
 
-  {provide: LocationStrategy, useClass: PathLocationStrategy}, // HashLocationStrategy
+  { provide: LocationStrategy, useClass: PathLocationStrategy }, // HashLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS
 ];

@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RebirthHttpProvider } from 'rebirth-common';
+import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadService } from './loading';
 
 describe('App', () => {

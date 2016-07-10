@@ -3,7 +3,8 @@ import { Http } from '@angular/http';
 import { SearchResult } from './SearchResult';
 import { Article } from './article';
 import { Observable } from 'rxjs/Observable';
-import { Cacheable, StorageType, RebirthHttp, RebirthHttpProvider, BaseUrl, GET, Query, Path } from 'rebirth-common';
+import { Cacheable, StorageType } from 'rebirth-common';
+import { RebirthHttp, RebirthHttpProvider, BaseUrl, GET, POST, PUT, DELETE, Query, Path, Body } from  'rebirth-http';
 
 @Injectable()
 export class ArticleService extends RebirthHttp {
@@ -12,7 +13,7 @@ export class ArticleService extends RebirthHttp {
     super(http, rebirthHttpProvider);
   }
 
-  @Cacheable({pool: 'articles', storageType: StorageType.memory})
+  @Cacheable({ pool: 'articles', storageType: StorageType.memory })
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
               @Query('pageSize') pageSize = 10): Observable<SearchResult<Article>> {
@@ -23,4 +24,5 @@ export class ArticleService extends RebirthHttp {
   getArticleByUrl(@Path('id') articleUrl: string): Observable<Article> {
     return null;
   }
+
 }
