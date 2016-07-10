@@ -10,7 +10,7 @@ export interface CurrentUser {
 
 @Injectable()
 export class PermissionsService {
-  hasRight(roles: string[]): Observable<boolean> {
+  hasRight(roles: string[]): Observable<boolean>| boolean {
     return true;
   }
 }
@@ -37,7 +37,7 @@ export class ManagePermissions implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    return this.permissionsService.hasRight(route.data.roles);
+    return this.permissionsService.hasRight((<any>route.data).roles);
   }
 
 }
