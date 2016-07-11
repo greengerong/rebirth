@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Article } from '../article-service';
 import { Observable }     from 'rxjs/Observable';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 @Injectable()
 export class AboutService {
@@ -11,6 +12,6 @@ export class AboutService {
     article.categories = ['破狼', '简介'];
     article.layout = 'post';
     article.html = require('./polang.html');
-    return Observable.fromPromise(Promise.resolve(article));
+    return fromPromise(Promise.resolve(article));
   }
 }

@@ -24,6 +24,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
 import 'rxjs/Observable';
+import 'rxjs/observable/fromPromise';
 
 import 'lodash';
 import 'immutable';

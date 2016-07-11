@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs/Observable';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 import { Injectable } from '@angular/core';
 
 export enum StorageType {
@@ -33,7 +34,7 @@ class RxDataCacheStrategy implements IDataCacheStrategy {
   }
 
   get(result: any): Object {
-    return Observable.fromPromise(Promise.resolve(result));
+    return fromPromise(Promise.resolve(result));
   }
 }
 
