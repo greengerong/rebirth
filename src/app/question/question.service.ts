@@ -10,14 +10,14 @@ export class QuestionService {
   constructor(private jsonp: Jsonp) {
   }
 
-  @Cacheable({pool: 'question'})
+  @Cacheable({ pool: 'question' })
   getQuestions(): Observable<QuestionModel[]> {
     const search = new URLSearchParams();
     let day = new Date();
     day.setMonth(day.getMonth() - 1);
     search.set('since', day.toISOString());
     return this.jsonp
-      .get(config.question.url, {search})
+      .get(config.question.url, { search })
       .map(res => res.json().data);
   }
 }

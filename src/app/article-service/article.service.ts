@@ -13,7 +13,7 @@ export class ArticleService extends RebirthHttp {
     super(http, rebirthHttpProvider);
   }
 
-  @Cacheable({ pool: 'articles', storageType: StorageType.memory })
+  @Cacheable({ pool: 'articles' })
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
               @Query('pageSize') pageSize = 10): Observable<SearchResult<Article>> {
