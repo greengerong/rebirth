@@ -2,7 +2,7 @@ import { Http, Headers, Jsonp, URLSearchParams, Response, RequestOptions } from 
 import { Injectable } from '@angular/core';
 import { Observable }     from 'rxjs/Observable';
 import { QuestionModel } from './question.model';
-import { Cacheable, StorageType } from 'rebirth-common';
+import { Cacheable, StorageType } from 'rebirth-storage';
 import config from 'config';
 
 @Injectable()

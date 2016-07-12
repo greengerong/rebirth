@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { SearchResult } from './SearchResult';
 import { Article } from './article';
 import { Observable } from 'rxjs/Observable';
-import { Cacheable, StorageType } from 'rebirth-common';
+import { Cacheable, StorageType } from 'rebirth-storage';
 import { RebirthHttp, RebirthHttpProvider, BaseUrl, GET, POST, PUT, DELETE, Query, Path, Body } from  'rebirth-http';
 
 @Injectable()

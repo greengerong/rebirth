@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AboutService } from './about.service';
 import { Article } from '../article-service';
 import { ArticleItemComponent } from '../article-item';
-import { Cacheable, StorageType } from 'rebirth-common';
 
 @Component({
   selector: 'about',
@@ -20,6 +19,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.aboutService.getArticle()
-      .subscribe(result => this.article = result);
+      .subscribe(result =>
+        this.article = result);
   }
 }
