@@ -114,7 +114,7 @@ gulp.task("dev", ['mock'], () => {
     stats: {
       colors: true
     },
-    hot: true,
+    hot: false,
     quiet: false,
     noInfo: false,
     historyApiFallback: true,

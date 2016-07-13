@@ -10,7 +10,7 @@ import { RebirthHttp, RebirthHttpProvider, BaseUrl, GET, POST, PUT, DELETE, Quer
 export class ArticleService extends RebirthHttp {
 
   constructor(http: Http, rebirthHttpProvider: RebirthHttpProvider) {
-    super(http, rebirthHttpProvider);
+    super({ http, rebirthHttpProvider });
   }
 
   @Cacheable({ pool: 'articles' })

@@ -4,7 +4,7 @@ var webpackDevServer = require('webpack-dev-server');
 
 var compiler = webpack(config);
 var server = new webpackDevServer(compiler, {
-  hot: true,
+  hot: false,
   quiet: false,
   noInfo: false,
   inline: true,
