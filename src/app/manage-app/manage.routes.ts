@@ -18,7 +18,7 @@ export const routes: RouterConfig = [
         canActivate: [ManagePermissions]
       },
     ]
-  }
+  } 
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`

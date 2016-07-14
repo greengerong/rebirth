@@ -5,45 +5,46 @@ import { Observable } from 'rxjs/Observable';
 export interface CurrentUser {
   id: string;
   name: string;
-  roles: string[];
-}
-
-@Injectable()
-export class PermissionsService {
-  hasRight(roles: string[]): Observable<boolean>| boolean {
-    return true;
-  }
+  roles: any[];
 }
 
 @Injectable()
 export class AuthorizationService {
+  private currentUser: CurrentUser;
 
-  login<T extends CurrentUser>(loginRequest: any): Observable<T> {
-    return null;
+  setCurrentUser(currentUser: CurrentUser) {
+    console.log(currentUser, 'currentUsercurrentUser');
+    this.currentUser = currentUser;
   }
 
-  loinout(): Observable<any> {
-    return null;
+  getCurrentUser<T extends CurrentUser>(): T {
+    return <T>this.currentUser;
   }
 
+  hasRight(roles: any | any[]): Observable<boolean>| boolean {
+
+    if (!Array.isArray(roles)) {
+      roles = [roles];
+    }
+    console.log(this.currentUser, '--------', roles);
+    return roles.some(role => (this.currentUser || { roles: [] }).roles.indexOf(role) !== -1);
+  }
 }
-
 
 @Injectable()
 export class ManagePermissions implements CanActivate {
 
-  constructor(private permissionsService: PermissionsService) {
+  constructor(private authorizationService: AuthorizationService) {
 
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    return this.permissionsService.hasRight((<any>route.data).roles);
+    return true; //this.authorizationService.hasRight((<any>route.data).roles);
   }
 
 }
 
 export const PERMISSIONS_PROVIDERS: any[] = [
-  PermissionsService,
   AuthorizationService,
   ManagePermissions
 ];
