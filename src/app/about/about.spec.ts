@@ -1,6 +1,6 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { GLOBAL_PROVIDERS } from '../../global.providers';
-import { addProviders, describe, inject, async, it, tick, fakeAsync } from '@angular/core/testing';
+import { addProviders, inject, async, tick, fakeAsync } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
 

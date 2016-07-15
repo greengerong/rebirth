@@ -1,4 +1,5 @@
-import path from 'path';
+var path = require('path');
+
 module.exports = function (config) {
   var testWebpackConfig = require('./webpack.test.js');
 

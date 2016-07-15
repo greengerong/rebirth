@@ -3,7 +3,6 @@ import stubby from 'gulp-stubby-server';
 import path from 'path';
 import del from  'del';
 import install from 'gulp-install';
-import gulpTypings from 'gulp-typings';
 import typedoc from 'gulp-typedoc';
 import karma from 'karma';
 import tslint from "gulp-tslint";
@@ -26,12 +25,6 @@ let files = [
 gulp.task('install:npm', () => {
   return gulp.src(['./package.json'])
     .pipe(install());
-});
-
-
-gulp.task("install:typings", function () {
-  return gulp.src("./typings.json")
-    .pipe(gulpTypings());
 });
 
 
@@ -129,24 +122,10 @@ gulp.task("dev", ['mock'], () => {
 gulp.task("tslint", () => {
   return gulp.src('src/**/*.ts')
     .pipe(tslint({configuration: "./tslint.json"}))
-    .pipe(map(function (file, done) {
-      file.contents = new Buffer("");
-      if (file.tslint.output) {
-        var text = JSON.parse(file.tslint.output)
-          .map(tslint.proseErrorFormat)
-          .join("\n");
-
-        if (text) {
-          gutil.log(text);
-          file.contents = new Buffer(text);
-        }
-      }
-
-      done(null, file);
+    .pipe(tslint({
+      formatter: "verbose"
     }))
-    .pipe(concat("tslint-report.txt"))
-    .pipe(gulp.dest("./tslint"));
-  ;
+    .pipe(tslint.report());
 });
 
 gulp.task('karma:debug', (cb) => {
@@ -173,7 +152,7 @@ gulp.task('serve:prod', () => {
   });
 });
 
-gulp.task('install', ['install:npm', 'install:typings']);
+gulp.task('install', ['install:npm']);
 gulp.task('clean:install', ['clean:all', 'install']);
 gulp.task('test', ['tslint', 'karma']);
 gulp.task('build:dev', ['webpack:dev']);

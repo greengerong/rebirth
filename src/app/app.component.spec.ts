@@ -1,7 +1,6 @@
 import {
   addProviders
-  inject,
-  it
+  inject
 } from '@angular/core/testing';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';

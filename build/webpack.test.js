@@ -225,11 +225,11 @@ module.exports = webpackMerge(devConfig, {
    *
    * See: https://github.com/wbuchwalter/tslint-loader
    */
-  // tslint: {
-  //   emitErrors: false,
-  //   failOnHint: false,
-  //   resourcePath: 'src'
-  // },
+  tslint: {
+    emitErrors: false,
+    failOnHint: false,
+    resourcePath: 'src'
+  },
 
   /**
    * Include polyfills or mocks for various node stuff

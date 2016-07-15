@@ -39,7 +39,7 @@ export class ManagePermissions implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    return true; //this.authorizationService.hasRight((<any>route.data).roles);
+    return true; // this.authorizationService.hasRight((<any>route.data).roles);
   }
 
 }

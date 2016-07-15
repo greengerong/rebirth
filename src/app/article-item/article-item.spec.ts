@@ -1,7 +1,7 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { GLOBAL_PROVIDERS } from '../../global.providers';
 import { Article } from '../article-service';
-import { addProviders, describe, inject, async, it } from '@angular/core/testing';
+import { addProviders, inject, async } from '@angular/core/testing';
 
 import { ArticleItemComponent } from './article-item.component';
 
