@@ -156,7 +156,7 @@ gulp.task('install', ['install:npm']);
 gulp.task('clean:install', ['clean:all', 'install']);
 gulp.task('test', ['tslint', 'karma']);
 gulp.task('build:dev', ['webpack:dev']);
-gulp.task('build', ['webpack:prod']); //'test'
+gulp.task('build', ['test', 'webpack:prod']);
 gulp.task('prod', function (cb) {
   runSequence('build', 'serve:prod', cb);
 });
