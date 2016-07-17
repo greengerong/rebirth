@@ -21,3 +21,14 @@ your new project.
 * build development: `npm run build`
 * build production: `npm run build:prod`
 
+## main dependency
+
+* gulp: It help use to manage all the plugin.
+* webpack: This is main build plugin.
+* awesome-typescript-loader: webpack typescript loader
+* postcss & sass
+* karma
+* tslint & codelyzer
+* typescript & @types
+* fontgen-loader: icon font
+* ...
