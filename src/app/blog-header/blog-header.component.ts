@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { BlogNavbarComponent } from '../blog-navbar';
 
 @Component({
   selector: 'blog-header',
   pipes: [],
   providers: [],
-  directives: [BlogNavbarComponent],
+  directives: [],
   styles: [
     require('./blog-header.scss')
   ],

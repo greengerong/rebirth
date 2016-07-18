@@ -1,5 +1,11 @@
 .login-form {
-  width: 80%;
-  margin: 20px auto;
-  max-width: 360px;
+  width: 340px;
+  margin: 40px auto 80px auto;
+  max-width: 80%;
+
+  .auth-form-body {
+    padding: 1.5rem;
+    border: 1px dashed #ccc;
+    background: #d8dee2;
+  }
 }
