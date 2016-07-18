@@ -1,3 +1,3 @@
-export * from './article';
-export * from './article.service';
+export * from './Article';
+export * from './Article.service';
 export * from './SearchResult';

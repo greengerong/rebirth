@@ -1,30 +1,28 @@
 import { RouterConfig } from '@angular/router';
 import { ManageAppComponent } from './manage-app.component';
-import { ManagePermissions } from './manage.permissions';
-
-export enum Role {
-  Anonymous, Admin
-}
+import { AuthRolePermission } from '../permissions/AuthRolePermission';
 
 export const routes: RouterConfig = [
   {
     path: 'manage', component: ManageAppComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: '/manage/home' },
+      { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
+      { path: 'login', component: 'LoginComponent' },
       {
         path: 'home',
         component: 'ManageHomeComponent',
-        data: { roles: [Role.Admin] },
-        canActivate: [ManagePermissions]
+        data: { roles: ['Admin'] },
+        canActivate: [AuthRolePermission]
       },
     ]
-  } 
+  }
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
 // asyncRoutes is needed for our @angularclass/webpack-toolkit that will allow us to resolve
 // the component correctly
 export const asyncRoutes: AsyncRoutes = {
+  'LoginComponent': require('es6-promise-loader!../login'),
   'ManageHomeComponent': require('es6-promise-loader!../manage-home'),
 };
 

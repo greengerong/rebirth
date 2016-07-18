@@ -1,8 +1,10 @@
 // App
 export * from './app.component';
-import { PERMISSIONS_PROVIDERS } from './manage-app';
+import { providePermission } from './permissions';
+
+const permissionConfig = { loginPage: '/manage/login' };
 
 // Application wide providers
 export const APP_PROVIDERS = [
-  ...PERMISSIONS_PROVIDERS
+  ...providePermission(permissionConfig)
 ];

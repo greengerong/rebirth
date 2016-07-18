@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { SearchResult } from './SearchResult';
-import { Article } from './article';
+import { Article } from './Article';
 import { Observable } from 'rxjs/Observable';
 import { Cacheable, StorageType } from 'rebirth-storage';
 import { RebirthHttp, RebirthHttpProvider, BaseUrl, GET, POST, PUT, DELETE, Query, Path, Body } from  'rebirth-http';

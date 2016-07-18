@@ -19,6 +19,8 @@ import { routes, asyncRoutes, prefetchRouteCallbacks } from '../../app/app.route
 import { REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
 import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
 
+import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
+
 /*
  * Application Providers/Directives/Pipes
  * providers/directives/pipes that only live in our browser environment
@@ -39,7 +41,8 @@ export const APPLICATION_PROVIDERS = [
 
   { provide: LocationStrategy, useClass: PathLocationStrategy }, // HashLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
-  ...REBIRTH_WINDOW_PROVIDERS
+  ...REBIRTH_WINDOW_PROVIDERS,
+  ...REBIRTH_STORAGE_PROVIDERS
 ];
 
 export const PROVIDERS = [
