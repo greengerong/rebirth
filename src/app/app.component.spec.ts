@@ -1,7 +1,4 @@
-import {
-  addProviders
-  inject
-} from '@angular/core/testing';
+import { addProviders, inject } from '@angular/core/testing';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';

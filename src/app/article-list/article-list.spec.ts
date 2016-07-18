@@ -42,7 +42,7 @@ describe('Article list Component', () => {
   it('should render article list from service response', async(inject([TestComponentBuilder, MockBackend],
     (tcb: TestComponentBuilder, mockBackend: MockBackend) => {
       mockBackend.connections.subscribe((con: MockConnection) => {
-        con.mockRespond(result);
+        con.mockRespond(<any>result);
       });
 
       tcb.createAsync(ArticleListComponent)
