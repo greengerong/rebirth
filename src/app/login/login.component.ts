@@ -15,6 +15,7 @@ import config from 'config';
 })
 export class LoginComponent {
   private model: any;
+  private error: any;
 
   constructor(private authorizationService: AuthorizationService, private route: Router) {
     this.model = {};
