@@ -4,16 +4,24 @@ import { CurrentUser } from  './CurrentUser';
 import { StorageType, StorageService } from  'rebirth-storage';
 import { Http, RequestOptionsArgs } from '@angular/http';
 import { fromPromise } from 'rxjs/observable/fromPromise';
+import { PermissionConfig } from './PermissionConfig';
+
+const isBlank = (obj) => {
+  return obj === null || obj === undefined;
+};
 
 @Injectable()
 export class AuthorizationService {
   private static STORAGE_POOL_KEY = "rebirth-authorization";
   private static STORAGE_KEY = "current-user";
-  private storageType: StorageType = StorageType.localStorage;
+  private storageType: StorageType;
   private currentUser: CurrentUser;
 
-  constructor(private storageService: StorageService, private http: Http) {
-
+  constructor(private storageService: StorageService,
+              private http: Http,
+              private permissionConfig: PermissionConfig) {
+    this.storageType = isBlank(permissionConfig.storageType) ?
+      StorageType.localStorage : permissionConfig.storageType;
   }
 
   setStorageType(storageType: StorageType) {
@@ -52,17 +60,21 @@ export class AuthorizationService {
   }
 
   logout(url?: string, options?: RequestOptionsArgs): Observable<any> {
-    this.storageService.remove({
-      pool: AuthorizationService.STORAGE_POOL_KEY,
-      key: AuthorizationService.STORAGE_KEY,
-      storageType: this.storageType
-    });
+    this.clearToken();
 
     if (url) {
       return this.http.delete(url, options);
     }
 
     return fromPromise(Promise.resolve(null));
+  }
+
+  public clearToken() {
+    return this.storageService.remove({
+      pool: AuthorizationService.STORAGE_POOL_KEY,
+      key: AuthorizationService.STORAGE_KEY,
+      storageType: this.storageType
+    });
   }
 
   isLogin() {
