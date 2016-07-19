@@ -1,6 +1,5 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { addProviders, inject, async } from '@angular/core/testing';
-import { ElementRef } from '@angular/core';
 
 import { GLOBAL_PROVIDERS } from '../../global.providers';
 import { BlogFooterComponent } from './index';
