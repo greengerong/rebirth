@@ -65,6 +65,10 @@ export class AuthorizationService {
     return fromPromise(Promise.resolve(null));
   }
 
+  isLogin() {
+    return !!this.getCurrentUser();
+  }
+
   hasRight(roles: any | any[]): Observable<boolean>| boolean {
     if (!this.getCurrentUser()) {
       return false;

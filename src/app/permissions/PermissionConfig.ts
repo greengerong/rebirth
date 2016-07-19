@@ -8,7 +8,7 @@ export class AuthTokenConfig {
 }
 
 export class PermissionConfig {
-  loginPage: string;
+  loginPage?: string;
   auth?: AuthTokenConfig;
 }
 ;
