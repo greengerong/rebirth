@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthorizationService } from '../permissions';
+import { Router } from '@angular/router';
+import config from 'config';
 
 @Component({
   selector: 'login',
@@ -12,15 +14,18 @@ import { AuthorizationService } from '../permissions';
   template: require('./login.html')
 })
 export class LoginComponent {
+  private model: any;
 
-  constructor(private authorizationService: AuthorizationService) {
-
-    // this.authorizationService.setCurrentUser({
-    //   id: '111111',
-    //   token: '111111111111111111',
-    //   name: 'greengerong',
-    //   roles: ['Admin']
-    // });
-
+  constructor(private authorizationService: AuthorizationService, private route: Router) {
+    this.model = {};
   }
+
+  onSubmit() {
+    console.log(this.model, '=========');
+    this.authorizationService.login(`${config.api.host}/login`, this.model)
+      .subscribe(
+        user => this.route.navigateByUrl('/manage/home'),
+        error => this.error = error
+      );
+  };
 }

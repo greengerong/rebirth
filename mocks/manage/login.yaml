@@ -1,0 +1,17 @@
+- request:
+    url: ^/api/login$
+    method: POST
+    headers:
+      Content-Type: application/json
+    post: '{"email":"admin@localhost.com","password":"admin"}'
+  response:
+    status: 200
+    latency: 500
+    headers:
+       Content-Type: application/json
+       Access-Control-Allow-Origin: '*'
+       Access-Control-Allow-Credentials: true
+       Access-Control-Allow-Methods: 'GET, POST, PUT, DELETE, OPTIONS'
+       api-version: "1.0"
+    file:  currentUser.response.json
+

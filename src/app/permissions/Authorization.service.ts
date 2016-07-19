@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CurrentUser } from  './CurrentUser';
 import { StorageType, StorageService } from  'rebirth-storage';
+import { Http, RequestOptionsArgs } from '@angular/http';
 
 @Injectable()
 export class AuthorizationService {
@@ -10,7 +11,7 @@ export class AuthorizationService {
   private storageType: StorageType = StorageType.localStorage;
   private currentUser: CurrentUser;
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private http: Http) {
 
   }
 
@@ -40,9 +41,13 @@ export class AuthorizationService {
     });
   }
 
-  login<T extends CurrentUser>({ url, headers }: {url: string, headers?: string}): Observable<T> {
-
-    return null;
+  login<T extends CurrentUser>(url: string, body: any, options?: RequestOptionsArgs): Observable<T> {
+    return this.http.post(url, body, options)
+      .map(res => {
+        const user = res.json();
+        this.setCurrentUser(user);
+        return user;
+      });
   }
 
   logout(): Observable<any> {
