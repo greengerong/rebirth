@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { CurrentUser } from  './CurrentUser';
 import { StorageType, StorageService } from  'rebirth-storage';
 import { Http, RequestOptionsArgs } from '@angular/http';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 @Injectable()
 export class AuthorizationService {
@@ -50,14 +51,18 @@ export class AuthorizationService {
       });
   }
 
-  logout(): Observable<any> {
+  logout(url?: string, options?: RequestOptionsArgs): Observable<any> {
     this.storageService.remove({
       pool: AuthorizationService.STORAGE_POOL_KEY,
       key: AuthorizationService.STORAGE_KEY,
       storageType: this.storageType
     });
 
-    return null;
+    if (url) {
+      return this.http.delete(url, options);
+    }
+
+    return fromPromise(Promise.resolve(null));
   }
 
   hasRight(roles: any | any[]): Observable<boolean>| boolean {
@@ -68,7 +73,7 @@ export class AuthorizationService {
     if (!Array.isArray(roles)) {
       roles = [roles];
     }
-    console.log(this.currentUser, '--------', roles, roles.some(role => this.currentUser.roles.indexOf(role) !== -1));
+
     return roles.some(role => this.currentUser.roles.indexOf(role) !== -1);
   }
 }
