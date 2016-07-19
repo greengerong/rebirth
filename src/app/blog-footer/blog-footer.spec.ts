@@ -9,10 +9,6 @@ describe('Article aside Component', () => {
 
   beforeEach(() => addProviders([
     ...GLOBAL_PROVIDERS,
-    {
-      provide: ElementRef,
-      useValue: new ElementRef(document.body)
-    },
     BlogFooterComponent,
   ]));
 

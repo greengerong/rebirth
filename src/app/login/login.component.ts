@@ -22,7 +22,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.model, '=========');
     this.authorizationService.login(`${config.api.host}/login`, this.model)
       .subscribe(
         user => this.route.navigateByUrl('/manage/home'),

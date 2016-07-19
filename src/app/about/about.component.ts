@@ -19,7 +19,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.aboutService.getArticle()
-      .subscribe(result =>
-        this.article = result);
+      .subscribe(result => this.article = result);
   }
 }
