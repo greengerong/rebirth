@@ -5,7 +5,7 @@ export class AuthTokenConfig {
   tokenPrefix = '';
 
   getToken(token): string {
-    return tokenPrefix ? `${this.tokenPrefix.trim()} ${token}` : token;
+    return this.tokenPrefix ? `${this.tokenPrefix.trim()} ${token}` : token;
   }
 }
 
