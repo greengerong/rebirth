@@ -1,0 +1,41 @@
+<blog-header></blog-header>
+
+<div class="main-content" role="main">
+  <form novalidate class="login-form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="text-center">
+      <h2>登陆</h2>
+    </div>
+
+    <div class="auth-form-body">
+      <div class="alert alert-danger" *ngIf="error">
+        用户名或者密码不正确!
+      </div>
+      <div class="form-group"
+           [class.has-error]="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('required')">
+        <label for="email">邮件:</label>
+        <input type="email" name="email" autocomplete="off" class="form-control" id="email" placeholder="Email"
+               [formControl]="loginForm.controls['email']" [autofocus]="true">
+
+        <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].hasError('required')"
+             class="help-block">
+          邮件名必填!
+        </div>
+      </div>
+      <div class="form-group"
+           [class.has-error]="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">
+        <label for="password">密码:</label>
+        <input type="password" name="password" autocomplete="off" class="form-control" id="password"
+               placeholder="Password" required [formControl]="loginForm.controls['password']"
+               (keydown.enter)="loginForm.valid && onSubmit()">
+
+        <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')"
+             class="help-block">
+          登录密码必填!
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">登录</button>
+    </div>
+  </form>
+
+  <blog-footer></blog-footer>
+</div>
