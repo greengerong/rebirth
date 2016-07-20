@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CurrentUser } from  './CurrentUser';
 import { StorageType, StorageService } from  'rebirth-storage';
 import { Http, RequestOptionsArgs } from '@angular/http';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { PermissionConfig } from './PermissionConfig';
+import { PermissionConfig, AuthTokenConfig } from './PermissionConfig';
+import { RebirthHttpProvider } from 'rebirth-http';
 
 const isBlank = (obj) => {
   return obj === null || obj === undefined;
@@ -19,7 +20,8 @@ export class AuthorizationService {
 
   constructor(private storageService: StorageService,
               private http: Http,
-              private permissionConfig: PermissionConfig) {
+              private permissionConfig: PermissionConfig,
+              @Optional(RebirthHttpProvider) private  rebirthHttpProvider: RebirthHttpProvider) {
     this.storageType = isBlank(permissionConfig.storageType) ?
       StorageType.localStorage : permissionConfig.storageType;
   }
@@ -35,6 +37,12 @@ export class AuthorizationService {
       storageType: this.storageType
     }, currentUser);
 
+    if (currentUser.token && this.rebirthHttpProvider) {
+      const auth: AuthTokenConfig = this.permissionConfig.auth || new AuthTokenConfig();
+      const headers = {};
+      headers[auth.tokenHeader] = auth.getToken(currentUser.token);
+      this.rebirthHttpProvider.headers(headers);
+    }
     this.currentUser = currentUser;
   }
 
