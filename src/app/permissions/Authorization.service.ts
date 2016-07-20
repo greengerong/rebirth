@@ -21,7 +21,7 @@ export class AuthorizationService {
   constructor(private storageService: StorageService,
               private http: Http,
               private permissionConfig: PermissionConfig,
-              @Optional(RebirthHttpProvider) private  rebirthHttpProvider: RebirthHttpProvider) {
+              @Optional() private  rebirthHttpProvider: RebirthHttpProvider) {
     this.storageType = isBlank(permissionConfig.storageType) ?
       StorageType.localStorage : permissionConfig.storageType;
   }
