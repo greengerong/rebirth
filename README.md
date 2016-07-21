@@ -1,8 +1,7 @@
 @rebirth/rebirth
 ================
 
-GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angular2. Also, you can use it as a Angular project seed to start
-your new project.
+GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angular2. Also, you can use it as a Angular project seed to start your new project.
 
 ## How to build this project?
 
