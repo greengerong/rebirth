@@ -1,4 +1,4 @@
-export * from './CurrentUser';
+export * from './User';
 export * from './Authorization.service';
 export * from './AuthRolePermission';
 export * from './RebirthRole.directive';

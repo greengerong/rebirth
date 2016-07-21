@@ -1,6 +1,6 @@
 import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { CurrentUser } from  './CurrentUser';
+import { User } from  './User';
 import { StorageType, StorageService } from  'rebirth-storage';
 import { Http, RequestOptionsArgs, Headers } from '@angular/http';
 import { fromPromise } from 'rxjs/observable/fromPromise';
@@ -16,7 +16,7 @@ export class AuthorizationService {
   private static STORAGE_POOL_KEY = "rebirth-authorization";
   private static STORAGE_KEY = "current-user";
   private storageType: StorageType;
-  private currentUser: CurrentUser;
+  private currentUser: User;
 
   constructor(private storageService: StorageService,
               private http: Http,
@@ -30,7 +30,7 @@ export class AuthorizationService {
     this.storageType = storageType;
   }
 
-  setCurrentUser(currentUser: CurrentUser): void {
+  setCurrentUser(currentUser: User): void {
     this.storageService.put({
       pool: AuthorizationService.STORAGE_POOL_KEY,
       key: AuthorizationService.STORAGE_KEY,
@@ -41,7 +41,7 @@ export class AuthorizationService {
     this.currentUser = currentUser;
   }
 
-  getCurrentUser<T extends CurrentUser>(): T {
+  getCurrentUser<T extends User>(): T {
     if (this.currentUser) {
       return <T>this.currentUser;
     }
@@ -53,7 +53,7 @@ export class AuthorizationService {
     });
   }
 
-  login<T extends CurrentUser>(url: string, body: any, options?: RequestOptionsArgs): Observable<T> {
+  login<T extends User>(url: string, body: any, options?: RequestOptionsArgs): Observable<T> {
     return this.http.post(url, body, options)
       .map(res => {
         const user = res.json();
@@ -100,7 +100,7 @@ export class AuthorizationService {
     return roles.some(role => this.currentUser.roles.indexOf(role) !== -1);
   }
 
-  private logoutFromServer(user: CurrentUser, url: string, options: RequestOptionsArgs) {
+  private logoutFromServer(user: User, url: string, options: RequestOptionsArgs) {
     if (user.token) {
       options = options || {
           headers: new Headers()
@@ -113,7 +113,7 @@ export class AuthorizationService {
     return this.http.delete(url, options);
   }
 
-  private setRequestTokenHeader(currentUser: CurrentUser) {
+  private setRequestTokenHeader(currentUser: User) {
     if (currentUser.token && this.rebirthHttpProvider) {
       const auth: AuthTokenConfig = this.permissionConfig.auth || new AuthTokenConfig();
       const headers = {};

@@ -1,4 +1,4 @@
-import { StorageType } from 'rebirth-storage/';
+import { StorageType } from 'rebirth-storage';
 
 export class AuthTokenConfig {
   tokenHeader = 'Authorization';

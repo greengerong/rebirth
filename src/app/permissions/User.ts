@@ -1,4 +1,4 @@
-export interface CurrentUser {
+export interface User {
   token?: string;
   roles?: string[];
 }
