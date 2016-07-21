@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CurrentUser } from  './CurrentUser';
 import { StorageType, StorageService } from  'rebirth-storage';
-import { Http, RequestOptionsArgs } from '@angular/http';
+import { Http, RequestOptionsArgs, Headers } from '@angular/http';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { PermissionConfig } from './PermissionConfig';
+import { PermissionConfig, AuthTokenConfig } from './PermissionConfig';
+import { RebirthHttpProvider } from 'rebirth-http';
 
 const isBlank = (obj) => {
   return obj === null || obj === undefined;
@@ -19,7 +20,8 @@ export class AuthorizationService {
 
   constructor(private storageService: StorageService,
               private http: Http,
-              private permissionConfig: PermissionConfig) {
+              private permissionConfig: PermissionConfig,
+              @Optional() private  rebirthHttpProvider: RebirthHttpProvider) {
     this.storageType = isBlank(permissionConfig.storageType) ?
       StorageType.localStorage : permissionConfig.storageType;
   }
@@ -35,6 +37,7 @@ export class AuthorizationService {
       storageType: this.storageType
     }, currentUser);
 
+    this.setRequestTokenHeader(currentUser);
     this.currentUser = currentUser;
   }
 
@@ -60,21 +63,25 @@ export class AuthorizationService {
   }
 
   logout(url?: string, options?: RequestOptionsArgs): Observable<any> {
-    this.clearToken();
+    const user = this.clearToken();
 
     if (url) {
-      return this.http.delete(url, options);
+      return this.logoutFromServer(user, url, options);
     }
 
     return fromPromise(Promise.resolve(null));
   }
 
   public clearToken() {
-    return this.storageService.remove({
+    const result = this.getCurrentUser();
+    this.storageService.remove({
       pool: AuthorizationService.STORAGE_POOL_KEY,
       key: AuthorizationService.STORAGE_KEY,
       storageType: this.storageType
     });
+
+    this.currentUser = null;
+    return result;
   }
 
   isLogin() {
@@ -91,5 +98,27 @@ export class AuthorizationService {
     }
 
     return roles.some(role => this.currentUser.roles.indexOf(role) !== -1);
+  }
+
+  private logoutFromServer(user: CurrentUser, url: string, options: RequestOptionsArgs) {
+    if (user.token) {
+      options = options || {
+          headers: new Headers()
+        };
+
+      const auth: AuthTokenConfig = this.permissionConfig.auth || new AuthTokenConfig();
+      options.headers.set(auth.tokenHeader, user.token);
+    }
+
+    return this.http.delete(url, options);
+  }
+
+  private setRequestTokenHeader(currentUser: CurrentUser) {
+    if (currentUser.token && this.rebirthHttpProvider) {
+      const auth: AuthTokenConfig = this.permissionConfig.auth || new AuthTokenConfig();
+      const headers = {};
+      headers[auth.tokenHeader] = auth.getToken(currentUser.token);
+      this.rebirthHttpProvider.headers(headers);
+    }
   }
 }
