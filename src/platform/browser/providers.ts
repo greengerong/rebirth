@@ -47,8 +47,7 @@ export const APPLICATION_PROVIDERS = [
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS,
   ...REBIRTH_STORAGE_PROVIDERS,
-  ...providePermission(permissionConfig),
-  RebirthRoleDirective
+  ...providePermission(permissionConfig)
 ];
 
 export const PROVIDERS = [

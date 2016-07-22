@@ -9,7 +9,7 @@ import "./icon.font.json";
 export function main(): Promise<any> {
 
   return bootstrap(AppComponent, [
-      ...GLOBAL_PROVIDERS
+    ...GLOBAL_PROVIDERS
   ])
     .then(decorateComponentRef)
     .catch(err => console.error(err));
