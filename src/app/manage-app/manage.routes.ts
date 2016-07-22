@@ -1,6 +1,6 @@
 import { RouterConfig } from '@angular/router';
 import { ManageAppComponent } from './manage-app.component';
-import { AuthRolePermission } from '../permissions/AuthRolePermission';
+import { AuthRolePermission } from 'rebirth-permission';
 
 export const routes: RouterConfig = [
   {

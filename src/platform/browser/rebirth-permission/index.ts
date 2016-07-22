@@ -7,11 +7,13 @@ export * from './PermissionConfig';
 import { AuthorizationService } from './Authorization.service';
 import { AuthRolePermission } from './AuthRolePermission';
 import { PermissionConfig } from './PermissionConfig';
-
+import { RebirthRoleDirective } from './RebirthRole.directive';
+import { PLATFORM_DIRECTIVES } from '@angular/core';
 
 const AUTH_ROLE_PERMISSIONS_PROVIDERS: any[] = [
   AuthorizationService,
-  AuthRolePermission
+  AuthRolePermission,
+  { provide: PLATFORM_DIRECTIVES, multi: true, useValue: RebirthRoleDirective }
 ];
 
 export function providePermission(permissionConfig: PermissionConfig): any[] {

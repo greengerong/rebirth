@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthorizationService } from '../permissions';
 import { Router } from '@angular/router';
-import config from 'config';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import config from 'config';
+import { AuthorizationService } from 'rebirth-permission';
 
 @Component({
   selector: 'login',

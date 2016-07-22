@@ -8,7 +8,7 @@ import { PROVIDERS } from './providers';
 
 
 export const PLATFORM_PROVIDERS = [
-  ...PROVIDERS,
   ...DIRECTIVES,
+  ...PROVIDERS,
   ...PIPES
 ];

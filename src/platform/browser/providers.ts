@@ -16,10 +16,14 @@ import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callbac
 
 import { routes, asyncRoutes, prefetchRouteCallbacks } from '../../app/app.routes';
 
+// rebirth
 import { REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
 import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
-
 import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
+import { providePermission, PermissionConfig, RebirthRoleDirective } from 'rebirth-permission';
+
+// auth config
+const permissionConfig: PermissionConfig = { loginPage: '/manage/login' };
 
 /*
  * Application Providers/Directives/Pipes
@@ -42,7 +46,9 @@ export const APPLICATION_PROVIDERS = [
   { provide: LocationStrategy, useClass: PathLocationStrategy }, // HashLocationStrategy
   ...REBIRTH_HTTP_PROVIDERS,
   ...REBIRTH_WINDOW_PROVIDERS,
-  ...REBIRTH_STORAGE_PROVIDERS
+  ...REBIRTH_STORAGE_PROVIDERS,
+  ...providePermission(permissionConfig),
+  RebirthRoleDirective
 ];
 
 export const PROVIDERS = [

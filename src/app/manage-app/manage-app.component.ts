@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BlogFooterComponent } from '../blog-footer';
 import { BlogHeaderComponent } from '../blog-header';
-import { AuthorizationService } from '../permissions';
 
 @Component({
   selector: 'manage-app',

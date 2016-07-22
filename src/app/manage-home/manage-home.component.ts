@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { RebirthRoleDirective } from '../permissions';
+import { RebirthRoleDirective } from 'rebirth-permission';
+
 @Component({
   selector: 'manage-home',
   pipes: [],
   providers: [],
-  directives: [RebirthRoleDirective],
+  directives: [],
   styles: [
     require('./manage-home.scss')
   ],

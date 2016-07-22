@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthorizationService } from '../permissions';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'rebirth-permission';
 import config from 'config';
 
 @Component({
