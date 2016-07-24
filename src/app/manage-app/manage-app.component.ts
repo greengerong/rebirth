@@ -28,7 +28,7 @@ export class ManageAppComponent {
     }
 
     rebirthHttpProvider.addResponseErrorInterceptor((err: Response) => {
-      if (err.status === 401 && !(err.url.indexOf('/manage/login') !== -1)) {
+      if (err.status === 401 && (err.url.indexOf('/manage/login') === -1)) {
         router.navigateByUrl('/manage/login');
         return Observable.empty();
       }
