@@ -1,0 +1,9 @@
+{
+  "id": "987654321",
+  "name": "admin@localhost.com",
+  "token": "d5df3495-3f7e-404d-a507-2107a8a4f15a",
+  "name": "Admin",
+  "roles": [
+    "Admin"
+  ]
+}

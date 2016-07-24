@@ -11,7 +11,7 @@ export const routes: RouterConfig = [
       {
         path: 'home',
         component: 'ManageHomeComponent',
-        data: { roles: ['Admin'] },
+        data: { roles: ['Admin', 'User'] },
         canActivate: [AuthRolePermission]
       },
     ]

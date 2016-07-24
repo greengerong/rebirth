@@ -14,7 +14,7 @@ describe('App', () => {
 
   it('should init http interceptors', inject([AppComponent, RebirthHttpProvider],
     (appComponent, rebirthHttpProvider: RebirthHttpProvider) => {
-      expect(rebirthHttpProvider.getInterceptors().length).toEqual(3);
+      expect(rebirthHttpProvider.getInterceptors().length).toEqual(4);
     }));
 
 });

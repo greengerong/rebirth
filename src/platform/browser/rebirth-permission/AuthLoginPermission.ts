@@ -9,21 +9,21 @@ import { PermissionConfig } from './PermissionConfig';
 @Injectable()
 export class AuthLoginPermission implements CanActivate {
 
-    constructor(private authorizationService: AuthorizationService,
-                private router: Router,
-                private permissionConfig: PermissionConfig) {
+  constructor(private authorizationService: AuthorizationService,
+              private router: Router,
+              private permissionConfig: PermissionConfig) {
 
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+    const isLogin = this.authorizationService.isLogin();
+    const loginPage = this.permissionConfig.loginPage;
+    if (!isLogin && loginPage) {
+      this.router.navigateByUrl(loginPage);
     }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-        const isLogin = this.authorizationService.isLogin();
-        const loginPage = this.permissionConfig.loginPage;
-        if (!isLogin && loginPage) {
-            this.router.navigateByUrl(loginPage);
-        }
-
-        return isLogin;
-    }
+    return isLogin;
+  }
 
 }
 

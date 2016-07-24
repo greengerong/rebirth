@@ -1,18 +1,8 @@
 import { StorageType } from 'rebirth-storage';
 
-export class AuthTokenConfig {
-    tokenHeader = 'Authorization';
-    tokenPrefix = '';
-
-    getToken(token): string {
-        return this.tokenPrefix ? `${this.tokenPrefix.trim()} ${token}` : token;
-    }
-}
-
 export class PermissionConfig {
-    loginPage?: string;
-    storageType?: StorageType;
-    auth?: AuthTokenConfig;
+  loginPage?: string;
+  storageType?: StorageType;
 }
 
 

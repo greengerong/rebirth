@@ -28,13 +28,17 @@ export class AppComponent {
       .addInterceptor({
         request: request => {
           console.log('全局拦截器(request)', request);
-          loadService.show();
         },
         response: (stream) => stream.map(response => {
           console.log('全局拦截器(response)', response);
-          loadService.hide();
           return response;
         })
+      })
+      .addInterceptor({
+        request: () => {
+          loadService.show();
+        },
+        response: (stream) => stream.do(() => null, () => loadService.hide(), () => loadService.hide())
       });
   }
 }

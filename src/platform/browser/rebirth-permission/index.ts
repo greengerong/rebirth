@@ -1,4 +1,3 @@
-export * from './User';
 export * from './Authorization.service';
 export * from './AuthRolePermission';
 export * from './RebirthRole.directive';
@@ -8,12 +7,16 @@ import { AuthorizationService } from './Authorization.service';
 import { AuthRolePermission } from './AuthRolePermission';
 import { PermissionConfig } from './PermissionConfig';
 import { RebirthRoleDirective } from './RebirthRole.directive';
-import { PLATFORM_DIRECTIVES } from '@angular/core';
+import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
+
+export const AUTH_ROLE_PERMISSIONS_DIRECTIVE: any[] = [
+  RebirthRoleDirective
+];
 
 const AUTH_ROLE_PERMISSIONS_PROVIDERS: any[] = [
+  REBIRTH_STORAGE_PROVIDERS,
   AuthorizationService,
-  AuthRolePermission,
-  { provide: PLATFORM_DIRECTIVES, multi: true, useValue: RebirthRoleDirective }
+  AuthRolePermission
 ];
 
 export function providePermission(permissionConfig: PermissionConfig): any[] {

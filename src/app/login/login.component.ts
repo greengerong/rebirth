@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'rebirth-permission';
-import config from 'config';
+import { LoginService } from './Login.service';
 
 @Component({
   selector: 'login',
   pipes: [],
-  providers: [],
+  providers: [LoginService],
   directives: [],
   styles: [
     require('./login.scss')
@@ -17,12 +16,12 @@ export class LoginComponent {
   private model: any;
   private error: any;
 
-  constructor(private authorizationService: AuthorizationService, private route: Router) {
+  constructor(private route: Router, private loginService: LoginService) {
     this.model = {};
   }
 
   onSubmit() {
-    this.authorizationService.login(`${config.api.host}/login`, this.model)
+    this.loginService.login(this.loginForm.value)
       .subscribe(
         user => this.route.navigateByUrl('/manage/home'),
         error => this.error = error

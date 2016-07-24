@@ -4,7 +4,6 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 // Angular 2 Router
 import { provideRouter } from '@angular/router';
-// import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 // Angular 2 forms
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
@@ -34,7 +33,6 @@ export const APPLICATION_PROVIDERS = [
   disableDeprecatedForms(),
   provideForms(),
 
-  // ...ROUTER_PROVIDERS,
   provideRouter(routes),
   provideWebpack(asyncRoutes),
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
