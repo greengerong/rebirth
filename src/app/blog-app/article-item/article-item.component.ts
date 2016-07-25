@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from '../article-service';
 
 @Component({
@@ -8,8 +8,7 @@ import { Article } from '../article-service';
   pipes: [],
   styles: [require('./article-item.scss')],
   template: require('./article-item.html'),
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent {
   private static TAG_CLOUD_STYLE: string[] = ['primary', 'success', 'info', 'warning', 'danger'];
