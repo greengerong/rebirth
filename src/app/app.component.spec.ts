@@ -2,7 +2,7 @@ import { addProviders, inject } from '@angular/core/testing';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { LoadService } from './loading';
+import { LoadService } from 'common';
 
 describe('App', () => {
   beforeEach(() => addProviders([

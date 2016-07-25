@@ -2,7 +2,7 @@ import { TestComponentBuilder } from '@angular/compiler/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
-import { GLOBAL_PROVIDERS } from '../../global.providers';
+import { GLOBAL_PROVIDERS } from 'global.providers';
 import { Article, SearchResult } from '../article-service';
 import { addProviders, inject, async } from '@angular/core/testing';
 import { ArticleListComponent } from './article-list.component';

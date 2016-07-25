@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { BlogAsideComponent } from '../blog-aside';
-import { BlogFooterComponent } from '../blog-footer';
-import { BlogHeaderComponent } from '../blog-header';
-import { BlogNavbarComponent } from '../blog-navbar';
+import { BlogAsideComponent } from './blog-aside';
+import { BlogNavbarComponent } from './blog-navbar';
+import { BlogFooterComponent, BlogHeaderComponent } from 'common';
 
 @Component({
   selector: 'blog-app',

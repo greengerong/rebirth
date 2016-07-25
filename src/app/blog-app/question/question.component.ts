@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { QuestionService } from './question.service';
 import { QuestionModel } from './question.model';
-import  { LoadService } from '../loading';
+import  { LoadService } from 'common';
 
 @Component({
   selector: 'question',

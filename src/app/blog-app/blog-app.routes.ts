@@ -19,10 +19,10 @@ export const routes: RouterConfig = [
 // asyncRoutes is needed for our @angularclass/webpack-toolkit that will allow us to resolve
 // the component correctly
 export const asyncRoutes: AsyncRoutes = {
-  'HomeComponent': require('es6-promise-loader!../home'),
-  'AboutComponent': require('es6-promise-loader!../about'),
-  'BlogArticleComponent': require('es6-promise-loader!../blog-article'),
-  'QuestionComponent': require('es6-promise-loader!../question')
+  'HomeComponent': require('es6-promise-loader!./home'),
+  'AboutComponent': require('es6-promise-loader!./about'),
+  'BlogArticleComponent': require('es6-promise-loader!./blog-article'),
+  'QuestionComponent': require('es6-promise-loader!./question')
 };
 
 

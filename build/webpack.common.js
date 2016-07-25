@@ -70,6 +70,7 @@ module.exports = {
 
     alias: {
       'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts'),
+      'common': utils.root('./src/app/common/index.ts'),
       'loading.css': utils.root('./src/assets/css/loading.css')
     },
 

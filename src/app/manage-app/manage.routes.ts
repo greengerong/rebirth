@@ -22,8 +22,8 @@ export const routes: RouterConfig = [
 // asyncRoutes is needed for our @angularclass/webpack-toolkit that will allow us to resolve
 // the component correctly
 export const asyncRoutes: AsyncRoutes = {
-  'LoginComponent': require('es6-promise-loader!../login'),
-  'ManageHomeComponent': require('es6-promise-loader!../manage-home'),
+  'LoginComponent': require('es6-promise-loader!./login'),
+  'ManageHomeComponent': require('es6-promise-loader!./manage-home'),
 };
 
 

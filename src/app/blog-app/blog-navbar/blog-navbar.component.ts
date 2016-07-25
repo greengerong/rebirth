@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
-import { DropdownDirective } from '../dropdown';
+import { DropdownDirective } from 'common';
 
 @Component({
   selector: 'blog-navbar',

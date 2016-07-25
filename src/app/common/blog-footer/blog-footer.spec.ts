@@ -1,7 +1,7 @@
 import { TestComponentBuilder } from '@angular/compiler/testing';
 import { addProviders, inject, async } from '@angular/core/testing';
 
-import { GLOBAL_PROVIDERS } from '../../global.providers';
+import { GLOBAL_PROVIDERS } from 'global.providers';
 import { BlogFooterComponent } from './index';
 
 describe('Article aside Component', () => {

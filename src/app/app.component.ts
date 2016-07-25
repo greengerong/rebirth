@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation, ViewContainerRef } from '@angular/core';
 import { RouterLinkActive } from '@angular/router';
 import { RebirthHttpProvider } from 'rebirth-http';
 import config from 'config';
-import { LoadService } from  './loading';
+import { LoadService } from  'common';
 
 @Component({
   selector: 'app',

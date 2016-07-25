@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { BlogFooterComponent } from '../blog-footer';
-import { BlogHeaderComponent } from '../blog-header';
+import { BlogFooterComponent, BlogHeaderComponent } from 'common';
 import { AuthorizationService } from 'rebirth-permission';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { CurrentUser } from '../login/CurrentUser';
+import { CurrentUser } from './login/CurrentUser';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
