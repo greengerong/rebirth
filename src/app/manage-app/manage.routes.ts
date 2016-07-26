@@ -14,8 +14,14 @@ export const routes: RouterConfig = [
         data: { roles: ['Admin', 'User'] },
         canActivate: [AuthRolePermission]
       },
+      {
+        path:'articles',
+        component: 'ArticleListComponent',
+        data: {roles:['Admin', 'User']},
+        canActivate: [AuthRolePermission]
+      }  
     ]
-  }
+  },
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
@@ -24,6 +30,7 @@ export const routes: RouterConfig = [
 export const asyncRoutes: AsyncRoutes = {
   'LoginComponent': require('es6-promise-loader!./login'),
   'ManageHomeComponent': require('es6-promise-loader!./manage-home'),
+  'ArticleListComponent': require('es6-promise-loader!./article-list'),
 };
 
 
