@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './Login.service';
+import { BlogFooterComponent, BlogHeaderComponent } from 'common';
 
 @Component({
   selector: 'login',
   pipes: [],
   providers: [LoginService],
-  directives: [],
+  directives: [BlogHeaderComponent, BlogFooterComponent],
   styles: [
     require('./login.scss')
   ],

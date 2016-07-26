@@ -1,13 +1,14 @@
 import { RouterConfig } from '@angular/router';
 import { ManageAppComponent } from './manage-app.component';
+import { LoginComponent } from './login';
 import { AuthRolePermission } from 'rebirth-permission';
 
 export const routes: RouterConfig = [
+  { path: 'manage/login', component: LoginComponent },
   {
     path: 'manage', component: ManageAppComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
-      { path: 'login', component: 'LoginComponent' },
       {
         path: 'home',
         component: 'ManageHomeComponent',
@@ -28,7 +29,6 @@ export const routes: RouterConfig = [
 // asyncRoutes is needed for our @angularclass/webpack-toolkit that will allow us to resolve
 // the component correctly
 export const asyncRoutes: AsyncRoutes = {
-  'LoginComponent': require('es6-promise-loader!./login'),
   'ManageHomeComponent': require('es6-promise-loader!./manage-home'),
   'ArticleListComponent': require('es6-promise-loader!./article-list'),
 };
