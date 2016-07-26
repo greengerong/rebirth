@@ -29,7 +29,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/Observable';
 import 'rxjs/observable/fromPromise';
 
-// import 'lodash';
+import 'lodash';
 import 'immutable';
 
 
