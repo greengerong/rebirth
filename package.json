@@ -10,7 +10,7 @@
     "build:prod": "gulp build",
     "dev": "gulp dev",
     "prod": "gulp prod",
-    "tslint": "tslint",
+    "tslint": "gulp tslint",
     "lint": "npm run tslint \"src/**/*.ts\"",
     "test": "gulp test",
     "start": "gulp install",
