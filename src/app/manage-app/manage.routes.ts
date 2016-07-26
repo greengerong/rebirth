@@ -15,11 +15,11 @@ export const routes: RouterConfig = [
         canActivate: [AuthRolePermission]
       },
       {
-        path:'articles',
+        path: 'articles',
         component: 'ArticleListComponent',
-        data: {roles:['Admin', 'User']},
+        data: { roles: ['Admin', 'User'] },
         canActivate: [AuthRolePermission]
-      }  
+      }
     ]
   },
 ];

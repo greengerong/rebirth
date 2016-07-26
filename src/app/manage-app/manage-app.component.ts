@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BlogFooterComponent, BlogHeaderComponent } from 'common';
+import { ManageNavbarComponent } from './manage-navbar';
 import { AuthorizationService } from 'rebirth-permission';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { CurrentUser } from './login/CurrentUser';
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   selector: 'manage-app',
   pipes: [],
   providers: [],
-  directives: [BlogHeaderComponent, BlogFooterComponent],
+  directives: [BlogHeaderComponent, BlogFooterComponent, ManageNavbarComponent],
   styles: [
     require('./manage-app.scss')
   ],

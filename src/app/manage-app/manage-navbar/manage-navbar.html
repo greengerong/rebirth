@@ -1,0 +1,21 @@
+<nav class="navbar navbar-static-top" (click)="hideNavBar($event)">
+  <div class="container">
+    <div class="navbar-header collapsed">
+      <button type="button" class="navbar-toggle collapsed" aria-expanded="true" aria-controls="navbar"
+              (click)="toggleNavBarState($event);">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['../blog/home']">破狼博客</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse" [class.in]="showNavBar" aria-expanded="true">
+      <ul class="nav navbar-nav">
+        <li><a routerLinkActive="active" [routerLink]="['./home']">首页</a></li>
+        <li><a routerLinkActive="active" [routerLink]="['./articles']">文章</a></li>
+        <li><a (click)="logout()">登出</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

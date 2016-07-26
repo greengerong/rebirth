@@ -1,0 +1,55 @@
+@import "common";
+
+$nav-text-color: #fff;
+.navbar {
+  background: $brand-primary;
+  color: #d1f1e9;
+  border: 0px;
+  .navbar-toggle {
+    .icon-bar {
+      background: $nav-text-color;
+    }
+  }
+  .dropdown-menu {
+    background: $brand-primary;
+    padding: 0px;
+    border: none;
+  }
+  .dropdown-menu {
+    li {
+      a {
+        height: 36px;
+        line-height: 36px;
+        padding-left: 12px;
+      }
+    }
+    .divider {
+      margin: 0px 0px;
+    }
+  }
+  .dropdown {
+    &.active, &:focus, &:hover {
+      & > a {
+        background: $nav-text-color;
+        color: $brand-primary;
+      }
+    }
+  }
+
+  a {
+    color: $nav-text-color;
+    text-decoration: none;
+    &.active,
+    &:focus,
+    &:hover {
+      background: $nav-text-color;
+      color: $brand-primary;
+    }
+
+  }
+  .open {
+    & > a {
+      color: $brand-primary;
+    }
+  }
+}
