@@ -1,9 +1,15 @@
+@import 'common';
+
 .article-item {
   margin-bottom: 1rem;
   .action-group {
-    button:not(:last-child) {
-      //margin-bottom: 1rem;
-      //margin-right: 10px;
+    @media (max-width: $screen-xs-min) {
+      button {
+        margin: 5px;
+        vertical-align: middle;
+      }
     }
   }
 }
+
+
