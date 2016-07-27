@@ -1,5 +1,15 @@
 @import 'common';
-input {
-  border: darkgray 1px solid;
-  color: #000;
+
+.article-search {
+  .search-group {
+    display: -webkit-flex;
+    display: flex;
+
+    .search-btn {
+      border-left: none;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
 }
+
