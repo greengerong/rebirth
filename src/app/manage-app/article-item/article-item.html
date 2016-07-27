@@ -1,6 +1,7 @@
 <div class="article-item row">
   <div class="col-xs-5">
-    {{ articleItem.title }}
+    <a target="_blank" [routerLink]="['../../blog', articleItem.url]">[{{articleItem.author || '破狼'}}] {{
+      articleItem.title }}</a>
   </div>
   <div class="col-xs-3">
     {{ articleItem.date }}
