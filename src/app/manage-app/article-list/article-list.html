@@ -1,5 +1,7 @@
 <section class="article-list">
   <h2>文章列表</h2>
+  <article-search (searchArticle)="searchArticle($event)"></article-search>
+
   <article-item *ngFor="let articleItem of article?.result" [articleItem]="articleItem"></article-item>
   <pager [pageIndex]="article?.pageIndex" [pageSize]="article?.pageSize" [total]="article?.total"
          (pageChange)="pageChange($event)"></pager>
