@@ -23,11 +23,11 @@ export class ArticleListComponent implements OnInit {
   }
 
   searchArticle(keyword): void {
-    console.log(keyword, "============");
+    this.queryArticles(1, keyword);
   }
 
-  private queryArticles(pageIndex: number) {
-    this.articleService.getArticles(pageIndex, config.article.pageSize)
+  private queryArticles(pageIndex: number, keyword?: any) {
+    this.articleService.getArticles(pageIndex, config.article.pageSize, keyword)
       .subscribe((result) => {
         this.article = result;
       });
