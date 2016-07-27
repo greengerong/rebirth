@@ -2,6 +2,7 @@
   <label class="control-label" for="keyword">关键字:</label>
   <div class="search-group input-group">
     <input id="keyword" name="keyword" type="text" class="form-control" [(ngModel)]='keyword'
+           (keydown.enter)="search(keyword)"
            placeholder="title, tag, article..."/>
     <button type="submit" class="search-btn btn btn-primary" name="keyword">查询</button>
   </div>

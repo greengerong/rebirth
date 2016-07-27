@@ -13,21 +13,30 @@ import { ArticleSearchComponent } from '../article-search';
 })
 export class ArticleListComponent implements OnInit {
   private article: SearchResult<Article> = <SearchResult<Article>> {};
+  private pageIndex = 1;
+  private keyword: string;
 
   constructor(private articleService: ArticleService) {
   }
 
 
   ngOnInit() {
-    this.queryArticles(1);
+    this.queryArticles();
   }
 
   searchArticle(keyword): void {
-    this.queryArticles(1, keyword);
+    this.keyword = keyword;
+    this.pageIndex = 1;
+    this.queryArticles();
   }
 
-  private queryArticles(pageIndex: number, keyword?: any) {
-    this.articleService.getArticles(pageIndex, config.article.pageSize, keyword)
+  pageChange(pageIndex): void {
+    this.pageIndex = pageIndex;
+    this.queryArticles();
+  }
+
+  private queryArticles() {
+    this.articleService.getArticles(this.pageIndex, config.article.pageSize, this.keyword)
       .subscribe((result) => {
         this.article = result;
       });
