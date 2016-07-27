@@ -4,8 +4,8 @@
   margin-bottom: 1rem;
   .action-group {
     @media (max-width: $screen-xs-min) {
-      button {
-        margin: 5px;
+      .btn {
+        margin: 5px 0px;
         vertical-align: middle;
       }
     }
