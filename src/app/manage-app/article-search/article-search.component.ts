@@ -12,21 +12,21 @@ import { Article } from "../article-service/Article";
 })
 export class ArticleSearchComponent {
 
-  @Input() articles:Article [];
+  @Input() articles: Article [];
 
 
   /**
    * 筛选出符合要求的数据
    * @param keyword
    * @returns {Article[]}
-     */
-  filterArticles(keyword:string):Array<Article> {
-    return this.articles.filter((article:Article)=> {
+   */
+  filterArticles(keyword: string): Array<Article> {
+    return this.articles.filter((article: Article) => {
       if (article.title.indexOf(keyword)) {
         console.log(`title  关键词是${keyword}, 文章标题是 ${article.title}`);
         return true;
       }
-      let categories:string[] = article.categories;
+      let categories: string[] = article.categories;
       for (let category of categories) {
         console.log(category.indexOf(keyword));
         if (category.indexOf(keyword)) {

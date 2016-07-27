@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article } from '../article-service';
+import { Article } from 'common';
 import { Observable }     from 'rxjs/Observable';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 

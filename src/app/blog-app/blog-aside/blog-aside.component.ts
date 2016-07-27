@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService, SearchResult, Article } from '../article-service';
+import { ArticleService, SearchResult, Article } from 'common';
 
 @Component({
   selector: 'blog-aside',
