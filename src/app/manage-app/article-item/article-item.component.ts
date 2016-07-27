@@ -8,6 +8,6 @@ import { Article } from 'common';
 })
 export class ArticleItemComponent {
 
-  @Input() item: Article = <Article> {};
+  @Input() articleItem: Article = <Article> {};
 
 }

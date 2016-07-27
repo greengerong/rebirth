@@ -1,4 +1,7 @@
-<h1>文章管理</h1>
-<div *ngFor="let item of items">
-	<article-item [item]="item"></article-item>
-</div>
+<section class="article-list">
+  <h2>文章列表</h2>
+  <article-item *ngFor="let articleItem of article?.result" [articleItem]="articleItem"></article-item>
+  <pager [pageIndex]="article?.pageIndex" [pageSize]="article?.pageSize" [total]="article?.total"
+         (pageChange)="pageChange($event)"></pager>
+</section>
+

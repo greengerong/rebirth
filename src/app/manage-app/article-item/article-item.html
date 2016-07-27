@@ -1,14 +1,14 @@
 <div class="row">
-	<div class="col-sm-4">
-	<p>{{ item.title }}</p>
-	</div>
-	<div class="col-sm-4">
-		<p>{{ item.date }}</p>
-	</div>
-	<div class="col-sm-4">
-		<div class="btn-group">
-			<button class="btn btn-default" (click)="onEdit()">修改</button>
-			<button class="btn btn-default" (click)="onDelete()">删除</button>
-		</div>
-	</div>
+  <div class="col-sm-4">
+    <p>{{ articleItem.title }}</p>
+  </div>
+  <div class="col-sm-4">
+    <p>{{ articleItem.date }}</p>
+  </div>
+  <div class="col-sm-4">
+    <div class="btn-group">
+      <button class="btn btn-default" (click)="onEdit(articleItem)">修改</button>
+      <button class="btn btn-default" (click)="onDelete(articleItem)">删除</button>
+    </div>
+  </div>
 </div>

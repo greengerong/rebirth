@@ -16,7 +16,8 @@ export class ArticleService extends RebirthHttp {
   @Cacheable({ pool: 'articles' })
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
-              @Query('pageSize') pageSize = 10): Observable<SearchResult<Article>> {
+              @Query('pageSize') pageSize = 10,
+              @Query() search?: {}): Observable<SearchResult<Article>> {
     return null;
   }
 
@@ -24,5 +25,6 @@ export class ArticleService extends RebirthHttp {
   getArticleByUrl(@Path('id') articleUrl: string): Observable<Article> {
     return null;
   }
+
 
 }

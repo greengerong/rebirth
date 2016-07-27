@@ -1,33 +1,31 @@
 import { Component, OnInit } from "@angular/core";
 import { ArticleItemComponent } from "../article-item";
-import { ArticleService, Article, SearchResult } from "common";
+import { ArticleService, Article, SearchResult, PagerComponent } from "common";
+import config from 'config';
 
 @Component({
   selector: 'article-list',
   template: require('./article-list.html'),
   styles: [require('./article-list.scss')],
-  directives: [ArticleItemComponent],
-  providers: [ArticleService, ArticleService]
+  directives: [ArticleItemComponent, PagerComponent],
+  providers: [ArticleService]
 })
 export class ArticleListComponent implements OnInit {
-  private items: Article[] = [];
-  private total: number = 0;
-  private currentPage: number = 0;
+  private article: SearchResult<Article> = [];
 
-  constructor(private _ser: ArticleService) {
+  constructor(private articleService: ArticleService) {
   }
 
 
   ngOnInit() {
-    this._updateData(1);
+    this.queryArticles(1);
   }
 
-  private _updateData(pageIndex: number) {
-    this._ser.getItems(pageIndex).subscribe((result) => {
-      this.items = result.result;
-      this.total = result.total;
-      this.currentPage = result.pageIndex;
-    });
+  private queryArticles(pageIndex: number) {
+    this.articleService.getArticles(pageIndex, config.article.pageSize)
+      .subscribe((result) => {
+        this.article = result;
+      });
   }
 
 
