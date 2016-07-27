@@ -1,6 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter, OnDestroy } from '@angular/core';
 import { Article } from "common";
-import keyword = ts.ScriptElementKind.keyword;
 
 @Component({
   selector: 'article-search',

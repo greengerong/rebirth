@@ -17,7 +17,7 @@ export class ArticleService extends RebirthHttp {
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
               @Query('pageSize') pageSize = 10,
-              @Query('keyword') keyword: string): Observable<SearchResult<Article>> {
+              @Query('keyword') keyword = ''): Observable<SearchResult<Article>> {
     return null;
   }
 

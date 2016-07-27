@@ -12,7 +12,7 @@ import { ArticleSearchComponent } from '../article-search';
   providers: [ArticleService]
 })
 export class ArticleListComponent implements OnInit {
-  private article: SearchResult<Article> = [];
+  private article: SearchResult<Article> = <SearchResult<Article>> {};
 
   constructor(private articleService: ArticleService) {
   }
