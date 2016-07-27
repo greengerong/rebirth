@@ -8,7 +8,7 @@
   </div>
   <div class="col-xs-4 col-sm-3">
     <div class="action-group pull-right">
-      <button class="btn btn-primary" (click)="onEdit(articleItem)">修改</button>
+      <a class="btn btn-primary" [routerLink]="['./', articleItem.url]">修改</a>
       <button class="btn btn-danger" (click)="onDelete(articleItem)">删除</button>
     </div>
   </div>
