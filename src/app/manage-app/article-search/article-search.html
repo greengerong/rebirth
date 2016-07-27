@@ -1,2 +1,9 @@
-<input type="text" title="search" placeholder="search..." [(ngModel)]='keyword'>
-<button class="btn btn-success" (click)="search(keyword)">搜索</button>
+<form class="form-inline" (ngSubmit)="search(keyword)">
+  <div class="form-group">
+    <label for="keyword">关键字:</label>
+    <input id="keyword" name="keyword" type="text" class="form-control search" [(ngModel)]='keyword'
+           placeholder="keyword..."/>
+    <button type="submit" class="btn btn-primary" name="keyword">查询
+    </button>
+  </div>
+</form>

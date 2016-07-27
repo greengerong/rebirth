@@ -1,4 +1,4 @@
-import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter, OnDestroy } from '@angular/core';
 import { Article } from "common";
 import keyword = ts.ScriptElementKind.keyword;
 
@@ -11,11 +11,17 @@ import keyword = ts.ScriptElementKind.keyword;
   template: require('./article-search.html'),
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleSearchComponent {
+export class ArticleSearchComponent implements OnDestroy {
   @Input() articles: Article [];
   @Output() searchArticle = new EventEmitter();
 
+  ngOnDestroy(): void {
+    this.searchArticle.complete();
+  }
+
   search(keyword): void {
-    this.searchArticle.emit(keyword);
+    if (keyword) {
+      this.searchArticle.emit(keyword);
+    }
   }
 }
