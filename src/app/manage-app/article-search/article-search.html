@@ -4,6 +4,8 @@
     <input id="keyword" name="keyword" type="text" class="form-control" [(ngModel)]='keyword'
            (keydown.enter)="search(keyword)"
            placeholder="title, tag, article..."/>
-    <button type="submit" class="search-btn btn btn-primary" name="keyword">查询</button>
+    <button type="submit" class="search-btn btn btn-primary" name="keyword">
+      <i class="fa fa-search" aria-hidden="true"></i>查询
+    </button>
   </div>
 </form>

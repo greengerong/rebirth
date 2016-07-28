@@ -15,3 +15,5 @@ $bootstrap-sass-asset-helper: false;
 @import "common";
 // @import "node_modules/normalize.css";
 @import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+$fa-font-path: "node_modules/font-awesome/fonts";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
