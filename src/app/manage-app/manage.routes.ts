@@ -20,6 +20,12 @@ export const routes: RouterConfig = [
         component: 'ArticleListComponent',
         data: { roles: ['Admin', 'User'] },
         canActivate: [AuthRolePermission]
+      },
+      {
+        path: 'articles/:id',
+        component: 'MdEditorComponent',
+        data: { roles: ['Admin', 'User'] },
+        canActivate: [AuthRolePermission]
       }
     ]
   },
@@ -31,6 +37,7 @@ export const routes: RouterConfig = [
 export const asyncRoutes: AsyncRoutes = {
   'ManageHomeComponent': require('es6-promise-loader!./manage-home'),
   'ArticleListComponent': require('es6-promise-loader!./article-list'),
+  'MdEditorComponent': require('es6-promise-loader!./md-editor'),
 };
 
 
