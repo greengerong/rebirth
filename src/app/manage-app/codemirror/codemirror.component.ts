@@ -58,7 +58,7 @@ export class CodemirrorComponent implements OnInit {
       mode: "markdown",
       lineNumbers: true,
       lineWrapping: true,
-      theme: 'base16-dark',
+      // theme: 'base16-dark',
       keyMap: "sublime",
       autofocus: true,
       foldGutter: true,
