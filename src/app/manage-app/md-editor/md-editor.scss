@@ -1,0 +1,8 @@
+
+.md-editor {
+  display: -webkit-flex;
+  display: flex;
+  .md-editor-panel, .md-preview-panel {
+    flex: 1;
+  }
+}
