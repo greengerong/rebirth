@@ -1,8 +1,24 @@
 
 .md-editor {
-  display: -webkit-flex;
-  display: flex;
-  .md-editor-panel, .md-preview-panel {
-    flex: 1;
+  .btn-panel{
+    height: 48px;
+    display: block;
+    .md-btn-panel{
+      margin-right: 24px;
+    }
+  }
+  .editor-panel{
+    display: -webkit-flex;
+    display: flex;
+    .md-editor-panel, .md-preview-panel {
+      flex: 1;
+    }
+    .md-preview-panel{
+      background: white;
+      padding-left: 30px;
+      border:1px solid #ccc;
+      border-radius: 0;
+      height: 802px;
+    }
   }
 }

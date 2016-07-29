@@ -1,8 +1,29 @@
 <article class="md-editor">
-  <div class="md-editor-panel">
-    <codemirror (mdTextChange)="markdownTextChange($event)"></codemirror>
+  <div class="btn-panel">
+    <div class="md-btn-panel pull-right">
+      <button class="btn btn-primary">保存</button>
+      <button class="btn">取消</button>
+    </div>
   </div>
-  <!--<div class="md-preview-panel well">-->
-
-  <!--</div>-->
+  <div class="editor-panel">
+    <div class="md-editor-panel col-md-6">
+      <codemirror (mdTextChange)="markdownTextChange($event)"></codemirror>
+    </div>
+  
+    <div class="md-preview-panel well col-md-6">
+      <h1>Foo</h1>
+      <h2>Bar</h2>
+      <p>
+      blah blah
+      </p>
+      <h2>Baz</h2>
+      <p>
+      blah blah
+      </p>
+      <h1>Quux</h1>
+      <p>
+      blah blah
+      </p>
+    </div>
+  </div>
 </article>
