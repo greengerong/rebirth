@@ -4,7 +4,8 @@
   </div>
 
   <div class="article-body">
-    <article-item *ngFor="let articleItem of article?.result" [articleItem]="articleItem"></article-item>
+    <article-item *ngFor="let articleItem of article?.result; let $index = index" [articleItem]="articleItem"
+                  (deleteArticle)="deleteArticle($index)"></article-item>
     <pager [pageIndex]="article?.pageIndex" [pageSize]="article?.pageSize" [total]="article?.total"
            (pageChange)="pageChange($event)"></pager>
   </div>

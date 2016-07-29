@@ -31,4 +31,9 @@ export class ArticleService extends RebirthHttp {
     return null;
   }
 
+  @DELETE('article/:id')
+  deleteArticle(@Path('id') articleUrl: string): Observable<any> {
+    return null;
+  }
+
 }

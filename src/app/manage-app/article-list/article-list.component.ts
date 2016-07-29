@@ -35,6 +35,12 @@ export class ArticleListComponent implements OnInit {
     this.queryArticles();
   }
 
+  deleteArticle($index): void {
+    if ($index !== -1) {
+      this.article.result.splice($index, 1);
+    }
+  }
+
   private queryArticles() {
     this.articleService.getArticles(this.pageIndex, config.article.pageSize, this.keyword)
       .subscribe((result) => {
