@@ -44,6 +44,7 @@ import  'codemirror/mode/xml/xml';
   pipes: [],
   styles: [require('./codemirror.scss')],
   template: require('./codemirror.html'),
+  exportAs: 'codemirror',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodemirrorComponent implements OnInit, OnChanges {

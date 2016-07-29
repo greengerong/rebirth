@@ -1,17 +1,19 @@
 <article class="md-editor">
   <div class="btn-panel">
     <div class="md-btn-panel pull-right">
+      <button class="btn btn-primary" (click)="codemirror.fullScreen()">全屏</button>
       <button class="btn btn-primary">保存</button>
       <button class="btn">取消</button>
     </div>
   </div>
   <div class="editor-panel">
     <div class="md-editor-panel col-md-6">
-      <codemirror [markdown]="article?.markdown" (mdTextChange)="markdownTextChange($event)"></codemirror>
+      <codemirror [markdown]="article?.markdown" (mdTextChange)="markdownTextChange($event)"
+                  #codemirror="codemirror"></codemirror>
     </div>
 
     <div class="md-preview-panel col-md-6">
-      <md-preview  [mdArticle]="mdArticle"></md-preview>
+      <md-preview [mdArticle]="mdArticle"></md-preview>
     </div>
   </div>
 </article>
