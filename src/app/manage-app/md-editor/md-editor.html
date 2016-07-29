@@ -7,11 +7,11 @@
   </div>
   <div class="editor-panel">
     <div class="md-editor-panel col-md-6">
-      <codemirror (mdTextChange)="markdownTextChange($event)"></codemirror>
+      <codemirror [markdown]="article?.markdown" (mdTextChange)="markdownTextChange($event)"></codemirror>
     </div>
 
     <div class="md-preview-panel col-md-6">
-      <md-preview [mdArticle]="mdArticle"></md-preview>
+      <md-preview  [mdArticle]="mdArticle"></md-preview>
     </div>
   </div>
 </article>

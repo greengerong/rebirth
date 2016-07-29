@@ -8,9 +8,10 @@
     }
   }
   .editor-panel {
-    .md-preview-panel {
+    .md-preview-panel, .md-editor-panel {
       height: 620px;
       overflow: scroll;
+      margin-bottom: 20px;
     }
   }
 }

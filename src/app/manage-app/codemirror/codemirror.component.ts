@@ -5,7 +5,8 @@ import {
   ElementRef,
   ChangeDetectionStrategy,
   EventEmitter,
-  OnInit
+  OnInit,
+  OnChanges
 } from '@angular/core';
 import { Article } from "common";
 import * as CodeMirror from 'codemirror';
@@ -45,7 +46,8 @@ import  'codemirror/mode/xml/xml';
   template: require('./codemirror.html'),
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CodemirrorComponent implements OnInit {
+export class CodemirrorComponent implements OnInit, OnChanges {
+  @Input('markdown') markdown: string;
   @Output('mdTextChange') mdTextChange = new EventEmitter();
   private editorMarkdown: any;
 
@@ -68,6 +70,13 @@ export class CodemirrorComponent implements OnInit {
       this.mdArticleChange(e);
     });
     this.editorMarkdown.setSize('100%', '600px');
+    this.ngOnChanges({ currentValue: this.markdown });
+  }
+
+  ngOnChanges(event): void {
+    // if (event.markdown && event.mdArticle.currentValue) {
+    //   this.editorMarkdown.setValue(event.mdArticle.currentValue);
+    // }
   }
 
   fullScreen(): void {
