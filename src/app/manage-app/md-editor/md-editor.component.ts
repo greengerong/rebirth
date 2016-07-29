@@ -11,7 +11,6 @@ import { ArticleService, Article } from 'common';
   pipes: [],
   styles: [require('./md-editor.scss')],
   template: require('./md-editor.html'),
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MdEditorComponent implements OnInit {
   private mdArticle: string;
@@ -28,6 +27,7 @@ export class MdEditorComponent implements OnInit {
       this.articleService.getArticleByUrl(this.articleUrl)
         .subscribe(result => {
           this.article = result;
+          this.mdArticle = this.article.markdown;
         });
     });
   }
