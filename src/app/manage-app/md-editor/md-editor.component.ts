@@ -19,7 +19,8 @@ export class MdEditorComponent implements OnInit {
   private articleUrl: string;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private articleService: ArticleService) {
+              private articleService: ArticleService,
+              private rebirthWindow: RebirthWindow) {
   }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class MdEditorComponent implements OnInit {
     this.articleService
       .updateMarkdown(this.articleUrl, Object.assign({}, this.article, { markdown: this.mdArticle }))
       .subscribe(t => {
-        console.log(t, 'save suucess!');
+        setTimeout(() => this.rebirthWindow.getGlobalObject().alert(`${this.article.title}修改成功`));
       });
   }
 
