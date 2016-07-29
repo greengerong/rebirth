@@ -67,7 +67,7 @@ export class CodemirrorComponent implements OnInit {
     this.editorMarkdown.on('change', (e) => {
       this.mdArticleChange(e);
     });
-    this.editorMarkdown.setSize('100%', '800px');
+    this.editorMarkdown.setSize('100%', '600px');
   }
 
   fullScreen(): void {

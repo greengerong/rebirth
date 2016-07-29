@@ -2,6 +2,12 @@
 declare var ENV: string;
 declare var HMR: boolean;
 
+declare module 'markdown-it' {
+  function markdownit(option: any): any;
+
+  export default markdownit;
+}
+
 interface GlobalEnvironment {
   ENV;
   HMR;

@@ -1,24 +1,16 @@
 
 .md-editor {
-  .btn-panel{
+  .btn-panel {
     height: 48px;
     display: block;
-    .md-btn-panel{
+    .md-btn-panel {
       margin-right: 24px;
     }
   }
-  .editor-panel{
-    display: -webkit-flex;
-    display: flex;
-    .md-editor-panel, .md-preview-panel {
-      flex: 1;
-    }
-    .md-preview-panel{
-      background: white;
-      padding-left: 30px;
-      border:1px solid #ccc;
-      border-radius: 0;
-      height: 802px;
+  .editor-panel {
+    .md-preview-panel {
+      max-height: 620px;
+      overflow: scroll;
     }
   }
 }

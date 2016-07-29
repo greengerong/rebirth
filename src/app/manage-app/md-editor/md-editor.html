@@ -9,21 +9,9 @@
     <div class="md-editor-panel col-md-6">
       <codemirror (mdTextChange)="markdownTextChange($event)"></codemirror>
     </div>
-  
-    <div class="md-preview-panel well col-md-6">
-      <h1>Foo</h1>
-      <h2>Bar</h2>
-      <p>
-      blah blah
-      </p>
-      <h2>Baz</h2>
-      <p>
-      blah blah
-      </p>
-      <h1>Quux</h1>
-      <p>
-      blah blah
-      </p>
+
+    <div class="md-preview-panel col-md-6">
+      <md-preview [mdArticle]="mdArticle"></md-preview>
     </div>
   </div>
 </article>

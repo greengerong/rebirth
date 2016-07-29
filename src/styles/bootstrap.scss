@@ -19,8 +19,10 @@ $fa-font-path: "node_modules/font-awesome/fonts";
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 @import "node_modules/codemirror/lib/codemirror.css";
+@import "node_modules/codemirror/lib/codemirror.css";
 @import "node_modules/codemirror/theme/base16-dark.css";
 @import "node_modules/codemirror/addon/search/matchesonscrollbar.css";
 @import "node_modules/codemirror/addon/dialog/dialog.css";
 @import "node_modules/codemirror/addon/display/fullscreen.css";
+@import "node_modules/highlight.js/styles/github.css";
 
