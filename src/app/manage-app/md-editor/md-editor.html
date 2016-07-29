@@ -1,7 +1,22 @@
 <article class="md-editor">
-  <div class="btn-panel">
-    <div class="md-btn-panel panel">
+  <div class="panel">
+    <div class="btn-group" role="group" aria-label="...">
       <button class="btn btn-primary" (click)="codemirror.fullScreen()">全屏</button>
+      <div class="btn-group" role="group" dropdown>
+        <button type="button " class="btn btn-primary dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          主题
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="btn-primary" (click)="codemirror.theme('default')">default</a></li>
+          <li><a class="btn-primary" (click)="codemirror.theme('base16-dark')">base16-dark</a></li>
+          <li><a class="btn-primary" (click)="codemirror.theme('base16-light')">base16-light</a></li>
+          <li><a class="btn-primary" (click)="codemirror.theme('monokai')">monokai</a></li>
+          <li><a class="btn-primary" (click)="codemirror.theme('base16-light')">base16-light</a></li>
+          <li><a class="btn-primary" (click)="codemirror.theme('seti')">seti</a></li>
+        </ul>
+      </div>
       <button class="btn btn-primary" (click)="updateMarkdown()">保存</button>
       <a class="btn btn-primary" [routerLink]="['../../articles']">取消</a>
     </div>

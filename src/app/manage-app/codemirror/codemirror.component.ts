@@ -90,6 +90,10 @@ export class CodemirrorComponent implements OnInit, OnChanges {
     this.editorMarkdown.setOption("fullScreen", true);
   }
 
+  theme(value): void {
+    this.editorMarkdown.setOption("theme", value);
+  }
+
   private mdArticleChange(e: any): void {
     this.mdTextChange.emit(e.getValue());
   }
