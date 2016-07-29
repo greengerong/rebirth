@@ -62,6 +62,19 @@ export class CodemirrorComponent implements OnInit, OnChanges {
       lineNumbers: true,
       lineWrapping: true,
       // theme: 'base16-dark',
+      extraKeys: {
+        "F11": function (cm) {
+          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        "Esc": function (cm) {
+          if (cm.getOption("fullScreen")) {
+            cm.setOption("fullScreen", false);
+          }
+          else {
+            return CodeMirror.Pass;
+          }
+        }
+      },
       keyMap: "sublime",
       autofocus: true,
       foldGutter: true,
