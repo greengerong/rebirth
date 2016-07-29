@@ -65,14 +65,6 @@ export class CodemirrorComponent implements OnInit, OnChanges {
       extraKeys: {
         "F11": function (cm) {
           cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-        },
-        "Esc": function (cm) {
-          if (cm.getOption("fullScreen")) {
-            cm.setOption("fullScreen", false);
-          }
-          else {
-            return CodeMirror.Pass;
-          }
         }
       },
       keyMap: "sublime",
@@ -80,6 +72,7 @@ export class CodemirrorComponent implements OnInit, OnChanges {
       foldGutter: true,
       gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
     });
+
     this.editorMarkdown.on('change', (e) => {
       this.mdArticleChange(e);
     });
