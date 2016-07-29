@@ -1,4 +1,4 @@
-import { Component, Input, Output, ElementRef, ChangeDetectionStrategy, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CodemirrorComponent } from '../codemirror';
 import { MdPreviewComponent } from '../md-preview';
 import { ActivatedRoute } from '@angular/router';

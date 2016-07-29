@@ -74,9 +74,9 @@ export class CodemirrorComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(event): void {
-    // if (event.markdown && event.mdArticle.currentValue) {
-    //   this.editorMarkdown.setValue(event.mdArticle.currentValue);
-    // }
+    if (event.markdown && event.markdown.currentValue) {
+      this.editorMarkdown.setValue(event.markdown.currentValue);
+    }
   }
 
   fullScreen(): void {
