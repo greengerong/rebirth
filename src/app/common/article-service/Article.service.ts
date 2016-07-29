@@ -26,5 +26,9 @@ export class ArticleService extends RebirthHttp {
     return null;
   }
 
+  @POST('article/:id')
+  updateMarkdown(@Path('id') articleUrl: string, @Body article: Article): Observable<any> {
+    return null;
+  }
 
 }

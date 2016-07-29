@@ -3,6 +3,7 @@ import { CodemirrorComponent } from '../codemirror';
 import { MdPreviewComponent } from '../md-preview';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService, Article } from 'common';
+import { RebirthWindow } from 'rebirth-common';
 
 @Component({
   selector: 'md-editor',
@@ -17,8 +18,8 @@ export class MdEditorComponent implements OnInit {
   private article: Article;
   private articleUrl: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {
-
+  constructor(private activatedRoute: ActivatedRoute,
+              private articleService: ArticleService) {
   }
 
   ngOnInit() {
@@ -30,6 +31,14 @@ export class MdEditorComponent implements OnInit {
           this.mdArticle = this.article.markdown;
         });
     });
+  }
+
+  updateMarkdown(): void {
+    this.articleService
+      .updateMarkdown(this.articleUrl, Object.assign({}, this.article, { markdown: this.mdArticle }))
+      .subscribe(t => {
+        console.log(t, 'save suucess!');
+      });
   }
 
   markdownTextChange(md): void {
