@@ -26,3 +26,8 @@ $fa-font-path: "node_modules/font-awesome/fonts";
 @import "node_modules/codemirror/addon/display/fullscreen.css";
 @import "node_modules/highlight.js/styles/github.css";
 
+.CodeMirror {
+  &.CodeMirror-fullscreen {
+    z-index: 2000;
+  }
+}
