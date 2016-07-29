@@ -11,6 +11,8 @@ import {
 import { Article } from "common";
 import * as CodeMirror from 'codemirror';
 import  'codemirror/keymap/sublime';
+import  'codemirror/keymap/vim';
+import  'codemirror/keymap/emacs';
 import  'codemirror/addon/search/jump-to-line';
 import  'codemirror/addon/search/match-highlighter';
 import  'codemirror/addon/search/searchcursor';
@@ -92,6 +94,10 @@ export class CodemirrorComponent implements OnInit, OnChanges {
 
   theme(value): void {
     this.editorMarkdown.setOption("theme", value);
+  }
+
+  keyMap(value): void {
+    this.editorMarkdown.setOption("keyMap", value);
   }
 
   private mdArticleChange(e: any): void {

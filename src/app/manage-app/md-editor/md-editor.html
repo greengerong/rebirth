@@ -17,6 +17,18 @@
           <li><a class="btn-primary" (click)="codemirror.theme('seti')">seti</a></li>
         </ul>
       </div>
+      <div class="btn-group" role="group" dropdown>
+        <button type="button " class="btn btn-primary dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          快捷键
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="btn-primary" (click)="codemirror.keyMap('sublime')">sublime</a></li>
+          <li><a class="btn-primary" (click)="codemirror.keyMap('emacs')">emacs</a></li>
+          <li><a class="btn-primary" (click)="codemirror.keyMap('vim')">vim</a></li>
+        </ul>
+      </div>
       <button class="btn btn-primary" (click)="updateMarkdown()">保存</button>
       <a class="btn btn-primary" [routerLink]="['../../articles']">取消</a>
     </div>
