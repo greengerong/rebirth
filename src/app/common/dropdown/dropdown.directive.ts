@@ -1,11 +1,7 @@
-import {
-  Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef, } from '@angular/core';
 
 @Directive({
-  selector: '[dropdown]',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: '[dropdown]'
 })
 export class DropdownDirective {
   @Output() dropdownStatusChange = new EventEmitter();
