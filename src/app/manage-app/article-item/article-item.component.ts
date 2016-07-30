@@ -1,11 +1,12 @@
-import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { ArticleService, Article } from 'common';
 import { RebirthWindow } from 'rebirth-common';
 
 @Component({
   selector: 'article-item',
   styles: [require('./article-item.scss')],
-  template: require('./article-item.html')
+  template: require('./article-item.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent implements OnDestroy {
 

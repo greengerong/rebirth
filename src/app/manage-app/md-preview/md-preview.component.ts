@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from 'common';
 import * as markdownit from 'markdown-it';
 import * as hljs from 'highlight.js';
@@ -6,7 +6,8 @@ import * as hljs from 'highlight.js';
 @Component({
   selector: 'md-preview',
   styles: [require('./md-preview.scss')],
-  template: require('./md-preview.html')
+  template: require('./md-preview.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MdPreviewComponent implements OnChanges {
   @Input('mdArticle') mdArticle: string;

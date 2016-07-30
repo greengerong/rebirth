@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './Login.service';
 import { BlogFooterComponent, BlogHeaderComponent } from 'common';
@@ -11,7 +11,8 @@ import { BlogFooterComponent, BlogHeaderComponent } from 'common';
   styles: [
     require('./login.scss')
   ],
-  template: require('./login.html')
+  template: require('./login.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
   private model: any;

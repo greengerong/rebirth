@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from './Login.service';
@@ -12,7 +12,8 @@ import { BlogFooterComponent, BlogHeaderComponent } from 'common';
   styles: [
     require('./login.scss')
   ],
-  template: require('./login.fb.html')
+  template: require('./login.fb.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
   private error: any;

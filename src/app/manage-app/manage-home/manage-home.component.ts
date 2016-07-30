@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AUTH_ROLE_PERMISSIONS_DIRECTIVE } from 'rebirth-permission';
 
 @Component({
@@ -9,7 +9,8 @@ import { AUTH_ROLE_PERMISSIONS_DIRECTIVE } from 'rebirth-permission';
   styles: [
     require('./manage-home.scss')
   ],
-  template: require('./manage-home.html')
+  template: require('./manage-home.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageHomeComponent {
 
