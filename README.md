@@ -3,6 +3,8 @@
 
 [![破狼logo](http://images2015.cnblogs.com/blog/63184/201607/63184-20160730102027700-792274919.png)](http://www.cnblogs.com/whitewolf/)
 
+![破狼微信号](https://github.com/greengerong/rebirth/blob/master/src/assets/img/wei-xin-wolf-er-wei-ma.png?raw=true)
+
 GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angular2. Also, you can use it as a Angular project seed to start your new project.
 
 ## How to build this project?
