@@ -49,27 +49,29 @@ GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angul
 <img src="https://cloud.githubusercontent.com/assets/2569893/17268755/d643bd24-5666-11e6-84b2-32b3da8f1846.png"  width="300px" />
 
 
-### pc
+# pc
 <hr/>
 
-#### 前台 首页
+## 前台界面
+### 首页
 ![](./shortscreens/rebirth-index.png)
-#### 前台 提问
+### 提问
 ![](./shortscreens/rebirth-question.png)
-#### 前台 关于
+### 关于
 ![](./shortscreens/rebirth-about.png)
 
 <hr/>
 
-#### 后台 登录
+## 后台界面
+### 登录
 ![](./shortscreens/rebirth-login.png)
-#### 后台 首页
+### 首页
 ![](./shortscreens/rebirth-manage-index.png)
-#### 后台 博客列表
+### 博客列表
 ![](./shortscreens/rebirth-manage-list.png)
-#### 后台 博客编辑
+### 博客编辑
 ![](./shortscreens/rebirth-manage-edit.png)
-#### 后台 全屏编辑
+### 全屏编辑
 ![](./shortscreens/rebirth-manage-fullscreen.png)
 
 
