@@ -58,4 +58,9 @@ $nav-text-color: #fff;
       color: $brand-primary;
     }
   }
+  a.navbar-pic{
+    &:focus, &:hover{
+      background: $brand-primary;
+    }
+  }
 }

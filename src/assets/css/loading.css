@@ -101,8 +101,8 @@
   position: absolute;
   left: 45%;
   top: 45%;
-  width: 100px;
-  height: 100px;
+  width: 4rem;
+  height: 4rem;
   z-index: 999;
 }
 @-webkit-keyframes bouncedelay {
