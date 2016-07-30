@@ -1,10 +1,21 @@
-
 .md-editor {
   .editor-panel {
-    .md-preview-panel, .md-editor-panel {
+    .md-preview-panel {
       height: 620px;
-      overflow: scroll;
-      margin-bottom: 20px;
     }
+    .md-editor-panel{
+      height: 620px;
+    }
+  }
+}
+.dropdown-menu{
+  background-color: #4acaa8;
+  li{
+    a{
+      color: white;
+      &:hover{
+        color: #4acaa8;
+      }
+    }    
   }
 }
