@@ -5,6 +5,12 @@ $nav-text-color: #fff;
   background: $brand-primary;
   color: #d1f1e9;
   border: 0px;
+  .navbar-brand {
+    .logo {
+      width: 60px;
+      margin-top: -15px;
+    }
+  }
   .navbar-toggle {
     .icon-bar {
       background: $nav-text-color;

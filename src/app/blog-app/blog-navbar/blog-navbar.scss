@@ -2,6 +2,12 @@
 
 $nav-text-color: #fff;
 .navbar {
+  .navbar-brand {
+    .logo {
+      width: 60px;
+      margin-top: -15px;
+    }
+  }
   background: $brand-primary;
   color: #d1f1e9;
   border: 0px;
