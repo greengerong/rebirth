@@ -37,3 +37,27 @@ GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angul
 ## My front end WeChat
 
 ![破狼微信号](https://github.com/greengerong/rebirth/blob/master/src/assets/img/wei-xin-wolf-er-wei-ma.png?raw=true)
+
+## Web site preview
+
+### mobile
+
+<img src="https://cloud.githubusercontent.com/assets/2569893/17268750/bd6fe296-5666-11e6-84e0-c78d9b8c29d2.png"  width="300px" />
+
+<hr/>
+
+<img src="https://cloud.githubusercontent.com/assets/2569893/17268755/d643bd24-5666-11e6-84b2-32b3da8f1846.png"  width="300px" />
+
+
+### pc
+
+<img src="https://cloud.githubusercontent.com/assets/2569893/17268770/7a26c86e-5667-11e6-9860-0e9556c06752.png" width="500px"/>
+
+<hr/>
+
+<img src="https://cloud.githubusercontent.com/assets/2569893/17268772/8ac41488-5667-11e6-8941-25d1c87cfc98.png" width="500px"/>
+
+<hr/>
+
+<img src="https://cloud.githubusercontent.com/assets/2569893/17268840/86f31514-5669-11e6-9db1-792e9325b427.png" width="500px"/>
+
