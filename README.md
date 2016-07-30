@@ -69,9 +69,8 @@ GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angul
 ![](./shortscreens/rebirth-manage-list.png)
 #### 后台 博客编辑
 ![](./shortscreens/rebirth-manage-edit.png)
-
 #### 后台 全屏编辑
-<img src="https://cloud.githubusercontent.com/assets/2569893/17268840/86f31514-5669-11e6-9db1-792e9325b427.png" width="500px"/>
+![](./shortscreens/rebirth-manage-fullscreen.png)
 
 
 
