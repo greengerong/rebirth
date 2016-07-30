@@ -34,6 +34,6 @@ GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angul
 * fontgen-loader: icon font
 * ...
 
-## my front end WeChat
+## My front end WeChat
 
 ![破狼微信号](https://github.com/greengerong/rebirth/blob/master/src/assets/img/wei-xin-wolf-er-wei-ma.png?raw=true)
