@@ -10,7 +10,8 @@
   </p>
   <section class="last-posts">
     <h3 class="article-title">近30天问题：</h3>
-    <table class="table table-striped">
+    {{questions | json}}
+    <table  *ngIf="questions&&questions.length "class="table table-striped">
       <tbody>
       <tr *ngFor="let questionItem of questions; let questionIndex = index;">
         <td class="question-item-order">{{questionIndex + 1}}</td>

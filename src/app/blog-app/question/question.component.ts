@@ -11,7 +11,7 @@ import  { LoadService } from 'common';
   template: require('./question.html')
 })
 export class QuestionComponent implements OnInit {
-  private questions: QuestionModel[] = [];
+  private questions: QuestionModel[];
   private error: any;
 
   constructor(private questionService: QuestionService,
