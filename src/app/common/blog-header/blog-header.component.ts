@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'blog-header',
@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
   styles: [
     require('./blog-header.scss')
   ],
-  template: require('./blog-header.html')
+  template: require('./blog-header.html'),
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogHeaderComponent {
 

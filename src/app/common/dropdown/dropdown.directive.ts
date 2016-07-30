@@ -1,12 +1,17 @@
-import { Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef } from '@angular/core';
+import {
+  Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef,
+  ChangeDetectionStrategy
+} from '@angular/core';
 
 @Directive({
-  selector: '[dropdown]'
+  selector: '[dropdown]',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownDirective {
   @Output() dropdownStatusChange = new EventEmitter();
   private active: boolean = false;
   @Input() private activeCss: string = 'open';
+
   constructor(private elmRef: ElementRef, private renderer: Renderer) {
   }
 
@@ -22,6 +27,7 @@ export class DropdownDirective {
     this.active = !this.active;
     this.updateHostStatus();
   }
+
   updateHostStatus() {
     this.dropdownStatusChange.emit(this.active);
     this.renderer.setElementClass(this.elmRef.nativeElement, this.activeCss, this.active);
