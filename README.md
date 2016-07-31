@@ -52,26 +52,24 @@ GreenGerong(破狼) blog with Angular2. It is a good seed for you to learn Angul
 # pc
 <hr/>
 
-## 前台界面
-### 首页
+## Blog front
+### home page
 ![](./shortscreens/rebirth-index.png)
-### 提问
+### question page
 ![](./shortscreens/rebirth-question.png)
-### 关于
+### about me
 ![](./shortscreens/rebirth-about.png)
 
 <hr/>
 
-## 后台界面
-### 登录
+## Blog manage
+### login page
 ![](./shortscreens/rebirth-login.png)
-### 首页
-![](./shortscreens/rebirth-manage-index.png)
-### 博客列表
+### blog list
 ![](./shortscreens/rebirth-manage-list.png)
-### 博客编辑
+### blog editor
 ![](./shortscreens/rebirth-manage-edit.png)
-### 全屏编辑
+### editor full screen
 ![](./shortscreens/rebirth-manage-fullscreen.png)
 
 
