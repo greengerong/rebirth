@@ -101,8 +101,8 @@
   position: absolute;
   left: 45%;
   top: 45%;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   z-index: 999;
 }
 @-webkit-keyframes bouncedelay {
@@ -134,8 +134,7 @@
     width: 20%;
     height: 20%;
     background-color:#67CF22;
-
-    border-radius: 100%;
+    border-radius: 50%;
     position: absolute;
     -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
     -moz-animation: bouncedelay 1.2s infinite ease-in-out;
