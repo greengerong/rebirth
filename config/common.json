@@ -1,4 +1,5 @@
 {
+  "title": "破狼博客",
   "question": {
     "url": "https://api.github.com/repos/greengerong/rebirth-question/issues?callback=JSONP_CALLBACK&access_token=[set token]"
   },
