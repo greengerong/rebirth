@@ -252,10 +252,10 @@ module.exports = {
   ],
 
   /*
-   * Include polyfills or mocks for various node stuff
-   * Description: Node configuration
+   * Plugin: postcss-loader
+   * Description: PostCSS loader for webpack to postprocesses your CSS with PostCSS plugins.
    *
-   * See: https://webpack.github.io/docs/configuration.html#node
+   * See: https://github.com/postcss/postcss-loader
    */
   postcss: [
     cssnano({
@@ -274,6 +274,13 @@ module.exports = {
       sourcemap: true
     })
   ],
+
+  /*
+   * Include polyfills or mocks for various node stuff
+   * Description: Node configuration
+   *
+   * See: https://webpack.github.io/docs/configuration.html#node
+   */
   node: {
     global: 'window',
     crypto: 'empty',

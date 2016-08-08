@@ -13,6 +13,7 @@ const PROD_METADATA = require('../config/production.json');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
+
 const METADATA = webpackMerge(commonConfig.metadata, PROD_METADATA, {
   host: HOST,
   port: PORT,
