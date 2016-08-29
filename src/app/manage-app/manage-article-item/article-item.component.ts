@@ -3,12 +3,12 @@ import { ArticleService, Article } from 'common';
 import { RebirthWindow } from 'rebirth-common';
 
 @Component({
-  selector: 'article-item',
-  styles: [require('./article-item.scss')],
-  template: require('./article-item.html'),
+  selector: 'manage-article-item',
+  styles: [require('./manage-article-item.scss')],
+  template: require('./manage-article-item.html'),
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleItemComponent implements OnDestroy {
+export class ManageArticleItemComponent implements OnDestroy {
 
   @Input() articleItem: Article = <Article> {};
   @Output() deleteArticle = new EventEmitter();

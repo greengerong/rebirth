@@ -1,8 +1,4 @@
 // App
 export * from './app.component';
-
-
-// Application wide providers
-export const APP_PROVIDERS: any[] = [
-
-];
+export * from './app.module';
+export * from './environment';

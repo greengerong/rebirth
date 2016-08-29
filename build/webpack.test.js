@@ -26,7 +26,7 @@ module.exports = webpackMerge(devConfig, {
    * Do not change, leave as is or it wont work.
    * See: https://github.com/webpack/karma-webpack#source-maps
    */
-  devtool: 'cheap-module-source-map',
+  devtool: 'inline-source-map',
 
   /**
    * Options affecting the resolving of modules.
@@ -79,11 +79,11 @@ module.exports = webpackMerge(devConfig, {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-      // {
-      //   test: /\.ts$/,
-      //   loader: 'tslint-loader',
-      //   exclude: [utils.root('node_modules')]
-      // },
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        exclude: [utils.root('node_modules')]
+      },
 
       /**
        * Source map loader support for *.js files

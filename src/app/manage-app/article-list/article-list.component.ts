@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ArticleItemComponent } from "../article-item";
+import { ManageArticleItemComponent } from "../manage-article-item";
 import { ArticleService, Article, SearchResult, PagerComponent } from "common";
 import config from 'config';
 import { ArticleSearchComponent } from '../article-search';
@@ -8,7 +8,7 @@ import { ArticleSearchComponent } from '../article-search';
   selector: 'article-list',
   template: require('./article-list.html'),
   styles: [require('./article-list.scss')],
-  directives: [ArticleItemComponent, PagerComponent, ArticleSearchComponent],
+  directives: [ManageArticleItemComponent, PagerComponent, ArticleSearchComponent],
   providers: [ArticleService]
 })
 export class ArticleListComponent implements OnInit {
