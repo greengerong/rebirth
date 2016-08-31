@@ -50,11 +50,10 @@ module.exports = webpackMerge(devConfig, {
     modulesDirectories: ['node_modules'],
 
     alias: {
-      'config': utils.root('./config/development.ts'),
-      'rebirth-common': utils.root('./src/platform/browser/rebirth-common/index.ts'),
+      'rebirth-common': utils.root('./src/app/common/rebirth-common/index.ts'),
       'common': utils.root('./src/app/common/index.ts'),
-      'global.providers': utils.root('./src/global.providers.ts'),
-      'loading.css': utils.root('./src/assets/css/loading.css')
+      'loading.css': utils.root('./src/assets/css/loading.css'),
+      'config': utils.root('./config/development.ts'),
     }
 
   },
@@ -228,8 +227,8 @@ module.exports = webpackMerge(devConfig, {
    * See: https://github.com/wbuchwalter/tslint-loader
    */
   tslint: {
-    emitErrors: false,
-    failOnHint: false,
+    emitErrors: true,
+    failOnHint: true,
     resourcePath: 'src'
   },
 

@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation, ViewContainerRef } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
 import { RebirthHttpProvider } from 'rebirth-http';
 import config from 'config';
 import { LoadService } from  'common';
@@ -8,17 +7,28 @@ import { LoadService } from  'common';
   selector: 'app',
   pipes: [],
   providers: [LoadService],
-  directives: [RouterLinkActive],
+  directives: [],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),
-    require('./app.scss')
+    require('./app.scss'),
+    require('codemirror/lib/codemirror.css'),
+    require('codemirror/lib/codemirror.css'),
+    require('codemirror/theme/base16-dark.css'),
+    require('codemirror/theme/base16-light.css'),
+    require('codemirror/theme/monokai.css'),
+    require('codemirror/theme/seti.css'),
+    require('codemirror/addon/search/matchesonscrollbar.css'),
+    require('codemirror/addon/dialog/dialog.css'),
+    require('codemirror/addon/display/fullscreen.css'),
+    require('highlight.js/styles/github.css')
   ],
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
 
-  constructor(rebirthHttpProvider: RebirthHttpProvider, viewContainer: ViewContainerRef, loadService: LoadService) {
+  constructor(private rebirthHttpProvider: RebirthHttpProvider, private viewContainer: ViewContainerRef,
+              private loadService: LoadService) {
 
     loadService.defaultViewContainerRef = viewContainer;
 

@@ -1,25 +1,32 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { GLOBAL_PROVIDERS } from 'global.providers';
-import { addProviders, inject, async, tick, fakeAsync } from '@angular/core/testing';
-
+import { TestBed, async, inject } from '@angular/core/testing';
+import { BrowserModule }  from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about.component';
 
 describe('About Component', () => {
 
-  beforeEach(() => addProviders([
-    ...GLOBAL_PROVIDERS,
-    AboutComponent
-  ]));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        BrowserModule,
+        RouterModule.forRoot({})
+      ],
+      declarations: [AboutComponent],
+      providers: []
+    });
 
-  xit('should get about me article', fakeAsync(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+  });
 
-    tcb.createAsync(AboutComponent)
-      .then((fixture) => {
-        tick();
-        fixture.detectChanges();
-        let elm: HTMLElement = fixture.nativeElement;
-        expect(elm.querySelector(".article-title").textContent.trim()).toEqual("破狼简介");
+  it('should get about me article', async(inject([], () => {
+
+    let fixture = TestBed.createComponent(AboutComponent);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      setTimeout(function () {
+        expect(fixture.componentInstance.article.title).toEqual("破狼简介");
       });
+    });
+
   })));
 
 });

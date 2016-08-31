@@ -5,13 +5,13 @@ import config from 'config';
 import { ArticleSearchComponent } from '../article-search';
 
 @Component({
-  selector: 'article-list',
-  template: require('./article-list.html'),
-  styles: [require('./article-list.scss')],
+  selector: 'manage-article-list',
+  template: require('./manage-article-list.html'),
+  styles: [require('./manage-article-list.scss')],
   directives: [ManageArticleItemComponent, PagerComponent, ArticleSearchComponent],
   providers: [ArticleService]
 })
-export class ArticleListComponent implements OnInit {
+export class ManageArticleListComponent implements OnInit {
   private article: SearchResult<Article> = <SearchResult<Article>> {};
   private pageIndex = 1;
   private keyword: string;

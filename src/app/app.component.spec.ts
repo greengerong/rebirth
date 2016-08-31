@@ -1,20 +1,34 @@
-import { addProviders, inject } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
+import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadService } from 'common';
 
 describe('App', () => {
-  beforeEach(() => addProviders([
-    AppComponent,
-    { provide: ViewContainerRef, useValue: {} },
-    RebirthHttpProvider,
-    LoadService
-  ]));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [],
+      declarations: [AppComponent],
+      providers: [
+        { provide: ViewContainerRef, useValue: {} },
+        RebirthHttpProvider,
+        LoadService,
+        ...REBIRTH_STORAGE_PROVIDERS
+      ]
+    });
 
-  it('should init http interceptors', inject([AppComponent, RebirthHttpProvider],
-    (appComponent, rebirthHttpProvider: RebirthHttpProvider) => {
-      expect(rebirthHttpProvider.getInterceptors().length).toEqual(4);
-    }));
+  });
+
+  it('should init http interceptors', async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.whenStable().then(() => {
+      let element = fixture.nativeElement;
+      fixture.detectChanges();
+
+      expect(element.querySelectorAll('router-outlet').length).toEqual(1);
+      expect(fixture.componentInstance.rebirthHttpProvider.getInterceptors().length).toEqual(4);
+    });
+  }));
 
 });

@@ -1,11 +1,13 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { Http, BaseRequestOptions } from '@angular/http';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
-import { GLOBAL_PROVIDERS } from 'global.providers';
+import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { Article, SearchResult } from 'common';
-import { addProviders, inject, async } from '@angular/core/testing';
 import { ArticleListComponent } from './article-list.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { RebirthHttpProvider } from 'rebirth-http';
+import { REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
 
 describe('Article list Component', () => {
   let result = <SearchResult<Article>>{
@@ -21,38 +23,50 @@ describe('Article list Component', () => {
     ]
   };
 
-  beforeEach(() => addProviders([
-    ...GLOBAL_PROVIDERS,
-    MockBackend,
-    BaseRequestOptions,
-    {
-      provide: Http,
-      useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
-        return new Http(backend, defaultOptions);
-      },
-      deps: [MockBackend, BaseRequestOptions]
-    },
-    {
-      provide: ElementRef,
-      useValue: new ElementRef(document.body)
-    },
-    ArticleListComponent,
-  ]));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        BrowserModule,
+        RouterModule.forRoot({})
+      ],
+      declarations: [ArticleListComponent],
+      providers: [
+        MockBackend,
+        BaseRequestOptions,
+        RebirthHttpProvider,
+        ...REBIRTH_WINDOW_PROVIDERS,
+        {
+          provide: Http,
+          useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
+            return new Http(backend, defaultOptions);
+          },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        {
+          provide: ElementRef,
+          useValue: new ElementRef(document.body)
+        }
+      ]
+    });
 
-  it('should render article list from service response', async(inject([TestComponentBuilder, MockBackend],
-    (tcb: TestComponentBuilder, mockBackend: MockBackend) => {
+  });
+
+
+  it('should render article list from service response', async(inject([MockBackend],
+    (mockBackend: MockBackend) => {
       mockBackend.connections.subscribe((con: MockConnection) => {
         con.mockRespond(<any>result);
       });
 
-      tcb.createAsync(ArticleListComponent)
-        .then((fixture) => {
-          fixture.detectChanges();
+      let fixture = TestBed.createComponent(ArticleListComponent);
+      fixture.whenStable().then(() => {
+        fixture.detectChanges();
 
-          let elm: HTMLElement = fixture.nativeElement;
-          let titleElms = elm.querySelectorAll(".article-title");
-          expect(titleElms[0].textContent).toContain('Article title 1');
-          expect(titleElms[1].textContent).toContain('Article title 2');
-        });
+        let elm: HTMLElement = fixture.nativeElement;
+        let titleElms = elm.querySelectorAll(".article-title");
+        expect(titleElms[0].textContent).toContain('Article title 1');
+        expect(titleElms[1].textContent).toContain('Article title 2');
+      });
+
     })));
 });

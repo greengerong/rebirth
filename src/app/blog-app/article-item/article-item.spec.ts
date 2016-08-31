@@ -1,34 +1,47 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { GLOBAL_PROVIDERS } from 'global.providers';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { Article } from 'common';
-import { addProviders, inject, async } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
+import { CommonModule } from '@angular/common';
 
 describe('Article item Component', () => {
 
-  beforeEach(() => addProviders([
-    ...GLOBAL_PROVIDERS,
-    ArticleItemComponent
-  ]));
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        CommonModule,
+        RouterModule.forRoot({})
+      ],
+      declarations: [ArticleItemComponent],
+      providers: []
+    });
+  });
 
-  it('should render article ', async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+  it('should render article ', async(inject([], () => {
 
-    tcb.createAsync(ArticleItemComponent)
-      .then((fixture) => {
-        let component: ArticleItemComponent = fixture.componentInstance;
-        let title = 'article title';
-        component.articleItem = <Article>{ title };
-        fixture.detectChanges();
-        let elm: HTMLElement = fixture.nativeElement;
-        expect(elm.querySelector(".article-title").textContent.trim()).toEqual(title);
-      });
+    let fixture = TestBed.createComponent(ArticleItemComponent);
+    fixture.whenStable().then(() => {
+
+      let component: ArticleItemComponent = fixture.componentInstance;
+      let title = 'article title';
+      component.articleItem = <Article>{ title };
+
+      fixture.detectChanges();
+
+      let elm: HTMLElement = fixture.nativeElement;
+      expect(elm.querySelector(".article-title").textContent.trim()).toEqual(title);
+    });
+
   })));
 
-  it('should get random tag style', inject([ArticleItemComponent],
-    (articleItemComponent: ArticleItemComponent) => {
+  it('should get random tag style', inject([], () => {
+    let fixture = TestBed.createComponent(ArticleItemComponent);
+    fixture.whenStable().then(() => {
+      let articleItemComponent: ArticleItemComponent = fixture.componentInstance;
       articleItemComponent.articleItem = <Article>{};
       expect(articleItemComponent.getTagStyle(1)).not.toBeUndefined();
-    }));
+    });
+
+  }));
 
 });

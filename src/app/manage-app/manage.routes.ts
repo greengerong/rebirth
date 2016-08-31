@@ -3,7 +3,7 @@ import { ManageAppComponent } from './manage-app.component';
 import { LoginComponent } from './login';
 import { AuthRolePermission } from 'rebirth-permission';
 import { ManageHomeComponent } from './manage-home';
-import { ArticleListComponent } from './article-list';
+import { ManageArticleListComponent } from './manage-article-list';
 import { MdEditorComponent } from './md-editor';
 
 export const ROUTER_CONFIG: Routes = [
@@ -20,7 +20,7 @@ export const ROUTER_CONFIG: Routes = [
       },
       {
         path: 'articles',
-        component: ArticleListComponent,
+        component: ManageArticleListComponent,
         data: { roles: ['Admin', 'User'] },
         canActivate: [AuthRolePermission]
       },
