@@ -5,11 +5,8 @@ var webpackDevServer = require('webpack-dev-server');
 var compiler = webpack(config);
 var server = new webpackDevServer(compiler, {
   hot: false,
-  quiet: false,
-  noInfo: false,
-  inline: true,
-  colors: true,
-  historyApiFallback: true
+  quiet: true,
+  historyApiFallback: true,
 });
 
 

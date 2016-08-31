@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const cssnano = require('cssnano');
 const utils = require('./utils');
 const METADATA = require('../config/common.json');
-
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const dashboard = new Dashboard();
 
 var CopyWebpackPlugin = (CopyWebpackPlugin = require('copy-webpack-plugin'), CopyWebpackPlugin.default || CopyWebpackPlugin);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -206,6 +208,7 @@ module.exports = {
    */
   plugins: [
 
+    new DashboardPlugin(dashboard.setData),
     /*
      * Plugin: ForkCheckerPlugin
      * Description: Do type checking in a separate process, so webpack don't need to wait.
