@@ -1,7 +1,7 @@
 import { Label } from './label.model';
 import { User } from'./user.model';
 
-export class QuestionModel {
+export interface QuestionModel {
   id: number;
   title: string;
   url: string;
