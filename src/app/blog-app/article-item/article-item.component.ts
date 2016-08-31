@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Article } from 'common';
+import { Article } from '../../common';
 
 @Component({
   selector: 'article-item',

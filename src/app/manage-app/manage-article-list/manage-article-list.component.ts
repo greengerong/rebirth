@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { ManageArticleItemComponent } from "../manage-article-item";
-import { ArticleService, Article, SearchResult, PagerComponent } from "common";
+import { Component, OnInit } from '@angular/core';
+import { ManageArticleItemComponent } from '../manage-article-item';
+import { ArticleService, Article, SearchResult, PagerComponent } from '../../common';
 import config from 'config';
 import { ArticleSearchComponent } from '../article-search';
 

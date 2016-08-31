@@ -1,4 +1,3 @@
-
 // Angular 2
 import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
@@ -25,7 +24,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/Observable';
 import 'rxjs/observable/fromPromise';
 
-import 'lodash';
 import 'immutable';
 
 

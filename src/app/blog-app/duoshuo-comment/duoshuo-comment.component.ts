@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit, ElementRef, Renderer } from '@angular/core';
-import { RebirthWindow } from 'rebirth-common';
-import { Article } from 'common';
+import { Article, RebirthWindow } from '../../common';
 
 @Component({
   selector: 'duoshuo-comment',

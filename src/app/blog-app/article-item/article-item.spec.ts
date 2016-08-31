@@ -1,5 +1,5 @@
 import { TestBed, async, inject } from '@angular/core/testing';
-import { Article } from 'common';
+import { Article } from '../../common';
 import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
 import { CommonModule } from '@angular/common';

@@ -2,12 +2,11 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
 import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
-import { Article, SearchResult } from 'common';
 import { ArticleListComponent } from './article-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { REBIRTH_WINDOW_PROVIDERS } from 'rebirth-common';
+import { Article, SearchResult, REBIRTH_WINDOW_PROVIDERS } from '../../common';
 
 describe('Article list Component', () => {
   let result = <SearchResult<Article>>{

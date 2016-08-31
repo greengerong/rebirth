@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
 import config from 'config';
-import { LoadService } from  'common';
+import { LoadService } from  './common';
 
 @Component({
   selector: 'app',

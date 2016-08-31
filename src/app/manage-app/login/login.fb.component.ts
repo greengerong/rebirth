@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from './Login.service';
-import { BlogFooterComponent, BlogHeaderComponent } from 'common';
+import { BlogFooterComponent, BlogHeaderComponent } from '../../common';
 
 @Component({
   selector: 'login',

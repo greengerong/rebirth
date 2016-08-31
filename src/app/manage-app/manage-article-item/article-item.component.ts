@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { ArticleService, Article } from 'common';
-import { RebirthWindow } from 'rebirth-common';
+import { RebirthWindow, ArticleService, Article } from '../../common';
 
 @Component({
   selector: 'manage-article-item',

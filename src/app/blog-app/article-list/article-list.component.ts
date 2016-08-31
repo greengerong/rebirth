@@ -1,8 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ArticleItemComponent } from '../article-item';
-import { PagerComponent, ArticleService, SearchResult, Article } from 'common';
+import { PagerComponent, ArticleService, SearchResult, Article, RebirthWindow } from '../../common';
 import config from 'config';
-import { RebirthWindow } from 'rebirth-common';
 
 @Component({
   selector: 'article-list',

@@ -4,3 +4,4 @@ export * from './dropdown';
 export * from './loading';
 export * from './pager';
 export * from './article-service';
+export * from './rebirth-common';
