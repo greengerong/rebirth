@@ -1,7 +1,7 @@
 const utils = require('./utils');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
-const DEV_METADATA = require('../config/development.json');
+const DEV_METADATA = require('../environments/development.json');
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
@@ -33,7 +33,7 @@ module.exports = webpackMerge(commonConfig, {
 
   resolve: {
     alias: {
-      'config': utils.root('./config/development.ts')
+      'environments': utils.root('./environments/development.ts')
     }
   },
 

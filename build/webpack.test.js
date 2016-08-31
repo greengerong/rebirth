@@ -50,10 +50,7 @@ module.exports = webpackMerge(devConfig, {
     modulesDirectories: ['node_modules'],
 
     alias: {
-      'rebirth-common': utils.root('./src/app/common/rebirth-common/index.ts'),
-      'common': utils.root('./src/app/common/index.ts'),
-      'loading.css': utils.root('./src/assets/css/loading.css'),
-      'config': utils.root('./config/development.ts'),
+      'environments': utils.root('./environments/development.ts'),
     }
 
   },

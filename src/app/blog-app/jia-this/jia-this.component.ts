@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Renderer, OnInit, ElementRef } from '@angular/core';
-import { RebirthWindow } from '../../common';
+import { RebirthWindow } from '../../shared';
 
 @Component({
   selector: 'jia-this',

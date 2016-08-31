@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit, ElementRef, Renderer } from '@angular/core';
-import { Article, RebirthWindow } from '../../common';
+import { Article, RebirthWindow } from '../../shared';
 
 @Component({
   selector: 'duoshuo-comment',

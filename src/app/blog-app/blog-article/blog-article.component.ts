@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService, Article } from '../../common';
+import { ArticleService, Article } from '../../shared';
 import { ArticleItemComponent } from '../article-item';
 import { ActivatedRoute } from '@angular/router';
 import { DuoShuoCommentComponent } from '../duoshuo-comment';

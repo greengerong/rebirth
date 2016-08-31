@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BlogAsideComponent } from './blog-aside';
 import { BlogNavbarComponent } from './blog-navbar';
-import { BlogFooterComponent, BlogHeaderComponent } from '../common';
+import { BlogFooterComponent, BlogHeaderComponent } from '../shared';
 
 @Component({
   selector: 'blog-app',

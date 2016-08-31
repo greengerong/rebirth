@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageArticleItemComponent } from '../manage-article-item';
-import { ArticleService, Article, SearchResult, PagerComponent } from '../../common';
-import config from 'config';
+import { ArticleService, Article, SearchResult, PagerComponent } from '../../shared';
+import { environment } from 'environments';
 import { ArticleSearchComponent } from '../article-search';
 
 @Component({
@@ -42,7 +42,7 @@ export class ManageArticleListComponent implements OnInit {
   }
 
   private queryArticles() {
-    this.articleService.getArticles(this.pageIndex, config.article.pageSize, this.keyword)
+    this.articleService.getArticles(this.pageIndex, environment.article.pageSize, this.keyword)
       .subscribe((result) => {
         this.article = result;
       });

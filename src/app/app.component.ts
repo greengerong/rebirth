@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
-import config from 'config';
-import { LoadService } from  './common';
+import { environment } from 'environments';
+import { LoadService } from  './shared';
 
 @Component({
   selector: 'app',
@@ -33,7 +33,7 @@ export class AppComponent {
     loadService.defaultViewContainerRef = viewContainer;
 
     rebirthHttpProvider
-      .baseUrl(config.api.host)
+      .baseUrl(environment.api.host)
       .json()
       .addInterceptor({
         request: request => {

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
-import { Article } from '../../common';
+import { Article } from '../../shared';
 import * as markdownit from 'markdown-it';
 import * as hljs from 'highlight.js';
 

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './Login.service';
-import { BlogFooterComponent, BlogHeaderComponent } from '../../common';
+import { BlogFooterComponent, BlogHeaderComponent } from '../../shared';
 
 @Component({
   selector: 'login',

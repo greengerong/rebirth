@@ -13,7 +13,7 @@ import { ROUTING } from './app.routes';
 import { AppComponent } from './app.component';
 
 // rebirth
-import { REBIRTH_WINDOW_PROVIDERS } from './common';
+import { REBIRTH_WINDOW_PROVIDERS } from './shared';
 import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
 import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 import { providePermission, PermissionConfig } from 'rebirth-permission';

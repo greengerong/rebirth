@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AboutService } from './about.service';
-import { Article } from '../../common';
+import { Article } from '../../shared';
 import { ArticleItemComponent } from '../article-item';
 
 @Component({

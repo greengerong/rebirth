@@ -8,7 +8,7 @@ import {
   OnInit,
   OnChanges
 } from '@angular/core';
-import { Article } from '../../common';
+import { Article } from '../../shared';
 import * as CodeMirror from 'codemirror';
 import  'codemirror/keymap/sublime';
 import  'codemirror/keymap/vim';

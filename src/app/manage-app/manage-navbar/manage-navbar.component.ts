@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLinkActive, Router } from '@angular/router';
-import { DropdownDirective } from '../../common';
+import { DropdownDirective } from '../../shared';
 import { AuthorizationService, PermissionConfig } from 'rebirth-permission';
 
 @Component({

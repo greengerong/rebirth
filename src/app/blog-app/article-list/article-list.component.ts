@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ArticleItemComponent } from '../article-item';
-import { PagerComponent, ArticleService, SearchResult, Article, RebirthWindow } from '../../common';
-import config from 'config';
+import { PagerComponent, ArticleService, SearchResult, Article, RebirthWindow } from '../../shared';
+import { environment } from 'environments';
 
 @Component({
   selector: 'article-list',
@@ -23,7 +23,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   pageChange(pageIndex) {
-    this.articleService.getArticles(pageIndex, config.article.pageSize)
+    this.articleService.getArticles(pageIndex, environment.article.pageSize)
       .subscribe(result => {
         this.article = result;
         this.rebirthWindow.scrollToTop(this.elmRef);

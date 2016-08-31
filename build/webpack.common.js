@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const cssnano = require('cssnano');
 const utils = require('./utils');
-const METADATA = require('../config/common.json');
+const METADATA = require('../environments/common.json');
 const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const dashboard = new Dashboard();

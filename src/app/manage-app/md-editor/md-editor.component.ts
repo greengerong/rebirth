@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CodemirrorComponent } from '../codemirror';
 import { MdPreviewComponent } from '../md-preview';
 import { ActivatedRoute } from '@angular/router';
-import { RebirthWindow, ArticleService, Article, DropdownDirective } from '../../common';
+import { RebirthWindow, ArticleService, Article, DropdownDirective } from '../../shared';
 
 @Component({
   selector: 'md-editor',

@@ -4,7 +4,7 @@ import { Observable }     from 'rxjs/Observable';
 import { QuestionModel } from './question.model';
 import { Cacheable, StorageType } from 'rebirth-storage';
 import { RebirthHttp, JSONP, Query } from 'rebirth-http';
-import config from 'config';
+import { environment } from 'environments';
 
 @Injectable()
 export class QuestionService extends RebirthHttp {
@@ -20,7 +20,7 @@ export class QuestionService extends RebirthHttp {
       .map(res => res.json().data);
   }
 
-  @JSONP(config.question.url)
+  @JSONP(environment.question.url)
   private innerGetQuestions(@Query('since') since: string) {
     return null;
   }

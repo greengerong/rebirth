@@ -3,7 +3,7 @@ import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { LoadService } from './common';
+import { LoadService } from './shared';
 
 describe('App', () => {
   beforeEach(() => {
