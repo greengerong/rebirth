@@ -1,7 +1,7 @@
 <blog-header></blog-header>
 
 <div class="main-content" role="main">
-  <form novalidate class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <form novalidate class="login-form" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
     <div class="text-center">
       <h2>登陆</h2>
     </div>
@@ -23,7 +23,7 @@
         <label for="password">密码:</label>
         <input type="password" name="password" autocomplete="off" class="form-control" id="password"
                placeholder="Password" required [(ngModel)]="model.password" #password="ngModel"
-               (keydown.enter)="loginForm.form.valid && onSubmit()">
+               (keydown.enter)="loginForm.form.valid && onSubmit(loginForm)">
 
         <div *ngIf="password.touched && !password.valid" class="help-block">
           登录密码必填!

@@ -1,1 +1,1 @@
-export * from './login.fb.component';
+export * from './login.component';

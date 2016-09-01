@@ -139,8 +139,7 @@ module.exports = webpackMerge(commonConfig, {
   devServer: {
     port: METADATA.port,
     host: METADATA.host,
-    inline: true,
-    colors: true,
+    quiet: true,
     historyApiFallback: true,// 404 go to index
     watchOptions: {
       aggregateTimeout: 300,

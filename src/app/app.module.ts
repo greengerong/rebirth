@@ -13,20 +13,17 @@ import { ROUTING } from './app.routes';
 import { AppComponent } from './app.component';
 
 // rebirth
-import { REBIRTH_WINDOW_PROVIDERS } from './shared';
-import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
-import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
-import { providePermission, PermissionConfig } from 'rebirth-permission';
-
-// auth config
-const permissionConfig: PermissionConfig = { loginPage: '/manage/login' };
+// import { REBIRTH_WINDOW_PROVIDERS } from './shared';
+// import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
+// import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
+import { SharedModule } from './shared';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  ...REBIRTH_HTTP_PROVIDERS,
-  ...REBIRTH_WINDOW_PROVIDERS,
-  ...REBIRTH_STORAGE_PROVIDERS,
-  ...providePermission(permissionConfig)
+  // ...REBIRTH_HTTP_PROVIDERS,
+  // ...REBIRTH_WINDOW_PROVIDERS,
+  // ...REBIRTH_STORAGE_PROVIDERS,
+  // ...providePermission(permissionConfig)
 ];
 
 /**
@@ -39,15 +36,12 @@ const APP_PROVIDERS = [
   declarations: [
     AppComponent
   ],
-  imports: [ // import Angular's modules
+  imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    JsonpModule,
+    SharedModule.forRoot({ permission: { loginPage: '/manage/login' } }),
     ROUTING
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [
     ...ENV_PROVIDERS,
     ...APP_PROVIDERS
   ]

@@ -22,8 +22,8 @@ export class LoginComponent {
     this.model = {};
   }
 
-  onSubmit() {
-    this.loginService.login(this.loginForm.value)
+  onSubmit(loginForm) {
+    this.loginService.login(loginForm.value)
       .subscribe(
         user => this.route.navigateByUrl('/manage/home'),
         error => this.error = error
