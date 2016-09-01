@@ -1,2 +1,1 @@
-export * from './blog-app.component';
-export * from './blog-app.routes';
+export * from './blog-app.module';
