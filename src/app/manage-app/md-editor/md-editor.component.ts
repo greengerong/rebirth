@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CodemirrorComponent } from '../codemirror';
-import { MdPreviewComponent } from '../md-preview';
 import { ActivatedRoute } from '@angular/router';
-import { RebirthWindow, ArticleService, Article, DropdownDirective } from '../../shared';
+import { RebirthWindow, ArticleService, Article } from '../../shared';
 
 @Component({
   selector: 'md-editor',
-  providers: [ArticleService],
-  directives: [CodemirrorComponent, MdPreviewComponent, DropdownDirective],
-  pipes: [],
   styles: [require('./md-editor.scss')],
   template: require('./md-editor.html'),
 })

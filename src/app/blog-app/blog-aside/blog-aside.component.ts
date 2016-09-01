@@ -3,11 +3,6 @@ import { ArticleService, SearchResult, Article } from '../../shared';
 
 @Component({
   selector: 'blog-aside',
-  pipes: [],
-  providers: [
-    ArticleService
-  ],
-  directives: [],
   styles: [
     require('./blog-aside.scss')
   ],

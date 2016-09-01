@@ -3,9 +3,6 @@ import { Article } from '../../shared';
 
 @Component({
   selector: 'article-item',
-  providers: [],
-  directives: [],
-  pipes: [],
   styles: [require('./article-item.scss')],
   template: require('./article-item.html'),
   changeDetection: ChangeDetectionStrategy.OnPush

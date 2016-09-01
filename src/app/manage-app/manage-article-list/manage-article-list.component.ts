@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ManageArticleItemComponent } from '../manage-article-item';
-import { ArticleService, Article, SearchResult, PagerComponent } from '../../shared';
+import { ArticleService, Article, SearchResult } from '../../shared';
 import { environment } from 'environments';
-import { ArticleSearchComponent } from '../article-search';
 
 @Component({
   selector: 'manage-article-list',
   template: require('./manage-article-list.html'),
   styles: [require('./manage-article-list.scss')],
-  directives: [ManageArticleItemComponent, PagerComponent, ArticleSearchComponent],
-  providers: [ArticleService]
 })
 export class ManageArticleListComponent implements OnInit {
   private article: SearchResult<Article> = <SearchResult<Article>> {};

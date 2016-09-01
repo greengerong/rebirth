@@ -5,8 +5,6 @@ import { ArticleItemComponent } from '../article-item';
 
 @Component({
   selector: 'about',
-  providers: [AboutService],
-  directives: [ArticleItemComponent],
   styles: [],
   template: require('./about.html')
 })

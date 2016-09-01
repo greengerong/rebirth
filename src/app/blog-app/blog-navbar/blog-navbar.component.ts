@@ -1,12 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
-import { DropdownDirective } from '../../shared';
 
 @Component({
   selector: 'blog-navbar',
-  providers: [],
-  directives: [DropdownDirective, RouterLinkActive],
-  pipes: [],
   styles: [require('./blog-navbar.scss')],
   template: require('./blog-navbar.html'),
   changeDetection: ChangeDetectionStrategy.OnPush

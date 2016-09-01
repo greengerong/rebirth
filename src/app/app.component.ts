@@ -5,9 +5,6 @@ import { LoadService } from  './shared';
 
 @Component({
   selector: 'app',
-  pipes: [],
-  providers: [LoadService],
-  directives: [],
   encapsulation: ViewEncapsulation.None,
   styles: [
     require('normalize.css'),

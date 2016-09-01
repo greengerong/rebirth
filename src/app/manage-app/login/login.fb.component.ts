@@ -2,13 +2,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from './login.service';
-import { BlogFooterComponent, BlogHeaderComponent } from '../../shared';
 
 @Component({
   selector: 'login',
-  pipes: [],
-  providers: [LoginService],
-  directives: [BlogHeaderComponent, BlogFooterComponent],
   styles: [
     require('./login.scss')
   ],

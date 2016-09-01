@@ -1,17 +1,16 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { BrowserModule }  from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about.component';
-
+import { BlogAppModule } from '../blog-app.module';
 describe('About Component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        RouterModule.forRoot(<any>{})
+        BlogAppModule
       ],
-      declarations: [AboutComponent],
+      declarations: [],
       providers: []
     });
 

@@ -8,7 +8,6 @@ import {
   OnInit,
   OnChanges
 } from '@angular/core';
-import { Article } from '../../shared';
 import * as CodeMirror from 'codemirror';
 import  'codemirror/keymap/sublime';
 import  'codemirror/keymap/vim';
@@ -41,9 +40,6 @@ import  'codemirror/mode/xml/xml';
 
 @Component({
   selector: 'codemirror',
-  providers: [],
-  directives: [],
-  pipes: [],
   styles: [require('./codemirror.scss')],
   template: require('./codemirror.html'),
   exportAs: 'codemirror',

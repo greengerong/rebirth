@@ -11,6 +11,7 @@ import { ManageHomeComponent } from './manage-home';
 import { ManageNavbarComponent } from './manage-navbar';
 import { MdEditorComponent } from './md-editor';
 import { MdPreviewComponent } from './md-preview';
+import { RebirthRoleDirective } from 'rebirth-permission';
 
 import { LoginService } from './login';
 
@@ -34,7 +35,8 @@ import { ROUTING } from './manage.routes';
     ManageHomeComponent,
     ManageNavbarComponent,
     MdEditorComponent,
-    MdPreviewComponent
+    MdPreviewComponent,
+    RebirthRoleDirective
   ]
 })
 export class ManageAppModule {

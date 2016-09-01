@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, Article } from '../../shared';
-import { ArticleItemComponent } from '../article-item';
 import { ActivatedRoute } from '@angular/router';
-import { DuoShuoCommentComponent } from '../duoshuo-comment';
 
 @Component({
   selector: 'blog-article',
-  providers: [ArticleService],
-  directives: [ArticleItemComponent, DuoShuoCommentComponent],
-  pipes: [],
   styles: [require('./blog-article.scss')],
   template: require('./blog-article.html')
 })

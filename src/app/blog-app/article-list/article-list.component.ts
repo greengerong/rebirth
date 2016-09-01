@@ -5,9 +5,6 @@ import { environment } from 'environments';
 
 @Component({
   selector: 'article-list',
-  providers: [ArticleService],
-  directives: [ArticleItemComponent, PagerComponent],
-  pipes: [],
   styles: [require('./article-list.scss')],
   template: require('./article-list.html')
 })

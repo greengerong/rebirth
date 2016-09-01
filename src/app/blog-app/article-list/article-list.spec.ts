@@ -4,9 +4,9 @@ import { ElementRef } from '@angular/core';
 import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { ArticleListComponent } from './article-list.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { Article, SearchResult, REBIRTH_WINDOW_PROVIDERS } from '../../shared';
+import { Article, SearchResult, REBIRTH_WINDOW_PROVIDERS, ArticleService } from '../../shared';
+import { BlogAppModule } from '../blog-app.module';
 
 describe('Article list Component', () => {
   let result = <SearchResult<Article>>{
@@ -26,9 +26,9 @@ describe('Article list Component', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        RouterModule.forRoot(<any>{})
+        BlogAppModule
       ],
-      declarations: [ArticleListComponent],
+      declarations: [],
       providers: [
         MockBackend,
         BaseRequestOptions,
@@ -44,7 +44,8 @@ describe('Article list Component', () => {
         {
           provide: ElementRef,
           useValue: new ElementRef(document.body)
-        }
+        },
+        ArticleService
       ]
     });
 

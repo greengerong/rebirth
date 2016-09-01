@@ -5,8 +5,6 @@ import  { LoadService } from '../../shared';
 
 @Component({
   selector: 'question',
-  providers: [QuestionService],
-  directives: [],
   styles: [require('./question.scss')],
   template: require('./question.html')
 })

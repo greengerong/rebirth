@@ -1,13 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLinkActive, Router } from '@angular/router';
-import { DropdownDirective } from '../../shared';
+import { Router } from '@angular/router';
 import { AuthorizationService, PermissionConfig } from 'rebirth-permission';
 
 @Component({
   selector: 'manage-navbar',
-  providers: [],
-  directives: [DropdownDirective, RouterLinkActive],
-  pipes: [],
   styles: [require('./manage-navbar.scss')],
   template: require('./manage-navbar.html'),
   changeDetection: ChangeDetectionStrategy.OnPush
