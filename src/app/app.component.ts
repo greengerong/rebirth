@@ -48,7 +48,7 @@ export class AppComponent {
         request: () => {
           loadService.show();
         },
-        response: (stream) => stream.do(() => null, () => loadService.hide(), () => loadService.hide())
+        response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
       });
   }
 }

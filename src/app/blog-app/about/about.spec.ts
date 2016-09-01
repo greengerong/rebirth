@@ -9,7 +9,7 @@ describe('About Component', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        RouterModule.forRoot({})
+        RouterModule.forRoot(<any>{})
       ],
       declarations: [AboutComponent],
       providers: []
@@ -23,7 +23,7 @@ describe('About Component', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       setTimeout(function () {
-        expect(fixture.componentInstance.article.title).toEqual("破狼简介");
+        expect((<any>fixture.componentInstance).article.title).toEqual("破狼简介");
       });
     });
 

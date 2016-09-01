@@ -26,7 +26,7 @@ describe('Article list Component', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        RouterModule.forRoot({})
+        RouterModule.forRoot(<any>{})
       ],
       declarations: [ArticleListComponent],
       providers: [

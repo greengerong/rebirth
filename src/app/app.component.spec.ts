@@ -4,6 +4,7 @@ import { ViewContainerRef } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadService } from './shared';
+import any = jasmine.any;
 
 describe('App', () => {
   beforeEach(() => {
@@ -27,7 +28,7 @@ describe('App', () => {
       fixture.detectChanges();
 
       expect(element.querySelectorAll('router-outlet').length).toEqual(1);
-      expect(fixture.componentInstance.rebirthHttpProvider.getInterceptors().length).toEqual(4);
+      expect((<any>fixture.componentInstance).rebirthHttpProvider.getInterceptors().length).toEqual(4);
     });
   }));
 
