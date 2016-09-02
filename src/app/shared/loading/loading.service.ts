@@ -1,10 +1,10 @@
 import {
-  ComponentResolver,
   Injectable,
   ComponentFactory,
   ComponentRef,
   ViewContainerRef,
-  Injector
+  Injector,
+  Compiler
 } from '@angular/core';
 import { LoadingComponent } from './loading.component';
 
@@ -14,7 +14,7 @@ export class LoadService {
   private cmpRef: ComponentRef<LoadingComponent>;
   private loaded: boolean;
 
-  constructor(private componentResolver: ComponentResolver, private injector: Injector) {
+  constructor(private compiler: Compiler, private injector: Injector) {
 
   }
 
@@ -22,7 +22,7 @@ export class LoadService {
     viewContainer = viewContainer || this.defaultViewContainerRef;
     if (!this.loaded) {
       this.loaded = true;
-      this.componentResolver.resolveComponent(LoadingComponent)
+      this.compiler.compileComponentAsync(LoadingComponent)
         .then((factory: ComponentFactory<LoadingComponent>) => {
           return this.cmpRef = viewContainer.createComponent(factory, 0, this.injector);
         })

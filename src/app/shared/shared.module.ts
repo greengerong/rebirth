@@ -34,7 +34,7 @@ import { providePermission, PermissionConfig } from 'rebirth-permission';
     BlogFooterComponent,
     BlogHeaderComponent,
     DropdownDirective,
-    PagerComponent,
+    PagerComponent
   ]
 })
 export class SharedModule {
