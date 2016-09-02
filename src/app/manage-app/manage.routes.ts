@@ -7,9 +7,8 @@ import { ManageArticleListComponent } from './manage-article-list';
 import { MdEditorComponent } from './md-editor';
 
 export const ROUTER_CONFIG: Routes = [
-  { path: 'manage/login', component: LoginComponent },
   {
-    path: 'manage', component: ManageAppComponent,
+    path: '', component: ManageAppComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
       {
@@ -32,6 +31,7 @@ export const ROUTER_CONFIG: Routes = [
       }
     ]
   },
+  { path: 'login', component: LoginComponent },
 ];
 
 export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);

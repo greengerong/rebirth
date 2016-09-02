@@ -1,1 +1,3 @@
-export  * from './manage-app.module';
+import  { ManageAppModule } from './manage-app.module';
+
+export default ManageAppModule;

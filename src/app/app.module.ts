@@ -6,8 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTING } from './app.routes';
-import { BlogAppModule } from './blog-app';
-import { ManageAppModule } from './manage-app';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared';
@@ -22,8 +20,6 @@ const APP_PROVIDERS = [];
   imports: [
     BrowserModule,
     SharedModule.forRoot({ permission: { loginPage: '/manage/login' } }),
-    BlogAppModule,
-    ManageAppModule,
     ROUTING
   ],
   declarations: [
