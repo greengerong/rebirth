@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 import { ViewContainerRef } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadService } from './shared';
@@ -9,8 +10,12 @@ import any = jasmine.any;
 describe('App', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [],
-      declarations: [AppComponent],
+      imports: [
+        RouterModule.forRoot(<any>{})
+      ],
+      declarations: [
+        AppComponent
+      ],
       providers: [
         { provide: ViewContainerRef, useValue: {} },
         RebirthHttpProvider,
