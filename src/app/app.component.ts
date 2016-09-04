@@ -6,19 +6,8 @@ import { LoadService } from  './shared';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('normalize.css'),
-    require('./app.scss'),
-    require('codemirror/lib/codemirror.css'),
-    require('codemirror/lib/codemirror.css'),
-    require('codemirror/theme/base16-dark.css'),
-    require('codemirror/theme/base16-light.css'),
-    require('codemirror/theme/monokai.css'),
-    require('codemirror/theme/seti.css'),
-    require('codemirror/addon/search/matchesonscrollbar.css'),
-    require('codemirror/addon/dialog/dialog.css'),
-    require('codemirror/addon/display/fullscreen.css'),
-    require('highlight.js/styles/github.css')
+  styleUrls: [
+    './app.scss',
   ],
   template: '<router-outlet></router-outlet>'
 })

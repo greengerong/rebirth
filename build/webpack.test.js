@@ -116,16 +116,7 @@ module.exports = webpackMerge(devConfig, {
        */
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader',
-        query: {
-          compilerOptions: {
-
-            // Remove TypeScript helpers to be injected
-            // below by DefinePlugin
-            removeComments: true
-
-          }
-        },
+        loader: 'awesome-typescript-loader!angular2-template-loader',
         exclude: [/\.e2e\.ts$/]
       },
 

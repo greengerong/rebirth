@@ -13,10 +13,20 @@ sans-serif;
 $bootstrap-sass-asset-helper: false;
 
 @import "common";
-// @import "node_modules/normalize.css";
-@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 $fa-font-path: "node_modules/font-awesome/fonts";
-@import "node_modules/font-awesome/scss/font-awesome.scss";
+@import "~font-awesome/scss/font-awesome";
+
+@import '~normalize.css';
+@import '~codemirror/lib/codemirror';
+@import '~codemirror/theme/base16-dark';
+@import '~codemirror/theme/base16-light';
+@import '~codemirror/theme/monokai';
+@import '~codemirror/theme/seti';
+@import '~codemirror/addon/search/matchesonscrollbar';
+@import '~codemirror/addon/dialog/dialog';
+@import '~codemirror/addon/display/fullscreen';
+@import '~highlight.js/styles/github';
 
 .CodeMirror {
   &.CodeMirror-fullscreen {
