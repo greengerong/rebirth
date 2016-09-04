@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { Article } from '../../shared';
 import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
@@ -17,7 +17,7 @@ describe('Article item Component', () => {
     });
   });
 
-  it('should render article ', async(inject([], () => {
+  it('should render article ', inject([], () => {
 
     let fixture = TestBed.createComponent(ArticleItemComponent);
     fixture.whenStable().then(() => {
@@ -32,7 +32,7 @@ describe('Article item Component', () => {
       expect(elm.querySelector(".article-title").textContent.trim()).toEqual(title);
     });
 
-  })));
+  }));
 
   it('should get random tag style', inject([], () => {
     let fixture = TestBed.createComponent(ArticleItemComponent);

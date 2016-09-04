@@ -52,7 +52,7 @@ describe('Article list Component', () => {
   });
 
 
-  it('should render article list from service response', async(inject([MockBackend],
+  it('should render article list from service response', inject([MockBackend],
     (mockBackend: MockBackend) => {
       mockBackend.connections.subscribe((con: MockConnection) => {
         con.mockRespond(<any>result);
@@ -68,5 +68,5 @@ describe('Article list Component', () => {
         expect(titleElms[1].textContent).toContain('Article title 2');
       });
 
-    })));
+    }));
 });
