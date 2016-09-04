@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
 import { ViewContainerRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -26,7 +26,7 @@ describe('App', () => {
 
   });
 
-  it('should init http interceptors', async(() => {
+  it('should init http interceptors', inject([], () => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.whenStable().then(() => {
       let element = fixture.nativeElement;

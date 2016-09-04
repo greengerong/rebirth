@@ -1,6 +1,5 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { BrowserModule }  from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { BlogFooterComponent } from './index';
 
 describe('Article aside Component', () => {
@@ -16,7 +15,7 @@ describe('Article aside Component', () => {
   });
 
 
-  it('should contain a number', async(inject([], () => {
+  it('should contain a number', inject([], () => {
 
     let fixture = TestBed.createComponent(BlogFooterComponent);
     fixture.whenStable().then(() => {
@@ -25,5 +24,5 @@ describe('Article aside Component', () => {
       let linkElms = elm.querySelectorAll(".center-block");
       expect(linkElms[0].textContent).toContain('2016');
     });
-  })));
+  }));
 });

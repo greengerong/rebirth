@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
 import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';

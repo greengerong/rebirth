@@ -1,6 +1,5 @@
 import {
   Injectable,
-  ComponentFactory,
   ComponentRef,
   ViewContainerRef,
   Injector,
