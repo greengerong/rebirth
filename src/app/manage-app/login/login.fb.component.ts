@@ -5,10 +5,10 @@ import { LoginService } from './login.service';
 
 @Component({
   selector: 'login',
-  styles: [
-    require('./login.scss')
+  styleUrls: [
+    './login.scss'
   ],
-  template: require('./login.fb.html'),
+  templateUrl: './login.fb.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {

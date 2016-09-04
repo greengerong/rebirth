@@ -5,8 +5,8 @@ import  { LoadService } from '../../shared';
 
 @Component({
   selector: 'question',
-  styles: [require('./question.scss')],
-  template: require('./question.html')
+  styleUrls: ['./question.scss'],
+  templateUrl: './question.html'
 })
 export class QuestionComponent implements OnInit {
   private questions: QuestionModel[];

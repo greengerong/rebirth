@@ -2,10 +2,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'manage-home',
-  styles: [
-    require('./manage-home.scss')
+  styleUrls: [
+    './manage-home.scss'
   ],
-  template: require('./manage-home.html'),
+  templateUrl: './manage-home.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageHomeComponent {

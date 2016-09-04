@@ -2,8 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'blog-navbar',
-  styles: [require('./blog-navbar.scss')],
-  template: require('./blog-navbar.html'),
+  styleUrls: ['./blog-navbar.scss'],
+  templateUrl: './blog-navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogNavbarComponent {

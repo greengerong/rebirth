@@ -2,8 +2,8 @@ import { Component, ChangeDetectionStrategy, OnChanges, Input, Output, EventEmit
 
 @Component({
   selector: 'pager',
-  styles: [require('./pager.scss')],
-  template: require('./pager.html'),
+  styleUrls: ['./pager.scss'],
+  templateUrl: './pager.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PagerComponent implements OnChanges {

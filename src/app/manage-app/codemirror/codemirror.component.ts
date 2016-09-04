@@ -40,8 +40,8 @@ import  'codemirror/mode/xml/xml';
 
 @Component({
   selector: 'codemirror',
-  styles: [require('./codemirror.scss')],
-  template: require('./codemirror.html'),
+  styleUrls: ['./codemirror.scss'],
+  templateUrl: './codemirror.html',
   exportAs: 'codemirror',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

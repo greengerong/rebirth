@@ -3,10 +3,10 @@ import { ArticleService, SearchResult, Article } from '../../shared';
 
 @Component({
   selector: 'blog-aside',
-  styles: [
-    require('./blog-aside.scss')
+  styleUrls: [
+    './blog-aside.scss'
   ],
-  template: require('./blog-aside.html')
+  templateUrl: './blog-aside.html'
 })
 export class BlogAsideComponent implements OnInit {
   private article: SearchResult<Article>;

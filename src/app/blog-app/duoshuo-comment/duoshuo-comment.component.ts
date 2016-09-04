@@ -3,7 +3,7 @@ import { Article, RebirthWindow } from '../../shared';
 
 @Component({
   selector: 'duoshuo-comment',
-  template: require('./duoshuo-comment.html'),
+  templateUrl: './duoshuo-comment.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DuoShuoCommentComponent implements OnInit {

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AboutService } from './about.service';
 import { Article } from '../../shared';
-import { ArticleItemComponent } from '../article-item';
 
 @Component({
   selector: 'about',
-  styles: [],
-  template: require('./about.html')
+  styleUrls: [],
+  templateUrl: './about.html'
 })
 export class AboutComponent implements OnInit {
   private article: Article;

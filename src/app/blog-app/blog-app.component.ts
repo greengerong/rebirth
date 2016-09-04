@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'blog-app',
-  styles: [
-    require('./blog-app.scss')
+  styleUrls: [
+    './blog-app.scss'
   ],
-  template: require('./blog-app.html')
+  templateUrl: './blog-app.html'
 })
 export class BlogAppComponent {
 

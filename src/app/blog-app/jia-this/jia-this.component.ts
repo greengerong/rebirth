@@ -3,8 +3,8 @@ import { RebirthWindow } from '../../shared';
 
 @Component({
   selector: 'jia-this',
-  template: require('./jia-this.html'),
-  styles: [require('./jia-this.scss')],
+  templateUrl: './jia-this.html',
+  styleUrls: ['./jia-this.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JiaThisComponent implements OnInit {

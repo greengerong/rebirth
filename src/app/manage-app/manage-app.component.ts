@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'manage-app',
-  styles: [
-    require('./manage-app.scss')
+  styleUrls: [
+    './manage-app.scss'
   ],
-  template: require('./manage-app.html')
+  templateUrl: './manage-app.html'
 })
 export class ManageAppComponent {
   constructor(authorizationService: AuthorizationService,

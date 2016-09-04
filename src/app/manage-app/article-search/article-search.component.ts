@@ -3,8 +3,8 @@ import { Article } from '../../shared';
 
 @Component({
   selector: 'article-search',
-  styles: [require('./article-search.scss')],
-  template: require('./article-search.html'),
+  styleUrls: ['./article-search.scss'],
+  templateUrl: './article-search.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleSearchComponent implements OnDestroy {

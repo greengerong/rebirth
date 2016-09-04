@@ -4,8 +4,8 @@ import * as hljs from 'highlight.js';
 
 @Component({
   selector: 'md-preview',
-  styles: [require('./md-preview.scss')],
-  template: require('./md-preview.html'),
+  styleUrls: ['./md-preview.scss'],
+  templateUrl: './md-preview.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MdPreviewComponent implements OnChanges {

@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'blog-article',
-  styles: [require('./blog-article.scss')],
-  template: require('./blog-article.html')
+  styleUrls: ['./blog-article.scss'],
+  templateUrl: './blog-article.html'
 })
 export class BlogArticleComponent implements OnInit {
   private articleUrl: string;

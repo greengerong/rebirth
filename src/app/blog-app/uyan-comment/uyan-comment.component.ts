@@ -3,7 +3,7 @@ import { RebirthWindow } from '../../shared';
 
 @Component({
   selector: 'uyan-comment',
-  template: require('./uyan-comment.html'),
+  templateUrl: './uyan-comment.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UyanCommentComponent implements OnInit {

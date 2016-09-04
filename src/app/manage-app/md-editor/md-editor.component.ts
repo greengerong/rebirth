@@ -4,8 +4,8 @@ import { RebirthWindow, ArticleService, Article } from '../../shared';
 
 @Component({
   selector: 'md-editor',
-  styles: [require('./md-editor.scss')],
-  template: require('./md-editor.html'),
+  styleUrls: ['./md-editor.scss'],
+  templateUrl: './md-editor.html',
 })
 export class MdEditorComponent implements OnInit {
   private mdArticle: string;

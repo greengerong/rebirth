@@ -4,8 +4,8 @@ import { AuthorizationService, PermissionConfig } from 'rebirth-permission';
 
 @Component({
   selector: 'manage-navbar',
-  styles: [require('./manage-navbar.scss')],
-  template: require('./manage-navbar.html'),
+  styleUrls: ['./manage-navbar.scss'],
+  templateUrl: './manage-navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageNavbarComponent {

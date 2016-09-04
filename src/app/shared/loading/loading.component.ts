@@ -2,8 +2,8 @@ import { Component, ChangeDetectionStrategy, ElementRef, Renderer } from '@angul
 
 @Component({
   selector: 'loading',
-  template: require('./loading.html'),
-  styles: [require('../../../assets/css/loading.css')],
+  templateUrl: './loading.html',
+  styleUrls: ['../../../assets/css/loading.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingComponent {

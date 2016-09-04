@@ -3,8 +3,8 @@ import { RebirthWindow, ArticleService, Article } from '../../shared';
 
 @Component({
   selector: 'manage-article-item',
-  styles: [require('./manage-article-item.scss')],
-  template: require('./manage-article-item.html'),
+  styleUrls: ['./manage-article-item.scss'],
+  templateUrl: './manage-article-item.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageArticleItemComponent implements OnDestroy {

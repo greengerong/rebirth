@@ -3,8 +3,8 @@ import { Article } from '../../shared';
 
 @Component({
   selector: 'article-item',
-  styles: [require('./article-item.scss')],
-  template: require('./article-item.html'),
+  styleUrls: ['./article-item.scss'],
+  templateUrl: './article-item.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent {

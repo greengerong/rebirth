@@ -4,8 +4,8 @@ import { environment } from 'environments';
 
 @Component({
   selector: 'manage-article-list',
-  template: require('./manage-article-list.html'),
-  styles: [require('./manage-article-list.scss')],
+  templateUrl: './manage-article-list.html',
+  styleUrls: ['./manage-article-list.scss'],
 })
 export class ManageArticleListComponent implements OnInit {
   private article: SearchResult<Article> = <SearchResult<Article>> {};
