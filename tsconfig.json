@@ -9,8 +9,11 @@
     "noEmitHelpers": true,
     "strictNullChecks": false,
     "baseUrl": "./src",
-    "paths": [
-    ],
+    "paths": {
+      "environments": [
+        "./src/environments/development.ts"
+      ]
+    },
     "lib": [
       "dom",
       "es6"
@@ -36,5 +39,9 @@
   "buildOnSave": false,
   "atom": {
     "rewriteTsconfig": false
+  },
+  "angularCompilerOptions": {
+    "genDir": ".",
+    "debug": true
   }
 }
