@@ -11,7 +11,7 @@
     "baseUrl": "./src",
     "paths": {
       "environments": [
-        "./src/environments/development.ts"
+        "../environments/development.ts"
       ]
     },
     "lib": [
