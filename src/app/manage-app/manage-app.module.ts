@@ -11,7 +11,7 @@ import { ManageHomeComponent } from './manage-home';
 import { ManageNavbarComponent } from './manage-navbar';
 import { MdEditorComponent } from './md-editor';
 import { MdPreviewComponent } from './md-preview';
-import { RebirthRoleDirective } from 'rebirth-permission';
+import { RebirthPermissionModule } from 'rebirth-permission';
 
 import { LoginService } from './login';
 
@@ -20,7 +20,8 @@ import { ROUTING } from './manage.routes';
 @NgModule({
   imports: [
     SharedModule,
-    ROUTING
+    ROUTING,
+    RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
   ],
   providers: [
     LoginService
@@ -36,7 +37,6 @@ import { ROUTING } from './manage.routes';
     ManageNavbarComponent,
     MdEditorComponent,
     MdPreviewComponent,
-    RebirthRoleDirective
   ]
 })
 export class ManageAppModule {

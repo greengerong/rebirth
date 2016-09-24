@@ -19,7 +19,7 @@ const APP_PROVIDERS = [];
 @NgModule({
   imports: [
     BrowserModule,
-    SharedModule.forRoot({ permission: { loginPage: '/manage/login' } }),
+    SharedModule.forRoot(),
     ROUTING
   ],
   declarations: [

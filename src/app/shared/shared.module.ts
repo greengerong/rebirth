@@ -10,8 +10,7 @@ import { LoadService } from './loading';
 import { PagerComponent } from './pager';
 import { REBIRTH_WINDOW_PROVIDERS } from './rebirth-common';
 import { REBIRTH_HTTP_PROVIDERS } from 'rebirth-http';
-import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
-import { providePermission, PermissionConfig } from 'rebirth-permission';
+import { RebirthStorageModule } from 'rebirth-storage';
 
 @NgModule({
   imports: [
@@ -20,6 +19,7 @@ import { providePermission, PermissionConfig } from 'rebirth-permission';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
+    RebirthStorageModule
   ],
   declarations: [
     BlogFooterComponent,
@@ -31,6 +31,7 @@ import { providePermission, PermissionConfig } from 'rebirth-permission';
   exports: [
     CommonModule,
     FormsModule,
+    RebirthStorageModule,
     BlogFooterComponent,
     BlogHeaderComponent,
     DropdownDirective,
@@ -38,17 +39,14 @@ import { providePermission, PermissionConfig } from 'rebirth-permission';
   ]
 })
 export class SharedModule {
-  static forRoot(options: {
-    permission?: PermissionConfig
-  }): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
+
     return {
       ngModule: SharedModule,
       providers: [
         LoadService,
         ...REBIRTH_HTTP_PROVIDERS,
-        ...REBIRTH_STORAGE_PROVIDERS,
         ...REBIRTH_WINDOW_PROVIDERS,
-        ...providePermission(options.permission),
         ArticleService
       ]
     };
