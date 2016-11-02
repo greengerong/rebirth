@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadService } from './shared';
 import any = jasmine.any;
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('App', () => {
   beforeEach(() => {
@@ -17,6 +18,7 @@ describe('App', () => {
         AppComponent
       ],
       providers: [
+        { provide: APP_BASE_HREF, useValue: '/' },
         { provide: ViewContainerRef, useValue: {} },
         RebirthHttpProvider,
         LoadService,

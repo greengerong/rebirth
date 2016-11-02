@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { Article } from '../../shared';
 import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 
 describe('Article item Component', () => {
 
@@ -13,7 +13,9 @@ describe('Article item Component', () => {
         RouterModule.forRoot(<any>{})
       ],
       declarations: [ArticleItemComponent],
-      providers: []
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     });
   });
 
