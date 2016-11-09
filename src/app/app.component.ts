@@ -1,21 +1,23 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { environment } from '../environments/environment';
-import { LoadService } from  './core/loading/loading.service';
+import { LoadingComponent } from  './shared/loading';
+import { ViewChild } from '@angular/core/src/metadata/di';
 
 @Component({
   selector: 'app',
   styleUrls: [
     './app.scss',
   ],
-  template: '<router-outlet></router-outlet>'
+  template: '<router-outlet></router-outlet><loading></loading>'
 })
 export class AppComponent {
 
-  constructor(private rebirthHttpProvider: RebirthHttpProvider, private viewContainer: ViewContainerRef,
-              private  loadService: LoadService) {
+  @ViewChild(LoadingComponent)
+  loadingComponent: LoadingComponent;
 
-    loadService.defaultViewContainerRef = viewContainer;
+  constructor(private rebirthHttpProvider: RebirthHttpProvider) {
+
 
     rebirthHttpProvider
       .baseUrl(environment.api.host)
@@ -31,9 +33,9 @@ export class AppComponent {
       })
       .addInterceptor({
         request: () => {
-          loadService.show();
+          this.loadingComponent.show();
         },
-        response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
+        response: (stream) => (<any>stream).do(() => null, () => this.loadingComponent.hide(), () => this.loadingComponent.hide())
       });
   }
 }
