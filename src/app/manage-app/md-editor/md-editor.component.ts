@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RebirthWindow, ArticleService, Article } from '../../shared';
+import { RebirthWindow, ArticleService, Article } from '../../core';
 
 @Component({
   selector: 'md-editor',

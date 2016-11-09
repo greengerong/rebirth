@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { CurrentUser } from './login/CurrentUser';
+import { CurrentUser } from './login/current-user.model';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';

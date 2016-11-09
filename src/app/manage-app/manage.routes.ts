@@ -8,30 +8,35 @@ import { MdEditorComponent } from './md-editor';
 
 export const ROUTER_CONFIG: Routes = [
   {
-    path: '', component: ManageAppComponent,
+    path: '',
     children: [
-      { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
       {
-        path: 'home',
-        component: ManageHomeComponent,
-        data: { roles: ['Admin', 'User'] },
-        canActivate: [AuthRolePermission]
+        path: '', component: ManageAppComponent,
+        children: [
+          { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
+          {
+            path: 'home',
+            component: ManageHomeComponent,
+            data: { roles: ['Admin', 'User'] },
+            canActivate: [AuthRolePermission]
+          },
+          {
+            path: 'articles',
+            component: ManageArticleListComponent,
+            data: { roles: ['Admin', 'User'] },
+            canActivate: [AuthRolePermission]
+          },
+          {
+            path: 'articles/:id',
+            component: MdEditorComponent,
+            data: { roles: ['Admin', 'User'] },
+            canActivate: [AuthRolePermission]
+          }
+        ]
       },
-      {
-        path: 'articles',
-        component: ManageArticleListComponent,
-        data: { roles: ['Admin', 'User'] },
-        canActivate: [AuthRolePermission]
-      },
-      {
-        path: 'articles/:id',
-        component: MdEditorComponent,
-        data: { roles: ['Admin', 'User'] },
-        canActivate: [AuthRolePermission]
-      }
+      { path: 'login', component: LoginComponent },
     ]
   },
-  { path: 'login', component: LoginComponent },
 ];
 
 export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);

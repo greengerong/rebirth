@@ -1,5 +1,5 @@
 import { Component, Input, Output, ChangeDetectionStrategy, EventEmitter, OnDestroy } from '@angular/core';
-import { Article } from '../../shared';
+import { Article } from '../../core';
 
 @Component({
   selector: 'article-search',

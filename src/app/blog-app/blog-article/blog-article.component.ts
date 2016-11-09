@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService, Article } from '../../shared';
+import { ArticleService, Article } from '../../core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

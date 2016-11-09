@@ -34,8 +34,6 @@ export class LoadService {
           viewContainer.element.nativeElement.appendChild(cmpRef.location.nativeElement);
           cmpRef.instance.show();
         });
-
-      return;
     }
   }
 

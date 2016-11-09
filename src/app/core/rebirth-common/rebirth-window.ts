@@ -5,7 +5,7 @@ import { Injectable, ElementRef, Renderer } from '@angular/core';
 export class RebirthWindow {
 
   getGlobalObject(): any {
-    return window;
+    return window ;
   }
 
 

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { CurrentUser } from './CurrentUser';
+import { CurrentUser } from './current-user.model';
 import { Injectable } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { RebirthHttpProvider, RebirthHttp, POST, Body } from 'rebirth-http/dist/index';
@@ -8,10 +8,10 @@ import { Http } from '@angular/http';
 @Injectable()
 export class LoginService extends RebirthHttp {
 
-  constructor(http: Http,
-              rebirthHttpProvider: RebirthHttpProvider,
+  constructor(protected  http: Http,
+              protected rebirthHttpProvider: RebirthHttpProvider,
               private authorizationService: AuthorizationService) {
-    super({ http, rebirthHttpProvider });
+    super();
   }
 
   login(loginInfo: {email: string; password: string }): Observable<CurrentUser> {

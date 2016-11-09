@@ -1,11 +1,10 @@
-import { Component, ViewEncapsulation, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { environment } from 'environments';
-import { LoadService } from  './shared';
+import { environment } from '../environments/environment';
+import { LoadService } from  './core/loading/loading.service';
 
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.scss',
   ],
@@ -14,7 +13,7 @@ import { LoadService } from  './shared';
 export class AppComponent {
 
   constructor(private rebirthHttpProvider: RebirthHttpProvider, private viewContainer: ViewContainerRef,
-              private loadService: LoadService) {
+              private  loadService: LoadService) {
 
     loadService.defaultViewContainerRef = viewContainer;
 

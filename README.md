@@ -10,28 +10,23 @@ GreenGerong(破狼) blog with Angular2.
 ### setup project
 
 * Install Nodejs( v5 or v6)
-* `npm install -g gulp-cli`
+* `npm install -g angular-cli@latest`
 * `npm install`
 
 ### run project
 
-* development: `npm run dev`
-* production: `npm run prod`
+* development: `npm run jit` & `npm run aot`
+* production: `ng build --prod`
 * test: `npm test`
-* debug test: `gulp karma:debug`
-* build development: `npm run build`
-* build production: `npm run build:prod`
+* angular-cli command
 
 ## main dependency
 
-* gulp: It help use to manage all the plugin.
-* webpack: This is main build plugin.
-* awesome-typescript-loader: webpack typescript loader
-* postcss & sass
+* angular-cli: Angular2 cli tool.
+* sass
 * karma
 * tslint & codelyzer
 * typescript & @types
-* fontgen-loader: icon font
 * ...
 
 ## My front end WeChat

@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { Article } from '../../shared';
+import { Article } from '../../core';
 import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
@@ -14,7 +14,7 @@ describe('Article item Component', () => {
       ],
       declarations: [ArticleItemComponent],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' }
+        { provide: APP_BASE_HREF, useValue: "/" }
       ]
     });
   });

@@ -26,12 +26,3 @@ import 'rxjs/observable/fromPromise';
 
 import 'immutable';
 
-
-if ('production' === ENV) {
-  // Production
-
-
-} else {
-  // Development
-
-}

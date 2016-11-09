@@ -16,6 +16,7 @@ export class MdPreviewComponent implements OnChanges {
   constructor() {
     this.markdownIt = (<any>markdownit)({
       html: true,
+      //TODO: (import highlight.js)
       highlight: function (code, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {

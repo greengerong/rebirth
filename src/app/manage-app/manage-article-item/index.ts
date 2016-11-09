@@ -1,1 +1,1 @@
-export * from './article-item.component';
+export * from './manage-article-item.component';

@@ -18,7 +18,7 @@
       "name": "Attach to Chrome, with sourcemaps",
       "type": "chrome",
       "request": "attach",
-      "url": "http://localhost:3000/*",
+      "url": "http://localhost:4200/*",
       "port": 9222,
       "sourceMaps": true,
       "webRoot": "${workspaceRoot}"

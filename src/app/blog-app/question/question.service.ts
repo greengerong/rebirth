@@ -4,7 +4,7 @@ import { Observable }     from 'rxjs/Observable';
 import { QuestionModel } from './question.model';
 import { Cacheable, StorageType } from 'rebirth-storage';
 import { RebirthHttp, JSONP, Query } from 'rebirth-http';
-import { environment } from 'environments';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class QuestionService extends RebirthHttp {

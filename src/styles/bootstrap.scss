@@ -1,4 +1,4 @@
-$icon-font-path: "./assets/fonts/";
+$icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Helvetica Neue",
 Helvetica,
 "Microsoft YaHei",
@@ -13,8 +13,9 @@ sans-serif;
 $bootstrap-sass-asset-helper: false;
 
 @import "common";
+@import "~normalize.css/normalize.css";
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
-$fa-font-path: "node_modules/font-awesome/fonts";
+$fa-font-path: "../../node_modules/font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
 @import '~normalize.css';

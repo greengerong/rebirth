@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService, Article, SearchResult } from '../../shared';
-import { environment } from 'environments';
+import { ArticleService, Article, SearchResult } from '../../core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'manage-article-list',

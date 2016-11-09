@@ -1,2 +1,1 @@
-import { BlogAppModule } from './blog-app.module';
-export default BlogAppModule;
+export * from './blog-app.module';
