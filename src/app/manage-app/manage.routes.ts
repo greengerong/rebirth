@@ -39,4 +39,4 @@ export const ROUTER_CONFIG: Routes = [
   },
 ];
 
-export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);
+// export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);

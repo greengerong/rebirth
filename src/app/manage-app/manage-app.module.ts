@@ -15,12 +15,13 @@ import { RebirthPermissionModule } from 'rebirth-permission';
 
 import { LoginService } from './login';
 
-import { ROUTING } from './manage.routes';
+import { ROUTER_CONFIG } from './manage.routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     SharedModule,
-    ROUTING,
+    RouterModule.forChild(ROUTER_CONFIG),
     RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
   ],
   providers: [

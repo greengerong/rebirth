@@ -16,9 +16,9 @@ export class BlogAsideComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticles(1, 5)
-      .subscribe(result => {
-        this.article = result;
-      });
+    // this.articleService.getArticles(1, 5)
+    //   .subscribe(result => {
+    //     this.article = result;
+    //   });
   }
 }

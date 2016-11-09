@@ -9,7 +9,7 @@
   "scripts": {
     "run-parallel": "npm-run-all --parallel",
     "ng-jit": "ng serve",
-    "ng-aot": "ng serve --aot",
+    "ng-aot": "ng serve --prod --aot",
     "mock": "node ./build/mock-server.js",
     "jit": "npm run run-parallel mock ng-jit",
     "aot": "npm run run-parallel mock ng-aot",
