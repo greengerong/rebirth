@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { BlogAppComponent } from './blog-app.component';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
@@ -17,5 +17,3 @@ export const ROUTER_CONFIG: Routes = [
     ]
   }
 ];
-
-export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);

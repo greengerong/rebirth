@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ManageAppComponent } from './manage-app.component';
 import { LoginComponent } from './login';
 import { AuthRolePermission } from 'rebirth-permission';
@@ -39,4 +39,3 @@ export const ROUTER_CONFIG: Routes = [
   },
 ];
 
-export const ROUTING = RouterModule.forChild(ROUTER_CONFIG);
