@@ -13,7 +13,6 @@ export const ROUTER_CONFIG: Routes = [
       {
         path: '', component: ManageAppComponent,
         children: [
-          { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
           {
             path: 'home',
             component: ManageHomeComponent,
