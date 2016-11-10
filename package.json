@@ -39,7 +39,7 @@
     "lodash": "^4.15.0",
     "markdown-it": "^8.0.0",
     "normalize.css": "^4.2.0",
-    "rebirth-http": "^0.0.6-beta-1",
+    "rebirth-http": "^0.0.7",
     "rebirth-permission": "^0.0.3-beta-1",
     "rebirth-storage": "^0.0.6-beta-1",
     "rxjs": "5.0.0-beta.12",
