@@ -1,16 +1,19 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { REBIRTH_STORAGE_PROVIDERS } from 'rebirth-storage';
+import { RebirthStorageModule } from 'rebirth-storage';
+import { RebirthHttpModule } from 'rebirth-http';
 import { ViewContainerRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { RebirthHttpProvider } from 'rebirth-http';
-import any = jasmine.any;
 import { APP_BASE_HREF } from '@angular/common';
+import { SharedModule } from './shared';
 
 describe('App', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        SharedModule,
+        RebirthHttpModule,
+        RebirthStorageModule,
         RouterModule.forRoot(<any>{})
       ],
       declarations: [
@@ -19,8 +22,6 @@ describe('App', () => {
       providers: [
         { provide: APP_BASE_HREF, useValue: "/" },
         { provide: ViewContainerRef, useValue: {} },
-        RebirthHttpProvider,
-        ...REBIRTH_STORAGE_PROVIDERS
       ]
     });
 

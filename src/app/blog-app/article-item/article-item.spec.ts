@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Article } from '../../core';
-import { RouterModule } from '@angular/router';
 import { ArticleItemComponent } from './article-item.component';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 describe('Article item Component', () => {
 

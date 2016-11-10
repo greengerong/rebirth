@@ -25,8 +25,8 @@ describe('Article list Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserModule,
         BlogAppModule
+
       ],
       declarations: [],
       providers: [

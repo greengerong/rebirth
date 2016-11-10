@@ -7,7 +7,6 @@ describe('About Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserModule,
         BlogAppModule
       ],
       declarations: [],

@@ -1,13 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { BrowserModule }  from '@angular/platform-browser';
 import { BlogFooterComponent } from './index';
+import { CommonModule } from '@angular/common';
 
 describe('Article aside Component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserModule,
+        CommonModule,
       ],
       declarations: [BlogFooterComponent],
       providers: []
