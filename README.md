@@ -1,11 +1,6 @@
 @rebirth/rebirth([![Build Status](https://travis-ci.org/greengerong/rebirth.svg?branch=master)](https://travis-ci.org/greengerong/rebirth))
 ==================
 
-[![Build Status][travis-badge]][travis-badge-url]
-[![Dependency Status][david-badge]][david-badge-url]
-[![devDependency Status][david-dev-badge]][david-dev-badge-url]
-[![npm][npm-badge]][npm-badge-url]
-
 [![破狼logo](http://images2015.cnblogs.com/blog/63184/201607/63184-20160730102027700-792274919.png)](http://www.cnblogs.com/whitewolf/)
 
 GreenGerong(破狼) blog with Angular2. 
