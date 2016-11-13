@@ -7,7 +7,7 @@ describe('rebirth App', function () {
     page = new RebirthPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should navigate to home page', () => {
     page.navigateTo();
     expect(page.getTitle()).toEqual('破狼博客');
   });
