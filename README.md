@@ -1,5 +1,7 @@
-@rebirth/rebirth([![Build Status](https://travis-ci.org/greengerong/rebirth.svg?branch=master)](https://travis-ci.org/greengerong/rebirth))
+@rebirth/rebirth
 ==================
+[![Build Status](https://travis-ci.org/greengerong/rebirth.svg?branch=master)](https://travis-ci.org/greengerong/rebirth)
+![dependcy](https://david-dm.org/greengerong/rebirth.svg)
 
 [![破狼logo](http://images2015.cnblogs.com/blog/63184/201607/63184-20160730102027700-792274919.png)](http://www.cnblogs.com/whitewolf/)
 
