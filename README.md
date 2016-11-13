@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/greengerong/rebirth.svg?branch=master)](https://travis-ci.org/greengerong/rebirth)
 ![dependcy](https://david-dm.org/greengerong/rebirth.svg)
-![dev dependcy](https://david-dm.org/greengerong/rebirth?type=dev)
+![dev dependcy](https://david-dm.org/greengerong/rebirth/dev-status.svg)
 ![npm version](https://www.npmjs.com/greengerong/rebirth)
 ==================
 
