@@ -1,6 +1,6 @@
 import { RebirthPage } from './app.po';
 
-describe('rebirth App', function() {
+describe('rebirth App', function () {
   let page: RebirthPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('rebirth App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getTitle()).toEqual('破狼博客');
   });
 });
