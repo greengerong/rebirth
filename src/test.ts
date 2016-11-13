@@ -8,6 +8,7 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 
+/* tslint:disable */
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
@@ -35,3 +36,4 @@ Promise.all([
   .then(context => context.keys().map(context))
   // Finally, start Karma to run the tests.
   .then(__karma__.start, __karma__.error);
+/* tslint:enable */

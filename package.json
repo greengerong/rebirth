@@ -14,7 +14,7 @@
     "jit": "npm run run-parallel mock ng-jit",
     "aot": "npm run run-parallel mock ng-aot",
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test -w false",
+    "test": "ng test --lint -w false",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor"
   },
