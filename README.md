@@ -4,6 +4,7 @@
 [![dependcy](https://david-dm.org/greengerong/rebirth.svg)](https://david-dm.org/greengerong/rebirth)
 [![dev dependcy](https://david-dm.org/greengerong/rebirth/dev-status.svg)](https://david-dm.org/greengerong/rebirth?type=dev)
 [![npm version](https://img.shields.io/npm/v/rebirth.svg)](https://www.npmjs.com/package/rebirth)
+
 ==================
 
 [![破狼logo](http://images2015.cnblogs.com/blog/63184/201607/63184-20160730102027700-792274919.png)](http://www.cnblogs.com/whitewolf/)
