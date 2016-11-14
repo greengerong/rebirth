@@ -1,7 +1,7 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { environment } from '../environments/environment';
-import { LoadService } from  './core/loading/loading.service';
+import { LoadingService } from  './core/loading/loading.service';
 
 @Component({
   selector: 'app',
@@ -13,7 +13,7 @@ import { LoadService } from  './core/loading/loading.service';
 export class AppComponent {
 
   constructor(private rebirthHttpProvider: RebirthHttpProvider, private viewContainer: ViewContainerRef,
-              private  loadService: LoadService) {
+              private  loadService: LoadingService) {
 
     loadService.defaultViewContainerRef = viewContainer;
 

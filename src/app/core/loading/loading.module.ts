@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './loading.component';
+import { LoadingService } from './loading.service';
 
 @NgModule({
   imports: [
@@ -9,7 +10,9 @@ import { LoadingComponent } from './loading.component';
   declarations: [
     LoadingComponent
   ],
-  providers: [],
+  providers: [
+    LoadingService
+  ],
   entryComponents: [
     LoadingComponent
   ]
