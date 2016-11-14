@@ -6,7 +6,6 @@ import { BlogFooterComponent } from './blog-footer';
 import { BlogHeaderComponent } from './blog-header';
 import { DropdownDirective } from './dropdown';
 import { PagerComponent } from './pager';
-import { LoadingComponent } from './loading';
 
 @NgModule({
   imports: [
@@ -21,7 +20,6 @@ import { LoadingComponent } from './loading';
     BlogHeaderComponent,
     DropdownDirective,
     PagerComponent,
-    LoadingComponent
   ],
   providers: [],
   exports: [
@@ -31,7 +29,6 @@ import { LoadingComponent } from './loading';
     BlogHeaderComponent,
     DropdownDirective,
     PagerComponent,
-    LoadingComponent
   ]
 })
 export class SharedModule {

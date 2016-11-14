@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { SharedModule } from './shared';
+import { CoreModule } from './core';
 
 describe('App', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        CoreModule,
         SharedModule,
         RebirthHttpModule,
         RebirthStorageModule,

@@ -3,4 +3,3 @@ export * from './blog-header';
 export * from './dropdown';
 export * from './pager';
 export * from './shared.module';
-export * from './loading';
