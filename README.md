@@ -1,9 +1,8 @@
-@rebirth/rebirth
+# @rebirth/rebirth
 
 [![Build Status](https://travis-ci.org/greengerong/rebirth.svg?branch=master)](https://travis-ci.org/greengerong/rebirth)
 [![dependcy](https://david-dm.org/greengerong/rebirth.svg)](https://david-dm.org/greengerong/rebirth)
 [![dev dependcy](https://david-dm.org/greengerong/rebirth/dev-status.svg)](https://david-dm.org/greengerong/rebirth?type=dev)
-[![npm version](https://img.shields.io/npm/v/rebirth.svg)](https://www.npmjs.com/package/rebirth)
 
 ==================
 
