@@ -59,7 +59,7 @@
     "@types/source-map": "^0.1.26",
     "@types/uglify-js": "^2.0.27",
     "@types/webpack": "^1.12.34",
-    "angular-cli": "1.0.0-beta.19-3",
+    "angular-cli": "1.0.0-beta.20-4",
     "codelyzer": "1.0.0-beta.3",
     "glob": "^7.1.1",
     "gulp-stubby-server": "^0.2.0",
