@@ -1,4 +1,5 @@
-import { RebirthHomePage, Article } from './rebirth-home.po';
+import { RebirthHomePage } from './rebirth-home.po';
+import { Article } from '../../core/article';
 
 describe('rebirth home page', function () {
   let page: RebirthHomePage;

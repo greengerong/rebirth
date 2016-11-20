@@ -1,13 +1,8 @@
 import { browser, element, by } from 'protractor';
-import { PageBase } from '../../utils';
+import { PageBase } from '../../core';
 import { promise as wdpromise, WebElement } from 'selenium-webdriver';
+import { Article } from '../../core/article';
 
-export interface Article {
-  title: wdpromise.Promise<string>,
-  author: wdpromise.Promise<string>,
-  date: wdpromise.Promise<string>,
-  tags: any,
-}
 
 export class RebirthHomePage extends PageBase {
 
