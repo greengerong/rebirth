@@ -1,5 +1,5 @@
 import { browser, element, by } from 'protractor';
-import { PageBase } from './utils';
+import { PageBase } from '../../utils';
 import { promise as wdpromise, WebElement } from 'selenium-webdriver';
 
 export interface Article {
@@ -9,7 +9,7 @@ export interface Article {
   tags: any,
 }
 
-export class RebirthPage extends PageBase {
+export class RebirthHomePage extends PageBase {
 
   constructor() {
     super('/blog/home');

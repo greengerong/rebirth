@@ -1,10 +1,10 @@
-import { RebirthPage, Article } from './app.po';
+import { RebirthHomePage, Article } from './rebirth-home.po';
 
-describe('rebirth App', function () {
-  let page: RebirthPage;
+describe('rebirth home page', function () {
+  let page: RebirthHomePage;
 
   beforeEach(() => {
-    page = new RebirthPage();
+    page = new RebirthHomePage();
     page.navigateTo();
   });
 
