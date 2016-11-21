@@ -23,12 +23,22 @@ describe('rebirth login page', () => {
     expect(homePage.text()).toEqual('admin role');
   });
 
+  it('should login in to user dashboard', () => {
+    loginPage
+      .email("user@localhost.com")
+      .password('user')
+      .login()
+      .login();
+
+    expect(homePage.getCurrentUrl()).toMatch(/\/manage\/home/);
+    expect(homePage.text()).toEqual('user role');
+  });
+
   it('should cannot login in to dashboard when has error', () => {
 
     loginPage
       .email("wrong name")
       .password('wrong password')
-      .login()
       .login();
 
 
