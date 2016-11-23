@@ -13,6 +13,7 @@
     "mock": "node ./build/mock-server.js",
     "jit": "npm run run-parallel mock ng-jit",
     "aot": "npm run run-parallel mock ng-aot",
+    "github": "ng serve --env=github",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --lint -w false",
     "protractor": "protractor",

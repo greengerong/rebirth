@@ -5,7 +5,12 @@ import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions 
 import { ArticleListComponent } from './article-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RebirthHttpProvider } from 'rebirth-http';
-import { Article, SearchResult, REBIRTH_WINDOW_PROVIDERS, ArticleService } from '../../core';
+import {
+  Article,
+  SearchResult,
+  REBIRTH_WINDOW_PROVIDERS,
+  REBIRTH_ARTICLE_SERVICE_PROVIDERS
+} from '../../core';
 import { BlogAppModule } from '../blog-app.module';
 
 describe('Article list Component', () => {
@@ -45,7 +50,7 @@ describe('Article list Component', () => {
           provide: ElementRef,
           useValue: new ElementRef(document.body)
         },
-        ArticleService
+        ...REBIRTH_ARTICLE_SERVICE_PROVIDERS
       ]
     });
 

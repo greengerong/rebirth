@@ -1,0 +1,8 @@
+{
+  "baseUrl": "/",
+  "env": "prod",
+  "deploy": "github",
+  "api": {
+    "host": "http://localhost:4200/assets/source/"
+  }
+}
