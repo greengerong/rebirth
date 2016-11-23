@@ -14,6 +14,7 @@
     "jit": "npm run run-parallel mock ng-jit",
     "aot": "npm run run-parallel mock ng-aot",
     "github": "ng serve --env=github",
+    "github:deploy": "ng github-pages:deploy --env=github  --message \"rebirth deploy\"",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --lint -w false",
     "protractor": "protractor",
