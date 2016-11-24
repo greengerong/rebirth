@@ -18,7 +18,6 @@ $bootstrap-sass-asset-helper: false;
 $fa-font-path: "../../node_modules/font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
-@import '~normalize.css';
 @import '~codemirror/lib/codemirror';
 @import '~codemirror/theme/base16-dark';
 @import '~codemirror/theme/base16-light';
