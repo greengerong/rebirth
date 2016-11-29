@@ -10,6 +10,13 @@
 
 GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github.io/rebirth/blog/home](https://greengerong.github.io/rebirth/blog/home).
 
+## Links
+
+* [Web version rebirth: https://github.com/greengerong/rebirth](https://github.com/greengerong/rebirth)
+* [Ionic2 version rebirth: https://github.com/greengerong/rebirth-ionic2](https://github.com/greengerong/rebirth-ionic2)
+
+
+
 ## How to build this project?
 
 ### setup project
