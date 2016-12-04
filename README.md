@@ -12,8 +12,10 @@ GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github
 
 ## Links
 
+
 * [Web version rebirth: https://github.com/greengerong/rebirth](https://github.com/greengerong/rebirth)
 * [Ionic2 version rebirth: https://github.com/greengerong/rebirth-ionic2](https://github.com/greengerong/rebirth-ionic2)
+* [Nativescript version rebirth: https://github.com/greengerong/rebirth-nativescript](https://github.com/greengerong/rebirth-nativescript)
 
 
 
