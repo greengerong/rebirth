@@ -24,6 +24,6 @@ import 'zone.js/dist/zone';
 
 if (!environment.production) {
   // Development
-  Error.stackTraceLimit = Infinity;
+  (<any>Error).stackTraceLimit = Infinity;
   require('zone.js/dist/long-stack-trace-zone');
 }
