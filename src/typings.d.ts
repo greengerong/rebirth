@@ -4,13 +4,11 @@
 // declare var System: any;
 // support NodeJS modules without type definitions
 
-/// <reference path="../node_modules/typescript/lib/lib.es6.d.ts" />
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
 declare var ENV: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
-declare var require: (module: string) => any;
 
 interface SystemJS {
   import: (path?: string) => Promise<any>;
