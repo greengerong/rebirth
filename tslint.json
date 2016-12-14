@@ -18,6 +18,10 @@
       true,
       140
     ],
+    "max-file-line-count": [
+      true,
+      300
+    ],
     "member-access": false,
     "member-ordering": [
       true,
