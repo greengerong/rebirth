@@ -101,7 +101,7 @@ export class GithubArticleService extends ArticleService {
 export const REBIRTH_ARTICLE_SERVICE_PROVIDERS: Array<any> = [
   {
     provide: ArticleService,
-    useClass: GithubArticleService //environment.deploy === 'github' ? GithubArticleService : OnlineArticleService
+    useClass: OnlineArticleService //environment.deploy === 'github' ? GithubArticleService : OnlineArticleService
   }
 ];
 
