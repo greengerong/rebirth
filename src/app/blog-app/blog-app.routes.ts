@@ -7,7 +7,7 @@ import { BlogArticleComponent } from './blog-article';
 
 export const ROUTER_CONFIG: Routes = [
   {
-    path: '', component: BlogAppComponent,
+    path: 'blog', component: BlogAppComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '/blog/home' },
       { path: 'home', component: HomeComponent },

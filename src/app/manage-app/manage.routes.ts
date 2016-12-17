@@ -8,7 +8,7 @@ import { MdEditorComponent } from './md-editor';
 
 export const ROUTER_CONFIG: Routes = [
   {
-    path: '',
+    path: 'manage',
     children: [
       {
         path: '', component: ManageAppComponent,
