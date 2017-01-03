@@ -5,6 +5,7 @@ import { LoadingModule } from './loading';
 import { REBIRTH_ARTICLE_SERVICE_PROVIDERS } from './article-service';
 import { REBIRTH_WINDOW_PROVIDERS } from './rebirth-common';
 import { HttpModule } from '@angular/http';
+import { EventSource } from './event-source';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     ...REBIRTH_ARTICLE_SERVICE_PROVIDERS,
-    ...REBIRTH_WINDOW_PROVIDERS
+    ...REBIRTH_WINDOW_PROVIDERS,
+    EventSource
   ],
   exports: [
     RebirthHttpModule,

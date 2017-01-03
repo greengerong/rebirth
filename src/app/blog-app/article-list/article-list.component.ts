@@ -1,6 +1,4 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ArticleItemComponent } from '../article-item';
-import { PagerComponent } from '../../shared';
 import { ArticleService, SearchResult, Article, RebirthWindow } from '../../core';
 import { environment } from '../../../environments/environment';
 

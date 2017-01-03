@@ -49,7 +49,6 @@
     "rebirth-http": "^0.0.9",
     "rebirth-permission": "^0.0.4",
     "rebirth-storage": "^0.0.7",
-    "stubby": "^4.0.0",
     "systemjs": "^0.19.41"
   },
   "devDependencies": {
@@ -67,6 +66,7 @@
     "angular-cli": "^1.0.0-beta.24",
     "codelyzer": "^2.0.0-beta.3",
     "glob": "^7.1.1",
+    "stubby": "^4.0.0",
     "gulp-stubby-server": "^0.2.0",
     "jasmine-core": "^2.5.2",
     "jasmine-spec-reporter": "^2.7.0",
