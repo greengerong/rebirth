@@ -1,3 +1,8 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib/"
+  "typescript.tsdk": "node_modules/typescript/lib/",
+  "background.enabled": true,
+  "background.useDefault": false,
+  "background.customImages": [
+    "http://greengerong.com/rebirth/assets/img/wolf2.png"
+  ]
 }
