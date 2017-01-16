@@ -8,9 +8,9 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./manage-article-list.scss'],
 })
 export class ManageArticleListComponent implements OnInit {
-  private article: SearchResult<Article> = <SearchResult<Article>> {};
-  private pageIndex = 1;
-  private keyword: string;
+   article: SearchResult<Article> = <SearchResult<Article>> {};
+   pageIndex = 1;
+   keyword: string;
 
   constructor(private articleService: ArticleService) {
   }

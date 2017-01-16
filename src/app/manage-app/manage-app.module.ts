@@ -1,5 +1,5 @@
-import { NgModule }           from '@angular/core';
-import { SharedModule }       from '../shared';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared';
 
 import { ManageAppComponent } from './manage-app.component';
 import { ArticleSearchComponent } from './article-search';

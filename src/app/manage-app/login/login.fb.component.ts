@@ -12,8 +12,8 @@
 //   changeDetection: ChangeDetectionStrategy.OnPush
 // })
 // export class LoginFbComponent {
-//   private error: any;
-//   private loginForm: FormGroup;
+//    error: any;
+//    loginForm: FormGroup;
 //
 //   constructor(fb: FormBuilder, private loginService: LoginService, private route: Router) {
 //     this.loginForm = fb.group({

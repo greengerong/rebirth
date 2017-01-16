@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { BrowserModule }  from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { BlogFooterComponent } from './index';
 
 describe('Article aside Component', () => {

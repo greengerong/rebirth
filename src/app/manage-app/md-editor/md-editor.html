@@ -36,8 +36,7 @@
   </div>
   <div class="editor-panel">
     <div class="md-editor-panel col-md-6">
-      <codemirror [markdown]="article?.markdown" (mdTextChange)="markdownTextChange($event)"
-                  #codemirror="codemirror"></codemirror>
+      <codemirror [markdown]="article?.markdown" (mdTextChange)="markdownTextChange($event)"></codemirror>
     </div>
 
     <div class="md-preview-panel col-md-6">

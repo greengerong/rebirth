@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './blog-article.html'
 })
 export class BlogArticleComponent implements OnInit {
-  private articleUrl: string;
-  private article: Article;
+  articleUrl: string;
+  article: Article;
 
   constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) {
 

@@ -1,10 +1,10 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { environment } from '../environments/environment';
-import { LoadingService } from  './core/loading/loading.service';
+import { LoadingService } from './core/loading/loading.service';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   styleUrls: [
     './app.scss',
   ],

@@ -11,8 +11,8 @@ import { LoginService } from './login.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  private model: any;
-  private error: any;
+  model: any;
+  error: any;
 
   constructor(private route: Router, private loginService: LoginService) {
     this.model = {};

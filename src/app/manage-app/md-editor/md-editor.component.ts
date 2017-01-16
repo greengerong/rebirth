@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RebirthWindow, ArticleService, Article } from '../../core';
+import { CodemirrorComponent } from '../codemirror/codemirror.component';
 
 @Component({
   selector: 'md-editor',
@@ -8,9 +9,12 @@ import { RebirthWindow, ArticleService, Article } from '../../core';
   templateUrl: './md-editor.html',
 })
 export class MdEditorComponent implements OnInit {
-  private mdArticle: string;
-  private article: Article;
-  private articleUrl: string;
+  mdArticle: string;
+  article: Article;
+  articleUrl: string;
+
+  @ViewChild(CodemirrorComponent) codemirror: CodemirrorComponent;
+
 
   constructor(private activatedRoute: ActivatedRoute,
               private articleService: ArticleService,

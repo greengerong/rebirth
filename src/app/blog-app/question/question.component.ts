@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { QuestionService } from './question.service';
 import { QuestionModel } from './question.model';
-import  { LoadingService } from '../../core/loading/loading.service';
+import { LoadingService } from '../../core/loading/loading.service';
 
 @Component({
   selector: 'question',
@@ -9,8 +9,8 @@ import  { LoadingService } from '../../core/loading/loading.service';
   templateUrl: './question.html'
 })
 export class QuestionComponent implements OnInit {
-  private questions: QuestionModel[];
-  private error: any;
+  questions: QuestionModel[];
+  error: any;
 
   constructor(private questionService: QuestionService,
               private  loadService: LoadingService,

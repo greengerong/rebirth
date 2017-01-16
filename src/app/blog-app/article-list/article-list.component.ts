@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   templateUrl: './article-list.html'
 })
 export class ArticleListComponent implements OnInit {
-  private article: SearchResult<Article>;
+  article: SearchResult<Article>;
 
   constructor(private articleService: ArticleService, private elmRef: ElementRef, private rebirthWindow: RebirthWindow) {
 

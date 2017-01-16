@@ -10,8 +10,8 @@ import * as hljs from 'highlight.js';
 })
 export class MdPreviewComponent implements OnChanges {
   @Input('mdArticle') mdArticle: string;
-  private mdHtmlText: string;
-  private markdownIt: any;
+  mdHtmlText: string;
+  markdownIt: any;
 
   constructor() {
     this.markdownIt = (<any>markdownit)({

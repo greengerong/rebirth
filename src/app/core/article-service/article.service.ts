@@ -4,8 +4,7 @@ import { SearchResult } from './search-result.model';
 import { Article } from './article.model';
 import { Observable } from 'rxjs/Observable';
 import { Cacheable } from 'rebirth-storage';
-import { RebirthHttp, RebirthHttpProvider, BaseUrl, GET, POST, PUT, DELETE, Query, Path, Body } from  'rebirth-http';
-import { environment } from '../../../environments/environment';
+import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
 
 
 export abstract class ArticleService extends RebirthHttp {

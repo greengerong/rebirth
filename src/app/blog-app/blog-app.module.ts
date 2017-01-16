@@ -1,5 +1,5 @@
-import { NgModule }           from '@angular/core';
-import { SharedModule }       from '../shared';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared';
 
 import { BlogAppComponent } from './blog-app.component';
 import { AboutComponent, AboutService } from './about';
