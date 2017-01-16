@@ -18,7 +18,6 @@ describe('rebirth login page', () => {
       .email("admin@localhost.com")
       .password('admin')
       .login();
-    // browser.pause();
 
     expect(homePage.getCurrentUrl()).toMatch(/\/manage\/home/);
     expect(homePage.text()).toEqual('admin role');
