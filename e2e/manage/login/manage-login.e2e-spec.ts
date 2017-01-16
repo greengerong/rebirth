@@ -13,11 +13,12 @@ describe('rebirth login page', () => {
   });
 
   it('should login in to admin dashboard', () => {
+
     loginPage
       .email("admin@localhost.com")
       .password('admin')
-      .login()
       .login();
+    // browser.pause();
 
     expect(homePage.getCurrentUrl()).toMatch(/\/manage\/home/);
     expect(homePage.text()).toEqual('admin role');
@@ -27,7 +28,6 @@ describe('rebirth login page', () => {
     loginPage
       .email("user@localhost.com")
       .password('user')
-      .login()
       .login();
 
     expect(homePage.getCurrentUrl()).toMatch(/\/manage\/home/);
@@ -45,5 +45,5 @@ describe('rebirth login page', () => {
     expect(loginPage.getCurrentUrl()).toMatch(/\/manage\/login/);
   });
 
-  afterEach(()=> loginPage.clearSession());
+  afterEach(() => loginPage.clearSession());
 });
