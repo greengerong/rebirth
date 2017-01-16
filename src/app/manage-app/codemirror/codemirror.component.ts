@@ -54,21 +54,21 @@ export class CodemirrorComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    let codeEditor = this.elementRef.nativeElement.querySelector('.code-editor');
+    const codeEditor = this.elementRef.nativeElement.querySelector('.code-editor');
     this.editorMarkdown = CodeMirror.fromTextArea(codeEditor, <any>{
-      mode: "markdown",
+      mode: 'markdown',
       lineNumbers: true,
       lineWrapping: true,
       // theme: 'base16-dark',
       extraKeys: {
-        "F11": function (cm) {
-          cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        'F11': function (cm) {
+          cm.setOption('fullScreen', !cm.getOption('fullScreen'));
         }
       },
-      keyMap: "sublime",
+      keyMap: 'sublime',
       autofocus: true,
       foldGutter: true,
-      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+      gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter']
     });
 
     this.editorMarkdown.on('change', (e) => {
@@ -85,15 +85,15 @@ export class CodemirrorComponent implements OnInit, OnChanges {
   }
 
   fullScreen(): void {
-    this.editorMarkdown.setOption("fullScreen", true);
+    this.editorMarkdown.setOption('fullScreen', true);
   }
 
   theme(value): void {
-    this.editorMarkdown.setOption("theme", value);
+    this.editorMarkdown.setOption('theme', value);
   }
 
   keyMap(value): void {
-    this.editorMarkdown.setOption("keyMap", value);
+    this.editorMarkdown.setOption('keyMap', value);
   }
 
   private mdArticleChange(e: any): void {

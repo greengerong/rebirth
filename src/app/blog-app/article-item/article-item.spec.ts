@@ -14,32 +14,32 @@ describe('Article item Component', () => {
       ],
       declarations: [ArticleItemComponent],
       providers: [
-        { provide: APP_BASE_HREF, useValue: "/" }
+        { provide: APP_BASE_HREF, useValue: '/' }
       ]
     });
   });
 
   it('should render article ', inject([], () => {
 
-    let fixture = TestBed.createComponent(ArticleItemComponent);
+    const fixture = TestBed.createComponent(ArticleItemComponent);
     fixture.whenStable().then(() => {
 
-      let component: ArticleItemComponent = fixture.componentInstance;
-      let title = 'article title';
+      const component: ArticleItemComponent = fixture.componentInstance;
+      const title = 'article title';
       component.articleItem = <Article>{ title };
 
       fixture.detectChanges();
 
-      let elm: HTMLElement = fixture.nativeElement;
-      expect(elm.querySelector(".article-title").textContent.trim()).toEqual(title);
+      const elm: HTMLElement = fixture.nativeElement;
+      expect(elm.querySelector('.article-title').textContent.trim()).toEqual(title);
     });
 
   }));
 
   it('should get random tag style', inject([], () => {
-    let fixture = TestBed.createComponent(ArticleItemComponent);
+    const fixture = TestBed.createComponent(ArticleItemComponent);
     fixture.whenStable().then(() => {
-      let articleItemComponent: ArticleItemComponent = fixture.componentInstance;
+      const articleItemComponent: ArticleItemComponent = fixture.componentInstance;
       articleItemComponent.articleItem = <Article>{};
       expect(articleItemComponent.getTagStyle(1)).not.toBeUndefined();
     });

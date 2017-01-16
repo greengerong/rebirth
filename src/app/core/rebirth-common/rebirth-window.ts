@@ -14,7 +14,7 @@ export class RebirthWindow {
   }
 
   scrollTo(selector: string, elmRef?: ElementRef): RebirthWindow {
-    let elm: any = this.getOwnerDocument(elmRef).querySelector(selector);
+    const elm: any = this.getOwnerDocument(elmRef).querySelector(selector);
     elm.scrollIntoView();
     return this;
   }
@@ -25,7 +25,7 @@ export class RebirthWindow {
   }
 
   createScript(src: string, renderer: Renderer, elmRef?: ElementRef, callback?: () => void): HTMLScriptElement {
-    let script = elmRef ? renderer.createElement(elmRef.nativeElement, 'script', null) :
+    const script = elmRef ? renderer.createElement(elmRef.nativeElement, 'script', null) :
       this.getOwnerDocument().createElement('script');
 
     script.type = 'text/javascript';

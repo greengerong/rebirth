@@ -12,7 +12,7 @@ export class ArticleItemComponent {
   @Input() articleItem: Article;
 
   getTagStyle(tagIndex) {
-    let index = Math.floor(((tagIndex + 1) * Math.random() * 100)) % ArticleItemComponent.TAG_CLOUD_STYLE.length;
+    const index = Math.floor(((tagIndex + 1) * Math.random() * 100)) % ArticleItemComponent.TAG_CLOUD_STYLE.length;
     return ArticleItemComponent.TAG_CLOUD_STYLE[index];
   }
 }

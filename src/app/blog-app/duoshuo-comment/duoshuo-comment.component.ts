@@ -11,13 +11,13 @@ export class DuoShuoCommentComponent implements OnInit {
   private duoShuoUrl: string;
 
   constructor(private elmRef: ElementRef, private renderer: Renderer, private rebirthWindow: RebirthWindow) {
-    let protocol = this.rebirthWindow.getOwnerDocument(this.elmRef).location.protocol === 'https:' ? 'https:' : 'http:';
+    const protocol = this.rebirthWindow.getOwnerDocument(this.elmRef).location.protocol === 'https:' ? 'https:' : 'http:';
     this.duoShuoUrl = `${protocol}//static.duoshuo.com/embed.js`;
-    this.rebirthWindow.getGlobalObject().duoshuoQuery = { short_name: "greengerong" };
+    this.rebirthWindow.getGlobalObject().duoshuoQuery = { short_name: 'greengerong' };
   }
 
   ngOnInit() {
-    let duoshuoElm = this.elmRef.nativeElement.querySelector('.ds-thread');
+    const duoshuoElm = this.elmRef.nativeElement.querySelector('.ds-thread');
 
     this.rebirthWindow.createScript(`${this.duoShuoUrl}?rn=${Math.random()}`,
       this.renderer, this.elmRef, () => {

@@ -14,7 +14,7 @@ export class QuestionService extends RebirthHttp {
 
   @Cacheable({ pool: 'question' })
   getQuestions(): Observable<QuestionModel[]> {
-    let day = new Date();
+    const day = new Date();
     day.setMonth(day.getMonth() - 1);
     return this.innerGetQuestions(day.toISOString())
       .map(res => res.json().data);

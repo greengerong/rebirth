@@ -18,7 +18,7 @@ describe('App', () => {
         AppComponent
       ],
       providers: [
-        { provide: APP_BASE_HREF, useValue: "/" },
+        { provide: APP_BASE_HREF, useValue: '/' },
         { provide: ViewContainerRef, useValue: {} },
         RebirthHttpProvider,
         LoadingService,
@@ -29,9 +29,9 @@ describe('App', () => {
   });
 
   it('should init http interceptors', inject([], () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.whenStable().then(() => {
-      let element = fixture.nativeElement;
+      const element = fixture.nativeElement;
       fixture.detectChanges();
 
       expect(element.querySelectorAll('router-outlet').length).toEqual(1);

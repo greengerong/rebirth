@@ -14,7 +14,7 @@ import {
 import { BlogAppModule } from '../blog-app.module';
 
 describe('Article list Component', () => {
-  let result = <SearchResult<Article>>{
+  const result = <SearchResult<Article>>{
     pageSize: 10,
     pageIndex: 1,
     result: [
@@ -63,12 +63,12 @@ describe('Article list Component', () => {
         con.mockRespond(<any>result);
       });
 
-      let fixture = TestBed.createComponent(ArticleListComponent);
+      const fixture = TestBed.createComponent(ArticleListComponent);
       fixture.whenStable().then(() => {
         fixture.detectChanges();
 
-        let elm: HTMLElement = fixture.nativeElement;
-        let titleElms = elm.querySelectorAll(".article-title");
+        const elm: HTMLElement = fixture.nativeElement;
+        const titleElms = elm.querySelectorAll('.article-title');
         expect(titleElms[0].textContent).toContain('Article title 1');
         expect(titleElms[1].textContent).toContain('Article title 2');
       });

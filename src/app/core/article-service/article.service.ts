@@ -62,8 +62,8 @@ export class GithubArticleService extends ArticleService {
   getArticles(pageIndex = 1, pageSize = 10, keyword?: string): Observable<SearchResult<Article>> {
     return this.innerGetArticles()
       .map(res => {
-        let result = res.result || [];
-        let startIndex = (pageIndex - 1 ) * pageSize;
+        const result = res.result || [];
+        const startIndex = (pageIndex - 1 ) * pageSize;
         return {
           pageSize,
           pageIndex,
@@ -76,7 +76,7 @@ export class GithubArticleService extends ArticleService {
   getArticleByUrl(articleUrl: string): Observable<Article> {
     return this.innerGetArticles()
       .map(res => {
-        let result = res.result || [];
+        const result = res.result || [];
         return result.find(item => item.url === articleUrl);
       });
   }
