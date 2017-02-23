@@ -29,7 +29,7 @@ GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github
 
 ### run project
 
-* development: `npm run jit` & `npm run aot`
+* development: `npm run jit` 或 `npm run aot`
 * production: `ng build --prod`
 * test: `npm test`
 * angular-cli command
