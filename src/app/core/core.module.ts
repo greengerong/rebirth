@@ -21,7 +21,7 @@ import { RebirthRouterReuseStrategy } from './router-reuse-strategy/rebirth-rout
   providers: [
     ...REBIRTH_ARTICLE_SERVICE_PROVIDERS,
     ...REBIRTH_WINDOW_PROVIDERS,
-    { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
+    // { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
   ],
   exports: [
     RebirthHttpModule,
