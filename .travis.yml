@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-#  - "5"
   - "6"
+  - "7"
 before_install:
-  - npm install -g angular-cli@latest
+  - npm install -g @angular/cli@1.0.0-rc.1
 
 sudo: true
 
