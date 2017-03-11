@@ -18,14 +18,14 @@ describe('rebirth home page', function () {
   });
 
   it('should display blog menus', () => {
-    let navs = page.getNavs();
+    const navs = page.getNavs();
     expect(navs).toContain('文章');
     expect(navs).toContain('站内资源');
     expect(navs).toContain('关于我');
   });
 
   it('should display blog site resources', () => {
-    let allNavs = page.getNavsWithSiteResource();
+    const allNavs = page.getNavsWithSiteResource();
 
     expect(allNavs).toContain('文章');
     expect(allNavs).toContain('站内资源|相关资源|我要提问|著作与翻译|Angularjs深度剖析与最佳实践');
@@ -35,7 +35,7 @@ describe('rebirth home page', function () {
   });
 
   it('should display blog articles', () => {
-    let articles = page.getArticleItems();
+    const articles = page.getArticleItems();
 
     articles.then((article: Article[]) => {
       expect(article.length).toBeGreaterThan(0);

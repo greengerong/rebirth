@@ -18,7 +18,7 @@
     "github:deploy": "ng build --aot --prod --env=github --base-href=/rebirth/ && npm run github-pages:push",
     "lint": "tslint \"src/**/*.ts\"",
     "lint-fix": "tslint -c tslint.json \"src/**/*.ts\"  --fix",
-    "test": "ng test --watch=false --single-run=true --code-coverage",
+    "test": "ng lint && ng test --watch=false --single-run=true --code-coverage",
     "protractor": "protractor",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
@@ -85,7 +85,7 @@
     "protractor": "^5.1.0",
     "stubby": "^4.0.0",
     "ts-node": "~2.1.0",
-    "tslint": "^5.0.0-dev.0",
+    "tslint": "^4.5.1",
     "typedoc": "^0.5.5",
     "typescript": "^2.2.1"
   },

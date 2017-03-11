@@ -15,7 +15,7 @@ describe('rebirth login page', () => {
   it('should login in to admin dashboard', () => {
 
     loginPage
-      .email("admin@localhost.com")
+      .email('admin@localhost.com')
       .password('admin')
       .login();
 
@@ -25,7 +25,7 @@ describe('rebirth login page', () => {
 
   it('should login in to user dashboard', () => {
     loginPage
-      .email("user@localhost.com")
+      .email('user@localhost.com')
       .password('user')
       .login();
 
@@ -36,7 +36,7 @@ describe('rebirth login page', () => {
   it('should cannot login in to dashboard when has error', () => {
 
     loginPage
-      .email("wrong name")
+      .email('wrong name')
       .password('wrong password')
       .login();
 

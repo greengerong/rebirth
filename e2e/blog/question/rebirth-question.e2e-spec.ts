@@ -9,7 +9,7 @@ describe('rebirth question page', function () {
   });
 
   it('should display question articles', () => {
-    let article = page.getArticleItem();
+    const article = page.getArticleItem();
 
     expect(article.title).toEqual('提问的智慧');
   });

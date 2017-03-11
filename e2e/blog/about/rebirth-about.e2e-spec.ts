@@ -9,7 +9,7 @@ describe('rebirth about page', function () {
   });
 
   it('should display question articles', () => {
-    let article = page.getArticleItem();
+    const article = page.getArticleItem();
 
     expect(article.title).toEqual('破狼简介');
     expect(article.author).toEqual('破狼');

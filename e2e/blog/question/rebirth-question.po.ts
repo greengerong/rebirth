@@ -9,7 +9,7 @@ export class RebirthQuestionPage extends PageBase {
   }
 
   getArticleItem(): Article {
-    let elm = element(by.className('smart-question'));
+    const elm = element(by.className('smart-question'));
 
     return <Article>{
       title: elm.element(by.className('article-title')).getText()

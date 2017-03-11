@@ -21,6 +21,6 @@ export class PageBase {
   }
 
   clearSession(): wdpromise.Promise<any> {
-    return browser.executeScript("window.localStorage.clear();window.sessionStorage.clear();");
+    return browser.executeScript('window.localStorage.clear();window.sessionStorage.clear();');
   }
 }

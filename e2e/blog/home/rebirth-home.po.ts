@@ -32,6 +32,6 @@ export class RebirthHomePage extends PageBase {
         date: element.element(by.className('article-date')).getText(),
         tags: element.all(by.className('article-tag-list-item'))
           .map(tag => tag.getText())
-      })
+      });
   }
 }

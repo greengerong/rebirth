@@ -107,7 +107,7 @@
       "camelCase"
     ],
     "component-selector": [
-      true,
+      false,
       "element",
       "",
       "kebab-case"
