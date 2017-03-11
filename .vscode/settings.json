@@ -4,5 +4,6 @@
   "background.useDefault": false,
   "background.customImages": [
     "http://greengerong.com/rebirth/assets/img/wolf2.png"
-  ]
+  ],
+  "vsicons.presets.angular": true
 }
