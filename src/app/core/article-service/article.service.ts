@@ -5,6 +5,7 @@ import { Article } from './article.model';
 import { Observable } from 'rxjs/Observable';
 import { Cacheable } from 'rebirth-storage';
 import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
+import { environment } from '../../../environments/environment';
 
 
 export abstract class ArticleService extends RebirthHttp {
@@ -100,7 +101,7 @@ export class GithubArticleService extends ArticleService {
 export const REBIRTH_ARTICLE_SERVICE_PROVIDERS: Array<any> = [
   {
     provide: ArticleService,
-    useClass: OnlineArticleService // environment.deploy === 'github' ? GithubArticleService : OnlineArticleService
+    useClass: environment.deploy === 'github' ? GithubArticleService : OnlineArticleService
   }
 ];
 

@@ -13,7 +13,7 @@
     "mock": "node ./build/mock-server.js",
     "jit": "npm run run-parallel mock ng-jit",
     "aot": "npm run run-parallel mock ng-aot",
-    "github": "ng serve --env=github",
+    "github": "ng serve --aot --env=github",
     "github-pages:push": "ngh --message \"rebirth blog deploy\"",
     "github:deploy": "ng build --aot --prod --env=github --base-href=/rebirth/ && npm run github-pages:push",
     "lint": "tslint \"src/**/*.ts\"",
