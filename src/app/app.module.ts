@@ -5,8 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
  * Platform and Environment providers/directives/pipes
  */
 import { ROUTER_CONFIG } from './app.routes';
-import { BlogAppModule } from './blog-app';
-import { ManageAppModule } from './manage-app';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
@@ -24,8 +23,6 @@ const APP_PROVIDERS = [];
     CoreModule,
     SharedModule,
     RouterModule.forRoot(ROUTER_CONFIG),
-    BlogAppModule,
-    ManageAppModule
   ],
   declarations: [
     AppComponent

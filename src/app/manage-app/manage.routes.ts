@@ -8,34 +8,29 @@ import { MdEditorComponent } from './md-editor';
 
 export const ROUTER_CONFIG: Routes = [
   {
-    path: 'manage',
+    path: '', component: ManageAppComponent,
     children: [
+      { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
       {
-        path: '', component: ManageAppComponent,
-        children: [
-          { path: '', pathMatch: 'full', redirectTo: '/manage/login' },
-          {
-            path: 'home',
-            component: ManageHomeComponent,
-            data: { roles: ['Admin', 'User'] },
-            canActivate: [AuthRolePermission]
-          },
-          {
-            path: 'articles',
-            component: ManageArticleListComponent,
-            data: { roles: ['Admin', 'User'] },
-            canActivate: [AuthRolePermission]
-          },
-          {
-            path: 'articles/:id',
-            component: MdEditorComponent,
-            data: { roles: ['Admin', 'User'] },
-            canActivate: [AuthRolePermission]
-          }
-        ]
+        path: 'home',
+        component: ManageHomeComponent,
+        data: { roles: ['Admin', 'User'] },
+        canActivate: [AuthRolePermission]
       },
-      { path: 'login', component: LoginComponent },
+      {
+        path: 'articles',
+        component: ManageArticleListComponent,
+        data: { roles: ['Admin', 'User'] },
+        canActivate: [AuthRolePermission]
+      },
+      {
+        path: 'articles/:id',
+        component: MdEditorComponent,
+        data: { roles: ['Admin', 'User'] },
+        canActivate: [AuthRolePermission]
+      }
     ]
   },
+  { path: 'login', component: LoginComponent },
 ];
 
