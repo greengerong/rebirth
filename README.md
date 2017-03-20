@@ -8,7 +8,7 @@
 
 [![破狼logo](http://images2015.cnblogs.com/blog/63184/201607/63184-20160730102027700-792274919.png)](http://www.cnblogs.com/whitewolf/)
 
-GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github.io/rebirth/blog/home](https://greengerong.github.io/rebirth/blog/home).
+GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github.io/rebirth](https://greengerong.github.io/rebirth).
 
 ## Links
 
