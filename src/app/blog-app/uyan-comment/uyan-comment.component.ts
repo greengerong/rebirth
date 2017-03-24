@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { RebirthWindow } from '../../core';
 
 @Component({
@@ -9,7 +9,7 @@ import { RebirthWindow } from '../../core';
 export class UyanCommentComponent implements OnInit {
   private static UYAN_URL = 'http://v2.uyan.cc/code/uyan.js?uid=1893648';
 
-  constructor(private elmRef: ElementRef, private renderer: Renderer, private rebirthWindow: RebirthWindow) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer2, private rebirthWindow: RebirthWindow) {
 
   }
 

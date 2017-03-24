@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Renderer, OnInit, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Renderer2, OnInit, ElementRef } from '@angular/core';
 import { RebirthWindow } from '../../core';
 
 @Component({
@@ -10,7 +10,7 @@ import { RebirthWindow } from '../../core';
 export class JiaThisComponent implements OnInit {
   private static UYAN_URL = 'http://v3.jiathis.com/code/jiathis_m.js?uid=1893648';
 
-  constructor(private elmRef: ElementRef, private renderer: Renderer, private rebirthWindow: RebirthWindow) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer2, private rebirthWindow: RebirthWindow) {
 
   }
 

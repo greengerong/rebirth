@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ElementRef, Renderer } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'loading',
@@ -8,7 +8,7 @@ import { Component, ChangeDetectionStrategy, ElementRef, Renderer } from '@angul
 })
 export class LoadingComponent {
 
-  constructor(private elmRef: ElementRef, private renderer: Renderer) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer2) {
 
   }
 
@@ -21,6 +21,10 @@ export class LoadingComponent {
   }
 
   private updateStatus(add: boolean) {
-    this.renderer.setElementClass(this.elmRef.nativeElement, 'hidden', add);
+    if (add) {
+      this.renderer.addClass(this.elmRef.nativeElement, 'hidden');
+      return;
+    }
+    this.renderer.removeClass(this.elmRef.nativeElement, 'hidden');
   }
 }

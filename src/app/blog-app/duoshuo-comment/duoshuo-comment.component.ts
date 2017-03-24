@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, OnInit, ElementRef, Renderer } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Article, RebirthWindow } from '../../core';
 
 @Component({
@@ -10,7 +10,7 @@ export class DuoShuoCommentComponent implements OnInit {
   @Input() articleItem: Article;
   private duoShuoUrl: string;
 
-  constructor(private elmRef: ElementRef, private renderer: Renderer, private rebirthWindow: RebirthWindow) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer2, private rebirthWindow: RebirthWindow) {
     const protocol = this.rebirthWindow.getOwnerDocument(this.elmRef).location.protocol === 'https:' ? 'https:' : 'http:';
     this.duoShuoUrl = `${protocol}//static.duoshuo.com/embed.js`;
     this.rebirthWindow.getGlobalObject().duoshuoQuery = { short_name: 'greengerong' };

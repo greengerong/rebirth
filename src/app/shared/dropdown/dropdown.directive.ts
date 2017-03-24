@@ -1,4 +1,4 @@
-import { Directive, HostListener, Output, Input, EventEmitter, Renderer, ElementRef, } from '@angular/core';
+import { Directive, HostListener, Output, Input, EventEmitter, Renderer2, ElementRef, } from '@angular/core';
 
 @Directive({
   selector: '[dropdown]'
@@ -8,7 +8,7 @@ export class DropdownDirective {
   private active = false;
   @Input() private activeCss = 'open';
 
-  constructor(private elmRef: ElementRef, private renderer: Renderer) {
+  constructor(private elmRef: ElementRef, private renderer: Renderer2) {
   }
 
   @HostListener('document:click', ['$event'])
@@ -26,6 +26,10 @@ export class DropdownDirective {
 
   updateHostStatus() {
     this.dropdownStatusChange.emit(this.active);
-    this.renderer.setElementClass(this.elmRef.nativeElement, this.activeCss, this.active);
+    if (this.active) {
+      this.renderer.addClass(this.elmRef.nativeElement, this.activeCss);
+      return;
+    }
+    this.renderer.removeClass(this.elmRef.nativeElement, this.activeCss);
   }
 }

@@ -1,11 +1,11 @@
-import { Injectable, ElementRef, Renderer } from '@angular/core';
+import { Injectable, ElementRef, Renderer2 } from '@angular/core';
 
 
 @Injectable()
 export class RebirthWindow {
 
   getGlobalObject(): any {
-    return window ;
+    return window;
   }
 
 
@@ -24,8 +24,8 @@ export class RebirthWindow {
     return this;
   }
 
-  createScript(src: string, renderer: Renderer, elmRef?: ElementRef, callback?: () => void): HTMLScriptElement {
-    const script = elmRef ? renderer.createElement(elmRef.nativeElement, 'script', null) :
+  createScript(src: string, renderer: Renderer2, elmRef?: ElementRef, callback?: () => void): HTMLScriptElement {
+    const script = elmRef ? renderer.createElement('script') :
       this.getOwnerDocument().createElement('script');
 
     script.type = 'text/javascript';
@@ -40,6 +40,7 @@ export class RebirthWindow {
         }
       };
     }
+    renderer.appendChild(elmRef.nativeElement, script);
     return script;
   }
 
