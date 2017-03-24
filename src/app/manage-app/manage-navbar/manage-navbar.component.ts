@@ -9,7 +9,7 @@ import { AuthorizationService, PermissionConfig } from 'rebirth-permission';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ManageNavbarComponent {
-  private showNavBar: boolean;
+  showNavBar: boolean;
 
   constructor(private authorizationService: AuthorizationService,
               private router: Router,
@@ -21,7 +21,7 @@ export class ManageNavbarComponent {
     this.showNavBar = !this.showNavBar;
   }
 
-  hideNavBar($event: Event) {
+  hideNavBar($event?: Event) {
     /* tslint:disable */
     $event && $event.stopPropagation();
     /* tslint:enable */

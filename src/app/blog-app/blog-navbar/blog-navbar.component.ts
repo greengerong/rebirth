@@ -14,7 +14,7 @@ export class BlogNavbarComponent {
     this.showNavBar = !this.showNavBar;
   }
 
-  hideNavBar($event: Event) {
+  hideNavBar($event?: Event) {
     /* tslint:disable */
     $event && $event.stopPropagation();
     /* tslint:enable */

@@ -9,7 +9,7 @@ import { ArticleService, SearchResult, Article } from '../../core';
   templateUrl: './blog-aside.html'
 })
 export class BlogAsideComponent implements OnInit {
-  private article: SearchResult<Article>;
+  article: SearchResult<Article>;
 
   constructor(private articleService: ArticleService) {
 
