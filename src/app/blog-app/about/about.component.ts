@@ -19,3 +19,4 @@ export class AboutComponent implements OnInit {
       .subscribe(result => this.article = result);
   }
 }
+
