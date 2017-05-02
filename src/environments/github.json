@@ -3,6 +3,6 @@
   "env": "prod",
   "deploy": "github",
   "api": {
-    "host": "http://greengerong.github.io/rebirth/assets/source/"
+    "host": "https://greengerong.github.io/rebirth/assets/source/"
   }
 }
