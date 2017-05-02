@@ -23,20 +23,20 @@ GreenGerong(破狼) blog with Angular2.  Online link [https://greengerong.github
 
 ### setup project
 
-* Install Nodejs( v5 or v6)
-* `npm install -g angular-cli@latest`
+* Install Nodejs( v6 or v7)
+* `npm install -g @angular/cli@latest`
 * `npm install`
 
 ### run project
 
 * development: `npm run jit` 或 `npm run aot`
-* production: `ng build --prod`
+* production: `ng build --prod --aot`
 * test: `npm test`
-* angular-cli command
+* @angular/cli command
 
 ## main dependency
 
-* angular-cli: Angular2 cli tool.
+* @angular/cli: Angular cli tool.
 * sass
 * karma
 * tslint & codelyzer
