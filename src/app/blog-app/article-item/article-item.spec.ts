@@ -10,7 +10,7 @@ describe('Article item Component', () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
-        RouterModule.forRoot(<any>{})
+        RouterModule
       ],
       declarations: [ArticleItemComponent],
       providers: [
