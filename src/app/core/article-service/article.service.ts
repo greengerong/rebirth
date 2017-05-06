@@ -8,20 +8,20 @@ import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body 
 import { environment } from '../../../environments/environment';
 
 
-export abstract class ArticleService extends RebirthHttp {
+export interface IArticleService {
 
-  abstract getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>>;
+  getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>>;
 
-  abstract getArticleByUrl(articleUrl: string): Observable<Article>;
+  getArticleByUrl(articleUrl: string): Observable<Article>;
 
-  abstract updateMarkdown(articleUrl: string, article: Article): Observable<any> ;
+  updateMarkdown(articleUrl: string, article: Article): Observable<any> ;
 
-  abstract  deleteArticle(articleUrl: string): Observable<any> ;
+  deleteArticle(articleUrl: string): Observable<any> ;
 }
 
 
 @Injectable()
-export class OnlineArticleService extends ArticleService {
+export class OnlineArticleService extends RebirthHttp implements IArticleService {
 
   constructor(protected http: Http, protected rebirthHttpProvider: RebirthHttpProvider) {
     super();
@@ -53,7 +53,7 @@ export class OnlineArticleService extends ArticleService {
 }
 
 @Injectable()
-export class GithubArticleService extends ArticleService {
+export class GithubArticleService extends RebirthHttp implements IArticleService {
 
   constructor(protected http: Http, protected rebirthHttpProvider: RebirthHttpProvider) {
     super();
@@ -98,10 +98,47 @@ export class GithubArticleService extends ArticleService {
 
 }
 
+// Use factory service are same;
+
+@Injectable()
+export class ArticleService {
+
+  private articleService: IArticleService;
+
+  constructor(githubArticleService: GithubArticleService, onlineArticleService: OnlineArticleService) {
+    this.articleService = environment.deploy === 'github' ? githubArticleService : onlineArticleService;
+  }
+
+  getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>> {
+    return this.articleService.getArticles(pageIndex, pageSize, keyword);
+  }
+
+  getArticleByUrl(articleUrl: string): Observable<Article> {
+    return this.articleService.getArticleByUrl(articleUrl);
+  }
+
+  updateMarkdown(articleUrl: string, article: Article): Observable<any> {
+    return this.articleService.updateMarkdown(articleUrl, article);
+  }
+
+  deleteArticle(articleUrl: string): Observable<any> {
+    return this.articleService.deleteArticle(articleUrl);
+  }
+}
+
+
 export const REBIRTH_ARTICLE_SERVICE_PROVIDERS: Array<any> = [
   {
+    provide: GithubArticleService,
+    useClass: GithubArticleService
+  },
+  {
+    provide: OnlineArticleService,
+    useClass: OnlineArticleService
+  },
+  {
     provide: ArticleService,
-    useClass: GithubArticleService // environment.deploy === 'github' ? GithubArticleService : OnlineArticleService
-  }
+    useClass: ArticleService
+  },
 ];
 
