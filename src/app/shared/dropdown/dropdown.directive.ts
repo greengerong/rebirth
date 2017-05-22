@@ -13,12 +13,13 @@ export class DropdownDirective {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick() {
-    this.active = false;
+    this.active = true;
     this.updateHostStatus();
   }
 
   @HostListener('click', ['$event'])
   onHostClick($event: Event) {
+    console.log('dropdown click');
     $event.stopPropagation();
     this.active = !this.active;
     this.updateHostStatus();

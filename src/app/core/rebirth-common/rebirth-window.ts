@@ -15,12 +15,17 @@ export class RebirthWindow {
 
   scrollTo(selector: string, elmRef?: ElementRef): RebirthWindow {
     const elm: any = this.getOwnerDocument(elmRef).querySelector(selector);
-    elm.scrollIntoView();
+    if (elm.scrollIntoView) {
+      elm.scrollIntoView();
+    }
     return this;
   }
 
   scrollToTop(elmRef?: ElementRef): RebirthWindow {
-    this.getOwnerDocument(elmRef).body.scrollIntoView();
+    let body = this.getOwnerDocument(elmRef).body;
+    if (body && body.scrollIntoView) {
+      body.scrollIntoView();
+    }
     return this;
   }
 
