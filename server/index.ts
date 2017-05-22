@@ -44,7 +44,9 @@ http.get(/.*/, async (request, response) => {
   try {
     // const options: Variants = { locale: request.cookies['locale'] || 'en-US' };
 
-    const snapshot = await application.renderUri(absoluteUri(request));
+    let uri = absoluteUri(request);
+    console.log(`Render ${uri} from server side`);
+    const snapshot = await application.renderUri(uri);
 
     response.send(snapshot.renderedDocument);
   }
@@ -55,5 +57,4 @@ http.get(/.*/, async (request, response) => {
   }
 });
 
-console.log('-----------start server------------');
 listen(http).then(port => console.log(`Load server on http://localhost:${port}`));

@@ -29,11 +29,11 @@ export class AppComponent {
       //     return response;
       //   })
       // })
-      // .addInterceptor({
-      //   request: () => {
-      //     loadService.show();
-      //   },
-      //   response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
-      // });
+      .addInterceptor({
+        request: () => {
+          loadService.show();
+        },
+        response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
+      });
   }
 }

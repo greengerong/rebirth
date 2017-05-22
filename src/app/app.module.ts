@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { prebootClient } from 'preboot/__build/src/browser/preboot_browser';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -10,7 +11,8 @@ import { ROUTER_CONFIG } from './app.routes';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, NavigationError, Router, RouterModule } from '@angular/router';
+import { combineLatest } from 'rxjs/observable/combineLatest';
 // Application wide providers
 const APP_PROVIDERS = [];
 
@@ -35,4 +37,30 @@ const APP_PROVIDERS = [];
   ]
 })
 export class AppModule {
+  constructor(router: Router, zone: NgZone) {
+    if (typeof prebootstrap === 'undefined') {
+      return;
+    }
+
+    const finished = combineLatest(router.events, zone.onMicrotaskEmpty);
+
+    const subscription = finished.subscribe(([event, stable]) => {
+      if (stable === false) {
+        return;
+      }
+
+      switch (true) {
+        case event instanceof NavigationError:
+        case event instanceof NavigationEnd:
+          setTimeout(() => prebootClient().complete());
+
+          subscription.unsubscribe();
+          break;
+        default:
+          break;
+      }
+    });
+  }
 }
+
+declare const prebootstrap;

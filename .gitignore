@@ -35,3 +35,4 @@ Thumbs.db
 
 *.lock
 doc/**
+dist-server

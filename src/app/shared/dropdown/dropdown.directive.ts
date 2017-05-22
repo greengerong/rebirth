@@ -13,7 +13,7 @@ export class DropdownDirective {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick() {
-    this.active = true;
+    this.active = false;
     this.updateHostStatus();
   }
 
