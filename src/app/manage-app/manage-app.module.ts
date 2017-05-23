@@ -11,23 +11,18 @@ import { ManageHomeComponent } from './manage-home';
 import { ManageNavbarComponent } from './manage-navbar';
 import { MdEditorComponent } from './md-editor';
 import { MdPreviewComponent } from './md-preview';
-import { RebirthPermissionModule } from 'rebirth-permission';
-
-import { LoginService } from './login';
 
 import { ROUTER_CONFIG } from './manage.routes';
 import { RouterModule } from '@angular/router';
+import { RebirthPermissionModule } from "rebirth-permission/dist";
 
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forChild(ROUTER_CONFIG)
-    ,
-    RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
+    RouterModule.forChild(ROUTER_CONFIG),
+    RebirthPermissionModule
   ],
-  providers: [
-    LoginService
-  ],
+  providers: [],
   declarations: [
     ManageAppComponent,
     ArticleSearchComponent,

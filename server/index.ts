@@ -7,30 +7,31 @@ import { Injectable, enableProdMode } from '@angular/core';
 import { AppModule } from '../src/app';
 import { absoluteUri, configure, listen } from './http';
 import { index } from './paths';
+import { LoginService } from '../src/app/core/login/login.service';
 
 enableProdMode();
 
-// @Injectable()
-// export class TransitionLocale implements StateTransition<string> {
-//   constructor(private service: LocaleService) {
-//   }
-//
-//   transition(locale: string) {
-//     this.service.locale(locale);
-//   }
-// }
+@Injectable()
+export class TransitionCurrentUser implements StateTransition<string> {
+  constructor(private loginService: LoginService) {
+  }
+
+  transition(currentUser: string) {
+    this.loginService.setupAuth(currentUser);
+  }
+}
 
 export interface Variants {
-  locale: string;
+  currentUser: string;
 }
 
 const builder = new ApplicationBuilderFromModule<Variants, AppModule>(AppModule, index);
 
-// builder.variants({
-//   locale: { // select a locale based on renderUri arguments
-//     transition: TransitionLocale
-//   }
-// });
+builder.variants({
+  currentUser: { // select a locale based on renderUri arguments
+    transition: TransitionCurrentUser
+  }
+});
 
 builder.preboot(true);
 
@@ -42,11 +43,10 @@ configure(http);
 
 http.get(/.*/, async (request, response) => {
   try {
-    // const options: Variants = { locale: request.cookies['locale'] || 'en-US' };
-
+    const options: Variants = { currentUser: JSON.parse(request.cookies['currentUser']) || {} };
     let uri = absoluteUri(request);
     console.log(`Render ${uri} from server side`);
-    const snapshot = await application.renderUri(uri);
+    const snapshot = await application.renderUri(uri, options);
 
     response.send(snapshot.renderedDocument);
   }

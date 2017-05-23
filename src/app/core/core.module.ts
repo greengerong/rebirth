@@ -8,6 +8,9 @@ import { HttpModule } from '@angular/http';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
 import { RouteReuseStrategy } from '@angular/router';
 import { RebirthRouterReuseStrategy } from './router-reuse-strategy/rebirth-router-reuse-strategy.service';
+import { CookieService } from './cookie';
+import { LoginService } from './login';
+import { RebirthPermissionModule } from 'rebirth-permission';
 
 
 @NgModule({
@@ -16,11 +19,15 @@ import { RebirthRouterReuseStrategy } from './router-reuse-strategy/rebirth-rout
     RebirthHttpModule,
     RebirthStorageModule,
     LoadingModule,
-    RebirthEventSourceModule
+    RebirthEventSourceModule,
+    RebirthPermissionModule.forRoot({ loginPage: '/manage/login' }),
   ],
   providers: [
     ...REBIRTH_ARTICLE_SERVICE_PROVIDERS,
     ...REBIRTH_WINDOW_PROVIDERS,
+    { provide: CookieService, useClass: CookieService },
+    { provide: LoginService, useClass: LoginService },
+
     // { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
   ],
   exports: [

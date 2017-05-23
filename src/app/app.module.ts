@@ -30,7 +30,7 @@ const APP_PROVIDERS = [];
     AppComponent
   ],
   providers: [
-    ...APP_PROVIDERS
+    ...APP_PROVIDERS,
   ],
   bootstrap: [
     AppComponent
