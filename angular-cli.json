@@ -1,7 +1,6 @@
 {
   "project": {
-    "name": "rebirth",
-    "ejected": true
+    "name": "rebirth"
   },
   "apps": [
     {
