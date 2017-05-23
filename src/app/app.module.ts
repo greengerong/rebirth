@@ -38,29 +38,32 @@ const APP_PROVIDERS = [];
 })
 export class AppModule {
   constructor(router: Router, zone: NgZone) {
-    if (typeof prebootstrap === 'undefined') {
-      return;
-    }
-
-    const finished = combineLatest(router.events, zone.onMicrotaskEmpty);
-
-    const subscription = finished.subscribe(([event, stable]) => {
-      if (stable === false) {
-        return;
-      }
-
-      switch (true) {
-        case event instanceof NavigationError:
-        case event instanceof NavigationEnd:
-          setTimeout(() => prebootClient().complete());
-
-          subscription.unsubscribe();
-          break;
-        default:
-          break;
-      }
-    });
+    // if (typeof prebootstrap === 'undefined') {
+    //   return;
+    // }
+    //
+    // const finished = combineLatest(router.events, zone.onMicrotaskEmpty);
+    //
+    // const subscription = finished.subscribe(([event, stable]) => {
+    //   if (stable === false) {
+    //     return;
+    //   }
+    //
+    //   switch (true) {
+    //     case event instanceof NavigationError:
+    //     case event instanceof NavigationEnd:
+    //       setTimeout(() => {
+    //         // debugger;
+    //         // prebootClient().complete();
+    //       });
+    //
+    //       subscription.unsubscribe();
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // });
   }
 }
 
-declare const prebootstrap;
+// declare const prebootstrap;
