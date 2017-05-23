@@ -1,44 +1,23 @@
 import express = require('express');
 
-import { ApplicationBuilderFromModule, StateTransition } from 'angular-ssr';
-
-import { Injectable, enableProdMode } from '@angular/core';
-
+import { ApplicationBuilderFromModule } from 'angular-ssr';
+import { enableProdMode } from '@angular/core';
 import { AppModule } from '../src/app';
 import { absoluteUri, configure, listen } from './http';
 import { index } from './paths';
-import { LoginService } from '../src/app/core/login/login.service';
+import { Variants, variants } from './variants.model';
+import { RebirthStateReader } from './rebirth-state-reader.service';
 
 enableProdMode();
 
-@Injectable()
-export class TransitionCurrentUser implements StateTransition<string> {
-  constructor(private loginService: LoginService) {
-  }
-
-  transition(currentUser: string) {
-    this.loginService.setupAuth(currentUser);
-  }
-}
-
-export interface Variants {
-  currentUser: string;
-}
-
 const builder = new ApplicationBuilderFromModule<Variants, AppModule>(AppModule, index);
-
-builder.variants({
-  currentUser: { // select a locale based on renderUri arguments
-    transition: TransitionCurrentUser
-  }
-});
-
+builder.variants(variants);
+builder.stateReader(RebirthStateReader);
 builder.preboot(true);
-
 const application = builder.build();
 
-const http = express();
 
+const http = express();
 configure(http);
 
 http.get(/.*/, async (request, response) => {
