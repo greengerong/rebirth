@@ -5,7 +5,7 @@ import { enableProdMode } from '@angular/core';
 import { AppModule } from '../src/app';
 import { absoluteUri, configure, listen } from './http';
 import { index } from './paths';
-import { Variants, variants } from './variants.model';
+import { transformVariants, Variants, variants } from './variants';
 import { RebirthStateReader } from './rebirth-state-reader.service';
 
 enableProdMode();
@@ -22,16 +22,13 @@ configure(http);
 
 http.get(/.*/, async (request, response) => {
   try {
-    const options: Variants = { currentUser: JSON.parse(request.cookies['currentUser']) || {} };
+    const options: Variants = transformVariants(request);
     let uri = absoluteUri(request);
-    console.log(`Render ${uri} from server side`);
+    console.log(`Render ${uri} from server side with variants ${options}`);
     const snapshot = await application.renderUri(uri, options);
-
     response.send(snapshot.renderedDocument);
-  }
-  catch (exception) {
+  } catch (exception) {
     console.error('Rendering exception', exception);
-
     response.send(builder.templateDocument()); // fall back on client document
   }
 });

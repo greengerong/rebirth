@@ -3,7 +3,7 @@ import { StateTransition } from 'angular-ssr';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class TransitionCurrentUser implements StateTransition<string> {
+export class CurrentUserTransition implements StateTransition<string> {
   constructor(private loginService: LoginService) {
   }
 
@@ -11,3 +11,4 @@ export class TransitionCurrentUser implements StateTransition<string> {
     this.loginService.setupAuth(currentUser);
   }
 }
+
