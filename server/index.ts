@@ -24,7 +24,7 @@ http.get(/.*/, async (request, response) => {
   try {
     const options: Variants = transformVariants(request);
     let uri = absoluteUri(request);
-    console.log(`Render ${uri} from server side with variants ${options}`);
+    console.log(`Render ${uri} from server side with variants ${JSON.stringify(options)}`);
     const snapshot = await application.renderUri(uri, options);
     response.send(snapshot.renderedDocument);
   } catch (exception) {
