@@ -8,6 +8,7 @@ import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body 
 import { environment } from '../../../environments/environment';
 import { SSRStateService } from "../ssr-state";
 import 'rxjs/add/operator/do';
+import { of } from 'rxjs/observable/of';
 
 export interface IArticleService {
 
@@ -113,9 +114,17 @@ export class ArticleService {
   }
 
   getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>> {
+    const key = `articles-${pageIndex}--${pageSize}--${keyword}`;
+
+    const state = this.ssrStateService.getState(key);
+
+    if (state) {
+      return of(state);
+    }
+
     return this.articleService.getArticles(pageIndex, pageSize, keyword)
       .do((res) => {
-        this.ssrStateService.setState('articles', res);
+        this.ssrStateService.setState(key, res);
       });
   }
 

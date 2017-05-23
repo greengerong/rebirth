@@ -9,6 +9,6 @@ export class RebirthStateReader implements StateReader<any> {
   }
 
   getState(): Promise<any> {
-    return Promise.resolve(this.ssrStateService.getState());
+    return Promise.resolve(this.ssrStateService.getAllStates());
   }
 }
