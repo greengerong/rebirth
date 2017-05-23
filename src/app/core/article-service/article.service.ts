@@ -29,7 +29,7 @@ export class OnlineArticleService extends RebirthHttp implements IArticleService
     super();
   }
 
-  @Cacheable({ pool: 'articles', storageType: StorageType.localStorage })
+  @Cacheable({ pool: 'articles' })
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
               @Query('pageSize') pageSize = 10,
