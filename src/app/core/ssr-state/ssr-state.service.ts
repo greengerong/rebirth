@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-declare const bootstrapApplicationState: any;
-
 @Injectable()
 export class SSRStateService {
   storages: { [key: string]: object } = {};
@@ -18,6 +16,7 @@ export class SSRStateService {
   }
 
   getState(key) {
+    let bootstrapApplicationState = (window as any).bootstrapApplicationState;
     if (this.platform === 'browser' && bootstrapApplicationState) {
       return bootstrapApplicationState[key];
     }

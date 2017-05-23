@@ -16,8 +16,9 @@ export const variants = {
 };
 
 export function transformVariants(request): Variants {
+  let userCookie = request.cookies['currentUser'];
   return {
-    currentUser: JSON.parse(request.cookies['currentUser']) || {},
+    currentUser: userCookie ? JSON.parse(userCookie) : {},
     platform: 'server'
   };
 };
