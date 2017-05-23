@@ -3,10 +3,11 @@ import { Http } from '@angular/http';
 import { SearchResult } from './search-result.model';
 import { Article } from './article.model';
 import { Observable } from 'rxjs/Observable';
-import { Cacheable } from 'rebirth-storage';
+import { Cacheable, StorageType } from 'rebirth-storage';
 import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
 import { environment } from '../../../environments/environment';
-
+import { SSRStateService } from "../ssr-state";
+import 'rxjs/add/operator/do';
 
 export interface IArticleService {
 
@@ -27,7 +28,7 @@ export class OnlineArticleService extends RebirthHttp implements IArticleService
     super();
   }
 
-  @Cacheable({ pool: 'articles' })
+  @Cacheable({ pool: 'articles', storageType: StorageType.localStorage })
   @GET('article')
   getArticles(@Query('pageIndex') pageIndex = 1,
               @Query('pageSize') pageSize = 10,
@@ -105,12 +106,17 @@ export class ArticleService {
 
   private articleService: IArticleService;
 
-  constructor(githubArticleService: GithubArticleService, onlineArticleService: OnlineArticleService) {
+  constructor(githubArticleService: GithubArticleService,
+              onlineArticleService: OnlineArticleService,
+              private ssrStateService: SSRStateService) {
     this.articleService = environment.deploy === 'github' ? githubArticleService : onlineArticleService;
   }
 
   getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>> {
-    return this.articleService.getArticles(pageIndex, pageSize, keyword);
+    return this.articleService.getArticles(pageIndex, pageSize, keyword)
+      .do((res) => {
+        this.ssrStateService.setState('articles', res);
+      });
   }
 
   getArticleByUrl(articleUrl: string): Observable<Article> {

@@ -10,6 +10,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { RebirthRouterReuseStrategy } from './router-reuse-strategy/rebirth-router-reuse-strategy.service';
 import { CookieService } from './cookie';
 import { LoginService } from './login';
+import { SSRStateService } from './ssr-state';
 import { RebirthPermissionModule } from 'rebirth-permission';
 
 
@@ -27,6 +28,7 @@ import { RebirthPermissionModule } from 'rebirth-permission';
     ...REBIRTH_WINDOW_PROVIDERS,
     { provide: CookieService, useClass: CookieService },
     { provide: LoginService, useClass: LoginService },
+    { provide: SSRStateService, useClass: SSRStateService },
 
     // { provide: RouteReuseStrategy, useClass: RebirthRouterReuseStrategy }
   ],
