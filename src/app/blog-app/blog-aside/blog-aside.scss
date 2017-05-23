@@ -1,27 +1,15 @@
-@import '../../../styles/common';
+.blog-aside section .content {
+  margin-left: 1rem; }
 
-.blog-aside {
-  section {
-    .content {
-      margin-left: 1rem;
-    }
-    img {
-      max-width: 150px;
-    }
-  }
-  @media screen and (max-width: $screen-sm) {
-    .my-books-list {
-      li {
-        display: inline-block;
-        vertical-align: top;
-      }
-    }
-    section {
-      display: inline-block;
-      vertical-align: top;
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-  }
-}
+.blog-aside section img {
+  max-width: 150px; }
+
+@media screen and (max-width: 768px) {
+  .blog-aside .my-books-list li {
+    display: inline-block;
+    vertical-align: top; }
+  .blog-aside section {
+    display: inline-block;
+    vertical-align: top; }
+  .blog-aside section:not(:last-child) {
+    margin-right: 1rem; } }

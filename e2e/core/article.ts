@@ -1,6 +1,6 @@
 export interface Article {
-  title: wdpromise.Promise<string>;
-  author?: wdpromise.Promise<string>;
-  date?: wdpromise.Promise<string>;
+  title: Promise<string>;
+  author?: Promise<string>;
+  date?: Promise<string>;
   tags?: any;
 }

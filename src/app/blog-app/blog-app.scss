@@ -1,8 +1,2 @@
-
-.main-content {
-  padding: 1.5rem;
-}
-
-.aside-content {
-  @extend .main-content;
-}
+.main-content, .aside-content {
+  padding: 1.5rem; }

@@ -1,5 +1,4 @@
 import { browser } from 'protractor';
-import { promise as wdpromise } from 'selenium-webdriver';
 
 export class PageBase {
 
@@ -20,7 +19,7 @@ export class PageBase {
     return browser.get(this.url);
   }
 
-  clearSession(): wdpromise.Promise<any> {
+  clearSession(): Promise<any> {
     return browser.executeScript('window.localStorage.clear();window.sessionStorage.clear();');
   }
 }

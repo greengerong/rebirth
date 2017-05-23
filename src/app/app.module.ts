@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Application wide providers
 const APP_PROVIDERS = [];
 
@@ -20,6 +21,7 @@ const APP_PROVIDERS = [];
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     SharedModule,
     RouterModule.forRoot(ROUTER_CONFIG),

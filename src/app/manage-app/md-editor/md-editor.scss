@@ -1,23 +1,15 @@
-.md-editor {
-  .panel {
-    padding-left: 1rem;
-  }
-  .editor-panel {
-    .md-preview-panel, .md-editor-panel {
-      height: 600px;
-      margin-bottom: 2rem;
-    }
-  }
-}
+.md-editor .panel {
+  padding-left: 1rem; }
+
+.md-editor .editor-panel .md-preview-panel, .md-editor .editor-panel .md-editor-panel {
+  height: 600px;
+  margin-bottom: 2rem; }
 
 .dropdown-menu {
-  background-color: #4acaa8;
-  li {
-    a {
-      color: white;
-      &:hover {
-        color: #4acaa8;
-      }
-    }
-  }
-}
+  background-color: #4acaa8; }
+
+.dropdown-menu li a {
+  color: white; }
+
+.dropdown-menu li a:hover {
+  color: #4acaa8; }

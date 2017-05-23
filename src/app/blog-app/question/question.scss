@@ -1,26 +1,16 @@
-@import '../../../styles/common';
+.question .last-posts .label:not(:last-child) {
+  margin-right: 10px; }
 
-$line-width: 10px;
+.question .last-posts .question-item-order {
+  width: 5px; }
 
-.question {
-  .last-posts {
-    .label {
-      &:not(:last-child) {
-        margin-right: $line-width;
-      }
-    }
-    .question-item-order {
-      width: 5px;
-    }
-    .question-item-avatar {
-      width: 5rem;
-      .avatar {
-        width: 100%;
-      }
-    }
-  }
-  section {
-    padding-top: 20px;
-    @include bottom-line();
-  }
-}
+.question .last-posts .question-item-avatar {
+  width: 5rem; }
+
+.question .last-posts .question-item-avatar .avatar {
+  width: 100%; }
+
+.question section {
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #ccc; }

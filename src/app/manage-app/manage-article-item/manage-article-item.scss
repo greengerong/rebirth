@@ -1,15 +1,7 @@
-@import '../../../styles/common';
-
 .article-item {
-  margin-bottom: 1rem;
-  .action-group {
-    @media (max-width: $screen-xs-min) {
-      .btn {
-        margin: 5px 0px;
-        vertical-align: middle;
-      }
-    }
-  }
-}
+  margin-bottom: 1rem; }
 
-
+@media (max-width: 480px) {
+  .article-item .action-group .btn {
+    margin: 5px 0px;
+    vertical-align: middle; } }
