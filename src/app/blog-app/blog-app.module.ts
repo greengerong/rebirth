@@ -4,9 +4,9 @@ import { SharedModule } from '../shared';
 import { BlogAppComponent } from './blog-app.component';
 import { AboutComponent, AboutService } from './about';
 import { ArticleItemComponent } from './article-item';
-import { ArticleListComponent } from './article-list';
+import { ArticleListComponent, ArticleListAction } from './article-list';
 import { BlogArticleComponent } from './blog-article';
-import { BlogAsideComponent } from './blog-aside';
+import { BlogAsideComponent, BlogAsideAction } from './blog-aside';
 import { BlogNavbarComponent } from './blog-navbar';
 import { DuoShuoCommentComponent } from './duoshuo-comment';
 import { HomeComponent } from './home';
@@ -24,7 +24,9 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     QuestionService,
-    AboutService
+    AboutService,
+    ArticleListAction,
+    BlogAsideAction
   ],
   declarations: [
     BlogAppComponent,

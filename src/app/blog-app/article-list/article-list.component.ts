@@ -1,16 +1,24 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ArticleService, SearchResult, Article, RebirthWindow } from '../../core';
 import { environment } from '../../../environments/environment';
+import { AppState } from '../../app-state.model';
+import { Store } from '@ngrx/store';
+import { ArticleListAction } from "./article-list.actions";
 
 @Component({
   selector: 'article-list',
   styleUrls: ['./article-list.scss'],
-  templateUrl: './article-list.html'
+  templateUrl: './article-list.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleListComponent implements OnInit {
-  article: SearchResult<Article>;
+  @Input() articleList: SearchResult<Article>;
 
-  constructor(private articleService: ArticleService, private elmRef: ElementRef, private rebirthWindow: RebirthWindow) {
+  constructor(private articleService: ArticleService,
+              private elmRef: ElementRef,
+              private rebirthWindow: RebirthWindow,
+              private store: Store<AppState>,
+              private articleListAction: ArticleListAction) {
 
   }
 
@@ -19,9 +27,10 @@ export class ArticleListComponent implements OnInit {
   }
 
   pageChange(pageIndex) {
-    this.articleService.getArticles(pageIndex, environment.article.pageSize)
-      .subscribe(result => {
-        this.article = result;
+
+    this.articleService.fetchArticles(pageIndex, environment.article.pageSize)
+      .subscribe((result) => {
+        this.store.dispatch(this.articleListAction.articleList(result));
         this.rebirthWindow.scrollToTop(this.elmRef);
       }, (e) => console.log(e, 'ArticleListComponent error'));
   }

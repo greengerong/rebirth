@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, Article } from '../../core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app-state.model';
 
 @Component({
   selector: 'blog-article',
@@ -11,7 +13,9 @@ export class BlogArticleComponent implements OnInit {
   articleUrl: string;
   article: Article;
 
-  constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) {
+  constructor(private articleService: ArticleService,
+              private activatedRoute: ActivatedRoute,
+              private store: Store<AppState>) {
 
   }
 

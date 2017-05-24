@@ -16,7 +16,7 @@
   <section class="last-articles">
     <h3 class="article-title">最新随笔</h3>
     <ul class="list-unstyled content">
-      <li *ngFor="let articleItem of article?.result">
+      <li *ngFor="let articleItem of (article | async)?.result">
         <a [routerLink]="['./', articleItem.url]">{{articleItem.title}}</a>
       </li>
     </ul>
