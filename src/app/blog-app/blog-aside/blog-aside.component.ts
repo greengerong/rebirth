@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, SearchResult, Article } from '../../core';
-import { ArticleListAction } from '../article-list/article-list.actions';
 import { AppState } from '../../app-state.model';
 import { Store } from '@ngrx/store';
-import { BlogAsideAction } from "./blog-aside.actions";
+import { BlogAsideAction } from './blog-aside.actions';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

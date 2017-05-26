@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ArticleService, SearchResult, Article, RebirthWindow } from '../../core';
 import { environment } from '../../../environments/environment';
 import { AppState } from '../../app-state.model';
 import { Store } from '@ngrx/store';
-import { ArticleListAction } from "./article-list.actions";
+import { ArticleListAction } from './article-list.actions'
 
 @Component({
   selector: 'article-list',

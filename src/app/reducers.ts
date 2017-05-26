@@ -1,6 +1,6 @@
 import { routerReducer } from '@ngrx/router-store';
 import { ActionReducer, combineReducers } from '@ngrx/store';
-import { fetchArticleListReducer } from "./blog-app/article-list/article-list.reducers";
+import { fetchArticleListReducer } from './blog-app/article-list/article-list.reducers';
 import { blogAsideReducer } from './blog-app/blog-aside/blog-aside.reducers';
 
 export const syncReducers = {
@@ -21,7 +21,7 @@ const deepCombineReducers = (allReducers: any) => {
 };
 
 const createReducer = (asyncReducers = {}) => {
-  let allReducers = { ...syncReducers, ...asyncReducers };
+  const allReducers = { ...syncReducers, ...asyncReducers };
   return deepCombineReducers(allReducers);
 };
 
