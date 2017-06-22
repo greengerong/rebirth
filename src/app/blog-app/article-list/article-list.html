@@ -1,5 +1,4 @@
 <section class="article-list">
-  <article-item *ngFor="let articleItem of articleList?.result" [articleItem]="articleItem"></article-item>
-  <pager [pageIndex]="article?.pageIndex" [pageSize]="article?.pageSize" [total]="article?.total"
-         (pageChange)="pageChange($event)"></pager>
+  <article-item *ngFor="let articleItem of article?.result" [articleItem]="articleItem"></article-item>
+  <pager [pageIndex]="article?.pageIndex" [pageSize]="article?.pageSize" [total]="article?.total" (pageChange)="pageChange($event)"></pager>
 </section>

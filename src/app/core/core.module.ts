@@ -6,6 +6,8 @@ import { REBIRTH_ARTICLE_SERVICE_PROVIDERS } from './article-service';
 import { REBIRTH_WINDOW_PROVIDERS } from './rebirth-common';
 import { HttpModule } from '@angular/http';
 import { RebirthEventSourceModule } from 'rebirth-event-source';
+import { RouteReuseStrategy } from '@angular/router';
+import { RebirthRouterReuseStrategy } from './router-reuse-strategy/rebirth-router-reuse-strategy.service';
 
 
 @NgModule({
@@ -14,7 +16,7 @@ import { RebirthEventSourceModule } from 'rebirth-event-source';
     RebirthHttpModule,
     RebirthStorageModule,
     LoadingModule,
-    RebirthEventSourceModule,
+    RebirthEventSourceModule
   ],
   providers: [
     ...REBIRTH_ARTICLE_SERVICE_PROVIDERS,

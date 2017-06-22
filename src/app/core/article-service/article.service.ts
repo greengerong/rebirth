@@ -6,14 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import { Cacheable } from 'rebirth-storage';
 import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
 import { environment } from '../../../environments/environment';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../app-state.model';
-import { ArticleListAction } from '../../blog-app/article-list/article-list.actions';
-import 'rxjs/add/operator/do';
+
 
 export interface IArticleService {
 
-  fetchArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>>;
+  getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>>;
 
   getArticleByUrl(articleUrl: string): Observable<Article>;
 
@@ -32,9 +29,9 @@ export class OnlineArticleService extends RebirthHttp implements IArticleService
 
   @Cacheable({ pool: 'articles' })
   @GET('article')
-  fetchArticles(@Query('pageIndex') pageIndex = 1,
-                @Query('pageSize') pageSize = 10,
-                @Query('keyword') keyword?: string): Observable<SearchResult<Article>> {
+  getArticles(@Query('pageIndex') pageIndex = 1,
+              @Query('pageSize') pageSize = 10,
+              @Query('keyword') keyword?: string): Observable<SearchResult<Article>> {
     return null;
   }
 
@@ -62,7 +59,7 @@ export class GithubArticleService extends RebirthHttp implements IArticleService
     super();
   }
 
-  fetchArticles(pageIndex = 1, pageSize = 10, keyword?: string): Observable<SearchResult<Article>> {
+  getArticles(pageIndex = 1, pageSize = 10, keyword?: string): Observable<SearchResult<Article>> {
     return this.innerGetArticles()
       .map(res => {
         const result = res.result || [];
@@ -108,13 +105,12 @@ export class ArticleService {
 
   private articleService: IArticleService;
 
-  constructor(githubArticleService: GithubArticleService,
-              onlineArticleService: OnlineArticleService) {
+  constructor(githubArticleService: GithubArticleService, onlineArticleService: OnlineArticleService) {
     this.articleService = environment.deploy === 'github' ? githubArticleService : onlineArticleService;
   }
 
-  fetchArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>> {
-    return this.articleService.fetchArticles(pageIndex, pageSize, keyword);
+  getArticles(pageIndex, pageSize, keyword?: string): Observable<SearchResult<Article>> {
+    return this.articleService.getArticles(pageIndex, pageSize, keyword);
   }
 
   getArticleByUrl(articleUrl: string): Observable<Article> {

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { useLogMonitor } from '@ngrx/store-log-monitor';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -12,10 +11,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { SharedModule } from './shared';
 import { RouterModule } from '@angular/router';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { rootReducer } from './reducers';
-import { StoreModule } from '@ngrx/store';
-import { RouterStoreModule } from '@ngrx/router-store';
 // Application wide providers
 const APP_PROVIDERS = [];
 
@@ -28,15 +23,6 @@ const APP_PROVIDERS = [];
     CoreModule,
     SharedModule,
     RouterModule.forRoot(ROUTER_CONFIG),
-    // EffectsModule.run(UserEffects),
-    RouterStoreModule.connectRouter(),
-    StoreModule.provideStore(rootReducer),
-    // StoreDevtoolsModule.instrumentStore({ // devtool
-    //   monitor: useLogMonitor({
-    //     visible: true,
-    //     position: 'right'
-    //   })
-    // })
   ],
   declarations: [
     AppComponent

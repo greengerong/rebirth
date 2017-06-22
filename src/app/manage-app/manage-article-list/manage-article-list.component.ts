@@ -38,7 +38,7 @@ export class ManageArticleListComponent implements OnInit {
   }
 
   private queryArticles() {
-    this.articleService.fetchArticles(this.pageIndex, environment.article.pageSize, this.keyword)
+    this.articleService.getArticles(this.pageIndex, environment.article.pageSize, this.keyword)
       .subscribe((result) => {
         this.article = result;
       });

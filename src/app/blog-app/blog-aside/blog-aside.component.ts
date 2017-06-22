@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService, SearchResult, Article } from '../../core';
-import { ArticleListAction } from '../article-list/article-list.actions';
-import { AppState } from '../../app-state.model';
-import { Store } from '@ngrx/store';
-import { BlogAsideAction } from "./blog-aside.actions";
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'blog-aside',
@@ -14,21 +9,16 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './blog-aside.html'
 })
 export class BlogAsideComponent implements OnInit {
-  article: Observable<SearchResult<Article>>;
+  article: SearchResult<Article>;
 
-  constructor(private articleService: ArticleService,
-              private store: Store<AppState>,
-              private blogAsideAction: BlogAsideAction) {
+  constructor(private articleService: ArticleService) {
 
   }
 
-
   ngOnInit() {
-    this.article = this.store.select((s) => s.blogAside);
-
-    this.articleService.fetchArticles(1, 5)
+    this.articleService.getArticles(1, 5)
       .subscribe(result => {
-        this.store.dispatch(this.blogAsideAction.recentlyArticleList(result));
+        this.article = result;
       });
   }
 }
