@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { AuthorizationService } from 'rebirth-permission';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { CurrentUser } from './login/current-user.model';
-import { Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,13 +20,10 @@ export class ManageAppComponent {
       rebirthHttpProvider.headers({ Authorization: currentUser.token });
     }
 
-    rebirthHttpProvider.addResponseErrorInterceptor((err: Response) => {
+    rebirthHttpProvider.addResponseErrorInterceptor((err) => {
       if (err.status === 401 && (err.url.indexOf('/manage/login') === -1)) {
         router.navigateByUrl('/manage/login');
-        return Observable.empty();
       }
-
-      return Observable.throw(err);
     });
   }
 }

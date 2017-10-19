@@ -1,6 +1,6 @@
-import { browser, element, by } from 'protractor';
+import { element, by } from 'protractor';
 import { PageBase } from '../../core';
-import { promise as wdpromise, WebElement } from 'selenium-webdriver';
+import { promise as wdpromise } from 'selenium-webdriver';
 import { Article } from '../../core/article';
 
 
@@ -16,7 +16,7 @@ export class RebirthHomePage extends PageBase {
 
   getNavs(): wdpromise.Promise<string[]> {
     return element.all(by.css('[routerlinkactive]'))
-      .map(element => element.getText().then(text => text.replace(/\s/g, '|')));
+      .map(elm => elm.getText().then(text => text.replace(/\s/g, '|')));
   }
 
   getNavsWithSiteResource(): wdpromise.Promise<string[]> {
@@ -26,11 +26,11 @@ export class RebirthHomePage extends PageBase {
 
   getArticleItems(): wdpromise.Promise<Article[]> {
     return element.all(by.tagName('article-item'))
-      .map(element => <Article>{
-        title: element.element(by.className('article-title')).getText(),
-        author: element.element(by.className('article-author')).getText(),
-        date: element.element(by.className('article-date')).getText(),
-        tags: element.all(by.className('article-tag-list-item'))
+      .map(elm => <Article>{
+        title: elm.element(by.className('article-title')).getText(),
+        author: elm.element(by.className('article-author')).getText(),
+        date: elm.element(by.className('article-date')).getText(),
+        tags: elm.all(by.className('article-tag-list-item'))
           .map(tag => tag.getText())
       });
   }

@@ -4,8 +4,6 @@
         pageSize: \d+
         pageIndex: \d+
     method: GET
-    headers:
-      Content-Type: application/json
   response:
     status: 200
     latency: 500
@@ -20,8 +18,6 @@
 - request:
     url: ^/api/article/(.+)$
     method: GET
-    headers:
-      Content-Type: application/json
   response:
     status: 200
     latency: 500
@@ -36,8 +32,6 @@
 - request:
     url: ^/api/article/(.+)$
     method: POST
-    headers:
-      Content-Type: application/json
   response:
     status: 200
     latency: 500
@@ -52,8 +46,6 @@
 - request:
     url: ^/api/article/(.+)$
     method: DELETE
-    headers:
-      Content-Type: application/json
   response:
     status: 200
     latency: 500

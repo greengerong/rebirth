@@ -1,8 +1,6 @@
 - request:
     url: ^/api/login$
     method: POST
-    headers:
-      Content-Type: application/json
     post: '{"email":"admin@localhost.com","password":"admin"}'
   response:
     status: 200
@@ -18,8 +16,6 @@
 - request:
     url: ^/api/login$
     method: POST
-    headers:
-      Content-Type: application/json
     post: '{"email":"user@localhost.com","password":"user"}'
   response:
     status: 200

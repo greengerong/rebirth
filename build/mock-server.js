@@ -17,7 +17,7 @@ const options = {
 
 stubby(options, function (error) {
   if (!error) {
-    return console.log("Server start at: 'http://localhost:8000");
+    return console.log("Server start at: 'http://localhost:8000'");
   }
 
   console.log("******Mock server get error******", error);

@@ -1,8 +1,6 @@
 - request:
     url: ^/demo$
     method: GET
-    headers:
-      Content-Type: application/json
   response:
     status: 200
     latency: 500

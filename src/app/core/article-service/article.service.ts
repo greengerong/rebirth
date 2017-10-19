@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { SearchResult } from './search-result.model';
 import { Article } from './article.model';
 import { Observable } from 'rxjs/Observable';
 import { Cacheable } from 'rebirth-storage';
-import { RebirthHttp, RebirthHttpProvider, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
+import { RebirthHttp, GET, POST, DELETE, Query, Path, Body } from 'rebirth-http';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 
 export interface IArticleService {
@@ -23,8 +23,8 @@ export interface IArticleService {
 @Injectable()
 export class OnlineArticleService extends RebirthHttp implements IArticleService {
 
-  constructor(protected http: Http, protected rebirthHttpProvider: RebirthHttpProvider) {
-    super();
+  constructor(http: HttpClient) {
+    super(http);
   }
 
   @Cacheable({ pool: 'articles' })
@@ -55,8 +55,8 @@ export class OnlineArticleService extends RebirthHttp implements IArticleService
 @Injectable()
 export class GithubArticleService extends RebirthHttp implements IArticleService {
 
-  constructor(protected http: Http, protected rebirthHttpProvider: RebirthHttpProvider) {
-    super();
+  constructor(http: HttpClient) {
+    super(http);
   }
 
   getArticles(pageIndex = 1, pageSize = 10, keyword?: string): Observable<SearchResult<Article>> {
@@ -91,7 +91,7 @@ export class GithubArticleService extends RebirthHttp implements IArticleService
 
   @Cacheable({ pool: 'articles' })
   @GET('articles.json')
-  private  innerGetArticles(): Observable<SearchResult<Article>> {
+  private innerGetArticles(): Observable<SearchResult<Article>> {
     return null;
   }
 

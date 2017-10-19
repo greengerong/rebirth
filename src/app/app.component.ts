@@ -19,21 +19,13 @@ export class AppComponent {
 
     rebirthHttpProvider
       .baseUrl(environment.api.host)
-      .json()
       .addInterceptor({
-        request: request => {
-          console.log('全局拦截器(request)', request);
-        },
-        response: (stream) => stream.map(response => {
-          console.log('全局拦截器(response)', response);
-          return response;
-        })
+        request: request => console.log('全局拦截器(request)', request),
+        response: (response) => console.log('全局拦截器(response)', response)
       })
       .addInterceptor({
-        request: () => {
-          loadService.show();
-        },
-        response: (stream) => (<any>stream).do(() => null, () => loadService.hide(), () => loadService.hide())
+        request: () => loadService.show(),
+        response: () => loadService.hide()
       });
   }
 }
