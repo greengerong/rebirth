@@ -24,7 +24,7 @@ describe('Article item Component', () => {
     const fixture = TestBed.createComponent(ArticleItemComponent);
     fixture.whenStable().then(() => {
 
-      const component: ArticleItemComponent = fixture.componentInstance;
+      const component = fixture.componentInstance as ArticleItemComponent;
       const title = 'article title';
       component.articleItem = <Article>{ title };
 
@@ -39,7 +39,7 @@ describe('Article item Component', () => {
   it('should get random tag style', inject([], () => {
     const fixture = TestBed.createComponent(ArticleItemComponent);
     fixture.whenStable().then(() => {
-      const articleItemComponent: ArticleItemComponent = fixture.componentInstance;
+      const articleItemComponent = fixture.componentInstance as ArticleItemComponent;
       articleItemComponent.articleItem = <Article>{};
       expect(articleItemComponent.getTagStyle(1)).not.toBeUndefined();
     });

@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RebirthHttpProvider } from 'rebirth-http';
 import { LoadingService } from './core';
-import any = jasmine.any;
 import { APP_BASE_HREF } from '@angular/common';
 import { ROUTER_CONFIG } from './app.routes';
 

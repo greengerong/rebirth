@@ -1,7 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 import { ElementRef } from '@angular/core';
-import { Http, ConnectionBackend, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { ArticleListComponent } from './article-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RebirthHttpProvider } from 'rebirth-http';
@@ -12,6 +10,7 @@ import {
   REBIRTH_ARTICLE_SERVICE_PROVIDERS
 } from '../../core';
 import { BlogAppModule } from '../blog-app.module';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('Article list Component', () => {
   const result = <SearchResult<Article>>{
@@ -35,17 +34,9 @@ describe('Article list Component', () => {
       ],
       declarations: [],
       providers: [
-        MockBackend,
-        BaseRequestOptions,
         RebirthHttpProvider,
         ...REBIRTH_WINDOW_PROVIDERS,
-        {
-          provide: Http,
-          useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
-            return new Http(backend, defaultOptions);
-          },
-          deps: [MockBackend, BaseRequestOptions]
-        },
+        HttpClientTestingModule,
         {
           provide: ElementRef,
           useValue: new ElementRef(document.body)
@@ -57,14 +48,13 @@ describe('Article list Component', () => {
   });
 
 
-  it('should render article list from service response', inject([MockBackend],
-    (mockBackend: MockBackend) => {
-      mockBackend.connections.subscribe((con: MockConnection) => {
-        con.mockRespond(<any>result);
-      });
+  it('should render article list from service response', inject([HttpTestingController],
+    (httpMock: HttpTestingController) => {
+      const req = httpMock.expectOne('article');
 
       const fixture = TestBed.createComponent(ArticleListComponent);
       fixture.whenStable().then(() => {
+        req.flush(result);
         fixture.detectChanges();
 
         const elm: HTMLElement = fixture.nativeElement;
