@@ -17,7 +17,7 @@ describe('About Component', () => {
 
   });
 
-  xit('should get about me article', inject([], () => {
+  it('should get about me article', inject([], () => {
     const fixture = TestBed.createComponent(AboutComponent);
     fixture.whenStable().then(() => {
       fixture.detectChanges();

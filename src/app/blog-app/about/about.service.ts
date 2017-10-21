@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Article } from '../../core';
 import { Observable } from 'rxjs/Observable';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class AboutService {
@@ -12,6 +12,6 @@ export class AboutService {
     article.categories = ['破狼', '简介'];
     article.layout = 'post';
     article.html = require('./polang.html');
-    return fromPromise(Promise.resolve(article));
+    return Observable.of(article);
   }
 }
