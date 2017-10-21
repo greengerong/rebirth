@@ -35,7 +35,7 @@ describe('App', () => {
       fixture.detectChanges();
 
       expect(element.querySelectorAll('router-outlet').length).toEqual(1);
-      expect((<any>fixture.componentInstance).rebirthHttpProvider.getInterceptors().length).toEqual(4);
+      expect((<any>fixture.componentInstance).rebirthHttpProvider.getInterceptors().length).toEqual(3);
     });
   }));
 

@@ -30,13 +30,13 @@ describe('Article list Component', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
+        HttpClientTestingModule,
         BlogAppModule
       ],
       declarations: [],
       providers: [
         RebirthHttpProvider,
         ...REBIRTH_WINDOW_PROVIDERS,
-        HttpClientTestingModule,
         {
           provide: ElementRef,
           useValue: new ElementRef(document.body)
@@ -48,12 +48,17 @@ describe('Article list Component', () => {
   });
 
 
-  it('should render article list from service response', inject([HttpTestingController],
+  fit('should render article list from service response', inject([HttpTestingController],
     (httpMock: HttpTestingController) => {
-      const req = httpMock.expectOne('article');
 
       const fixture = TestBed.createComponent(ArticleListComponent);
       fixture.whenStable().then(() => {
+        httpMock.match(req2 => {
+          console.log(req2.url);
+          return false;
+        });
+
+        const req = httpMock.expectOne('article');
         req.flush(result);
         fixture.detectChanges();
 
@@ -63,5 +68,8 @@ describe('Article list Component', () => {
         expect(titleElms[1].textContent).toContain('Article title 2');
       });
 
-    }));
-});
+    })
+  )
+  ;
+})
+;

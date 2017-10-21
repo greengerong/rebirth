@@ -56,14 +56,15 @@
     "zone.js": "0.8.17"
   },
   "devDependencies": {
-    "@angular/cli": "^1.5.0-rc.0",
+    "@angular/cli": "^1.5.0-rc.1",
     "@angular/compiler-cli": "^5.0.0-rc.2",
     "@angular/language-service": "^5.0.0-rc.2",
     "@types/chai": "^3.4.34",
     "@types/codemirror": "0.0.38",
     "@types/hammerjs": "^2.0.32",
     "@types/highlight.js": "^9.1.7",
-    "@types/jasmine": "2.5.43",
+    "@types/jasmine": "~2.5.53",
+    "@types/jasminewd2": "~2.0.2",
     "@types/lodash": "^4.14.57",
     "@types/node": "^7.0.5",
     "@types/selenium-webdriver": "^2.53.36",
@@ -71,7 +72,8 @@
     "@types/uglify-js": "^2.0.27",
     "@types/webpack": "^2.0.0",
     "angular-cli-ghpages": "^0.5.0",
-    "codelyzer": "^3.1.2",
+    "codelyzer": "~3.2.0",
+    "file-loader": "^1.1.5",
     "glob": "^7.1.1",
     "gulp-stubby-server": "^0.2.0",
     "jasmine-core": "~2.8.0",
@@ -85,13 +87,13 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
     "npm-run-all": "^4.1.1",
-    "protractor": "~5.1.0",
+    "protractor": "~5.1.2",
     "stubby": "^4.0.0",
     "sw-precache": "^5.2.0",
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
     "typedoc": "^0.8.0",
-    "typescript": "2.5.2"
+    "typescript": ">=2.4.2 <2.5"
   },
   "repository": {
     "type": "git",
