@@ -48,20 +48,18 @@ describe('Article list Component', () => {
   });
 
 
-  fit('should render article list from service response', inject([HttpTestingController],
+  it('should render article list from service response', inject([HttpTestingController],
     (httpMock: HttpTestingController) => {
 
       const fixture = TestBed.createComponent(ArticleListComponent);
       fixture.whenStable().then(() => {
-        httpMock.match(req2 => {
-          console.log(req2.url);
-          return false;
-        });
 
-        const req = httpMock.expectOne('article');
-        req.flush(result);
         fixture.detectChanges();
 
+        const req = httpMock.expectOne('article?pageSize=10&pageIndex=1');
+        req.flush(result);
+
+        fixture.detectChanges();
         const elm: HTMLElement = fixture.nativeElement;
         const titleElms = elm.querySelectorAll('.article-title');
         expect(titleElms[0].textContent).toContain('Article title 1');
@@ -69,7 +67,5 @@ describe('Article list Component', () => {
       });
 
     })
-  )
-  ;
-})
-;
+  );
+});
