@@ -9,7 +9,7 @@
 declare const ENV: string;
 declare const HMR: boolean;
 declare const System: SystemJS;
-// declare const require :any;
+declare const require: any;
 
 interface SystemJS {
   import: (path?: string) => Promise<any>;
