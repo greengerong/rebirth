@@ -17,7 +17,10 @@
 /* eslint-env browser */
 'use strict';
 
-var isNotLocalhost = !['localhost', '127.0.0.1'].some((host) => window.location.host.indexOf(host) !== -1);
+var isNotLocalhost = !['localhost', '127.0.0.1'].some(function (host) {
+  return window.location.host.indexOf(host) !== -1;
+});
+
 if ('serviceWorker' in navigator && isNotLocalhost) {
   // Delay registration until after the page has loaded, to ensure that our
   // precaching requests don't degrade the first visit experience.

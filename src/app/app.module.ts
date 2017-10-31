@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
  * Platform and Environment providers/directives/pipes
  */
 import { ROUTER_CONFIG } from './app.routes';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
@@ -20,6 +20,7 @@ const APP_PROVIDERS = [];
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     SharedModule,
     RouterModule.forRoot(ROUTER_CONFIG),
