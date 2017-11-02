@@ -48,7 +48,7 @@
     "markdown-it": "^8.2.1",
     "normalize.css": "^5.0.0",
     "rebirth-event-source": "0.0.1",
-    "rebirth-http": "0.1.2",
+    "rebirth-http": "^0.1.5",
     "rebirth-permission": "0.0.8",
     "rebirth-storage": "0.0.10",
     "rxjs": "^5.4.3",
